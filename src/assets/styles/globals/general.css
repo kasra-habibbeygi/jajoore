@@ -1,12 +1,32 @@
-/* @font-face {
+@font-face {
     font-family: "main";
-    src: url(../../font/irsans_bold.ttf) format("truetype");
+    src: url(../../fonts/Dana-FaNum-Black.ttf) format("truetype");
+    font-weight: 500;
 }
 
 @font-face {
     font-family: "main";
-    src: url(../../font/irsans_regular.ttf) format("truetype");
-} */
+    src: url(../../fonts/Dana-FaNum-Bold.ttf) format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "main";
+    src: url(../../fonts/Dana-FaNum-Medium.ttf) format("truetype");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "main";
+    src: url(../../fonts/Dana-FaNum-Regular.ttf) format("truetype");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: "main";
+    src: url(../../fonts/Dana-FaNum-Thin.ttf) format("truetype");
+    font-weight: 100;
+}
 
 * {
     box-sizing: border-box;
@@ -22,6 +42,7 @@ table {
 body,
 html {
     font-family: 'main';
+    font-weight: 200;
 }
 
 body {
@@ -30,6 +51,7 @@ body {
     position: relative;
     min-height: 100vh;
     overflow-x: hidden;
+    font-weight: 200;
 }
 
 html {
@@ -90,9 +112,8 @@ h4,
 h5,
 h6 {
     margin: 0;
-    font-weight: 700;
+    font-weight: bold;
 }
-
 
 p {
     font-size: 1rem;

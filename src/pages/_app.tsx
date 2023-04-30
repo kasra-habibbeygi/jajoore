@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <Provider store={Store}>
             <Head>
-                <title>جاجیکا | هر جا میخوای برو !</title>
+                <title>جاجوره | هر جا میخوای برو !</title>
             </Head>
             <ThemeProvider theme={darkModeTheme}>
                 <Toaster

@@ -2,48 +2,23 @@
 export const theme = (mode: 'light' | 'dark') => ({
     palette: {
         mode,
-        ...(mode === 'light'
-            ? {
-                color: {
-                    primary : '#D4A96C',
-                    darkPrimary : '#9C7046',
-                    blackAndWhite : '#363636',
-                    headerBorderColor : '#B8B8B8',
-                    inputBorder : '#d9d9d9',
-                    button :{
-                        primary : '#D4A96C',
-                        danger : '#545454',
-                        disabled : '#dddddd',
-                        lightPrimary : '#F2E3CE',
-                        hover:{
-                            primary : '',
-                            danger : '#7a7a7a',
-                            lightPrimary : '#f3dbb9'
-                        }
-                    }
-
-                }
+        colors : {
+            primary : '#C12026',
+            yellow : '#FEA503',
+            green  :'#1F8E1F',
+            pale : {
+                primary : '#EA5455',
+                green : '#549166'
+            },
+            light : {
+                primary : '#FFDCDC',
+                yellow : '#FFF4E0'
+            },
+            text : {
+                primary : '#303030',
+                secondary : '#4C4C4C',
+                light : '#818181'
             }
-            : {
-                color: {
-                    primary : '#D4A96C',
-                    darkPrimary : '#9C7046',
-                    blackAndWhite : 'white',
-                    headerBorderColor : '#B8B8B8',
-                    inputBorder : '#d9d9d9',
-                    button :{
-                        primary : '#D4A96C',
-                        danger : '#545454',
-                        disabled : '#dddddd',
-                        lightPrimary : '#F2E3CE',
-                        hover:{
-                            primary : '',
-                            danger : '#7a7a7a',
-                            lightPrimary : '#f3dbb9'
-                        }
-                    }
-
-                }
-            })
+        } 
     }
 });

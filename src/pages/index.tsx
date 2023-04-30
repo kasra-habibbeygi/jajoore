@@ -1,7 +1,14 @@
 import React from 'react';
 
+// Component
+import LayoutProvider from '@/components/layout/layout-provider';
+
 const Index = () => {
-    return <div>Index</div>;
+    return (
+        <LayoutProvider>
+            <p>assd</p>
+        </LayoutProvider>
+    );
 };
 
 export default Index;

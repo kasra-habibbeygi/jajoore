@@ -2,7 +2,24 @@
 import '@emotion/react';
 
 interface ThemeConfig {
-    color: string;
+    colors: {
+        primary: string;
+        yellow: string;
+        green: string;
+        pale: {
+            primary: string;
+            green: string;
+        };
+        light: {
+            primary: string;
+            yellow: string;
+        };
+        text: {
+            primary: string;
+            secondary: string;
+            light: string;
+        };
+    };
 }
 
 declare module '@emotion/react' {
