@@ -6,6 +6,7 @@ export const theme = (mode: 'light' | 'dark') => ({
             primary : '#C12026',
             yellow : '#FEA503',
             green  :'#1F8E1F',
+            lightGray : '#EFEFEF',
             pale : {
                 primary : '#EA5455',
                 green : '#549166'

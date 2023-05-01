@@ -9,7 +9,7 @@ interface ButtonComponentType {
     children: ReactNode;
     shadow?: boolean;
     radius?: 'half-rounded' | 'rounded';
-    type?: 'text' | 'outline' | 'filled';
+    type?: 'text' | 'outline' | 'filled' | 'outline-filled';
     color?: 'white' | 'primary' | 'yellow' | 'green';
     handler?: () => void;
     loader?: boolean;

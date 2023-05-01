@@ -74,5 +74,22 @@ export const ButtonField = styled(Button)<ButtonType>(props => ({
             background: props.theme.palette.colors.green,
             color: 'white'
         }
+    },
+
+    '&.outline-filled': {
+        '&.primary': {
+            background: 'white',
+            border: `1px solid ${props.theme.palette.colors.primary}`
+        },
+
+        '&.yellow': {
+            background: 'white',
+            border: `1px solid ${props.theme.palette.colors.yellow}`
+        },
+
+        '&.green': {
+            background: 'white',
+            border: `1px solid ${props.theme.palette.colors.green}`
+        }
     }
 }));

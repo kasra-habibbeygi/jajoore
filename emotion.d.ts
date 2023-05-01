@@ -6,6 +6,7 @@ interface ThemeConfig {
         primary: string;
         yellow: string;
         green: string;
+        lightGray: string;
         pale: {
             primary: string;
             green: string;
