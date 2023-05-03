@@ -7,6 +7,8 @@ export const theme = (mode: 'light' | 'dark') => ({
             yellow : '#FEA503',
             green  :'#1F8E1F',
             lightGray : '#EFEFEF',
+            blue : '#42A5F5',
+            alert : '#F94A29',
             pale : {
                 primary : '#EA5455',
                 green : '#549166'
@@ -14,6 +16,11 @@ export const theme = (mode: 'light' | 'dark') => ({
             light : {
                 primary : '#FFDCDC',
                 yellow : '#FFF4E0'
+            },
+            dark : {
+                yellow : '#A4680C',
+                blue : '#00437A'
+
             },
             text : {
                 primary : '#303030',

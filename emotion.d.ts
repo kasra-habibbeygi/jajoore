@@ -7,6 +7,8 @@ interface ThemeConfig {
         yellow: string;
         green: string;
         lightGray: string;
+        blue: string;
+        alert: string;
         pale: {
             primary: string;
             green: string;
@@ -14,6 +16,10 @@ interface ThemeConfig {
         light: {
             primary: string;
             yellow: string;
+        };
+        dark: {
+            yellow: string;
+            blue: string;
         };
         text: {
             primary: string;

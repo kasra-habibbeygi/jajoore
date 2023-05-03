@@ -18,6 +18,6 @@
             "@/*": ["./src/*"]
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/configs/axios.jsx"],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/configs/axios.jsx", "src/hooks/use-windows-dimensions.jsx", "src/components/template/card.tsx"],
     "exclude": ["node_modules"]
 }
