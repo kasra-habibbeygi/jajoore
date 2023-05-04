@@ -17,6 +17,15 @@ export const ButtonField = styled(Button)<ButtonType>(props => ({
     alignItems: 'center',
     gap: '7px',
 
+    a: {
+        color: 'inherit'
+    },
+
+    img: {
+        width: '20px',
+        height: 'auto'
+    },
+
     '&.text': {
         background: 'transparent',
         border: 'none',
@@ -73,6 +82,11 @@ export const ButtonField = styled(Button)<ButtonType>(props => ({
         '&.green': {
             background: props.theme.palette.colors.green,
             color: 'white'
+        },
+
+        '&.white': {
+            background: 'white',
+            color: 'black'
         }
     },
 

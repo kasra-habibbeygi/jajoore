@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
 
-export default function useOutsideClick(ref, isOpen, closeFunction) {
+export default function useOutsideClick(ref, closeFunction) {
     useEffect(() => {
         function handleClickOutside(event) {
-            if (ref.current && !ref.current.contains(event.target) && isOpen) {
+            if (ref.current && !ref.current.contains(event.target)) {
                 setTimeout(() => {
                     closeFunction();
                 }, 10);
@@ -14,5 +14,5 @@ export default function useOutsideClick(ref, isOpen, closeFunction) {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [ref, isOpen]);
+    }, [ref]);
 }

@@ -1,15 +1,15 @@
 import styled from '@emotion/styled';
 
 export const MainField = styled.div(props => ({
-    padding: '20px',
+    marginBottom: '70px',
     position: 'relative',
 
-    '& .card_slider': {
+    '& .article_slider': {
         padding: '10px',
         position: 'unset',
 
         '& > .swiper-pagination': {
-            bottom: '-10px !important',
+            bottom: '-40px!important',
 
             '& .swiper-pagination-bullet-active': {
                 background: `${props.theme.palette.colors.primary} !important`,
@@ -22,19 +22,6 @@ export const MainField = styled.div(props => ({
                 background: 'white',
                 border: '1px solid black'
             }
-        }
-    },
-
-    header: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-        padding: '15px',
-        borderRadius: '8px',
-
-        h3: {
-            fontWeight: '400'
         }
     }
 }));

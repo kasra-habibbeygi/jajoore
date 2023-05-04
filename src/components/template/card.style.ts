@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const MainCardField = styled.div(props => ({
-    width: '350px',
+    width: '100%',
     boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
     paddingBottom: '15px',
     borderRadius: '8px',
@@ -21,16 +21,17 @@ export const MainCardField = styled.div(props => ({
             alignItems: 'center',
             gap: '8px',
             justifyContent: 'flex-start',
-            width: '30px',
+            maxWidth: '30px',
             overflow: 'hidden',
             borderRadius: '50px',
-            padding: '2px 6px',
+            padding: '2px 6.5px',
             position: 'absolute',
+            height: '30px',
             top: '0',
             transition: 'all linear 0.2s',
 
             '&:hover': {
-                width: '110px'
+                maxWidth: '110px'
             },
 
             p: {
@@ -49,6 +50,7 @@ export const MainCardField = styled.div(props => ({
                 color: 'white',
                 right: '0',
                 zIndex: '4',
+                padding: '2px 4px',
 
                 img: {
                     minWidth: '23px !important',
@@ -82,14 +84,15 @@ export const MainCardField = styled.div(props => ({
         zIndex: '5',
         display: 'flex',
         alignItems: 'center',
+        direction: 'ltr',
 
         p: {
-            background: '#0000006b',
+            background: '#0000009c',
             color: 'white',
-            fontSize: '0.9rem',
-            padding: '2px 0 0 9px',
-            fontWeight: '500',
-            width: '100px',
+            fontSize: '0.8rem',
+            padding: '6px 0 5px 9px',
+            fontWeight: '200',
+            width: '90px',
             textAlign: 'left'
         },
 
@@ -105,7 +108,7 @@ export const MainCardField = styled.div(props => ({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            right: '-22px',
+            right: '-14px',
             paddingTop: '4px'
         }
     },
@@ -117,40 +120,40 @@ export const MainCardField = styled.div(props => ({
         zIndex: '5',
         background: props.theme.palette.colors.primary,
         borderRadius: '50px',
-        padding: '7px 2px 2px 2px',
+        padding: '5px 2px 0 2px',
         color: 'white',
-        width: '60px',
+        width: '50px',
         textAlign: 'center',
-        fontSize: '0.9rem',
-        fontWeight: '300',
+        fontSize: '0.8rem',
+        fontWeight: '200',
         boxShadow: 'rgb(0 0 0 / 22%) 0px 3px 8px'
     },
 
     '& .image_field': {
-        height: '230px',
+        height: '190px',
         position: 'relative'
     },
 
-    '& .swiper-initialized': {
+    '& .image_slider': {
         transform: 'scale(1.02)',
         borderRadius: '8px',
         height: '100%',
 
         '& .swiper-pagination-bullet': {
             background: 'white'
-        }
-    },
+        },
 
-    '& .swiper-button-next , & .swiper-button-prev': {
-        background: '#4F4A75',
-        color: 'white',
-        borderRadius: '10px',
-        width: '30px',
-        height: '30px',
+        '& .swiper-button-next , & .swiper-button-prev': {
+            background: '#4F4A75',
+            color: 'white',
+            borderRadius: '6px',
+            width: '22px',
+            height: '22px',
 
-        '&::after': {
-            fontSize: '1rem',
-            fontWeight: 'bold'
+            '&::after': {
+                fontSize: '0.7rem',
+                fontWeight: 'bold'
+            }
         }
     },
 
@@ -165,18 +168,19 @@ export const MainCardField = styled.div(props => ({
         alignItems: 'flex-start',
         justifyContent: 'space-between',
         gap: '10px',
-        padding: '0 20px',
+        padding: '0 10px',
         marginTop: '20px',
 
         img: {
-            width: '20px',
+            width: '17px',
             height: 'auto',
             cursor: 'pointer'
         },
 
         p: {
             marginLeft: '15px',
-            fontWeight: '400'
+            fontWeight: '400',
+            fontSize: '0.9rem'
         },
 
         div: {
@@ -191,29 +195,28 @@ export const MainCardField = styled.div(props => ({
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
-        padding: '10px 20px',
+        padding: '10px 10px',
 
         '& .avatar': {
             display: 'flex',
             alignItems: 'center',
-            gap: '10px',
+            gap: '5px',
 
             '& .avatar_img': {
-                width: '60px',
-                height: '60px',
+                width: '50px',
+                height: '50px',
                 objectFit: 'cover',
-                borderRadius: '50px',
-                border: `1px solid ${props.theme.palette.colors.dark.blue}`
+                borderRadius: '50px'
             },
 
             span: {
                 borderRadius: '30px',
-                padding: '5px 10px',
+                padding: '4px 10px 1px 10px',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '10px',
+                gap: '5px',
                 lineHeight: '0',
-                fontSize: '0.8rem',
+                fontSize: '0.7rem',
                 fontWeight: '400',
 
                 img: {
@@ -224,7 +227,7 @@ export const MainCardField = styled.div(props => ({
                 '&.yellow': {
                     border: `1px solid ${props.theme.palette.colors.yellow}`,
                     color: props.theme.palette.colors.dark.yellow,
-                    marginBottom: '10px'
+                    marginBottom: '5px'
                 },
 
                 '&.blue': {
@@ -239,9 +242,9 @@ export const MainCardField = styled.div(props => ({
             padding: '5px 10px',
             display: 'flex',
             alignItems: 'center',
-            gap: '10px',
+            gap: '4px',
             lineHeight: '0',
-            fontSize: '0.8rem',
+            fontSize: '0.7rem',
             fontWeight: '400',
             border: `1px solid ${props.theme.palette.colors.text.secondary}`,
             color: props.theme.palette.colors.text.secondary,
@@ -257,12 +260,12 @@ export const MainCardField = styled.div(props => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '0 20px',
+        padding: '0 10px',
 
         p: {
             color: props.theme.palette.colors.text.primary,
             fontWeight: '500',
-            fontSize: '0.9rem',
+            fontSize: '0.8rem',
 
             b: {
                 color: props.theme.palette.colors.alert,
@@ -273,13 +276,13 @@ export const MainCardField = styled.div(props => ({
 
         span: {
             borderRadius: '30px',
-            padding: '5px 10px 3px 10px',
+            padding: '4px 10px 2px 10px',
             display: 'flex',
             alignItems: 'center',
             gap: '10px',
             minWidth: 'max-content',
             fontSize: '0.8rem',
-            fontWeight: '400',
+            fontWeight: '300',
             border: `1px solid ${props.theme.palette.colors.primary}`,
             color: props.theme.palette.colors.primary,
             boxShadow: `${props.theme.palette.colors.primary} 0px 0px 10px -4px`
@@ -309,7 +312,7 @@ export const MainCardField = styled.div(props => ({
             },
 
             img: {
-                width: '25px',
+                width: '20px',
                 height: 'auto'
             }
         }

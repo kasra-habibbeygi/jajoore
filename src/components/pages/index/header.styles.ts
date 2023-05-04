@@ -5,6 +5,7 @@ export const MainField = styled.div(props => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     color: props.theme.palette.colors.text.primary,
+    marginTop: '30px',
 
     h1: {
         fontSize: '1.5rem',

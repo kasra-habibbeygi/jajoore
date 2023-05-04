@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import Image from 'next/image';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
@@ -22,7 +23,7 @@ import FastChargeIcon from '@/assets/images/card/fast-charge.svg';
 import PlayIcon from '@/assets/images/card/play.svg';
 import PlusIcon from '@/assets/images/card/plus.svg';
 import CheckIcon from '@/assets/images/card/check.svg';
-import MocAvatar from '@/assets/images/moc/avatar.jpg';
+import EmptyAvatar from '@/assets/images/card/empty-avatar.svg';
 import MocImg from '@/assets/images/moc/bg.jpg';
 
 // Hook
@@ -34,7 +35,13 @@ const CardComponent = () => {
     return (
         <MainCardField>
             <div className='image_field'>
-                <Swiper modules={[Navigation, Pagination, Scrollbar, A11y]} slidesPerView={1} navigation pagination={{ clickable: true }}>
+                <Swiper
+                    modules={[Navigation, Pagination, Scrollbar, A11y]}
+                    slidesPerView={1}
+                    navigation
+                    pagination={{ clickable: true }}
+                    className='image_slider'
+                >
                     <SwiperSlide>
                         <Image src={MocImg} alt='' className='card_image' />
                     </SwiperSlide>
@@ -80,7 +87,7 @@ const CardComponent = () => {
             </div>
             <div className='avatar_field'>
                 <div className='avatar'>
-                    <Image src={MocAvatar} alt='' className='avatar_img' />
+                    <Image src={EmptyAvatar} alt='' className='avatar_img' />
                     <div>
                         <span className='yellow'>
                             <Image src={StarIcon} alt='' />

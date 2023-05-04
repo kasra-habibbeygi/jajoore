@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 64 64"
+    style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+    <g>
+        <linearGradient id="a" x1="4.003" x2="60.003" y1="31.99" y2="31.99" gradientUnits="userSpaceOnUse">
+            <stop stop-opacity="1" stop-color="#e7e7e7" offset="0"></stop>
+        </linearGradient>
+        <path fill="url(#a)"
+            d="M32 34.467c-12.677-.497-12.674-18.63 0-19.124a9.562 9.562 0 0 1 0 19.124zm13.977 6.084-9.68-3.23a13.635 13.635 0 0 0-8.594 0l-9.68 3.23a7.827 7.827 0 0 0-5.373 7.451v4.232a26.97 26.97 0 0 0 2.455 2.089 28.071 28.071 0 0 0 33.79 0 27.098 27.098 0 0 0 2.455-2.1v-4.221a7.827 7.827 0 0 0-5.373-7.451zM32 4.004A28.024 28.024 0 0 0 4.003 32.001a27.735 27.735 0 0 0 6.493 17.918v-1.917a9.995 9.995 0 0 1 6.838-9.497l9.4-3.134C15.872 29.776 19.607 13.358 32 13.19c12.391.165 16.127 16.59 5.265 22.182l9.4 3.134c5.007 1.703 7.266 6.324 6.838 11.414C68.676 31.97 55.556 3.9 32 4.004z"
+            data-original="url(#a)" class=""></path>
+    </g>
+</svg>

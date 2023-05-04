@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -8,43 +7,42 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 // Assets
-import { MainField } from './vip-slider.style';
+import { MainField } from './article-slider.styles';
 
 // Component
-import CardComponent from '@/components/template/card';
-import Button from '@/components/form-group/button';
+import ArticleCard from '@/components/template/article-card';
 
-const VipSlider = () => {
+const ArticleSlider = () => {
     return (
         <MainField>
-            <header>
-                <h3>آگهی های VIP</h3>
-                <Button color='primary' radius='half-rounded'>
-                    <Link href='/'>مشاهده بیشتر</Link>
-                </Button>
-            </header>
             <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={15}
-                slidesPerView={3}
+                slidesPerView={4}
                 pagination={{ clickable: true }}
-                className='card_slider'
+                className='article_slider'
             >
                 <SwiperSlide>
-                    <CardComponent />
+                    <ArticleCard />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <CardComponent />
+                    <ArticleCard />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <CardComponent />
+                    <ArticleCard />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <CardComponent />
+                    <ArticleCard />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <ArticleCard />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <ArticleCard />
                 </SwiperSlide>
             </Swiper>
         </MainField>
     );
 };
 
-export default VipSlider;
+export default ArticleSlider;
