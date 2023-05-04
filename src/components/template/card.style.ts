@@ -195,7 +195,7 @@ export const MainCardField = styled.div(props => ({
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
-        padding: '10px 10px',
+        padding: '0 10px',
 
         '& .avatar': {
             display: 'flex',
@@ -260,12 +260,13 @@ export const MainCardField = styled.div(props => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '0 10px',
+        padding: '10px 10px',
 
         p: {
             color: props.theme.palette.colors.text.primary,
             fontWeight: '500',
             fontSize: '0.8rem',
+            marginLeft: '20px',
 
             b: {
                 color: props.theme.palette.colors.alert,

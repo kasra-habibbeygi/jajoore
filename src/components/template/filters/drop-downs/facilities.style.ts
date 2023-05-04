@@ -1,33 +1,28 @@
 import styled from '@emotion/styled';
 
-export const DropDownMainField = styled.div(props => ({
+export const FacilitiesField = styled.div(props => ({
     position: 'relative',
+
+    '& .checkbox_field': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap'
+    },
 
     '& .row': {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginTop: '10px'
-    },
+        width: '45%',
+        borderBottom: '1px solid #e3e3e3',
 
-    '& .counter': {
-        display: 'flex',
-        alignItems: 'center',
-        gap: '15px',
-        fontSize: '0.9rem',
-
-        svg: {
-            width: '20px'
+        '&:last-child': {
+            borderBottom: 'none'
         },
 
-        '& .green': {
-            color: props.theme.palette.colors.green,
-            cursor: 'pointer'
-        },
-
-        '& .red': {
-            color: props.theme.palette.colors.primary,
-            cursor: 'pointer'
+        '&:nth-last-child(2)': {
+            borderBottom: 'none'
         }
     },
 

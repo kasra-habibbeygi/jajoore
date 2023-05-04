@@ -16,6 +16,7 @@ import FilterPill from '@/components/template/filters/pill';
 import useOutsideClick from '@/hooks/use-outside-click';
 
 const RoomCounter = () => {
+    const uniqValue = 'room_counter';
     const ref = useRef(null);
     const [DropDownStatus, setDropDownStatus] = useState('');
 
@@ -32,10 +33,13 @@ const RoomCounter = () => {
 
     return (
         <DropDownMainField ref={ref}>
-            <FilterPill title='تعداد تخت و اتاق' img={SearchIcon} handler={() => FilterDropDownStatusHandler('room counter')} />
-            <DropDownLayout title='تعداد تخت و اتاق'>
+            <FilterPill title='تعداد تخت و اتاق' img={SearchIcon} handler={() => FilterDropDownStatusHandler(uniqValue)} />
+            <DropDownLayout title='تعداد تخت و اتاق' status={uniqValue === DropDownStatus}>
                 <div className='row'>
-                    <p>تعداد اتاق خواب ها</p>
+                    <p>
+                        <span></span>
+                        تعداد اتاق خواب ها
+                    </p>
                     <div className='counter'>
                         <AddCircleOutlineIcon className='green' />
                         1
@@ -43,7 +47,10 @@ const RoomCounter = () => {
                     </div>
                 </div>
                 <div className='row'>
-                    <p>تعداد تخت ها</p>
+                    <p>
+                        <span></span>
+                        تعداد تخت ها
+                    </p>
                     <div className='counter'>
                         <AddCircleOutlineIcon className='green' />
                         1

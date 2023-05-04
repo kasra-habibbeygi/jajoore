@@ -11,6 +11,7 @@ import SearchIcon from '@/assets/images/layout/search.svg';
 // Component
 import Button from '@/components/form-group/button';
 import RoomCounter from './drop-downs/room-counter';
+import Facilities from './drop-downs/facilities';
 
 const Filter = () => {
     return (
@@ -28,6 +29,13 @@ const Filter = () => {
                         </div>
                     </div>
                     <div className='filter_field'>
+                        <RoomCounter />
+                        <Facilities />
+                        <RoomCounter />
+                        <Facilities />
+                        <RoomCounter />
+                        <Facilities />
+                        <RoomCounter />
                         <RoomCounter />
                     </div>
                 </div>

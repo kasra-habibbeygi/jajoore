@@ -29,7 +29,12 @@ import MocImg from '@/assets/images/moc/bg.jpg';
 // Hook
 import useTimer from '@/hooks/use-timer';
 
-const CardComponent = () => {
+// Types
+interface CardComponentTypes {
+    type?: 'full' | 'half';
+}
+
+const CardComponent = ({ type = 'full' }: CardComponentTypes) => {
     const [days, hours, minutes, seconds] = useTimer(20000000000);
 
     return (
@@ -42,12 +47,6 @@ const CardComponent = () => {
                     pagination={{ clickable: true }}
                     className='image_slider'
                 >
-                    <SwiperSlide>
-                        <Image src={MocImg} alt='' className='card_image' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image src={MocImg} alt='' className='card_image' />
-                    </SwiperSlide>
                     <SwiperSlide>
                         <Image src={MocImg} alt='' className='card_image' />
                     </SwiperSlide>
@@ -80,30 +79,34 @@ const CardComponent = () => {
             </div>
             <div className='title'>
                 <p>اجاره ویلا کردان ۳ خواب با استخر آبگر </p>
-                <div>
-                    <Image src={HeartIcon} alt='' />
-                    <Image src={ShareIcon} alt='' />
-                </div>
-            </div>
-            <div className='avatar_field'>
-                <div className='avatar'>
-                    <Image src={EmptyAvatar} alt='' className='avatar_img' />
+                {type === 'full' && (
                     <div>
-                        <span className='yellow'>
-                            <Image src={StarIcon} alt='' />
-                            4.5
-                        </span>
-                        <span className='blue'>
-                            <Image src={CommentIcon} alt='' />
-                            56
-                        </span>
+                        <Image src={HeartIcon} alt='' />
+                        <Image src={ShareIcon} alt='' />
+                    </div>
+                )}
+            </div>
+            {type === 'full' && (
+                <div className='avatar_field'>
+                    <div className='avatar'>
+                        <Image src={EmptyAvatar} alt='' className='avatar_img' />
+                        <div>
+                            <span className='yellow'>
+                                <Image src={StarIcon} alt='' />
+                                4.5
+                            </span>
+                            <span className='blue'>
+                                <Image src={CommentIcon} alt='' />
+                                56
+                            </span>
+                        </div>
+                    </div>
+                    <div className='location'>
+                        <Image src={LocationIcon} alt='' />
+                        البرز، کردان
                     </div>
                 </div>
-                <div className='location'>
-                    <Image src={LocationIcon} alt='' />
-                    البرز، کردان
-                </div>
-            </div>
+            )}
             <div className='price'>
                 <p>
                     از شبی <b>2.600.000</b> 1.600.000 تومان

@@ -10,11 +10,12 @@ import Button from '@/components/form-group/button';
 interface DropDownTypes {
     children: ReactNode;
     title: string;
+    status: boolean;
 }
 
-const DropDownLayout = ({ children, title }: DropDownTypes) => {
+const DropDownLayout = ({ children, title, status }: DropDownTypes) => {
     return (
-        <LayoutField>
+        <LayoutField status={status}>
             <div className='header'>
                 <span></span>
                 {title}

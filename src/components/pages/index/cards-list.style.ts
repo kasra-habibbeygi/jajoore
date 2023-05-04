@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const MainField = styled.div(props => ({
+export const MainField = styled.div({
     padding: '20px',
 
     header: {
@@ -27,4 +27,4 @@ export const MainField = styled.div(props => ({
             padding: '10px'
         }
     }
-}));
+});

@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 
-export const LayoutField = styled.div(props => ({
+interface layoutTypes {
+    status: boolean;
+}
+
+export const LayoutField = styled.div<layoutTypes>(props => ({
     width: '300px',
     padding: '13px',
     background: 'white',
@@ -8,8 +12,11 @@ export const LayoutField = styled.div(props => ({
     borderRadius: '8px',
     position: 'absolute',
     zIndex: '5',
-    top: '45px',
+    top: props.status ? '45px' : '35px',
     right: '0',
+    transition: 'all linear 0.1s',
+    opacity: props.status ? '1' : '0',
+    pointerEvents: props.status ? 'initial' : 'none',
 
     '& .header': {
         width: '100%',
