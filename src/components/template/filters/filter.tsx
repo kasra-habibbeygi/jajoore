@@ -13,9 +13,13 @@ import Button from '@/components/form-group/button';
 import RoomCounter from './drop-downs/room-counter';
 import Facilities from './drop-downs/facilities';
 import Aside from '../../layout/aside';
+import CitiesModal from '@/components/modals/cities';
+import ProvincesModal from '@/components/modals/provinces';
 
 const Filter = () => {
     const [sideMenuStatus, setSideMenuStatus] = useState(false);
+    const [citiesModalStatus, setCitiesModalStatus] = useState(false);
+    const [provincesModalStatus, setProvincesModalStatus] = useState(false);
 
     return (
         <>
@@ -51,6 +55,8 @@ const Filter = () => {
                 </div>
             </FilterField>
             <Aside status={sideMenuStatus} setStatus={setSideMenuStatus} />
+            <CitiesModal status={citiesModalStatus} setStatus={setCitiesModalStatus} />
+            <ProvincesModal status={provincesModalStatus} setStatus={setProvincesModalStatus} />
         </>
     );
 };

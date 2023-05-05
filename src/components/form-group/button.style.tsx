@@ -87,6 +87,10 @@ export const ButtonField = styled(Button)<ButtonType>(props => ({
         '&.white': {
             background: 'white',
             color: 'black'
+        },
+        '&.dark': {
+            background: '#585858',
+            color: 'white'
         }
     },
 

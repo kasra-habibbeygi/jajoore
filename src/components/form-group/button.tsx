@@ -10,7 +10,7 @@ interface ButtonComponentType {
     shadow?: boolean;
     radius?: 'half-rounded' | 'rounded';
     type?: 'text' | 'outline' | 'filled' | 'outline-filled';
-    color?: 'white' | 'primary' | 'yellow' | 'green';
+    color?: 'white' | 'primary' | 'yellow' | 'green' | 'dark';
     handler?: () => void;
     loader?: boolean;
     loaderColor?: string;
