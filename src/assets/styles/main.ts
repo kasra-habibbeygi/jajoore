@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 export const DoubleCol = styled.div({
     width: '100%',
     display: 'flex',
-    alignItems: 'center',
     gap: '20px',
     margin: '50px 0',
 

@@ -29,7 +29,9 @@ const PriceFilter = () => {
     return (
         <DropDownMainField ref={ref}>
             <FilterPill title='تعداد تخت و اتاق' img={SearchIcon} handler={() => FilterDropDownStatusHandler('price')} />
-            <DropDownLayout title='تعداد تخت و اتاق'>asd</DropDownLayout>
+            <DropDownLayout title='تعداد تخت و اتاق' status={true}>
+                asd
+            </DropDownLayout>
         </DropDownMainField>
     );
 };

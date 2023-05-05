@@ -34,6 +34,9 @@ const Index = () => {
                             <CardComponent type='half' />
                             <CardComponent type='half' />
                             <CardComponent type='half' />
+                        </div>
+                        <TitleField title='آگهی های لحظه آخری' />
+                        <div className='instant_booking_field'>
                             <CardComponent type='half' />
                             <CardComponent type='half' />
                             <CardComponent type='half' />

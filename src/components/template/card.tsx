@@ -50,6 +50,18 @@ const CardComponent = ({ type = 'full' }: CardComponentTypes) => {
                     <SwiperSlide>
                         <Image src={MocImg} alt='' className='card_image' />
                     </SwiperSlide>
+                    <SwiperSlide>
+                        <Image src={MocImg} alt='' className='card_image' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image src={MocImg} alt='' className='card_image' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image src={MocImg} alt='' className='card_image' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image src={MocImg} alt='' className='card_image' />
+                    </SwiperSlide>
                 </Swiper>
                 <div className='pills_field'>
                     <span className='yellow'>

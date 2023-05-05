@@ -1,11 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // Assets
 import { NavbarField } from './navbar.style';
 import LogoImg from '../../assets/images/logo.png';
 import LoginIcon from '../../assets/images/layout/login.svg';
-import Link from 'next/link';
+
+// Component
 import Button from '../form-group/button';
 
 const Navbar = () => {

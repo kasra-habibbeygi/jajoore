@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 // Assets
@@ -12,40 +12,46 @@ import SearchIcon from '@/assets/images/layout/search.svg';
 import Button from '@/components/form-group/button';
 import RoomCounter from './drop-downs/room-counter';
 import Facilities from './drop-downs/facilities';
+import Aside from '../../layout/aside';
 
 const Filter = () => {
+    const [sideMenuStatus, setSideMenuStatus] = useState(false);
+
     return (
-        <FilterField>
-            <div className='container'>
-                <div className='right_field'>
-                    <div className='top_field'>
-                        <Button color='white' extraClass='panel_btn'>
-                            <Image src={MenuIcon} alt='' />
-                            <Image src={EmptyAvatar} alt='' className='avatar' />
-                        </Button>
-                        <div className='form_group'>
-                            <input type='text' placeholder='کجامیخوای بری ؟ | کد ویلا ... ؟' name='search' />
-                            <Image src={SearchIcon} alt='' className='search_icon' />
+        <>
+            <FilterField>
+                <div className='container'>
+                    <div className='right_field'>
+                        <div className='top_field'>
+                            <Button color='white' extraClass='panel_btn' handler={() => setSideMenuStatus(true)}>
+                                <Image src={MenuIcon} alt='' />
+                                <Image src={EmptyAvatar} alt='' className='avatar' />
+                            </Button>
+                            <div className='form_group'>
+                                <input type='text' placeholder='کجامیخوای بری ؟ | کد ویلا ... ؟' name='search' />
+                                <Image src={SearchIcon} alt='' className='search_icon' />
+                            </div>
+                        </div>
+                        <div className='filter_field'>
+                            <RoomCounter />
+                            <Facilities />
+                            <RoomCounter />
+                            <Facilities />
+                            <RoomCounter />
+                            <Facilities />
+                            <RoomCounter />
+                            <RoomCounter />
                         </div>
                     </div>
-                    <div className='filter_field'>
-                        <RoomCounter />
-                        <Facilities />
-                        <RoomCounter />
-                        <Facilities />
-                        <RoomCounter />
-                        <Facilities />
-                        <RoomCounter />
-                        <RoomCounter />
+                    <div className='left_field'>
+                        <Button color='white'>
+                            <Image src={CustomerService} alt='' />
+                        </Button>
                     </div>
                 </div>
-                <div className='left_field'>
-                    <Button color='white'>
-                        <Image src={CustomerService} alt='' />
-                    </Button>
-                </div>
-            </div>
-        </FilterField>
+            </FilterField>
+            <Aside status={sideMenuStatus} setStatus={setSideMenuStatus} />
+        </>
     );
 };
 

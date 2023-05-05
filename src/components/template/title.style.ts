@@ -11,12 +11,13 @@ export const MainField = styled.div({
         right: '0',
         background: '#ff000026',
         width: '60px',
-        height: '30px',
+        top: '-7px',
+        height: '40px',
         borderRadius: '40px 10px 10px 16px'
     },
 
     h4: {
-        fontWeight: 'bold',
+        fontWeight: '400',
         position: 'relative',
         zIndex: '1'
     }
