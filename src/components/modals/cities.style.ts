@@ -12,7 +12,7 @@ export const ModalField = styled.div(props => ({
     },
 
     '& .MuiCheckbox-root': {
-        color: `${props.theme.palette.colors.primary} !important`
+        color: `${props.theme.palette.colors.green} !important`
     },
 
     '& .checked_all': {

@@ -24,9 +24,9 @@ const Filter = () => {
     return (
         <>
             <FilterField>
-                <div className='container'>
-                    <div className='right_field'>
-                        <div className='top_field'>
+                <div className='main_field'>
+                    <div className='top_field'>
+                        <div className='right_field'>
                             <Button color='white' extraClass='panel_btn' handler={() => setSideMenuStatus(true)}>
                                 <Image src={MenuIcon} alt='' />
                                 <Image src={EmptyAvatar} alt='' className='avatar' />
@@ -36,21 +36,21 @@ const Filter = () => {
                                 <Image src={SearchIcon} alt='' className='search_icon' />
                             </div>
                         </div>
-                        <div className='filter_field'>
-                            <RoomCounter />
-                            <Facilities />
-                            <RoomCounter />
-                            <Facilities />
-                            <RoomCounter />
-                            <Facilities />
-                            <RoomCounter />
-                            <RoomCounter />
-                        </div>
-                    </div>
-                    <div className='left_field'>
-                        <Button color='white'>
+                        <Button color='white' extraClass='support_btn'>
                             <Image src={CustomerService} alt='' />
                         </Button>
+                    </div>
+                    <div className='filter_field'>
+                        <RoomCounter />
+                        <Facilities />
+                        <RoomCounter />
+                        <Facilities />
+                        <RoomCounter />
+                        <RoomCounter />
+                        <Facilities />
+                        <RoomCounter />
+                        <Facilities />
+                        <Facilities />
                     </div>
                 </div>
             </FilterField>

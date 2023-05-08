@@ -93,7 +93,7 @@ const CitiesModal = ({ status, setStatus }: CitiesModalTypes) => {
                 </ul>
                 <div className='button_group'>
                     <Button color='dark'>بازگشت</Button>
-                    <Button color='primary'>جستجو</Button>
+                    <Button color='green'>جستجو</Button>
                 </div>
             </Dialog>
         </ModalField>

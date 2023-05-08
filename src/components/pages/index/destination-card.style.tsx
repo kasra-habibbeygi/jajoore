@@ -13,7 +13,7 @@ export const MainField = styled.div(props => ({
         alignItems: 'center',
         gap: '10px',
         boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-        marginTop: '20px',
+        marginTop: '8px',
 
         img: {
             width: '100px',

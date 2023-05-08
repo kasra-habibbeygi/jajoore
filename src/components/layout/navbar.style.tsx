@@ -25,7 +25,8 @@ export const NavbarField = styled.nav(props => ({
             gap: '30px',
 
             a: {
-                color: props.theme.palette.colors.text.primary
+                color: props.theme.palette.colors.text.primary,
+                fontWeight: '300'
             },
 
             '& .active': {

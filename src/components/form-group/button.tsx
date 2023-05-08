@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import PulseLoader from 'react-spinners/PulseLoader';
 
 // Assets
-import * as S from './button.style';
+import { ButtonField } from './button.style';
 
 // Types
 interface ButtonComponentType {
@@ -29,10 +29,10 @@ const Button = ({
     extraClass = ''
 }: ButtonComponentType) => {
     return (
-        <S.ButtonField onClick={() => handler && handler()} shadow={shadow} radius={radius} className={`${type} ${color} ${extraClass}`}>
+        <ButtonField onClick={() => handler && handler()} shadow={shadow} radius={radius} className={`${type} ${color} ${extraClass}`}>
             <PulseLoader loading={loader} color={loaderColor} size={10} />
             {children}
-        </S.ButtonField>
+        </ButtonField>
     );
 };
 

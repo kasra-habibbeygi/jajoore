@@ -4,10 +4,8 @@ export const FilterField = styled.div({
     padding: '20px 0',
     background: '#F3F3F3',
 
-    '& .container': {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between'
+    '& .main_field': {
+        padding: '0 20px'
     },
 
     '& .panel_btn': {
@@ -31,32 +29,29 @@ export const FilterField = styled.div({
         }
     },
 
-    '& .right_field': {
-        width: '100%',
+    '& .support_btn': {
+        background: 'white',
+        padding: '5px 0',
+        border: '1px solid #BBBBBB',
+        borderRadius: '8px',
+        color: 'black',
+        minWidth: '50px',
+        minHeight: '50px',
 
-        '& .top_field': {
-            width: '100%'
-        }
-    },
-
-    '& .left_field': {
-        button: {
-            background: 'white',
-            padding: '5px 0',
-            border: '1px solid #BBBBBB',
-            borderRadius: '8px',
-            color: 'black',
-            minWidth: '50px',
-            minHeight: '50px',
-
-            img: {
-                width: '30px',
-                height: 'auto'
-            }
+        img: {
+            width: '30px',
+            height: 'auto'
         }
     },
 
     '& .top_field': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        width: '100%'
+    },
+
+    '& .right_field': {
         display: 'flex',
         alignItems: 'center',
         width: '100%',
@@ -92,7 +87,7 @@ export const FilterField = styled.div({
 
                 '&::placeholder': {
                     color: '#adadad',
-                    fontWeight: '300',
+                    fontWeight: '200',
                     fontSize: '0.9rem'
                 }
             }
@@ -102,7 +97,7 @@ export const FilterField = styled.div({
     '& .filter_field': {
         display: 'flex',
         alignItems: 'center',
-        gap: '15px',
+        gap: '7px',
         marginTop: '20px'
     }
 });

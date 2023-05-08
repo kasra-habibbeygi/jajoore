@@ -18,7 +18,10 @@ export const ButtonField = styled(Button)<ButtonType>(props => ({
     gap: '7px',
 
     a: {
-        color: 'inherit'
+        color: 'inherit',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '7px'
     },
 
     img: {

@@ -46,10 +46,11 @@ export const ArticleCardField = styled.div({
         },
 
         p: {
-            background: '#ffffff8f',
-            fontSize: '0.9rem',
+            background: '#ffffffd1',
+            fontSize: '0.8rem',
             padding: '5px 50px 5px 10px',
-            borderRadius: '70px'
+            borderRadius: '70px',
+            border: '2px solid #556080'
         }
     }
 });

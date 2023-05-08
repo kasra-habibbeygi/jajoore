@@ -9,7 +9,8 @@ export const MainField = styled.div(props => ({
 
     h1: {
         fontSize: '1.5rem',
-        marginBottom: '15px'
+        marginBottom: '15px',
+        fontWeight: '400'
     },
 
     small: {

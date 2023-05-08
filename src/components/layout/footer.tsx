@@ -32,7 +32,7 @@ const Footer = () => {
                             <Link href='/'>مجله جاجوره</Link>
                         </li>
                     </ol>
-                    <Button color='green' type='outline-filled'>
+                    <Button color='green' type='outline-filled' extraClass='contact_btn'>
                         <a href='/' target='_blank'>
                             <Image src={WhatsAppIcon} alt='' />
                             پشتیبانی واتس اپ
@@ -122,9 +122,9 @@ const Footer = () => {
                     </div>
                     <div className='social_media'>
                         <div className='item_field'>
-                            <Image className='path1' src={FooterPath} alt='' />
-                            <Image className='path2' src={FooterPath} alt='' />
-                            <Image className='path3' src={FooterPath} alt='' />
+                            <Image className='path1 path_img' src={FooterPath} alt='' />
+                            <Image className='path2 path_img' src={FooterPath} alt='' />
+                            <Image className='path3 path_img' src={FooterPath} alt='' />
                             <Image className='social_media_icon' src={InstagramIcon} alt='' />
                             <p>
                                 در اینستاگرام
@@ -137,9 +137,9 @@ const Footer = () => {
                             </a>
                         </div>
                         <div className='item_field'>
-                            <Image className='path1' src={FooterPath} alt='' />
-                            <Image className='path2' src={FooterPath} alt='' />
-                            <Image className='path3' src={FooterPath} alt='' />
+                            <Image className='path1 path_img' src={FooterPath} alt='' />
+                            <Image className='path2 path_img' src={FooterPath} alt='' />
+                            <Image className='path3 path_img' src={FooterPath} alt='' />
                             <Image className='social_media_icon' src={TelegramIcon} alt='' />
                             <p>
                                 در اینستاگرام
@@ -152,9 +152,9 @@ const Footer = () => {
                             </a>
                         </div>
                         <div className='item_field'>
-                            <Image className='path1' src={FooterPath} alt='' />
-                            <Image className='path2' src={FooterPath} alt='' />
-                            <Image className='path3' src={FooterPath} alt='' />
+                            <Image className='path1 path_img' src={FooterPath} alt='' />
+                            <Image className='path2 path_img' src={FooterPath} alt='' />
+                            <Image className='path3 path_img' src={FooterPath} alt='' />
                             <Image className='social_media_icon' src={AparatIcon} alt='' />
                             <p>
                                 در اینستاگرام

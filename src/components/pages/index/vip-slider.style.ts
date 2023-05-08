@@ -4,6 +4,10 @@ export const MainField = styled.div(props => ({
     padding: '20px',
     position: 'relative',
 
+    // '& .swiper-slide': {
+    //     width: '31% !important'
+    // },
+
     '& .card_slider': {
         padding: '10px',
         position: 'unset',
@@ -30,11 +34,15 @@ export const MainField = styled.div(props => ({
         alignItems: 'center',
         justifyContent: 'space-between',
         boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-        padding: '15px',
+        padding: '6px 15px',
         borderRadius: '8px',
 
         h3: {
             fontWeight: '400'
+        },
+
+        button: {
+            minHeight: '30px'
         }
     }
 }));

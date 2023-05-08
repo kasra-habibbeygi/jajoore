@@ -9,11 +9,11 @@ interface AsideLayoutTypes {
 }
 
 export const AsideField = styled.div<AsideFieldTypes>(props => ({
-    width: '300px',
+    width: '350px',
     height: '100vh',
     position: 'fixed',
     top: '0',
-    right: props.status ? '0' : '-300px',
+    right: props.status ? '0' : '-350px',
     backgroundColor: 'white',
     padding: '30px 20px 10px 20px',
     transition: 'all 0.8s cubic-bezier(0, 0, 0.2, 1.11) 0s',
@@ -31,7 +31,7 @@ export const AsideField = styled.div<AsideFieldTypes>(props => ({
     },
 
     '& .seprator': {
-        width: '80%',
+        width: '90%',
         height: '1px',
         background: '#DCDCDC',
         borderRadius: '5px',

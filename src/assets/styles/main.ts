@@ -7,7 +7,7 @@ export const DoubleCol = styled.div({
     margin: '50px 0',
 
     '& .content_field': {
-        width: 'calc(100% - 300px)',
+        width: 'calc(100% - 320px)',
         boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
         borderRadius: '5px'
     },
@@ -19,6 +19,7 @@ export const DoubleCol = styled.div({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            gap: '30px',
 
             img: {
                 width: '110px',

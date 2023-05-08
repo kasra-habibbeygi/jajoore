@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 // Assets
-import { MainCardField } from './card.style';
+import { MainCardField, CardCover } from './card.style';
 import CommentIcon from '@/assets/images/card/comment.svg';
 import DoubleBedIcon from '@/assets/images/card/double-bed.svg';
 import GroupUsersIcon from '@/assets/images/card/group-users.svg';
@@ -22,19 +22,24 @@ import StarIcon from '@/assets/images/card/star.svg';
 import FastChargeIcon from '@/assets/images/card/fast-charge.svg';
 import PlayIcon from '@/assets/images/card/play.svg';
 import PlusIcon from '@/assets/images/card/plus.svg';
-import CheckIcon from '@/assets/images/card/check.svg';
 import EmptyAvatar from '@/assets/images/card/empty-avatar.svg';
 import MocImg from '@/assets/images/moc/bg.jpg';
 
 // Hook
 import useTimer from '@/hooks/use-timer';
+import Button from '../form-group/button';
+
+// MUI
+import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
+import Link from 'next/link';
 
 // Types
 interface CardComponentTypes {
     type?: 'full' | 'half';
+    blur?: boolean;
 }
 
-const CardComponent = ({ type = 'full' }: CardComponentTypes) => {
+const CardComponent = ({ type = 'full', blur }: CardComponentTypes) => {
     const [days, hours, minutes, seconds] = useTimer(20000000000);
 
     return (
@@ -77,7 +82,6 @@ const CardComponent = ({ type = 'full' }: CardComponentTypes) => {
                         <p>ویدیو</p>
                     </span>
                     <span className='green'>
-                        <Image src={CheckIcon} alt='' />
                         <p> تضمین قیمت</p>
                     </span>
                 </div>
@@ -113,18 +117,18 @@ const CardComponent = ({ type = 'full' }: CardComponentTypes) => {
                             </span>
                         </div>
                     </div>
-                    <div className='location'>
-                        <Image src={LocationIcon} alt='' />
-                        البرز، کردان
+                    <div className='location_field'>
+                        <div className='location'>
+                            <Image src={LocationIcon} alt='' />
+                            البرز، کردان
+                        </div>
+                        <span>لحظه آخری</span>
                     </div>
                 </div>
             )}
-            <div className='price'>
-                <p>
-                    از شبی <b>2.600.000</b> 1.600.000 تومان
-                </p>
-                <span>لحظه آخری</span>
-            </div>
+            <p className='price'>
+                از شبی <b>2.600.000</b> 1.600.000 تومان
+            </p>
             <div className='options'>
                 <div>
                     <Image src={GroupUsersIcon} alt='' width={100} />
@@ -147,6 +151,16 @@ const CardComponent = ({ type = 'full' }: CardComponentTypes) => {
                     <p>متراژ</p>
                 </div>
             </div>
+            {blur && (
+                <CardCover>
+                    <p>اقامتگاه های ممتاز</p>
+                    <Button color='primary'>
+                        <Link href='/'>
+                            1856 اقامتگاه ممتاز <ChevronLeftRoundedIcon />
+                        </Link>
+                    </Button>
+                </CardCover>
+            )}
         </MainCardField>
     );
 };

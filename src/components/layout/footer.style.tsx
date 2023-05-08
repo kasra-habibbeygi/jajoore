@@ -27,7 +27,7 @@ export const FooterMainField = styled.footer(props => ({
         button: {
             a: {
                 color: '#29A71A',
-                fontWeight: '500',
+                fontWeight: '400',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '10px',
@@ -70,6 +70,7 @@ export const FooterMainField = styled.footer(props => ({
                 gap: '10px',
                 fontSize: '1.3rem',
                 color: props.theme.palette.colors.text.primary,
+                fontWeight: '400',
 
                 span: {
                     display: 'block',
@@ -98,9 +99,9 @@ export const FooterMainField = styled.footer(props => ({
 
     '& .social_media': {
         display: 'flex',
-        gap: '20px',
+        gap: '10px',
         flexDirection: 'column',
-        minWidth: '350px',
+        minWidth: '330px',
         marginLeft: '60px',
 
         '& .item_field': {
@@ -108,9 +109,9 @@ export const FooterMainField = styled.footer(props => ({
             alignItems: 'center',
             position: 'relative',
             width: '100%',
-            paddingRight: '100px',
-            boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-            height: '58px',
+            paddingRight: '120px',
+            boxShadow: 'rgba(0, 0, 0, 0.16) 0px 3px 8px',
+            height: '70px',
             overflow: 'hidden',
             borderRadius: '8px',
 
@@ -123,6 +124,11 @@ export const FooterMainField = styled.footer(props => ({
                 position: 'absolute',
                 right: '12px',
                 opacity: '0.5'
+            },
+
+            '& .path_img': {
+                height: '100%',
+                width: '80px'
             },
 
             '& .path3': {

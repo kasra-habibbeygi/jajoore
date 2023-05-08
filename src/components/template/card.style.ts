@@ -14,25 +14,19 @@ export const MainCardField = styled.div(props => ({
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
-        gap: '5px',
+        gap: '2px',
 
         span: {
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
             justifyContent: 'flex-start',
-            maxWidth: '30px',
+            width: '100px',
             overflow: 'hidden',
             borderRadius: '50px',
             padding: '2px 6.5px',
-            position: 'absolute',
-            height: '30px',
-            top: '0',
+            height: '20px',
             transition: 'all linear 0.2s',
-
-            '&:hover': {
-                maxWidth: '110px'
-            },
 
             p: {
                 minWidth: 'max-content',
@@ -48,9 +42,6 @@ export const MainCardField = styled.div(props => ({
             '&.yellow': {
                 background: props.theme.palette.colors.yellow,
                 color: 'white',
-                right: '0',
-                zIndex: '4',
-                padding: '2px 4px',
 
                 img: {
                     minWidth: '23px !important',
@@ -58,21 +49,18 @@ export const MainCardField = styled.div(props => ({
                 }
             },
             '&.yellow_light': {
-                background: props.theme.palette.colors.light.yellow,
-                zIndex: '3',
-                right: '40px'
+                background: props.theme.palette.colors.light.yellow
             },
+
             '&.red': {
                 background: props.theme.palette.colors.primary,
-                color: 'white',
-                zIndex: '2',
-                right: '80px'
+                color: 'white'
             },
+
             '&.green': {
                 background: '#5E986F',
                 color: 'white',
-                zIndex: '1',
-                right: '120px'
+                justifyContent: 'center'
             }
         }
     },
@@ -149,10 +137,30 @@ export const MainCardField = styled.div(props => ({
             borderRadius: '6px',
             width: '22px',
             height: '22px',
+            transition: 'all linear 0.1s',
+            top: '70%',
 
             '&::after': {
                 fontSize: '0.7rem',
                 fontWeight: 'bold'
+            }
+        },
+
+        '& .swiper-button-next': {
+            left: '-30px'
+        },
+
+        '& .swiper-button-prev': {
+            right: '-30px'
+        },
+
+        '&:hover': {
+            '& .swiper-button-next': {
+                left: '10px'
+            },
+
+            '& .swiper-button-prev': {
+                right: '10px'
             }
         }
     },
@@ -170,6 +178,7 @@ export const MainCardField = styled.div(props => ({
         gap: '10px',
         padding: '0 10px',
         marginTop: '20px',
+        marginBottom: '20px',
 
         img: {
             width: '17px',
@@ -180,7 +189,11 @@ export const MainCardField = styled.div(props => ({
         p: {
             marginLeft: '15px',
             fontWeight: '400',
-            fontSize: '0.9rem'
+            fontSize: '0.9rem',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+            maxWidth: '300px'
         },
 
         div: {
@@ -193,7 +206,7 @@ export const MainCardField = styled.div(props => ({
 
     '& .avatar_field': {
         display: 'flex',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         justifyContent: 'space-between',
         padding: '0 10px',
 
@@ -237,6 +250,24 @@ export const MainCardField = styled.div(props => ({
             }
         },
 
+        '& .location_field': {
+            span: {
+                borderRadius: '30px',
+                padding: '4px 10px 2px 10px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                minWidth: 'max-content',
+                fontSize: '0.8rem',
+                fontWeight: '300',
+                border: `1px solid ${props.theme.palette.colors.primary}`,
+                color: props.theme.palette.colors.primary,
+                boxShadow: `${props.theme.palette.colors.primary} 0px 0px 10px -4px`,
+                marginTop: '5px',
+                justifyContent: 'center'
+            }
+        },
+
         '& .location': {
             borderRadius: '30px',
             padding: '5px 10px',
@@ -247,6 +278,7 @@ export const MainCardField = styled.div(props => ({
             fontSize: '0.7rem',
             fontWeight: '400',
             border: `1px solid ${props.theme.palette.colors.text.secondary}`,
+            boxShadow: '#000000 0px 0px 10px -4px',
             color: props.theme.palette.colors.text.secondary,
 
             img: {
@@ -257,36 +289,17 @@ export const MainCardField = styled.div(props => ({
     },
 
     '& .price': {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
+        color: props.theme.palette.colors.text.primary,
+        fontWeight: '300',
+        fontSize: '0.8rem',
+        marginLeft: '20px',
+        gap: '4px',
         padding: '10px 10px',
 
-        p: {
-            color: props.theme.palette.colors.text.primary,
+        b: {
+            color: props.theme.palette.colors.alert,
             fontWeight: '500',
-            fontSize: '0.8rem',
-            marginLeft: '20px',
-
-            b: {
-                color: props.theme.palette.colors.alert,
-                fontWeight: '500',
-                textDecoration: 'line-through'
-            }
-        },
-
-        span: {
-            borderRadius: '30px',
-            padding: '4px 10px 2px 10px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '10px',
-            minWidth: 'max-content',
-            fontSize: '0.8rem',
-            fontWeight: '300',
-            border: `1px solid ${props.theme.palette.colors.primary}`,
-            color: props.theme.palette.colors.primary,
-            boxShadow: `${props.theme.palette.colors.primary} 0px 0px 10px -4px`
+            textDecoration: 'line-through'
         }
     },
 
@@ -309,7 +322,7 @@ export const MainCardField = styled.div(props => ({
             fontWeight: '300',
 
             p: {
-                fontSize: '0.9rem'
+                fontSize: '0.8rem'
             },
 
             img: {
@@ -319,3 +332,26 @@ export const MainCardField = styled.div(props => ({
         }
     }
 }));
+
+export const CardCover = styled.div({
+    position: 'absolute',
+    top: '-1%',
+    left: '-1.5%',
+    width: '103%',
+    height: '102%',
+    borderRadius: 'inherit',
+    zIndex: '5',
+    background: 'rgb(0 0 0 / 67%)',
+    backdropFilter: 'blur( 8px )',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    gap: '10px',
+
+    p: {
+        color: 'white',
+        fontSize: '1.2rem',
+        fontWeight: '400'
+    }
+});

@@ -8,7 +8,7 @@ export const MainField = styled.div({
         alignItems: 'center',
         justifyContent: 'space-between',
         boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-        padding: '15px',
+        padding: '6px 15px',
         borderRadius: '8px',
 
         h3: {

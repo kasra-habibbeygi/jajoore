@@ -25,7 +25,8 @@ export const ModalField = styled.div({
 
         button: {
             width: '47%',
-            padding: '10px 0',
+            padding: '10px 20px',
+            justifyContent: 'flex-start',
 
             p: {
                 color: 'white',
@@ -33,7 +34,7 @@ export const ModalField = styled.div({
             },
 
             img: {
-                width: '40px'
+                width: '30px'
             }
         },
 

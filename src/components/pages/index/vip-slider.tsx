@@ -26,7 +26,7 @@ const VipSlider = () => {
             <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={15}
-                slidesPerView={3}
+                slidesPerView={3.2}
                 pagination={{ clickable: true }}
                 className='card_slider'
             >
@@ -41,6 +41,21 @@ const VipSlider = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <CardComponent />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <CardComponent />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <CardComponent />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <CardComponent />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <CardComponent />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <CardComponent blur />
                 </SwiperSlide>
             </Swiper>
         </MainField>

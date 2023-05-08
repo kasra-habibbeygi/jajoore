@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const MainField = styled.div({
     position: 'relative',
     paddingRight: '10px',
-    margin: '25px 0',
+    margin: '30px 0',
 
     span: {
         position: 'absolute',
