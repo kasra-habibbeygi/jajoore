@@ -2,10 +2,11 @@ import styled from '@emotion/styled';
 
 interface layoutTypes {
     status: boolean;
+    width: number;
 }
 
 export const LayoutField = styled.div<layoutTypes>(props => ({
-    width: '300px',
+    width: `${props.width}px`,
     padding: '13px',
     background: 'white',
     boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
@@ -41,14 +42,28 @@ export const LayoutField = styled.div<layoutTypes>(props => ({
         display: 'flex',
         alignItems: 'center',
         gap: '10px',
-        justifyContent: 'flex-end',
+        justifyContent: 'space-between',
         marginTop: '20px',
 
         button: {
-            fontSize: '0.8rem',
+            fontSize: '0.75rem',
             padding: '0px 10px',
             minHeight: '28px',
-            fontWeight: '200'
+            fontWeight: '200',
+
+            img: {
+                width: '16px',
+                marginLeft: '-5px'
+            }
+        },
+
+        '& .close_btn': {
+            border: '1px dashed #cdcdcd'
+        },
+
+        '& .action_group': {
+            display: 'flex',
+            gap: '4px'
         }
     }
 }));

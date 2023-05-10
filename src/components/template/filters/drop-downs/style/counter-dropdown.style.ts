@@ -1,28 +1,34 @@
 import styled from '@emotion/styled';
 
-export const FacilitiesField = styled.div(props => ({
+export const CheckboxStyle = styled.div(props => ({
     position: 'relative',
-
-    '& .checkbox_field': {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flexWrap: 'wrap'
-    },
 
     '& .row': {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        width: '45%',
-        borderBottom: '1px solid #e3e3e3',
+        marginTop: '10px'
+    },
 
-        '&:last-child': {
-            borderBottom: 'none'
+    '& .counter': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        fontSize: '0.9rem',
+        width: '90px',
+
+        svg: {
+            width: '20px'
         },
 
-        '&:nth-last-child(2)': {
-            borderBottom: 'none'
+        '& .green': {
+            color: props.theme.palette.colors.green,
+            cursor: 'pointer'
+        },
+
+        '& .red': {
+            color: props.theme.palette.colors.primary,
+            cursor: 'pointer'
         }
     },
 

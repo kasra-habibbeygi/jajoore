@@ -10,11 +10,14 @@ import SearchIcon from '@/assets/images/layout/search.svg';
 
 // Component
 import Button from '@/components/form-group/button';
-import RoomCounter from './drop-downs/room-counter';
-import Facilities from './drop-downs/facilities';
 import Aside from '../../layout/aside';
 import CitiesModal from '@/components/modals/cities';
 import ProvincesModal from '@/components/modals/provinces';
+
+// Filter Component
+import RoomCounter from './drop-downs/room-counter';
+import Facilities from './drop-downs/facilities';
+import PersonCounter from './drop-downs/person-count';
 
 const Filter = () => {
     const [sideMenuStatus, setSideMenuStatus] = useState(false);
@@ -43,14 +46,7 @@ const Filter = () => {
                     <div className='filter_field'>
                         <RoomCounter />
                         <Facilities />
-                        <RoomCounter />
-                        <Facilities />
-                        <RoomCounter />
-                        <RoomCounter />
-                        <Facilities />
-                        <RoomCounter />
-                        <Facilities />
-                        <Facilities />
+                        <PersonCounter />
                     </div>
                 </div>
             </FilterField>
