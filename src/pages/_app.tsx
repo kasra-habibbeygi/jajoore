@@ -29,7 +29,7 @@ Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
 export default function App({ Component, pageProps }: AppProps) {
-    const darkModeTheme = createTheme(theme('light'));
+    const darkModeTheme = createTheme(theme('light', 'rtl'));
 
     return (
         <Provider store={Store}>

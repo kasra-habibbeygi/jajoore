@@ -31,6 +31,7 @@ interface ThemeConfig {
 
 declare module '@emotion/react' {
     interface Theme {
+        direction?: 'rtl' | 'ltr';
         mode: string;
         palette: ThemeConfig;
     }
@@ -38,6 +39,7 @@ declare module '@emotion/react' {
 
 declare module '@mui/material/styles' {
     interface Theme {
+        direction?: 'rtl' | 'ltr';
         mode: string;
         palette: ThemeConfig;
     }

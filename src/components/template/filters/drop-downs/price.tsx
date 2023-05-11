@@ -14,6 +14,15 @@ import useOutsideClick from '@/hooks/use-outside-click';
 
 // MUI
 import Slider from '@mui/material/Slider';
+import { CacheProvider } from '@emotion/react';
+import { prefixer } from 'stylis';
+import rtlPlugin from 'stylis-plugin-rtl';
+import createCache from '@emotion/cache';
+
+const cacheRtl = createCache({
+    key: 'muirtl',
+    stylisPlugins: [prefixer, rtlPlugin]
+});
 
 const PriceFilter = () => {
     const uniqValue = 'PriceFilter';
@@ -63,30 +72,31 @@ const PriceFilter = () => {
             setSliderValue(newValue);
         }
     };
-
     return (
         <RangeField ref={ref}>
             <FilterPill title={titleProvider()} img={SearchIcon} handler={() => FilterDropDownStatusHandler(uniqValue)} />
             <DropDownLayout title='منطقه اقامتگاه' status={uniqValue === DropDownStatus} setDropDownStatus={setDropDownStatus} width={450}>
                 <div className='slider_field'>
-                    <Slider
-                        getAriaLabel={() => 'Minimum distance shift'}
-                        value={sliderValue}
-                        onChange={sliderValueHandler}
-                        valueLabelDisplay='auto'
-                        disableSwap
-                        step={100000}
-                        min={100000}
-                        max={25000000}
-                        scale={(num: any): any => (25000000 - num).toLocaleString()}
-                    />
+                    <CacheProvider value={cacheRtl}>
+                        <Slider
+                            getAriaLabel={() => 'Minimum distance shift'}
+                            value={sliderValue}
+                            onChange={sliderValueHandler}
+                            valueLabelDisplay='auto'
+                            disableSwap
+                            step={100000}
+                            min={100000}
+                            max={25000000}
+                            scale={(num: any): any => num.toLocaleString()}
+                        />
+                    </CacheProvider>
                 </div>
                 <div className='form_group'>
                     <div className='form_field'>
                         <p>تومان</p>
                         <Input
                             name='from'
-                            value={sliderValue[1].toLocaleString()}
+                            value={sliderValue[0].toLocaleString()}
                             label='نرخ از شبی'
                             placeholder='0'
                             setValue={inputValueHandler}
@@ -96,7 +106,7 @@ const PriceFilter = () => {
                         <p>تومان</p>
                         <Input
                             name='to'
-                            value={sliderValue[0].toLocaleString()}
+                            value={sliderValue[1].toLocaleString()}
                             label='تا'
                             placeholder='25،000،000'
                             setValue={inputValueHandler}

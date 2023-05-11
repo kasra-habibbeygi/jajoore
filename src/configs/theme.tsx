@@ -1,5 +1,7 @@
 /* eslint-disable prettier/prettier */
-export const theme = (mode: 'light' | 'dark') => ({
+export const theme = (mode: 'light' | 'dark', direction : 'rtl' | 'ltr') => ({
+    direction,
+    mode,
     palette: {
         mode,
         colors : {

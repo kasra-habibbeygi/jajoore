@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const InputField = styled.div(props => ({
+export const InputField = styled.div({
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
@@ -21,4 +21,4 @@ export const InputField = styled.div(props => ({
         direction: 'rtl',
         fontWeight: '300'
     }
-}));
+});

@@ -15,6 +15,7 @@ import Filter from '@/components/template/filters/filter';
 import DestinationCard from '@/components/pages/index/destination-card';
 import TitleField from '@/components/template/title';
 import CardComponent from '@/components/template/card';
+import AboutUs from '@/components/pages/index/about-us';
 
 // MUI
 import Pagination from '@mui/material/Pagination';
@@ -48,10 +49,11 @@ const Index = () => {
                     <div className='content_field'>
                         <VipSlider />
                         <CardsList />
+                        <Pagination count={11} defaultPage={6} siblingCount={0} className='pagination' />
                     </div>
                 </DoubleCol>
-                <Pagination count={11} defaultPage={6} siblingCount={0} />
                 <ArticleSlider />
+                <AboutUs />
             </main>
         </LayoutProvider>
     );

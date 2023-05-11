@@ -9,7 +9,14 @@ export const DoubleCol = styled.div({
     '& .content_field': {
         width: 'calc(100% - 320px)',
         boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-        borderRadius: '5px'
+        borderRadius: '5px',
+
+        '& .pagination': {
+            width: '100%',
+            margin: '20px 0',
+            display: 'flex',
+            justifyContent: 'center'
+        }
     },
 
     '& .aside': {
