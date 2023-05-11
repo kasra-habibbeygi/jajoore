@@ -7,7 +7,10 @@ export const CheckboxStyle = styled.div(props => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        maxHeight: '300px',
+        overflow: 'auto',
+        paddingLeft: '10px'
     },
 
     '& .row': {
@@ -23,18 +26,14 @@ export const CheckboxStyle = styled.div(props => ({
             background: '#F5F7F9'
         },
 
-        '&:last-child': {
-            borderBottom: 'none'
-        },
-
-        '&:nth-last-child(2)': {
-            borderBottom: 'none'
-        },
-
         '& .MuiFormControlLabel-root': {
             justifyContent: 'space-between',
             margin: '0'
         }
+    },
+
+    '& .full_width': {
+        width: '100%'
     },
 
     p: {

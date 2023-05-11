@@ -55,18 +55,22 @@ const CardComponent = ({ type = 'full', blur }: CardComponentTypes) => {
                     <SwiperSlide>
                         <Image src={MocImg} alt='' className='card_image' />
                     </SwiperSlide>
-                    <SwiperSlide>
-                        <Image src={MocImg} alt='' className='card_image' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image src={MocImg} alt='' className='card_image' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image src={MocImg} alt='' className='card_image' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image src={MocImg} alt='' className='card_image' />
-                    </SwiperSlide>
+                    {type === 'full' && (
+                        <>
+                            <SwiperSlide>
+                                <Image src={MocImg} alt='' className='card_image' />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Image src={MocImg} alt='' className='card_image' />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Image src={MocImg} alt='' className='card_image' />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Image src={MocImg} alt='' className='card_image' />
+                            </SwiperSlide>
+                        </>
+                    )}
                 </Swiper>
                 <div className='pills_field'>
                     <span className='yellow'>
@@ -86,14 +90,14 @@ const CardComponent = ({ type = 'full', blur }: CardComponentTypes) => {
                     </span>
                 </div>
                 <div className='vip_field'>VIP</div>
-                <div className='discount_field'>
+                <div className={`discount_field ${type === 'half' ? 'half_card_discount' : ''}`}>
                     <span>20%</span>
                     <p>
                         {hours} :{minutes} :{seconds}
                     </p>
                 </div>
             </div>
-            <div className='title'>
+            <div className={`title ${type === 'half' ? 'position_added' : ''}`}>
                 <p>اجاره ویلا کردان ۳ خواب با استخر آبگر </p>
                 {type === 'full' && (
                     <div>

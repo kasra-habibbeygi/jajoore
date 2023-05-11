@@ -5,6 +5,7 @@ export const MainCardField = styled.div(props => ({
     boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
     paddingBottom: '15px',
     borderRadius: '8px',
+    position: 'relative',
 
     '& .pills_field': {
         position: 'absolute',
@@ -101,6 +102,10 @@ export const MainCardField = styled.div(props => ({
         }
     },
 
+    '& .half_card_discount': {
+        bottom: '45px'
+    },
+
     '& .vip_field': {
         position: 'absolute',
         top: '5px',
@@ -179,7 +184,6 @@ export const MainCardField = styled.div(props => ({
         padding: '0 10px',
         marginTop: '20px',
         marginBottom: '20px',
-
         img: {
             width: '17px',
             height: 'auto',
@@ -202,6 +206,19 @@ export const MainCardField = styled.div(props => ({
             alignItems: 'center',
             gap: '8px'
         }
+    },
+
+    '& .position_added': {
+        position: 'absolute',
+        top: '160px',
+        width: '100%',
+        transform: 'scale(1.02)',
+        zIndex: '5',
+        background: '#0000009e',
+        margin: '0',
+        padding: '5px 10px',
+        color: 'white',
+        borderRadius: '8px'
     },
 
     '& .avatar_field': {

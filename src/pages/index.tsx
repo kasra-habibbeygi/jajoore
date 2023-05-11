@@ -16,6 +16,9 @@ import DestinationCard from '@/components/pages/index/destination-card';
 import TitleField from '@/components/template/title';
 import CardComponent from '@/components/template/card';
 
+// MUI
+import Pagination from '@mui/material/Pagination';
+
 const Index = () => {
     return (
         <LayoutProvider>
@@ -35,7 +38,7 @@ const Index = () => {
                             <CardComponent type='half' />
                             <CardComponent type='half' />
                         </div>
-                        <TitleField title='آگهی های لحظه آخری' />
+                        <TitleField title='آگهی های رزرو آنی' />
                         <div className='instant_booking_field'>
                             <CardComponent type='half' />
                             <CardComponent type='half' />
@@ -47,6 +50,7 @@ const Index = () => {
                         <CardsList />
                     </div>
                 </DoubleCol>
+                <Pagination count={11} defaultPage={6} siblingCount={0} />
                 <ArticleSlider />
             </main>
         </LayoutProvider>

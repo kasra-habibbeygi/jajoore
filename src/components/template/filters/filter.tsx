@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
 // Assets
 import { FilterField } from './filter.style';
@@ -18,6 +19,12 @@ import ProvincesModal from '@/components/modals/provinces';
 import RoomCounter from './drop-downs/room-counter';
 import Facilities from './drop-downs/facilities';
 import PersonCounter from './drop-downs/person-count';
+import Property from './drop-downs/property';
+import TypeFilter from './drop-downs/type';
+import AreaFilter from './drop-downs/area';
+import LeaseType from './drop-downs/lease-type';
+import RulesFilter from './drop-downs/rules';
+const PriceFilter = dynamic(() => import('./drop-downs/price'), { ssr: false });
 
 const Filter = () => {
     const [sideMenuStatus, setSideMenuStatus] = useState(false);
@@ -44,9 +51,15 @@ const Filter = () => {
                         </Button>
                     </div>
                     <div className='filter_field'>
-                        <RoomCounter />
-                        <Facilities />
                         <PersonCounter />
+                        <PriceFilter />
+                        <RoomCounter />
+                        <Property />
+                        <Facilities />
+                        <AreaFilter />
+                        <LeaseType />
+                        <TypeFilter />
+                        <RulesFilter />
                     </div>
                 </div>
             </FilterField>
