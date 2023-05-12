@@ -3,10 +3,6 @@ import React from 'react';
 import Image from 'next/image';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
 
 // Assets
 import { MainCardField, CardCover } from './card.style';
@@ -37,13 +33,14 @@ import Link from 'next/link';
 interface CardComponentTypes {
     type?: 'full' | 'half';
     blur?: boolean;
+    extraClass?: string;
 }
 
-const CardComponent = ({ type = 'full', blur }: CardComponentTypes) => {
+const CardComponent = ({ type = 'full', blur, extraClass }: CardComponentTypes) => {
     const [days, hours, minutes, seconds] = useTimer(20000000000);
 
     return (
-        <MainCardField>
+        <MainCardField className={extraClass}>
             <div className='image_field'>
                 <Swiper
                     modules={[Navigation, Pagination, Scrollbar, A11y]}

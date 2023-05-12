@@ -2,10 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
 
 // Assets
 import { MainField } from './vip-slider.style';
@@ -28,6 +24,23 @@ const VipSlider = () => {
                 spaceBetween={15}
                 slidesPerView={3.2}
                 pagination={{ clickable: true }}
+                breakpoints={{
+                    1300: {
+                        slidesPerView: 3.2
+                    },
+                    992: {
+                        slidesPerView: 2.2
+                    },
+                    800: {
+                        slidesPerView: 1.2
+                    },
+                    650: {
+                        slidesPerView: 2.2
+                    },
+                    0: {
+                        slidesPerView: 1.2
+                    }
+                }}
                 className='card_slider'
             >
                 <SwiperSlide>

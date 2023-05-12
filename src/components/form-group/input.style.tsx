@@ -19,6 +19,6 @@ export const InputField = styled.div({
         border: '1px solid #CECECE',
         color: '#000000',
         direction: 'rtl',
-        fontWeight: '300'
+        fontWeight: '200'
     }
 });

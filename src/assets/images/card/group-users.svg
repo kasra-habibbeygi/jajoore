@@ -1,8 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="18" viewBox="0 0 17 18">
-  <defs>
-    <pattern id="pattern" preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 64 64">
-      <image width="64" height="64" xlink:href="data:image/png;base64,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"/>
-    </pattern>
-  </defs>
-  <rect id="group" width="17" height="18" fill="url(#pattern)"/>
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 490.667 490.667" style="enable-background:new 0 0 490.667 490.667;" xml:space="preserve">
+<g>
+	<g>
+		<g>
+			<path d="M244.587,241.557c32.128-18.389,54.08-52.629,54.08-92.224c0-58.816-47.851-106.667-106.667-106.667
+				S85.333,90.517,85.333,149.333c0,39.595,21.952,73.835,54.08,92.224C59.051,262.656,0,330.603,0,411.136v26.197
+				C0,443.221,4.779,448,10.667,448s10.667-4.779,10.667-10.667v-26.197C21.333,325.611,97.899,256,192,256
+				s170.667,69.611,170.667,155.136v26.197c0,5.888,4.779,10.667,10.667,10.667c5.888,0,10.667-4.779,10.667-10.667v-26.197
+				C384,330.603,324.949,262.635,244.587,241.557z M106.667,149.333C106.667,102.272,144.939,64,192,64s85.333,38.272,85.333,85.333
+				c0,47.061-38.272,85.333-85.333,85.333S106.667,196.395,106.667,149.333z"/>
+			<path d="M388.224,241.835c23.125-15.296,38.443-41.451,38.443-71.168c0-47.061-38.272-85.333-85.333-85.333
+				c-5.888,0-10.667,4.779-10.667,10.667s4.779,10.667,10.667,10.667c35.285,0,64,28.715,64,64s-28.715,64-64,64
+				c-5.888,0-10.667,4.779-10.667,10.667S335.445,256,341.333,256c70.592,0,128,53.056,128,118.293v20.373
+				c0,5.888,4.779,10.667,10.667,10.667c5.888,0,10.667-4.779,10.667-10.667v-20.373
+				C490.667,312.64,447.659,260.267,388.224,241.835z"/>
+		</g>
+	</g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
 </svg>

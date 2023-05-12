@@ -26,5 +26,37 @@ export const MainField = styled.div({
             width: '33.33%',
             padding: '10px'
         }
+    },
+
+    '@media(max-width : 1300px)': {
+        ol: {
+            li: {
+                width: '50%'
+            }
+        }
+    },
+
+    '@media(max-width : 992px)': {
+        ol: {
+            li: {
+                width: '100%'
+            }
+        }
+    },
+
+    '@media(max-width : 800px)': {
+        ol: {
+            li: {
+                width: '50%'
+            }
+        }
+    },
+
+    '@media(max-width : 600px)': {
+        ol: {
+            li: {
+                width: '100%'
+            }
+        }
     }
 });

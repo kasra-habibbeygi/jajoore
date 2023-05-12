@@ -35,9 +35,36 @@ export const DoubleCol = styled.div({
         }
     },
 
-    '& .instant_booking_field': {
+    '& .aside_cards_field': {
         display: 'flex',
         flexDirection: 'column',
-        gap: '20px'
+        flexWrap: 'wrap',
+        listStyle: 'none',
+
+        li: {
+            width: '100%',
+            padding: '8px 0'
+        }
+    },
+
+    '@media(max-width : 800px)': {
+        flexDirection: 'column-reverse',
+
+        '& .content_field': {
+            width: '100%'
+        },
+
+        '& .aside': {
+            width: '100%'
+        },
+
+        '& .aside_cards_field': {
+            flexDirection: 'row',
+
+            li: {
+                width: '50%',
+                padding: '15px'
+            }
+        }
     }
 });

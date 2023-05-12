@@ -7,13 +7,14 @@ import { FilterField } from './filter.style';
 import EmptyAvatar from '@/assets/images/card/empty-avatar.svg';
 import MenuIcon from '@/assets/images/layout/menus.svg';
 import CustomerService from '@/assets/images/layout/customer-service.svg';
-import SearchIcon from '@/assets/images/layout/search.svg';
+import NotificationIcon from '@/assets/images/layout/notification.svg';
 
 // Component
 import Button from '@/components/form-group/button';
 import Aside from '../../layout/aside';
 import CitiesModal from '@/components/modals/cities';
 import ProvincesModal from '@/components/modals/provinces';
+import SearchField from '../search/search';
 
 // Filter Component
 import RoomCounter from './drop-downs/room-counter';
@@ -41,24 +42,27 @@ const Filter = () => {
                                 <Image src={MenuIcon} alt='' />
                                 <Image src={EmptyAvatar} alt='' className='avatar' />
                             </Button>
-                            <div className='form_group'>
-                                <input type='text' placeholder='کجامیخوای بری ؟ | کد ویلا ... ؟' name='search' />
-                                <Image src={SearchIcon} alt='' className='search_icon' />
-                            </div>
+                            <SearchField setCitiesModalStatus={setCitiesModalStatus} />
                         </div>
-                        <Button color='white' extraClass='support_btn'>
-                            <Image src={CustomerService} alt='' />
-                        </Button>
+                        <div className='left-field'>
+                            <Button color='white' extraClass='support_btn'>
+                                <Image src={NotificationIcon} alt='' />
+                                <span className='notif_count'>2</span>
+                            </Button>
+                            <Button color='white' extraClass='support_btn'>
+                                <Image src={CustomerService} alt='' />
+                            </Button>
+                        </div>
                     </div>
                     <div className='filter_field'>
                         <PersonCounter />
                         <PriceFilter />
                         <RoomCounter />
                         <Property />
-                        <Facilities />
                         <AreaFilter />
                         <LeaseType />
                         <TypeFilter />
+                        <Facilities />
                         <RulesFilter />
                     </div>
                 </div>

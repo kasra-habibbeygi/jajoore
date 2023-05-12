@@ -6,11 +6,12 @@ export const PillField = styled.div({
         padding: '10px',
 
         img: {
-            width: '15px'
+            width: '20px'
         },
 
         p: {
-            fontSize: '0.8rem'
+            fontSize: '0.8rem',
+            fontWeight: '200'
         }
     }
 });

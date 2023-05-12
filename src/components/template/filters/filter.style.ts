@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const FilterField = styled.div({
+export const FilterField = styled.div(props => ({
     padding: '20px 0',
     background: '#F3F3F3',
 
@@ -29,21 +29,6 @@ export const FilterField = styled.div({
         }
     },
 
-    '& .support_btn': {
-        background: 'white',
-        padding: '5px 0',
-        border: '1px solid #BBBBBB',
-        borderRadius: '8px',
-        color: 'black',
-        minWidth: '50px',
-        minHeight: '50px',
-
-        img: {
-            width: '30px',
-            height: 'auto'
-        }
-    },
-
     '& .top_field': {
         display: 'flex',
         alignItems: 'center',
@@ -55,42 +40,43 @@ export const FilterField = styled.div({
         display: 'flex',
         alignItems: 'center',
         width: '100%',
-        gap: '20px',
+        gap: '20px'
+    },
 
-        '& .form_group': {
+    '& .left-field': {
+        display: 'flex',
+        alignItems: 'center',
+        gap: '10px',
+
+        '& .support_btn': {
+            background: 'white',
+            padding: '5px 0',
+            border: '1px solid #BBBBBB',
+            borderRadius: '8px',
+            color: 'black',
+            minWidth: '45px',
+            minHeight: '45px',
+            position: 'relative',
+
+            img: {
+                width: '26px',
+                height: 'auto'
+            }
+        },
+
+        '& .notif_count': {
+            position: 'absolute',
+            right: '-6px',
+            bottom: '-6px',
+            borderRadius: '50px',
             display: 'flex',
             alignItems: 'center',
-            position: 'relative',
-            width: '600px',
-
-            '& .search_icon': {
-                position: 'absolute',
-                left: '1px',
-                top: '1px',
-                width: '40px',
-                height: '38px',
-                background: 'white',
-                borderRadius: '10px',
-                padding: '10px',
-                cursor: 'pointer'
-            },
-
-            input: {
-                width: '100%',
-                borderRadius: '10px',
-                height: '40px',
-                border: '1px solid #BBBBBB',
-                padding: '14px',
-                color: '#525252',
-                fontWeight: '300',
-                fontSize: '0.9rem',
-
-                '&::placeholder': {
-                    color: '#adadad',
-                    fontWeight: '200',
-                    fontSize: '0.9rem'
-                }
-            }
+            justifyContent: 'center',
+            fontSize: '0.6rem',
+            background: props.theme.palette.colors.primary,
+            width: '17px',
+            height: '17px',
+            color: 'white'
         }
     },
 
@@ -100,4 +86,4 @@ export const FilterField = styled.div({
         gap: '7px',
         marginTop: '20px'
     }
-});
+}));

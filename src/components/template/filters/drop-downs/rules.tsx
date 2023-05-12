@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 
 // Assets
 import { CheckboxStyle } from './style/checkbox-dropdown.style';
-import SearchIcon from '@/assets/images/layout/search.svg';
+import HammerIcon from '@/assets/images/filter/hammer.svg';
 
 // Component
 import DropDownLayout from '../layout';
@@ -56,7 +56,7 @@ const RulesFilter = () => {
 
     return (
         <CheckboxStyle ref={ref}>
-            <FilterPill title={titleProvider()} img={SearchIcon} handler={() => FilterDropDownStatusHandler(uniqValue)} />
+            <FilterPill title={titleProvider()} img={HammerIcon} handler={() => FilterDropDownStatusHandler(uniqValue)} />
             <DropDownLayout title='قوانین اقامتگاه' status={uniqValue === DropDownStatus} setDropDownStatus={setDropDownStatus} width={450}>
                 <div className='checkbox_field'>
                     <div className='row full_width'>

@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 
 // Assets
 import { RangeField } from './style/range-dropwdown.style';
-import SearchIcon from '@/assets/images/layout/search.svg';
+import CoinIcon from '@/assets/images/filter/coin.svg';
 
 // Component
 import DropDownLayout from '../layout';
@@ -74,7 +74,7 @@ const PriceFilter = () => {
     };
     return (
         <RangeField ref={ref}>
-            <FilterPill title={titleProvider()} img={SearchIcon} handler={() => FilterDropDownStatusHandler(uniqValue)} />
+            <FilterPill title={titleProvider()} img={CoinIcon} handler={() => FilterDropDownStatusHandler(uniqValue)} />
             <DropDownLayout title='منطقه اقامتگاه' status={uniqValue === DropDownStatus} setDropDownStatus={setDropDownStatus} width={450}>
                 <div className='slider_field'>
                     <CacheProvider value={cacheRtl}>

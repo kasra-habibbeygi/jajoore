@@ -1,5 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 // Assets
 import { DoubleCol } from '@/assets/styles/main';
@@ -13,9 +17,8 @@ import CardsList from '@/components/pages/index/cards-list';
 import ArticleSlider from '@/components/pages/index/article-slider';
 import Filter from '@/components/template/filters/filter';
 import DestinationCard from '@/components/pages/index/destination-card';
-import TitleField from '@/components/template/title';
-import CardComponent from '@/components/template/card';
 import AboutUs from '@/components/pages/index/about-us';
+import SideBarCardList from '@/components/pages/index/sidebar-card-list';
 
 // MUI
 import Pagination from '@mui/material/Pagination';
@@ -33,18 +36,8 @@ const Index = () => {
                             <Image src={TrustSymbol} alt='' />
                         </div>
                         <DestinationCard />
-                        <TitleField title='مقاصد پر طرفدار' />
-                        <div className='instant_booking_field'>
-                            <CardComponent type='half' />
-                            <CardComponent type='half' />
-                            <CardComponent type='half' />
-                        </div>
-                        <TitleField title='آگهی های رزرو آنی' />
-                        <div className='instant_booking_field'>
-                            <CardComponent type='half' />
-                            <CardComponent type='half' />
-                            <CardComponent type='half' />
-                        </div>
+                        <SideBarCardList title='آگهی های رزرو آنی' />
+                        <SideBarCardList title='آگهی های لحظه آخری' />
                     </aside>
                     <div className='content_field'>
                         <VipSlider />
