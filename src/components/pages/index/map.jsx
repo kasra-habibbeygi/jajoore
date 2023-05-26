@@ -19,8 +19,14 @@ const Map = () => {
             <h3>نقشه</h3>
             <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
                 <TileLayer url='https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png' />
+                <Marker position={[51.505, -0.01]} icon={skater}>
+                    <Popup position={[51.505, -0.01]}></Popup>
+                </Marker>
                 <Marker position={[51.505, -0.09]} icon={skater}>
                     <Popup position={[51.505, -0.09]}></Popup>
+                </Marker>
+                <Marker position={[51.505, -0.1]} icon={skater}>
+                    <Popup position={[51.505, -0.1]}></Popup>
                 </Marker>
             </MapContainer>
         </MainField>

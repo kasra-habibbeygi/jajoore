@@ -121,5 +121,8 @@ export const SearchBoxField = styled.div<SearchBoxFieldType>(props => ({
                 }
             }
         }
+    },
+    '@media(max-width : 900px)': {
+        width: '100%'
     }
 }));

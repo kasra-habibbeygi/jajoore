@@ -26,10 +26,10 @@ const cacheRtl = createCache({
 
 const PriceFilter = () => {
     const uniqValue = 'PriceFilter';
-    const minDistance = 400000;
+    const minDistance = 400_000;
     const ref = useRef(null);
     const [DropDownStatus, setDropDownStatus] = useState('');
-    const [sliderValue, setSliderValue] = useState([100000, 25000000]);
+    const [sliderValue, setSliderValue] = useState([100_000, 25_000_000]);
     const removeNonNumeric = (num: any) => num.toString().replace(/[^0-9]/g, '');
 
     useOutsideClick(ref, () => {
@@ -44,6 +44,9 @@ const PriceFilter = () => {
     };
 
     const titleProvider = () => {
+        if (sliderValue[0] > 100_000 || sliderValue[1] < 25_000_000) {
+            return `از ${sliderValue[0].toLocaleString()} تا ${sliderValue[1].toLocaleString()}`;
+        }
         return 'محدوده اجاره ها';
     };
 
@@ -62,7 +65,7 @@ const PriceFilter = () => {
 
         if (newValue[1] - newValue[0] < minDistance) {
             if (activeThumb === 0) {
-                const clamped = Math.min(newValue[0], 25000000 - minDistance);
+                const clamped = Math.min(newValue[0], 25_000_000 - minDistance);
                 setSliderValue([clamped, clamped + minDistance]);
             } else {
                 const clamped = Math.max(newValue[1], minDistance);
@@ -72,9 +75,15 @@ const PriceFilter = () => {
             setSliderValue(newValue);
         }
     };
+
     return (
         <RangeField ref={ref}>
-            <FilterPill title={titleProvider()} img={CoinIcon} handler={() => FilterDropDownStatusHandler(uniqValue)} />
+            <FilterPill
+                title={titleProvider()}
+                img={CoinIcon}
+                handler={() => FilterDropDownStatusHandler(uniqValue)}
+                activeStatus={sliderValue[0] > 100_000 || sliderValue[1] < 25_000_000}
+            />
             <DropDownLayout title='منطقه اقامتگاه' status={uniqValue === DropDownStatus} setDropDownStatus={setDropDownStatus} width={450}>
                 <div className='slider_field'>
                     <CacheProvider value={cacheRtl}>
@@ -84,9 +93,9 @@ const PriceFilter = () => {
                             onChange={sliderValueHandler}
                             valueLabelDisplay='auto'
                             disableSwap
-                            step={100000}
-                            min={100000}
-                            max={25000000}
+                            step={100_000}
+                            min={100_000}
+                            max={25_000_000}
                             scale={(num: any): any => num.toLocaleString()}
                         />
                     </CacheProvider>

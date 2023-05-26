@@ -85,5 +85,14 @@ export const FilterField = styled.div(props => ({
         alignItems: 'center',
         gap: '7px',
         marginTop: '20px'
+    },
+    '@media(max-width : 900px)': {
+        '& .right_field': {
+            gap: '10px'
+        },
+
+        '& .top_field': {
+            gap: '10px'
+        }
     }
 }));

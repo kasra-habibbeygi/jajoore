@@ -58,7 +58,12 @@ const PersonCounter = () => {
 
     return (
         <CheckboxStyle ref={ref}>
-            <FilterPill title={titleProvider()} img={BedIcon} handler={() => FilterDropDownStatusHandler(uniqValue)} />
+            <FilterPill
+                title={titleProvider()}
+                img={BedIcon}
+                handler={() => FilterDropDownStatusHandler(uniqValue)}
+                activeStatus={inputValue.beds > 0 || inputValue.rooms > 0}
+            />
             <DropDownLayout title='تعداد تخت و اتاق' status={uniqValue === DropDownStatus} setDropDownStatus={setDropDownStatus}>
                 <div className='row'>
                     <p>

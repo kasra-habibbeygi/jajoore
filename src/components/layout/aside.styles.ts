@@ -17,7 +17,7 @@ export const AsideField = styled.div<AsideFieldTypes>(props => ({
     backgroundColor: 'white',
     padding: '30px 20px 10px 20px',
     transition: 'all 0.8s cubic-bezier(0, 0, 0.2, 1.11) 0s',
-    zIndex: '100',
+    zIndex: '1100',
 
     '& .header': {
         display: 'flex',
@@ -63,6 +63,9 @@ export const AsideField = styled.div<AsideFieldTypes>(props => ({
                 background: '#f1f1f1'
             }
         }
+    },
+    '@media(max-width : 500)': {
+        width: '300px'
     }
 }));
 
@@ -76,6 +79,6 @@ export const AsideLayout = styled.div<AsideLayoutTypes>(props => ({
     opacity: props.status ? '1' : '0',
     pointerEvents: props.status ? 'initial' : 'none',
     transition: 'all 0.8s cubic-bezier(0, 0, 0.2, 1.11) 0s',
-    zIndex: '90',
+    zIndex: '1100',
     cursor: 'pointer'
 }));

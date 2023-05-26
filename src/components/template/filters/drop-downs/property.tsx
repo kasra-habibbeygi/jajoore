@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 // Assets
 import { CheckboxStyle } from './style/checkbox-dropdown.style';
@@ -53,8 +53,14 @@ const Property = () => {
         return 'ویژگی های اقامتگاه';
     };
 
+    useEffect(() => {
+        let elem = document.getElementById('kasra');
+
+        console.log(elem!.getBoundingClientRect());
+    }, []);
+
     return (
-        <CheckboxStyle ref={ref}>
+        <CheckboxStyle ref={ref} id='kasra'>
             <FilterPill title={titleProvider()} img={CheckListIcon} handler={() => FilterDropDownStatusHandler(uniqValue)} />
             <DropDownLayout
                 title='ویژگی های اقامتگاه'

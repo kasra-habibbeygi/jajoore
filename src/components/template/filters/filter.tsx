@@ -25,6 +25,7 @@ import TypeFilter from './drop-downs/type';
 import AreaFilter from './drop-downs/area';
 import LeaseType from './drop-downs/lease-type';
 import RulesFilter from './drop-downs/rules';
+import VIPOnly from './drop-downs/vip';
 const PriceFilter = dynamic(() => import('./drop-downs/price'), { ssr: false });
 
 const Filter = () => {
@@ -64,6 +65,7 @@ const Filter = () => {
                         <TypeFilter />
                         <Facilities />
                         <RulesFilter />
+                        <VIPOnly />
                     </div>
                 </div>
             </FilterField>

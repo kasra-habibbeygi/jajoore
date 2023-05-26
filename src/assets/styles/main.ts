@@ -4,7 +4,7 @@ export const DoubleCol = styled.div({
     width: '100%',
     display: 'flex',
     gap: '20px',
-    margin: '50px 0',
+    margin: '30px 0',
 
     '& .content_field': {
         width: 'calc(100% - 320px)',

@@ -11,13 +11,14 @@ import Button from '@/components/form-group/button';
 // Types
 interface ComponentTypes {
     title: string;
+    activeStatus?: boolean;
     img?: any;
-    handler: Function;
+    handler?: Function;
 }
 
-const FilterPill = ({ title, img, handler }: ComponentTypes) => {
+const FilterPill = ({ title, img, handler, activeStatus = false }: ComponentTypes) => {
     return (
-        <PillField onClick={() => handler()}>
+        <PillField onClick={() => handler && handler()} activeStatus={activeStatus}>
             <Button color='white'>
                 <Image src={img} alt='' />
                 <p>{title}</p>
