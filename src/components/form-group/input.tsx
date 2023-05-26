@@ -21,6 +21,7 @@ const Input = ({ label, type = 'text', placeholder, name, value, setValue, maxLe
         <S.InputField>
             {label && <label htmlFor={name}>{label}</label>}
             <input
+                autoComplete='off'
                 type={type}
                 placeholder={placeholder}
                 id={name}

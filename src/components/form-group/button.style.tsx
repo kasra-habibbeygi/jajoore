@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import Button from '@mui/material/Button';
 
 interface ButtonType {
-    shadow: boolean;
+    shadow: string;
     radius: 'half-rounded' | 'rounded';
 }
 
@@ -16,6 +16,7 @@ export const ButtonField = styled(Button)<ButtonType>(props => ({
     display: 'flex',
     alignItems: 'center',
     gap: '7px',
+    minWidth: 'max-content',
 
     a: {
         color: 'inherit',

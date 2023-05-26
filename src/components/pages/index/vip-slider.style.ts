@@ -4,10 +4,6 @@ export const MainField = styled.div(props => ({
     padding: '20px',
     position: 'relative',
 
-    // '& .swiper-slide': {
-    //     width: '31% !important'
-    // },
-
     '& .card_slider': {
         padding: '10px',
         position: 'unset',

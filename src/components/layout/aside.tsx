@@ -6,17 +6,17 @@ import Link from 'next/link';
 // Assets
 import { AsideField, AsideLayout } from './aside.styles';
 import EmptyAvatar from '@/assets/images/card/empty-avatar.svg';
-import LoginIcon from '../../assets/images/layout/login.svg';
-import BookIcon from '../../assets/images/side-bars/book.svg';
-import BrifCaseIcon from '../../assets/images/side-bars/brifcase.svg';
-import GiftBoxIcon from '../../assets/images/side-bars/gift-box.svg';
-import HomePlusIcon from '../../assets/images/side-bars/home-plus.svg';
-import HomeIcon from '../../assets/images/side-bars/home.svg';
-import InfoIcon from '../../assets/images/side-bars/info.svg';
-import QuestionCommentIcon from '../../assets/images/side-bars/question-comment.svg';
-import QuestionIcon from '../../assets/images/side-bars/question.svg';
-import ShieldIcon from '../../assets/images/side-bars/shield.svg';
-import SupportIcon from '../../assets/images/side-bars/support.svg';
+import LoginIcon from '@/assets/images/layout/login.svg';
+import BookIcon from '@/assets/images/side-bars/book.svg';
+import BrifCaseIcon from '@/assets/images/side-bars/brifcase.svg';
+import GiftBoxIcon from '@/assets/images/side-bars/gift-box.svg';
+import HomePlusIcon from '@/assets/images/side-bars/home-plus.svg';
+import HomeIcon from '@/assets/images/side-bars/home.svg';
+import InfoIcon from '@/assets/images/side-bars/info.svg';
+import QuestionCommentIcon from '@/assets/images/side-bars/question-comment.svg';
+import QuestionIcon from '@/assets/images/side-bars/question.svg';
+import ShieldIcon from '@/assets/images/side-bars/shield.svg';
+import SupportIcon from '@/assets/images/side-bars/support.svg';
 
 // Component
 import Button from '../form-group/button';

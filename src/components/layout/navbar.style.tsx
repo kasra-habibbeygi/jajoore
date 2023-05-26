@@ -33,5 +33,19 @@ export const NavbarField = styled.nav(props => ({
                 borderBottom: `2px solid ${props.theme.palette.colors.primary}`
             }
         }
+    },
+
+    // '@media(max-width : 1000px)': {
+    //     '& .main_logo': {
+    //         width: '50px'
+    //     }
+    // },
+
+    '@media(max-width : 1000px)': {
+        '& .right_right': {
+            ol: {
+                display: 'none'
+            }
+        }
     }
 }));

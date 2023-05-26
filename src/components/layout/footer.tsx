@@ -3,11 +3,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 // Assets
-import { FooterMainField } from './footer.style';
+import { FooterMainField, SocialMediaCard } from './footer.style';
 import Button from '../form-group/button';
 import WhatsAppIcon from '../../assets/images/layout/whatsapp.svg';
 import TrustSymbil from '../../assets/images/layout/trust-symbol.png';
-import FooterPath from '../../assets/images/layout/footer-path.svg';
+import RedFooterPath from '../../assets/images/layout/red-footer-path.svg';
+import PinkFooterPath from '../../assets/images/layout/pink-footer-path.svg';
+import BlueFooterPath from '../../assets/images/layout/blue-footer-path.svg';
 import InstagramIcon from '../../assets/images/layout/instagram.svg';
 import TelegramIcon from '../../assets/images/layout/telegram.svg';
 import AparatIcon from '../../assets/images/layout/aparat.svg';
@@ -16,6 +18,12 @@ import ArrowLeft from '../../assets/images/layout/arrow-left.svg';
 const Footer = () => {
     return (
         <FooterMainField>
+            <a href='/' target='_blank' className='mobile_button'>
+                <Button color='green' type='outline-filled' extraClass='contact_btn'>
+                    <Image src={WhatsAppIcon} alt='' />
+                    پشتیبانی واتس اپ
+                </Button>
+            </a>
             <div className='header'>
                 <div className='container'>
                     <ol>
@@ -32,12 +40,12 @@ const Footer = () => {
                             <Link href='/'>مجله جاجوره</Link>
                         </li>
                     </ol>
-                    <Button color='green' type='outline-filled' extraClass='contact_btn'>
-                        <a href='/' target='_blank'>
+                    <a href='/' target='_blank' className='contact_btn'>
+                        <Button color='green' type='outline-filled'>
                             <Image src={WhatsAppIcon} alt='' />
                             پشتیبانی واتس اپ
-                        </a>
-                    </Button>
+                        </Button>
+                    </a>
                 </div>
             </div>
             <div className='container'>
@@ -121,10 +129,10 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className='social_media'>
-                        <div className='item_field'>
-                            <Image className='path1 path_img' src={FooterPath} alt='' />
-                            <Image className='path2 path_img' src={FooterPath} alt='' />
-                            <Image className='path3 path_img' src={FooterPath} alt='' />
+                        <SocialMediaCard>
+                            <Image className='path1 path_img' src={RedFooterPath} alt='' />
+                            <Image className='path2 path_img' src={RedFooterPath} alt='' />
+                            <Image className='path3 path_img' src={RedFooterPath} alt='' />
                             <Image className='social_media_icon' src={InstagramIcon} alt='' />
                             <p>
                                 در اینستاگرام
@@ -135,14 +143,14 @@ const Footer = () => {
                             <a href='/' target='_blank'>
                                 <Image src={ArrowLeft} alt='' />
                             </a>
-                        </div>
-                        <div className='item_field'>
-                            <Image className='path1 path_img' src={FooterPath} alt='' />
-                            <Image className='path2 path_img' src={FooterPath} alt='' />
-                            <Image className='path3 path_img' src={FooterPath} alt='' />
+                        </SocialMediaCard>
+                        <SocialMediaCard>
+                            <Image className='path1 path_img' src={BlueFooterPath} alt='' />
+                            <Image className='path2 path_img' src={BlueFooterPath} alt='' />
+                            <Image className='path3 path_img' src={BlueFooterPath} alt='' />
                             <Image className='social_media_icon' src={TelegramIcon} alt='' />
                             <p>
-                                در اینستاگرام
+                                در تلگرام
                                 <br />
                                 <span> جاجوره </span>
                                 را دنبال کن
@@ -150,14 +158,14 @@ const Footer = () => {
                             <a href='/' target='_blank'>
                                 <Image src={ArrowLeft} alt='' />
                             </a>
-                        </div>
-                        <div className='item_field'>
-                            <Image className='path1 path_img' src={FooterPath} alt='' />
-                            <Image className='path2 path_img' src={FooterPath} alt='' />
-                            <Image className='path3 path_img' src={FooterPath} alt='' />
+                        </SocialMediaCard>
+                        <SocialMediaCard>
+                            <Image className='path1 path_img' src={PinkFooterPath} alt='' />
+                            <Image className='path2 path_img' src={PinkFooterPath} alt='' />
+                            <Image className='path3 path_img' src={PinkFooterPath} alt='' />
                             <Image className='social_media_icon' src={AparatIcon} alt='' />
                             <p>
-                                در اینستاگرام
+                                در آپارات
                                 <br />
                                 <span> جاجوره </span>
                                 را دنبال کن
@@ -165,7 +173,7 @@ const Footer = () => {
                             <a href='/' target='_blank'>
                                 <Image src={ArrowLeft} alt='' />
                             </a>
-                        </div>
+                        </SocialMediaCard>
                     </div>
                     <div className='w_max'>
                         <div>

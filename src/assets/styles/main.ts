@@ -27,23 +27,12 @@ export const DoubleCol = styled.div({
             alignItems: 'center',
             justifyContent: 'center',
             gap: '30px',
+            marginTop: '20px',
 
             img: {
                 width: '110px',
                 height: 'auto'
             }
-        }
-    },
-
-    '& .aside_cards_field': {
-        display: 'flex',
-        flexDirection: 'column',
-        flexWrap: 'wrap',
-        listStyle: 'none',
-
-        li: {
-            width: '100%',
-            padding: '8px 0'
         }
     },
 
@@ -55,15 +44,10 @@ export const DoubleCol = styled.div({
         },
 
         '& .aside': {
-            width: '100%'
-        },
+            width: '100%',
 
-        '& .aside_cards_field': {
-            flexDirection: 'row',
-
-            li: {
-                width: '50%',
-                padding: '15px'
+            '& .symbol_field': {
+                display: 'none'
             }
         }
     }

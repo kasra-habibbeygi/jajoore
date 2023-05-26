@@ -19,9 +19,11 @@ import Filter from '@/components/template/filters/filter';
 import DestinationCard from '@/components/pages/index/destination-card';
 import AboutUs from '@/components/pages/index/about-us';
 import SideBarCardList from '@/components/pages/index/sidebar-card-list';
+const Map = dynamic(() => import('@/components/pages/index/map'), { ssr: false });
 
 // MUI
 import Pagination from '@mui/material/Pagination';
+import dynamic from 'next/dynamic';
 
 const Index = () => {
     return (
@@ -31,6 +33,7 @@ const Index = () => {
                 <IndexHeader />
                 <DoubleCol>
                     <aside className='aside'>
+                        <Map />
                         <div className='symbol_field'>
                             <Image src={TrustSymbol} alt='' />
                             <Image src={TrustSymbol} alt='' />

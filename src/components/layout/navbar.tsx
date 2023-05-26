@@ -4,8 +4,9 @@ import Link from 'next/link';
 
 // Assets
 import { NavbarField } from './navbar.style';
-import LogoImg from '../../assets/images/logo.png';
-import LoginIcon from '../../assets/images/layout/login.svg';
+import LogoImg from '@/assets/images/logo.png';
+import LoginIcon from '@/assets/images/layout/login.svg';
+// import MobileLogo from '@/assets/images/mobile-logo.png';
 
 // Component
 import Button from '../form-group/button';

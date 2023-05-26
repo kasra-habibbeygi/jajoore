@@ -48,26 +48,23 @@ const CardComponent = ({ type = 'full', blur, extraClass }: CardComponentTypes) 
                     navigation
                     pagination={{ clickable: true }}
                     className='image_slider'
+                    id='test'
                 >
                     <SwiperSlide>
                         <Image src={MocImg} alt='' className='card_image' />
                     </SwiperSlide>
-                    {type === 'full' && (
-                        <>
-                            <SwiperSlide>
-                                <Image src={MocImg} alt='' className='card_image' />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Image src={MocImg} alt='' className='card_image' />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Image src={MocImg} alt='' className='card_image' />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Image src={MocImg} alt='' className='card_image' />
-                            </SwiperSlide>
-                        </>
-                    )}
+                    <SwiperSlide>
+                        <Image src={MocImg} alt='' className='card_image' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image src={MocImg} alt='' className='card_image' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image src={MocImg} alt='' className='card_image' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image src={MocImg} alt='' className='card_image' />
+                    </SwiperSlide>
                 </Swiper>
                 <div className='pills_field'>
                     <span className='yellow'>

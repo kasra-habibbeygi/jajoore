@@ -124,12 +124,17 @@ input {
     font-size: 0.9rem;
     font-weight: 400;
     font-family: 'main' !important;
+
 }
 
 .container {
     width: 1320px;
     margin: 0 auto;
 }
+
+/* .leaflet-control-attribution{
+    display:  none;
+} */
 
 @media only screen and (max-width: 1400px) {
     .container {

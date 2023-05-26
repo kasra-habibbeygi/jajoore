@@ -29,7 +29,12 @@ const Button = ({
     extraClass = ''
 }: ButtonComponentType) => {
     return (
-        <ButtonField onClick={() => handler && handler()} shadow={shadow} radius={radius} className={`${type} ${color} ${extraClass}`}>
+        <ButtonField
+            onClick={() => handler && handler()}
+            shadow={shadow.toString()}
+            radius={radius}
+            className={`${type} ${color} ${extraClass}`}
+        >
             <PulseLoader loading={loader} color={loaderColor} size={10} />
             {children}
         </ButtonField>

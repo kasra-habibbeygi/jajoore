@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 // Component
 import Navbar from './navbar';
 import Footer from './footer';
+import MobileNavbar from './mobile-navbar';
 
 //Types
 interface ComponentTypes {
@@ -15,6 +16,7 @@ const LayoutProvider = ({ children }: ComponentTypes) => {
         <>
             <Navbar />
             {children}
+            <MobileNavbar />
             <Footer />
         </>
     );
