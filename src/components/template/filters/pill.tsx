@@ -19,7 +19,7 @@ interface ComponentTypes {
 const FilterPill = ({ title, img, handler, activeStatus = false }: ComponentTypes) => {
     return (
         <PillField onClick={() => handler && handler()} activeStatus={activeStatus}>
-            <Button color='white'>
+            <Button color='white' radius='half-rounded'>
                 <Image src={img} alt='' />
                 <p>{title}</p>
             </Button>

@@ -13,7 +13,6 @@ import Link from 'next/link';
 const MobileNavbar = () => {
     return (
         <MobileNavbarField>
-            <div className='layout'></div>
             <ol>
                 <li>
                     <Link href='/'>

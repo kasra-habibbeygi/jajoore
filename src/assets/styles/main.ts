@@ -8,8 +8,9 @@ export const DoubleCol = styled.div({
 
     '& .content_field': {
         width: 'calc(100% - 320px)',
-        boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
+        boxShadow: 'rgba(0, 0, 0, 0.08) 0 0 4px',
         borderRadius: '5px',
+        paddingBottom: '20px',
 
         '& .pagination': {
             width: '100%',

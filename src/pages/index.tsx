@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -19,11 +20,8 @@ import Filter from '@/components/template/filters/filter';
 import DestinationCard from '@/components/pages/index/destination-card';
 import AboutUs from '@/components/pages/index/about-us';
 import SideBarCardList from '@/components/pages/index/sidebar-card-list';
+import Pagination from '@/components/template/pagination';
 const Map = dynamic(() => import('@/components/pages/index/map'), { ssr: false });
-
-// MUI
-import Pagination from '@mui/material/Pagination';
-import dynamic from 'next/dynamic';
 
 const Index = () => {
     return (
@@ -45,7 +43,7 @@ const Index = () => {
                     <div className='content_field'>
                         <VipSlider />
                         <CardsList />
-                        <Pagination count={11} defaultPage={6} siblingCount={0} className='pagination' />
+                        <Pagination count={11} current={1} />
                     </div>
                 </DoubleCol>
                 <ArticleSlider />

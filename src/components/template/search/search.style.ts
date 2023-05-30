@@ -27,6 +27,7 @@ export const SearchBoxField = styled.div<SearchBoxFieldType>(props => ({
         height: '40px',
         padding: '14px',
         fontSize: '0.9rem',
+        borderRadius: '10px',
 
         '&::placeholder': {
             color: '#adadad'

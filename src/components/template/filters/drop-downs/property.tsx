@@ -55,7 +55,6 @@ const Property = () => {
 
     useEffect(() => {
         let elem = document.getElementById('kasra');
-
         console.log(elem!.getBoundingClientRect());
     }, []);
 

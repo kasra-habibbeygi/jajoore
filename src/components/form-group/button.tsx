@@ -8,7 +8,7 @@ import { ButtonField } from './button.style';
 interface ButtonComponentType {
     children: ReactNode;
     shadow?: boolean;
-    radius?: 'half-rounded' | 'rounded';
+    radius?: 'sharp-rounded' | 'half-rounded' | 'rounded';
     type?: 'text' | 'outline' | 'filled' | 'outline-filled';
     color?: 'white' | 'primary' | 'yellow' | 'green' | 'dark';
     handler?: () => void;
@@ -20,7 +20,7 @@ interface ButtonComponentType {
 const Button = ({
     children,
     shadow = false,
-    radius = 'half-rounded',
+    radius = 'sharp-rounded',
     type = 'filled',
     color = 'white',
     handler,
@@ -29,12 +29,7 @@ const Button = ({
     extraClass = ''
 }: ButtonComponentType) => {
     return (
-        <ButtonField
-            onClick={() => handler && handler()}
-            shadow={shadow.toString()}
-            radius={radius}
-            className={`${type} ${color} ${extraClass}`}
-        >
+        <ButtonField onClick={() => handler && handler()} shadow={shadow} radius={radius} className={`${type} ${color} ${extraClass}`}>
             <PulseLoader loading={loader} color={loaderColor} size={10} />
             {children}
         </ButtonField>

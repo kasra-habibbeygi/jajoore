@@ -9,27 +9,8 @@ export const MobileNavbarField = styled.nav(props => ({
     display: 'none',
     alignItems: 'center',
     justifyContent: 'space-between',
-
-    '& .layout': {
-        position: 'absolute',
-        width: '100%',
-        height: '60px',
-        margin: '0 auto',
-        overflow: 'hidden',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-
-        '&:before': {
-            content: '""',
-            position: 'absolute',
-            top: '-45px',
-            borderRadius: '100%',
-            width: '80px',
-            height: '80px',
-            boxShadow: '0px 0px 0px 2000px #fff'
-        }
-    },
+    backgroundImage: 'radial-gradient(circle at 50% -2px,transparent 35px, #ffffff 34px)',
+    filter: 'drop-shadow(0px -1px 6px  rgba(0, 0, 0, 0.08)) drop-shadow(0px -2px 12px  rgba(0, 0, 0, 0.12))',
 
     ol: {
         display: 'flex',

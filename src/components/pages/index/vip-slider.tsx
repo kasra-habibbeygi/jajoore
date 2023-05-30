@@ -15,7 +15,7 @@ const VipSlider = () => {
         <MainField>
             <header>
                 <h3>آگهی های VIP</h3>
-                <Button color='primary' radius='half-rounded'>
+                <Button color='primary'>
                     <Link href='/'>مشاهده بیشتر</Link>
                 </Button>
             </header>

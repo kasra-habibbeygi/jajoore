@@ -39,7 +39,7 @@ const Filter = () => {
                 <div className='main_field'>
                     <div className='top_field'>
                         <div className='right_field'>
-                            <Button color='white' extraClass='panel_btn' handler={() => setSideMenuStatus(true)}>
+                            <Button color='white' extraClass='panel_btn' radius='half-rounded' handler={() => setSideMenuStatus(true)}>
                                 <Image src={MenuIcon} alt='' />
                                 <Image src={EmptyAvatar} alt='' className='avatar' />
                             </Button>

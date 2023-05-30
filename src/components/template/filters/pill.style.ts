@@ -7,7 +7,7 @@ interface PillFieldType {
 export const PillField = styled.div<PillFieldType>(props => ({
     button: {
         boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-        padding: '10px',
+        padding: '4px 9px',
         border: props.activeStatus ? `1px solid ${props.theme.palette.colors.primary}` : '1px solid transparent',
 
         img: {

@@ -2,16 +2,17 @@ import styled from '@emotion/styled';
 import Button from '@mui/material/Button';
 
 interface ButtonType {
-    shadow: string;
-    radius: 'half-rounded' | 'rounded';
+    shadow: boolean;
+    radius: 'sharp-rounded' | 'half-rounded' | 'rounded';
 }
 
 export const ButtonField = styled(Button)<ButtonType>(props => ({
     padding: '5px 20px',
     minHeight: '35px',
     fontWeight: '300',
-    boxShadow: props.shadow ? 'rgba(0, 0, 0, 0.16) 0px 1px 4px' : '',
-    borderRadius: props.radius === 'half-rounded' ? '5px' : props.radius === 'rounded' ? '50px' : '',
+    boxShadow: props.shadow ? 'rgba(0, 0, 0, 0.16) 0px 1px 4px' : 'none',
+    borderRadius:
+        props.radius === 'sharp-rounded' ? '5px' : props.radius === 'half-rounded' ? '10px' : props.radius === 'rounded' ? '50px' : '',
     lineHeight: '0px',
     display: 'flex',
     alignItems: 'center',

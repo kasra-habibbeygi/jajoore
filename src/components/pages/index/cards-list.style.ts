@@ -7,9 +7,9 @@ export const MainField = styled.div({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-        padding: '6px 15px',
-        borderRadius: '8px',
+        padding: '6px 0 10px 0',
+        marginBottom: '10px',
+        borderBottom: '1px solid #e3e3e3',
 
         h3: {
             fontWeight: '400'

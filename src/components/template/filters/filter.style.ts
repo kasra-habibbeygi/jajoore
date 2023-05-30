@@ -13,7 +13,6 @@ export const FilterField = styled.div(props => ({
         background: 'white',
         padding: '5px 13px',
         border: '1px solid #BBBBBB',
-        borderRadius: '8px',
         color: 'black',
 
         img: {
@@ -40,7 +39,7 @@ export const FilterField = styled.div(props => ({
         display: 'flex',
         alignItems: 'center',
         width: '100%',
-        gap: '20px'
+        gap: '10px'
     },
 
     '& .left-field': {
