@@ -124,17 +124,24 @@ input {
     font-size: 0.9rem;
     font-weight: 400;
     font-family: 'main' !important;
+}
 
+textarea{
+    font-size: 0.9rem;
+    font-weight: 300;
+    font-family: 'main' !important;
+    height: 150px;
+    border-radius: 8px;
+    resize: none;
+    border: 1px solid #CECECE;
+    padding: 15px;
+    width: 100%;
 }
 
 .container {
     width: 1320px;
     margin: 0 auto;
 }
-
-/* .leaflet-control-attribution{
-    display:  none;
-} */
 
 @media only screen and (max-width: 1400px) {
     .container {

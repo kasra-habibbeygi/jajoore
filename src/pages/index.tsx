@@ -22,7 +22,6 @@ import AboutUs from '@/components/pages/index/about-us';
 import SideBarCardList from '@/components/pages/index/sidebar-card-list';
 import Pagination from '@/components/template/pagination';
 const Map = dynamic(() => import('@/components/pages/index/map'), { ssr: false });
-
 const Index = () => {
     return (
         <LayoutProvider>
