@@ -3,11 +3,11 @@ import styled from '@emotion/styled';
 export const DoubleCol = styled.div({
     width: '100%',
     display: 'flex',
-    gap: '20px',
+    gap: '30px',
     margin: '30px 0',
 
     '& .content_field': {
-        width: 'calc(100% - 320px)',
+        width: 'calc(100% - 390px)',
         borderRadius: '5px',
         paddingBottom: '20px',
 
@@ -17,10 +17,6 @@ export const DoubleCol = styled.div({
             display: 'flex',
             justifyContent: 'center'
         }
-    },
-
-    '& .aside': {
-        width: '300px'
     },
 
     '@media(max-width : 800px)': {

@@ -15,6 +15,7 @@ interface ButtonComponentType {
     loader?: boolean;
     loaderColor?: string;
     extraClass?: string;
+    disabled?: boolean;
 }
 
 const Button = ({
@@ -26,10 +27,17 @@ const Button = ({
     handler,
     loader = false,
     loaderColor = '#ffffff',
-    extraClass = ''
+    extraClass = '',
+    disabled = false
 }: ButtonComponentType) => {
     return (
-        <ButtonField onClick={() => handler && handler()} shadow={shadow} radius={radius} className={`${type} ${color} ${extraClass}`}>
+        <ButtonField
+            onClick={() => handler && handler()}
+            shadow={shadow}
+            radius={radius}
+            className={`${type} ${color} ${extraClass}`}
+            disabled={disabled}
+        >
             <PulseLoader loading={loader} color={loaderColor} size={10} />
             {children}
         </ButtonField>

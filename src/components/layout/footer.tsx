@@ -5,15 +5,15 @@ import Image from 'next/image';
 // Assets
 import { FooterMainField, SocialMediaCard } from './footer.style';
 import Button from '../form-group/button';
-import WhatsAppIcon from '../../assets/images/layout/whatsapp.svg';
-import TrustSymbil from '../../assets/images/layout/trust-symbol.png';
-import RedFooterPath from '../../assets/images/layout/red-footer-path.svg';
-import PinkFooterPath from '../../assets/images/layout/pink-footer-path.svg';
-import BlueFooterPath from '../../assets/images/layout/blue-footer-path.svg';
-import InstagramIcon from '../../assets/images/layout/instagram.svg';
-import TelegramIcon from '../../assets/images/layout/telegram.svg';
-import AparatIcon from '../../assets/images/layout/aparat.svg';
-import ArrowLeft from '../../assets/images/layout/arrow-left.svg';
+import WhatsAppIcon from '@/assets/images/layout/whatsapp.svg';
+import TrustSymbil from '@/assets/images/layout/trust-symbol.png';
+import RedFooterPath from '@/assets/images/layout/red-footer-path.svg';
+import PinkFooterPath from '@/assets/images/layout/pink-footer-path.svg';
+import BlueFooterPath from '@/assets/images/layout/blue-footer-path.svg';
+import InstagramIcon from '@/assets/images/layout/instagram.svg';
+import TelegramIcon from '@/assets/images/layout/telegram.svg';
+import AparatIcon from '@/assets/images/layout/aparat.svg';
+import ArrowLeft from '@/assets/images/layout/arrow-left.svg';
 
 const Footer = () => {
     return (
