@@ -13,7 +13,7 @@ import Image from 'next/image';
 // Types
 interface DropDownTypes {
     children: ReactNode;
-    title: string;
+    title?: string;
     status: boolean;
     setDropDownStatus: (status: string) => void;
     boxWidth?: number;
@@ -35,11 +35,13 @@ const DropDownLayout = ({ children, title, status, setDropDownStatus, boxWidth =
     }, []);
 
     return (
-        <LayoutField status={status} boxWidth={boxWidth} id={name} position={position}>
-            <div className='header'>
-                <span></span>
-                {title}
-            </div>
+        <LayoutField status={status} boxWidth={boxWidth} id={name} position={position} className='main_filter_field'>
+            {title && (
+                <div className='header'>
+                    <span></span>
+                    {title}
+                </div>
+            )}
             {children}
             <div className='footer'>
                 <Button color='white' type='text' extraClass='close_btn' handler={() => setDropDownStatus('')}>

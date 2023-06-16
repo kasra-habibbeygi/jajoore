@@ -13,6 +13,22 @@ export const DropdownField = styled.div(props => ({
         paddingLeft: '10px'
     },
 
+    '&.all_filter_list': {
+        '& .main_filter_field': {
+            padding: '0',
+            paddingTop: '10px'
+        },
+
+        '& .footer': {
+            padding: '13px',
+            paddingTop: '0'
+        },
+
+        '& .checkbox_field': {
+            overflow: 'unset'
+        }
+    },
+
     '& .row': {
         display: 'flex',
         alignItems: 'center',
@@ -137,5 +153,20 @@ export const DropdownField = styled.div(props => ({
                 color: '#5F738C'
             }
         }
+    },
+
+    '& .margin_top': {
+        marginTop: '40px',
+
+        '&:first-child': {
+            marginTop: '0'
+        }
+    },
+
+    '& .body_scrolling': {
+        maxHeight: '400px',
+        overflowY: 'auto',
+        padding: '0 13px',
+        paddingTop: '13px'
     }
 }));
