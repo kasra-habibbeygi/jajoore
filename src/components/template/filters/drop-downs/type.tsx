@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 // Assets
-import { CheckboxStyle } from './style/checkbox-dropdown.style';
+import { DropdownField } from './style/dropdown.style';
 import TypesIcon from '@/assets/images/filter/types.svg';
 
 // Component
@@ -55,9 +55,15 @@ const TypeFilter = () => {
     };
 
     return (
-        <CheckboxStyle ref={ref}>
+        <DropdownField ref={ref} className='type_filter'>
             <FilterPill title={titleProvider()} img={TypesIcon} handler={() => FilterDropDownStatusHandler(uniqValue)} />
-            <DropDownLayout title='نوع اقامتگاه' status={uniqValue === DropDownStatus} setDropDownStatus={setDropDownStatus} width={600}>
+            <DropDownLayout
+                title='نوع اقامتگاه'
+                status={uniqValue === DropDownStatus}
+                setDropDownStatus={setDropDownStatus}
+                boxWidth={600}
+                name='types'
+            >
                 <div className='checkbox_field'>
                     <div className='row'>
                         <Checkbox name='ویلایی' label='ویلایی' value={checkedValue.ویلایی} handler={(e: any) => checkboxValueHandler(e)} />
@@ -78,7 +84,7 @@ const TypeFilter = () => {
                     </div>
                 </div>
             </DropDownLayout>
-        </CheckboxStyle>
+        </DropdownField>
     );
 };
 

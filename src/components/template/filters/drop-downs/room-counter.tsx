@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 // Assets
-import { CheckboxStyle } from './style/counter-dropdown.style';
+import { DropdownField } from './style/dropdown.style';
 import BedIcon from '@/assets/images/card/double-bed.svg';
 
 // MUI
@@ -57,15 +57,20 @@ const PersonCounter = () => {
     };
 
     return (
-        <CheckboxStyle ref={ref}>
+        <DropdownField ref={ref} className='room_filter'>
             <FilterPill
                 title={titleProvider()}
                 img={BedIcon}
                 handler={() => FilterDropDownStatusHandler(uniqValue)}
                 activeStatus={inputValue.beds > 0 || inputValue.rooms > 0}
             />
-            <DropDownLayout title='تعداد تخت و اتاق' status={uniqValue === DropDownStatus} setDropDownStatus={setDropDownStatus}>
-                <div className='row'>
+            <DropDownLayout
+                title='تعداد تخت و اتاق'
+                status={uniqValue === DropDownStatus}
+                setDropDownStatus={setDropDownStatus}
+                name='room-counter'
+            >
+                <div className='counter_row'>
                     <p>
                         <span></span>
                         تعداد اتاق خواب ها
@@ -76,7 +81,7 @@ const PersonCounter = () => {
                         <RemoveCircleOutlineIcon className='red' onClick={() => counterHandler('reduce', 'rooms')} />
                     </div>
                 </div>
-                <div className='row'>
+                <div className='counter_row'>
                     <p>
                         <span></span>
                         تعداد تخت ها
@@ -88,7 +93,7 @@ const PersonCounter = () => {
                     </div>
                 </div>
             </DropDownLayout>
-        </CheckboxStyle>
+        </DropdownField>
     );
 };
 

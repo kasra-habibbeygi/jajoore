@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 // Assets
-import { CheckboxStyle } from './style/checkbox-dropdown.style';
+import { DropdownField } from './style/dropdown.style';
 import CheckListIcon from '@/assets/images/filter/checklist.svg';
 
 // Component
@@ -55,9 +55,15 @@ const LeaseType = () => {
     };
 
     return (
-        <CheckboxStyle ref={ref}>
+        <DropdownField ref={ref} className='lease_filter'>
             <FilterPill title={titleProvider()} img={CheckListIcon} handler={() => FilterDropDownStatusHandler(uniqValue)} />
-            <DropDownLayout title='نوع اجاره' status={uniqValue === DropDownStatus} setDropDownStatus={setDropDownStatus} width={600}>
+            <DropDownLayout
+                title='نوع اجاره'
+                status={uniqValue === DropDownStatus}
+                setDropDownStatus={setDropDownStatus}
+                boxWidth={600}
+                name='lease'
+            >
                 <div className='checkbox_field'>
                     <div className='row'>
                         <Checkbox name='جنگلی' label='جنگلی' value={checkedValue.جنگلی} handler={(e: any) => checkboxValueHandler(e)} />
@@ -78,7 +84,7 @@ const LeaseType = () => {
                     </div>
                 </div>
             </DropDownLayout>
-        </CheckboxStyle>
+        </DropdownField>
     );
 };
 

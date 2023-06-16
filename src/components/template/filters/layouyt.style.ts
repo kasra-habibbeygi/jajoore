@@ -2,11 +2,12 @@ import styled from '@emotion/styled';
 
 interface layoutTypes {
     status: boolean;
-    width: number;
+    boxWidth: number;
+    position: 'right' | 'left';
 }
 
 export const LayoutField = styled.div<layoutTypes>(props => ({
-    width: `${props.width}px`,
+    width: `${props.boxWidth}px`,
     padding: '13px',
     background: 'white',
     boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
@@ -14,7 +15,8 @@ export const LayoutField = styled.div<layoutTypes>(props => ({
     position: 'absolute',
     zIndex: '5',
     top: props.status ? '45px' : '35px',
-    right: '0',
+    right: props.position === 'right' ? '0' : 'unset',
+    left: props.position === 'left' ? '0' : 'unset',
     transition: 'all linear 0.1s',
     opacity: props.status ? '1' : '0',
     pointerEvents: props.status ? 'initial' : 'none',

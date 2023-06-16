@@ -2,21 +2,25 @@ import React, { useRef, useState } from 'react';
 
 // Assets
 import { DropdownField } from './style/dropdown.style';
-import HammerIcon from '@/assets/images/filter/hammer.svg';
+import FiltersIcon from '@/assets/images/icons/setting.svg';
 
 // Component
 import DropDownLayout from '../layout';
 import FilterPill from '@/components/template/filters/pill';
-import RulesContent from './content/rules';
+import RulesFilter from './content/rules';
 
 // Hooks
 import useOutsideClick from '@/hooks/use-outside-click';
 
-const RulesFilter = () => {
-    const uniqValue = 'RulesFilter';
+// Types
+
+const Filters = () => {
+    const uniqValue = 'room_counter';
     const ref = useRef(null);
     const [DropDownStatus, setDropDownStatus] = useState('');
     const [numberCounter, setNumberCounter] = useState(0);
+
+    console.log(numberCounter);
 
     useOutsideClick(ref, () => {
         setDropDownStatus('');
@@ -30,27 +34,28 @@ const RulesFilter = () => {
     };
 
     const titleProvider = () => {
-        if (numberCounter > 0) {
-            return `${numberCounter} قوانین اقامتگاه`;
-        }
-
-        return 'قوانین اقامتگاه';
+        return 'سایر فیلتر ها';
     };
 
     return (
-        <DropdownField ref={ref} className='rules_filter'>
-            <FilterPill title={titleProvider()} img={HammerIcon} handler={() => FilterDropDownStatusHandler(uniqValue)} />
+        <DropdownField ref={ref} className='room_filter'>
+            <FilterPill
+                title={titleProvider()}
+                img={FiltersIcon}
+                handler={() => FilterDropDownStatusHandler(uniqValue)}
+                activeStatus={false}
+            />
             <DropDownLayout
-                title='قوانین اقامتگاه'
+                title='تعداد تخت و اتاق'
                 status={uniqValue === DropDownStatus}
                 setDropDownStatus={setDropDownStatus}
-                boxWidth={450}
-                name='rules'
+                name='filters'
+                boxWidth={500}
             >
-                <RulesContent setNumberCounter={setNumberCounter} />
+                <RulesFilter setNumberCounter={setNumberCounter} />
             </DropDownLayout>
         </DropdownField>
     );
 };
 
-export default RulesFilter;
+export default Filters;

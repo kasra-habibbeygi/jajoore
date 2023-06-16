@@ -85,6 +85,17 @@ export const FilterField = styled.div(props => ({
         gap: '7px',
         marginTop: '20px'
     },
+
+    '@media(max-width : 1400px)': {
+        '& .rules_filter': {
+            display: 'none'
+        },
+
+        '& .facilities_filter': {
+            display: 'none'
+        }
+    },
+
     '@media(max-width : 900px)': {
         '& .right_field': {
             gap: '10px'

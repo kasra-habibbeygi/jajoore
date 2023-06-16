@@ -1,7 +1,11 @@
 import React, { useRef, useState } from 'react';
+import { CacheProvider } from '@emotion/react';
+import { prefixer } from 'stylis';
+import rtlPlugin from 'stylis-plugin-rtl';
+import createCache from '@emotion/cache';
 
 // Assets
-import { RangeField } from './style/range-dropwdown.style';
+import { DropdownField } from './style/dropdown.style';
 import CoinIcon from '@/assets/images/filter/coin.svg';
 
 // Component
@@ -14,10 +18,6 @@ import useOutsideClick from '@/hooks/use-outside-click';
 
 // MUI
 import Slider from '@mui/material/Slider';
-import { CacheProvider } from '@emotion/react';
-import { prefixer } from 'stylis';
-import rtlPlugin from 'stylis-plugin-rtl';
-import createCache from '@emotion/cache';
 
 const cacheRtl = createCache({
     key: 'muirtl',
@@ -77,14 +77,20 @@ const PriceFilter = () => {
     };
 
     return (
-        <RangeField ref={ref}>
+        <DropdownField ref={ref} className='price_filter'>
             <FilterPill
                 title={titleProvider()}
                 img={CoinIcon}
                 handler={() => FilterDropDownStatusHandler(uniqValue)}
                 activeStatus={sliderValue[0] > 100_000 || sliderValue[1] < 25_000_000}
             />
-            <DropDownLayout title='منطقه اقامتگاه' status={uniqValue === DropDownStatus} setDropDownStatus={setDropDownStatus} width={450}>
+            <DropDownLayout
+                title='منطقه اقامتگاه'
+                status={uniqValue === DropDownStatus}
+                setDropDownStatus={setDropDownStatus}
+                boxWidth={450}
+                name='price'
+            >
                 <div className='slider_field'>
                     <CacheProvider value={cacheRtl}>
                         <Slider
@@ -123,7 +129,7 @@ const PriceFilter = () => {
                     </div>
                 </div>
             </DropDownLayout>
-        </RangeField>
+        </DropdownField>
     );
 };
 

@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 // Assets
-import { CheckboxStyle } from './style/checkbox-dropdown.style';
+import { DropdownField } from './style/dropdown.style';
 import CheckListIcon from '@/assets/images/filter/checklist.svg';
 
 // Component
@@ -53,19 +53,15 @@ const Property = () => {
         return 'ویژگی های اقامتگاه';
     };
 
-    useEffect(() => {
-        let elem = document.getElementById('kasra');
-        console.log(elem!.getBoundingClientRect());
-    }, []);
-
     return (
-        <CheckboxStyle ref={ref} id='kasra'>
+        <DropdownField ref={ref} className='property_filter'>
             <FilterPill title={titleProvider()} img={CheckListIcon} handler={() => FilterDropDownStatusHandler(uniqValue)} />
             <DropDownLayout
                 title='ویژگی های اقامتگاه'
                 status={uniqValue === DropDownStatus}
                 setDropDownStatus={setDropDownStatus}
-                width={600}
+                boxWidth={600}
+                name='property'
             >
                 <div className='checkbox_field'>
                     <div className='row'>
@@ -84,7 +80,7 @@ const Property = () => {
                     </div>
                 </div>
             </DropDownLayout>
-        </CheckboxStyle>
+        </DropdownField>
     );
 };
 

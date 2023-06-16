@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 
 // Assets
 import { LayoutField } from './layouyt.style';
@@ -15,12 +16,26 @@ interface DropDownTypes {
     title: string;
     status: boolean;
     setDropDownStatus: (status: string) => void;
-    width?: number;
+    boxWidth?: number;
+    name: string;
 }
 
-const DropDownLayout = ({ children, title, status, setDropDownStatus, width = 300 }: DropDownTypes) => {
+const DropDownLayout = ({ children, title, status, setDropDownStatus, boxWidth = 300, name }: DropDownTypes) => {
+    const [position, setPosition] = useState<'right' | 'left'>('right');
+    var el = typeof window !== 'undefined' && document.getElementById(name);
+
+    useEffect(() => {
+        if (el) {
+            if (el!.getBoundingClientRect().left <= 200) {
+                setPosition('left');
+            } else {
+                setPosition('right');
+            }
+        }
+    }, []);
+
     return (
-        <LayoutField status={status} width={width}>
+        <LayoutField status={status} boxWidth={boxWidth} id={name} position={position}>
             <div className='header'>
                 <span></span>
                 {title}

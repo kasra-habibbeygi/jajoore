@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 // Assets
-import { CheckboxStyle } from './style/counter-dropdown.style';
+import { DropdownField } from './style/dropdown.style';
 import UsersIcon from '@/assets/images/card/group-users.svg';
 
 // MUI
@@ -45,15 +45,15 @@ const RoomCounter = () => {
     };
 
     return (
-        <CheckboxStyle ref={ref}>
+        <DropdownField ref={ref} className='person_filter'>
             <FilterPill
                 title={titleProvider()}
                 img={UsersIcon}
                 handler={() => FilterDropDownStatusHandler(uniqValue)}
                 activeStatus={inputValue !== 0}
             />
-            <DropDownLayout title='تعداد نفرات' status={uniqValue === DropDownStatus} setDropDownStatus={setDropDownStatus}>
-                <div className='row'>
+            <DropDownLayout title='تعداد نفرات' status={uniqValue === DropDownStatus} setDropDownStatus={setDropDownStatus} name='counter'>
+                <div className='counter_row'>
                     <p>
                         <span></span>
                         تعداد نفرات
@@ -65,7 +65,7 @@ const RoomCounter = () => {
                     </div>
                 </div>
             </DropDownLayout>
-        </CheckboxStyle>
+        </DropdownField>
     );
 };
 

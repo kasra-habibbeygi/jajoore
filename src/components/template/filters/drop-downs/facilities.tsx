@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 // Assets
-import { CheckboxStyle } from './style/checkbox-dropdown.style';
+import { DropdownField } from './style/dropdown.style';
 import CheckListIcon from '@/assets/images/filter/checklist.svg';
 
 // Component
@@ -55,13 +55,14 @@ const Facilities = () => {
     };
 
     return (
-        <CheckboxStyle ref={ref}>
+        <DropdownField ref={ref} className='facilities_filter'>
             <FilterPill title={titleProvider()} img={CheckListIcon} handler={() => FilterDropDownStatusHandler(uniqValue)} />
             <DropDownLayout
                 title='امکانات اقامتگاه'
                 status={uniqValue === DropDownStatus}
                 setDropDownStatus={setDropDownStatus}
-                width={600}
+                boxWidth={600}
+                name='facilities'
             >
                 <div className='checkbox_field'>
                     <div className='row'>
@@ -220,7 +221,7 @@ const Facilities = () => {
                     </div>
                 </div>
             </DropDownLayout>
-        </CheckboxStyle>
+        </DropdownField>
     );
 };
 

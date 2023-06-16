@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // Assets
-import { CheckboxStyle } from './style/checkbox-dropdown.style';
+import { DropdownField } from './style/dropdown.style';
 import VIPIcon from '@/assets/images/filter/vip.svg';
 
 // Component
@@ -11,9 +11,9 @@ const VIPOnly = () => {
     const [filterStatus, setFilterStatus] = useState(false);
 
     return (
-        <CheckboxStyle onClick={() => setFilterStatus(!filterStatus)}>
+        <DropdownField onClick={() => setFilterStatus(!filterStatus)}>
             <FilterPill title='فقط VIP' img={VIPIcon} activeStatus={filterStatus} />
-        </CheckboxStyle>
+        </DropdownField>
     );
 };
 
