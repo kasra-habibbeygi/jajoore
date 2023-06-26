@@ -27,6 +27,7 @@ import LeaseType from './drop-downs/lease-type';
 import RulesFilter from './drop-downs/rules';
 import VIPOnly from './drop-downs/vip';
 import Filters from './drop-downs/filters';
+import CalenderFilter from './drop-downs/calender';
 const PriceFilter = dynamic(() => import('./drop-downs/price'), { ssr: false });
 
 const Filter = () => {
@@ -57,6 +58,7 @@ const Filter = () => {
                         </div>
                     </div>
                     <div className='filter_field'>
+                        <CalenderFilter />
                         <PersonCounter />
                         <PriceFilter />
                         <RoomCounter />

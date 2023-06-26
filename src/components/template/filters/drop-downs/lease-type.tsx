@@ -7,7 +7,7 @@ import CheckListIcon from '@/assets/images/filter/checklist.svg';
 // Component
 import DropDownLayout from '../layout';
 import FilterPill from '@/components/template/filters/pill';
-import Checkbox from '@/components/form-group/checkbox';
+import LeaseFilters from './content/lease';
 
 // Hooks
 import useOutsideClick from '@/hooks/use-outside-click';
@@ -16,12 +16,7 @@ const LeaseType = () => {
     const uniqValue = 'LeaseType';
     const ref = useRef(null);
     const [DropDownStatus, setDropDownStatus] = useState('');
-    const [checkedValue, setCheckedValue] = useState({
-        جنگلی: false,
-        ساحلی: false,
-        شهری: false,
-        بیابانی: false
-    });
+    const [numberCounter, setNumberCounter] = useState(0);
 
     useOutsideClick(ref, () => {
         setDropDownStatus('');
@@ -34,21 +29,9 @@ const LeaseType = () => {
         }
     };
 
-    const checkboxValueHandler = (e: any) => {
-        setCheckedValue({
-            ...checkedValue,
-            [e.target.name]: e.target.checked
-        });
-    };
-
     const titleProvider = () => {
-        var count = 0;
-        Object.values(checkedValue).forEach(item => {
-            item && count++;
-        });
-
-        if (count > 0) {
-            return `${count} نوع اجاره`;
+        if (numberCounter > 0) {
+            return `${numberCounter} نوع اجاره`;
         }
 
         return 'نوع اجاره';
@@ -64,25 +47,7 @@ const LeaseType = () => {
                 boxWidth={600}
                 name='lease'
             >
-                <div className='checkbox_field'>
-                    <div className='row'>
-                        <Checkbox name='جنگلی' label='جنگلی' value={checkedValue.جنگلی} handler={(e: any) => checkboxValueHandler(e)} />
-                    </div>
-                    <div className='row'>
-                        <Checkbox name='ساحلی' label='ساحلی' value={checkedValue.ساحلی} handler={(e: any) => checkboxValueHandler(e)} />
-                    </div>
-                    <div className='row'>
-                        <Checkbox name='شهری' label='شهری' value={checkedValue.شهری} handler={(e: any) => checkboxValueHandler(e)} />
-                    </div>
-                    <div className='row'>
-                        <Checkbox
-                            name='بیابانی'
-                            label='بیابانی'
-                            value={checkedValue.بیابانی}
-                            handler={(e: any) => checkboxValueHandler(e)}
-                        />
-                    </div>
-                </div>
+                <LeaseFilters setNumberCounter={setNumberCounter} />
             </DropDownLayout>
         </DropdownField>
     );

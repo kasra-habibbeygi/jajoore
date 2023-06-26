@@ -4,26 +4,19 @@ import React, { useRef, useState } from 'react';
 import { DropdownField } from './style/dropdown.style';
 import UsersIcon from '@/assets/images/card/group-users.svg';
 
-// MUI
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
-
 // Component
 import DropDownLayout from '../layout';
 import FilterPill from '@/components/template/filters/pill';
+import PersonFilter from './content/person-counter';
 
 // Hooks
 import useOutsideClick from '@/hooks/use-outside-click';
 
-const RoomCounter = () => {
+const PersonCounter = () => {
     const uniqValue = 'room_counter';
     const ref = useRef(null);
-    const [DropDownStatus, setDropDownStatus] = useState('');
-    const [inputValue, setInputValue] = useState<number>(0);
-
-    const counterHandler = (type: 'add' | 'reduce') => {
-        setInputValue(type === 'add' ? inputValue + 1 : inputValue > 0 ? inputValue - 1 : 0);
-    };
+    const [DropDownStatus, setDropDownStatus] = useState<string>('');
+    const [personCount, setPersonCount] = useState<number>(0);
 
     useOutsideClick(ref, () => {
         setDropDownStatus('');
@@ -37,8 +30,8 @@ const RoomCounter = () => {
     };
 
     const titleProvider = () => {
-        if (inputValue) {
-            return `${inputValue} نفر`;
+        if (personCount) {
+            return `${personCount} نفر`;
         }
 
         return 'تعداد نفرات';
@@ -50,23 +43,13 @@ const RoomCounter = () => {
                 title={titleProvider()}
                 img={UsersIcon}
                 handler={() => FilterDropDownStatusHandler(uniqValue)}
-                activeStatus={inputValue !== 0}
+                activeStatus={personCount !== 0}
             />
             <DropDownLayout title='تعداد نفرات' status={uniqValue === DropDownStatus} setDropDownStatus={setDropDownStatus} name='counter'>
-                <div className='counter_row'>
-                    <p>
-                        <span></span>
-                        تعداد نفرات
-                    </p>
-                    <div className='counter'>
-                        <AddCircleOutlineIcon className='green' onClick={() => counterHandler('add')} />
-                        {inputValue}
-                        <RemoveCircleOutlineIcon className='red' onClick={() => counterHandler('reduce')} />
-                    </div>
-                </div>
+                <PersonFilter personCount={personCount} setpersonCount={setPersonCount} />
             </DropDownLayout>
         </DropdownField>
     );
 };
 
-export default RoomCounter;
+export default PersonCounter;

@@ -2,18 +2,18 @@ import React, { useRef, useState } from 'react';
 
 // Assets
 import { DropdownField } from './style/dropdown.style';
-import CheckListIcon from '@/assets/images/filter/checklist.svg';
+import CalenderIcon from '@/assets/images/filter/calendar.svg';
 
 // Component
 import DropDownLayout from '../layout';
 import FilterPill from '@/components/template/filters/pill';
-import PropertyFilter from './content/property';
+import TypeFilterContent from './content/type';
 
 // Hooks
 import useOutsideClick from '@/hooks/use-outside-click';
 
-const Property = () => {
-    const uniqValue = 'Property';
+const CalenderFilter = () => {
+    const uniqValue = 'CalenderFilter';
     const ref = useRef(null);
     const [DropDownStatus, setDropDownStatus] = useState('');
     const [numberCounter, setNumberCounter] = useState(0);
@@ -31,26 +31,26 @@ const Property = () => {
 
     const titleProvider = () => {
         if (numberCounter > 0) {
-            return `${numberCounter} ویژگی های اقامتگاه`;
+            return '5 تیر الی 21 مرداد';
         }
 
-        return 'ویژگی های اقامتگاه';
+        return '5 تیر الی 21 مرداد';
     };
 
     return (
-        <DropdownField ref={ref} className='property_filter'>
-            <FilterPill title={titleProvider()} img={CheckListIcon} handler={() => FilterDropDownStatusHandler(uniqValue)} />
+        <DropdownField ref={ref} className='calender_filter'>
+            <FilterPill title={titleProvider()} img={CalenderIcon} handler={() => FilterDropDownStatusHandler(uniqValue)} />
             <DropDownLayout
-                title='ویژگی های اقامتگاه'
+                title='تاریخ سفر'
                 status={uniqValue === DropDownStatus}
                 setDropDownStatus={setDropDownStatus}
                 boxWidth={600}
-                name='property'
+                name='types'
             >
-                <PropertyFilter setNumberCounter={setNumberCounter} />
+                <TypeFilterContent setNumberCounter={setNumberCounter} />
             </DropDownLayout>
         </DropdownField>
     );
 };
 
-export default Property;
+export default CalenderFilter;

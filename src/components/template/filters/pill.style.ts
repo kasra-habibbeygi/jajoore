@@ -18,5 +18,11 @@ export const PillField = styled.div<PillFieldType>(props => ({
             fontSize: '0.8rem',
             fontWeight: '200'
         }
+    },
+
+    '@media(max-width : 650px)': {
+        button: {
+            width: '100%'
+        }
     }
 }));

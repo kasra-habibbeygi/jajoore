@@ -7,7 +7,7 @@ import TypesIcon from '@/assets/images/filter/types.svg';
 // Component
 import DropDownLayout from '../layout';
 import FilterPill from '@/components/template/filters/pill';
-import Checkbox from '@/components/form-group/checkbox';
+import TypeFilterContent from './content/type';
 
 // Hooks
 import useOutsideClick from '@/hooks/use-outside-click';
@@ -16,12 +16,7 @@ const TypeFilter = () => {
     const uniqValue = 'TypeFilter';
     const ref = useRef(null);
     const [DropDownStatus, setDropDownStatus] = useState('');
-    const [checkedValue, setCheckedValue] = useState({
-        ویلایی: false,
-        آپارتمان: false,
-        کلبه: false,
-        قایق: false
-    });
+    const [numberCounter, setNumberCounter] = useState(0);
 
     useOutsideClick(ref, () => {
         setDropDownStatus('');
@@ -34,21 +29,9 @@ const TypeFilter = () => {
         }
     };
 
-    const checkboxValueHandler = (e: any) => {
-        setCheckedValue({
-            ...checkedValue,
-            [e.target.name]: e.target.checked
-        });
-    };
-
     const titleProvider = () => {
-        var count = 0;
-        Object.values(checkedValue).forEach(item => {
-            item && count++;
-        });
-
-        if (count > 0) {
-            return `${count} نوع اقامتگاه`;
+        if (numberCounter > 0) {
+            return `${numberCounter} نوع اقامتگاه`;
         }
 
         return 'نوع اقامتگاه';
@@ -64,25 +47,7 @@ const TypeFilter = () => {
                 boxWidth={600}
                 name='types'
             >
-                <div className='checkbox_field'>
-                    <div className='row'>
-                        <Checkbox name='ویلایی' label='ویلایی' value={checkedValue.ویلایی} handler={(e: any) => checkboxValueHandler(e)} />
-                    </div>
-                    <div className='row'>
-                        <Checkbox
-                            name='آپارتمان'
-                            label='آپارتمان'
-                            value={checkedValue.آپارتمان}
-                            handler={(e: any) => checkboxValueHandler(e)}
-                        />
-                    </div>
-                    <div className='row'>
-                        <Checkbox name='کلبه' label='کلبه' value={checkedValue.کلبه} handler={(e: any) => checkboxValueHandler(e)} />
-                    </div>
-                    <div className='row'>
-                        <Checkbox name='قایق' label='قایق' value={checkedValue.قایق} handler={(e: any) => checkboxValueHandler(e)} />
-                    </div>
-                </div>
+                <TypeFilterContent setNumberCounter={setNumberCounter} />
             </DropDownLayout>
         </DropdownField>
     );

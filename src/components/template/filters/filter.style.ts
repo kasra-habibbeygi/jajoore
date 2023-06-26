@@ -86,12 +86,39 @@ export const FilterField = styled.div(props => ({
         marginTop: '20px'
     },
 
-    '@media(max-width : 1400px)': {
+    '& .all_filter_list': {
+        display: 'none'
+    },
+
+    '@media(max-width : 1600px)': {
         '& .rules_filter': {
             display: 'none'
         },
 
         '& .facilities_filter': {
+            display: 'none'
+        },
+        '& .all_filter_list': {
+            display: 'block'
+        }
+    },
+
+    '@media(max-width : 1420px)': {
+        '& .type_filter': {
+            display: 'none'
+        },
+
+        '& .lease_filter': {
+            display: 'none'
+        }
+    },
+
+    '@media(max-width : 1200px)': {
+        '& .area_filter': {
+            display: 'none'
+        },
+
+        '& .property_filter': {
             display: 'none'
         }
     },
@@ -103,6 +130,14 @@ export const FilterField = styled.div(props => ({
 
         '& .top_field': {
             gap: '10px'
+        },
+
+        '& .room_filter': {
+            display: 'none'
+        },
+
+        '& .price_filter': {
+            display: 'none'
         }
     }
 }));

@@ -4,13 +4,10 @@ import React, { useRef, useState } from 'react';
 import { DropdownField } from './style/dropdown.style';
 import BedIcon from '@/assets/images/card/double-bed.svg';
 
-// MUI
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
-
 // Component
 import DropDownLayout from '../layout';
 import FilterPill from '@/components/template/filters/pill';
+import RoomCounterFilter from './content/room-counter';
 
 // Hooks
 import useOutsideClick from '@/hooks/use-outside-click';
@@ -25,17 +22,10 @@ const PersonCounter = () => {
     const uniqValue = 'room_counter';
     const ref = useRef(null);
     const [DropDownStatus, setDropDownStatus] = useState('');
-    const [inputValue, setInputValue] = useState<InputValueType>({
+    const [roomValues, setRoomValues] = useState<InputValueType>({
         beds: 0,
         rooms: 0
     });
-
-    const counterHandler = (type: 'add' | 'reduce', name: 'beds' | 'rooms') => {
-        setInputValue({
-            ...inputValue,
-            [name]: type === 'add' ? inputValue[name] + 1 : inputValue[name] > 0 ? inputValue[name] - 1 : 0
-        });
-    };
 
     useOutsideClick(ref, () => {
         setDropDownStatus('');
@@ -49,8 +39,8 @@ const PersonCounter = () => {
     };
 
     const titleProvider = () => {
-        if (inputValue.beds !== 0 || inputValue.rooms !== 0) {
-            return `تخت ${inputValue.beds} - اتاق ${inputValue.rooms}`;
+        if (roomValues.beds !== 0 || roomValues.rooms !== 0) {
+            return `تخت ${roomValues.beds} - اتاق ${roomValues.rooms}`;
         }
 
         return 'تعداد تخت و اتاق';
@@ -62,7 +52,7 @@ const PersonCounter = () => {
                 title={titleProvider()}
                 img={BedIcon}
                 handler={() => FilterDropDownStatusHandler(uniqValue)}
-                activeStatus={inputValue.beds > 0 || inputValue.rooms > 0}
+                activeStatus={roomValues.beds > 0 || roomValues.rooms > 0}
             />
             <DropDownLayout
                 title='تعداد تخت و اتاق'
@@ -70,28 +60,7 @@ const PersonCounter = () => {
                 setDropDownStatus={setDropDownStatus}
                 name='room-counter'
             >
-                <div className='counter_row'>
-                    <p>
-                        <span></span>
-                        تعداد اتاق خواب ها
-                    </p>
-                    <div className='counter'>
-                        <AddCircleOutlineIcon className='green' onClick={() => counterHandler('add', 'rooms')} />
-                        {inputValue.rooms}
-                        <RemoveCircleOutlineIcon className='red' onClick={() => counterHandler('reduce', 'rooms')} />
-                    </div>
-                </div>
-                <div className='counter_row'>
-                    <p>
-                        <span></span>
-                        تعداد تخت ها
-                    </p>
-                    <div className='counter'>
-                        <AddCircleOutlineIcon className='green' onClick={() => counterHandler('add', 'beds')} />
-                        {inputValue.beds}
-                        <RemoveCircleOutlineIcon className='red' onClick={() => counterHandler('reduce', 'beds')} />
-                    </div>
-                </div>
+                <RoomCounterFilter setRoomValues={setRoomValues} roomValues={roomValues} />
             </DropDownLayout>
         </DropdownField>
     );

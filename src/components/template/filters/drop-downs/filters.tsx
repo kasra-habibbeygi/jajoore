@@ -1,23 +1,48 @@
-import React, { useRef, useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useRef, useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 
 // Assets
 import { DropdownField } from './style/dropdown.style';
 import FiltersIcon from '@/assets/images/icons/setting.svg';
+
+// Hooks
+import useOutsideClick from '@/hooks/use-outside-click';
 
 // Component
 import DropDownLayout from '../layout';
 import FilterPill from '@/components/template/filters/pill';
 import RulesFilter from './content/rules';
 import FacilitiesFilter from './content/facilities';
+import TypeFilter from './content/type';
+import LeaseFilters from './content/lease';
+import AreaFilters from './content/area';
+import PropertyFilter from './content/property';
+import RoomCounterFilter from './content/room-counter';
+const PriceFilters = dynamic(() => import('./content/price'), { ssr: false });
 
-// Hooks
-import useOutsideClick from '@/hooks/use-outside-click';
+// Types
+interface InputValueType {
+    beds: number;
+    rooms: number;
+}
 
 const Filters = () => {
     const uniqValue = 'room_counter';
     const ref = useRef(null);
     const [DropDownStatus, setDropDownStatus] = useState('');
     const [numberCounter, setNumberCounter] = useState(0);
+    const [priceValue, setPriceValue] = useState([100_000, 25_000_000]);
+    const [roomValues, setRoomValues] = useState<InputValueType>({
+        beds: 0,
+        rooms: 0
+    });
+
+    useEffect(() => {
+        if (roomValues.beds !== 0 || roomValues.rooms !== 0) {
+            setNumberCounter(numberCounter + 1);
+        }
+    }, [roomValues]);
 
     useOutsideClick(ref, () => {
         setDropDownStatus('');
@@ -49,6 +74,16 @@ const Filters = () => {
                 <div className='body_scrolling'>
                     <div className='header margin_top'>
                         <span></span>
+                        محدوده اجاره بها
+                    </div>
+                    <PriceFilters setPriceValue={setPriceValue} priceValue={priceValue} />
+                    <div className='header margin_top'>
+                        <span></span>
+                        تعداد تخت و اتاق
+                    </div>
+                    <RoomCounterFilter setRoomValues={setRoomValues} roomValues={roomValues} />
+                    <div className='header margin_top'>
+                        <span></span>
                         قوانین اقامتگاه
                     </div>
                     <RulesFilter setNumberCounter={setNumberCounter} />
@@ -57,6 +92,26 @@ const Filters = () => {
                         امکانات اقامتگاه
                     </div>
                     <FacilitiesFilter setNumberCounter={setNumberCounter} />
+                    <div className='header margin_top'>
+                        <span></span>
+                        نوع اقامتگاه
+                    </div>
+                    <TypeFilter setNumberCounter={setNumberCounter} />
+                    <div className='header margin_top'>
+                        <span></span>
+                        نوع اجاره
+                    </div>
+                    <LeaseFilters setNumberCounter={setNumberCounter} />
+                    <div className='header margin_top'>
+                        <span></span>
+                        منطقه اقامتگاه
+                    </div>
+                    <AreaFilters setNumberCounter={setNumberCounter} />
+                    <div className='header margin_top'>
+                        <span></span>
+                        ویژگی اقامتگاه
+                    </div>
+                    <PropertyFilter setNumberCounter={setNumberCounter} />
                 </div>
             </DropDownLayout>
         </DropdownField>

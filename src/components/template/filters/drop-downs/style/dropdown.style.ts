@@ -8,7 +8,6 @@ export const DropdownField = styled.div(props => ({
         alignItems: 'center',
         justifyContent: 'space-between',
         flexWrap: 'wrap',
-        maxHeight: '300px',
         overflow: 'auto',
         paddingLeft: '10px'
     },
@@ -168,5 +167,9 @@ export const DropdownField = styled.div(props => ({
         overflowY: 'auto',
         padding: '0 13px',
         paddingTop: '13px'
+    },
+
+    '@media(max-width : 650px)': {
+        width: '100%'
     }
 }));
