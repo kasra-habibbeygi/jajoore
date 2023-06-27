@@ -24,10 +24,10 @@ const Map = dynamic(() => import('@/components/pages/index/map'), { ssr: false }
 
 import Axios from '@/configs/axios';
 
-const Index = ({ article, vipsResidence, Residence, popularDestinations }: any) => {
+const Index = ({ article, vipsResidence, Residence, popularDestinations, instants, filtersItem }: any) => {
     return (
         <LayoutProvider>
-            <Filter />
+            <Filter filtersItem={filtersItem.result} />
             <main className='container'>
                 <IndexHeader />
                 <DoubleCol>
@@ -38,7 +38,7 @@ const Index = ({ article, vipsResidence, Residence, popularDestinations }: any) 
                             <Image src={TrustSymbol} alt='' />
                         </div>
                         <DestinationCard data={popularDestinations} />
-                        {/* <SideBarCardList title='آگهی های رزرو آنی' /> */}
+                        <SideBarCardList title='آگهی های رزرو آنی' data={instants} />
                         {/* <SideBarCardList title='آگهی های لحظه آخری' /> */}
                     </aside>
                     <div className='content_field'>
@@ -62,11 +62,13 @@ export async function getServerSideProps({ query }: any) {
         residenceQuery += `&PageIndex=${query.page}`;
     }
 
-    const [article, vipsResidence, Residence, popularDestinations] = await Promise.all([
+    const [article, vipsResidence, Residence, popularDestinations, instants, filtersItem] = await Promise.all([
         Axios.get('blog'),
         Axios.get('residence/vips'),
         Axios.get(`residence${residenceQuery}`),
-        Axios.get('residence/popularDestinations')
+        Axios.get('residence/popularDestinations'),
+        Axios.get('residence/instants?pageSize=5'),
+        Axios.get('/residence/preperForView')
     ]);
 
     return {
@@ -74,7 +76,9 @@ export async function getServerSideProps({ query }: any) {
             article: article.data,
             vipsResidence: vipsResidence.data,
             Residence: Residence.data,
-            popularDestinations: popularDestinations.data
+            popularDestinations: popularDestinations.data,
+            instants: instants.data,
+            filtersItem: filtersItem.data
         }
     };
 }

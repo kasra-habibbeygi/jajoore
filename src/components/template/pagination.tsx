@@ -14,10 +14,12 @@ interface PaginationTypes {
 }
 
 const Pagination = ({ count = 1, current = 6, handler }: PaginationTypes) => {
-    return (
+    return count !== 1 ? (
         <MainField>
             <PaginationMUI count={count} page={current} size='small' onChange={handler} />
         </MainField>
+    ) : (
+        <></>
     );
 };
 

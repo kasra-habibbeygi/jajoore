@@ -46,14 +46,14 @@ const VipSlider = ({ data }: any) => {
                 }}
                 className='card_slider'
             >
-                {data.data.map((item: any) => (
+                {data.result.map((item: any) => (
                     <SwiperSlide key={`vips_residence_${item.id}`}>
                         <CardComponent data={item} />
                     </SwiperSlide>
                 ))}
-                <SwiperSlide>
-                    <CardComponent blur data={data?.data[0]} />
-                </SwiperSlide>
+                {/* <SwiperSlide>
+                    <CardComponent blur data={data?.result[0]} />
+                </SwiperSlide> */}
             </Swiper>
         </MainField>
     );

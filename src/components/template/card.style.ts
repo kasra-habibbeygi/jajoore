@@ -184,6 +184,7 @@ export const MainCardField = styled.div(props => ({
         padding: '0 10px',
         marginTop: '20px',
         marginBottom: '20px',
+
         img: {
             width: '17px',
             height: 'auto',
@@ -197,7 +198,8 @@ export const MainCardField = styled.div(props => ({
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             whiteSpace: 'nowrap',
-            maxWidth: '300px'
+            maxWidth: '300px',
+            color: 'black'
         },
 
         div: {
@@ -329,6 +331,7 @@ export const MainCardField = styled.div(props => ({
         marginTop: '10px',
         padding: '5px 20px',
         borderRadius: '7px',
+        color: 'black',
 
         div: {
             display: 'flex',

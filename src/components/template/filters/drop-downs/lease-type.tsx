@@ -12,7 +12,7 @@ import LeaseFilters from './content/lease';
 // Hooks
 import useOutsideClick from '@/hooks/use-outside-click';
 
-const LeaseType = () => {
+const LeaseType = ({ filterItem }: any) => {
     const uniqValue = 'LeaseType';
     const ref = useRef(null);
     const [DropDownStatus, setDropDownStatus] = useState('');
@@ -47,7 +47,7 @@ const LeaseType = () => {
                 boxWidth={600}
                 name='lease'
             >
-                <LeaseFilters setNumberCounter={setNumberCounter} />
+                <LeaseFilters setNumberCounter={setNumberCounter} filterItem={filterItem} />
             </DropDownLayout>
         </DropdownField>
     );

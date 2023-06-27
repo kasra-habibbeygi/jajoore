@@ -28,7 +28,7 @@ interface InputValueType {
     rooms: number;
 }
 
-const Filters = () => {
+const Filters = ({ filtersItem }: any) => {
     const uniqValue = 'room_counter';
     const ref = useRef(null);
     const [DropDownStatus, setDropDownStatus] = useState('');
@@ -110,12 +110,12 @@ const Filters = () => {
                             <span></span>
                             نوع اجاره
                         </div>
-                        <LeaseFilters setNumberCounter={setNumberCounter} />
+                        <LeaseFilters setNumberCounter={setNumberCounter} filterItem={filtersItem.rentTypes} />
                         <div className='header margin_top'>
                             <span></span>
                             منطقه اقامتگاه
                         </div>
-                        <AreaFilters setNumberCounter={setNumberCounter} />
+                        <AreaFilters setNumberCounter={setNumberCounter} filterItem={filtersItem.residenceAreas} />
                         <div className='header margin_top'>
                             <span></span>
                             ویژگی اقامتگاه

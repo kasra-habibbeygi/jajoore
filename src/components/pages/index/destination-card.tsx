@@ -12,13 +12,11 @@ import DestinationImg from '@/assets/images/moc/destination.jpg';
 import TitleField from '../../template/title';
 
 const DestinationCard = ({ data }: any) => {
-    console.log(data);
-
     return (
         <MainField>
             <TitleField title='مقاصد پر طرفدار' />
             <ul className='cards_container'>
-                {data.data.map((item: any, index: number) => (
+                {data.result.map((item: any, index: number) => (
                     <li className='card_field' key={`popular_destinations_item_${index}`}>
                         <Link href='/'>
                             <Image src={DestinationImg} alt='' />
@@ -47,7 +45,7 @@ const DestinationCard = ({ data }: any) => {
                     }}
                     className='card_slider'
                 >
-                    {data.data.map((item: any, index: number) => (
+                    {data.result.map((item: any, index: number) => (
                         <SwiperSlide key={`mobile_popular_destinations_item_${index}`}>
                             <div className='card_field'>
                                 <Link href='/'>

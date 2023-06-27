@@ -186,3 +186,22 @@ export const FilterField = styled.div(props => ({
         }
     }
 }));
+
+export const Layout = styled.div<{ status: boolean }>(props => ({
+    position: 'fixed',
+    top: '0',
+    left: '0',
+    background: '#0000008c',
+    zIndex: '1020',
+    cursor: 'pointer',
+    width: '100%',
+    height: '100vh',
+    opacity: props.status ? '1' : '0',
+    pointerEvents: props.status ? 'initial' : 'none',
+    transition: 'all linear 0.2s',
+    display: 'none',
+
+    '@media(max-width : 650px)': {
+        display: 'block'
+    }
+}));

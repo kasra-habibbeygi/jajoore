@@ -12,22 +12,19 @@ import { MainField } from './sidebar-card-list.style';
 // Types
 interface SideBarCardListTypes {
     title: string;
+    data: any;
 }
 
-const SideBarCardList = ({ title }: SideBarCardListTypes) => {
+const SideBarCardList = ({ title, data }: SideBarCardListTypes) => {
     return (
         <MainField>
             <TitleField title={title} />
             <ul className='aside_cards_field'>
-                <li>
-                    <CardComponent type='half' extraClass='aside_cards' />
-                </li>
-                <li>
-                    <CardComponent type='half' extraClass='aside_cards' />
-                </li>
-                <li>
-                    <CardComponent type='half' extraClass='aside_cards' />
-                </li>
+                {data.result.map((item: any) => (
+                    <li key={`instance_items_${item.id}`}>
+                        <CardComponent type='half' extraClass='aside_cards' data={item} />
+                    </li>
+                ))}
             </ul>
             <div className='mobile_slider'>
                 <Swiper
@@ -45,18 +42,11 @@ const SideBarCardList = ({ title }: SideBarCardListTypes) => {
                     }}
                     className='card_slider'
                 >
-                    <SwiperSlide>
-                        <CardComponent type='half' extraClass='aside_cards' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <CardComponent type='half' extraClass='aside_cards' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <CardComponent type='half' extraClass='aside_cards' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <CardComponent type='half' extraClass='aside_cards' />
-                    </SwiperSlide>
+                    {data.result.map((item: any) => (
+                        <SwiperSlide key={`instance_items_${item.id}`}>
+                            <CardComponent type='half' extraClass='aside_cards' data={item} />
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
             </div>
         </MainField>

@@ -12,7 +12,7 @@ import AreaFilters from './content/area';
 // Hooks
 import useOutsideClick from '@/hooks/use-outside-click';
 
-const AreaFilter = () => {
+const AreaFilter = ({ filterItem }: any) => {
     const uniqValue = 'AreaFilter';
     const ref = useRef(null);
     const [DropDownStatus, setDropDownStatus] = useState('');
@@ -46,7 +46,7 @@ const AreaFilter = () => {
                 boxWidth={600}
                 name='area'
             >
-                <AreaFilters setNumberCounter={setNumberCounter} />
+                <AreaFilters setNumberCounter={setNumberCounter} filterItem={filterItem} />
             </DropDownLayout>
         </DropdownField>
     );

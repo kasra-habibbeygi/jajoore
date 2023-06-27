@@ -31,7 +31,7 @@ const ArticleSlider = ({ data }: any) => {
                     }
                 }}
             >
-                {data.data.map((item: any) => (
+                {data.result.map((item: any) => (
                     <SwiperSlide key={`article_${item.blogId}`}>
                         <ArticleCard data={item} />
                     </SwiperSlide>

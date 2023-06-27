@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Link from 'next/link';
 
 // Assets
 import { MainCardField, CardCover } from './card.style';
@@ -19,7 +20,6 @@ import FastChargeIcon from '@/assets/images/card/fast-charge.svg';
 import PlayIcon from '@/assets/images/card/play.svg';
 import PlusIcon from '@/assets/images/card/plus.svg';
 import EmptyAvatar from '@/assets/images/card/empty-avatar.svg';
-import MocImg from '@/assets/images/moc/bg.jpg';
 
 // Hook
 import useTimer from '@/hooks/use-timer';
@@ -27,7 +27,6 @@ import Button from '../form-group/button';
 
 // MUI
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
-import Link from 'next/link';
 
 // Types
 interface CardComponentTypes {
@@ -54,30 +53,12 @@ const CardComponent = ({ type = 'full', blur, extraClass, data }: CardComponentT
                     navigation
                     pagination={{ clickable: true }}
                     className='image_slider'
-                    loop={true}
-                    id='test'
                 >
-                    <SwiperSlide>
-                        <Image
-                            src={`${process.env.IMAGE_URL}${data.mainImageUrl}`}
-                            alt=''
-                            width={500}
-                            height={300}
-                            className='card_image'
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image src={MocImg} alt='' className='card_image' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image src={MocImg} alt='' className='card_image' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image src={MocImg} alt='' className='card_image' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image src={MocImg} alt='' className='card_image' />
-                    </SwiperSlide>
+                    {data.imageUrls.map((item: any, index: number) => (
+                        <SwiperSlide key={`residence_image_card_${index}`}>
+                            <Image src={`${process.env.IMAGE_URL}${item}`} alt='' width={500} height={300} className='card_image' />
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
                 <div className='pills_field'>
                     <span className='yellow'>
@@ -94,20 +75,24 @@ const CardComponent = ({ type = 'full', blur, extraClass, data }: CardComponentT
                         <Image src={PlayIcon} alt='' />
                         <p>ویدیو</p>
                     </span>
-                    <span className='green'>
-                        <p> تضمین قیمت</p>
-                    </span>
+                    {data.priceGuarantee && (
+                        <span className='green'>
+                            <p> تضمین قیمت</p>
+                        </span>
+                    )}
                 </div>
                 {data.vip && <div className='vip_field'>VIP</div>}
                 <div className={`discount_field ${type === 'half' ? 'half_card_discount' : ''}`}>
-                    <span>20%</span>
+                    <span>{data.discountPercent}%</span>
                     <p>
                         {hours} :{minutes} :{seconds}
                     </p>
                 </div>
             </div>
             <div className={`title ${type === 'half' ? 'position_added' : ''}`}>
-                <p>{data.title}</p>
+                <Link href={`/residence/${data.residenceNO}`}>
+                    <p>{data.title}</p>
+                </Link>
                 {type === 'full' && (
                     <div>
                         <Image src={HeartIcon} alt='' />
@@ -122,11 +107,11 @@ const CardComponent = ({ type = 'full', blur, extraClass, data }: CardComponentT
                         <div>
                             <span className='yellow'>
                                 <Image src={StarIcon} alt='' />
-                                4.5
+                                {data.totalScores}
                             </span>
                             <span className='blue'>
                                 <Image src={CommentIcon} alt='' />
-                                56
+                                {data.numberOfComments}
                             </span>
                         </div>
                     </div>
@@ -140,7 +125,9 @@ const CardComponent = ({ type = 'full', blur, extraClass, data }: CardComponentT
                 </div>
             )}
             <p className='price'>
-                از شبی <b>{domLoader && parseInt(data.price).toLocaleString()}</b> 1.600.000 تومان
+                از شبی <b>{domLoader && parseInt(data.price).toLocaleString()}</b>{' '}
+                {domLoader && parseInt(data.discountedPrice).toLocaleString()}
+                تومان
             </p>
             <div className='options'>
                 <div>

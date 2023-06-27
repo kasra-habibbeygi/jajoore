@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
 // Assets
-import { FilterField } from './filter.style';
+import { FilterField, Layout } from './filter.style';
 import EmptyAvatar from '@/assets/images/card/empty-avatar.svg';
 import MenuIcon from '@/assets/images/layout/menus.svg';
 import CustomerService from '@/assets/images/layout/customer-service.svg';
@@ -30,11 +31,13 @@ import Filters from './drop-downs/filters';
 import CalenderFilter from './drop-downs/calender';
 const PriceFilter = dynamic(() => import('./drop-downs/price'), { ssr: false });
 
-const Filter = () => {
+const Filter = ({ filtersItem }: any) => {
     const [sideMenuStatus, setSideMenuStatus] = useState(false);
     const [citiesModalStatus, setCitiesModalStatus] = useState(false);
     const [provincesModalStatus, setProvincesModalStatus] = useState(false);
     const [mobileSearchStatus, setMobileSearchStatus] = useState(false);
+
+    console.log(filtersItem);
 
     return (
         <>
@@ -46,6 +49,7 @@ const Filter = () => {
                                 <Image src={MenuIcon} alt='' />
                                 <Image src={EmptyAvatar} alt='' className='avatar' />
                             </Button>
+                            <Layout status={mobileSearchStatus} onClick={() => setMobileSearchStatus(false)}></Layout>
                             <SearchField
                                 setCitiesModalStatus={setCitiesModalStatus}
                                 setMobileSearchStatus={setMobileSearchStatus}
@@ -74,13 +78,13 @@ const Filter = () => {
                         <PriceFilter />
                         <RoomCounter />
                         <Property />
-                        <AreaFilter />
-                        <LeaseType />
+                        <AreaFilter filterItem={filtersItem.residenceAreas} />
+                        <LeaseType filterItem={filtersItem.rentTypes} />
                         <TypeFilter />
                         <Facilities />
                         <RulesFilter />
                         <VIPOnly />
-                        <Filters />
+                        <Filters filtersItem={filtersItem} />
                     </div>
                 </div>
             </FilterField>

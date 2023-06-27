@@ -22,7 +22,7 @@ const CardsList = ({ data }: any) => {
                     <h3>آگهی های ویژه</h3>
                 </header>
                 <ol>
-                    {data.data.map((item: any) => (
+                    {data.result.map((item: any) => (
                         <li key={`residence_card_list_${item.id}`}>
                             <CardComponent data={item} />
                         </li>

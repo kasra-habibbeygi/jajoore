@@ -1,6 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { ReactNode, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import Image from 'next/image';
+import { filterActionHandler } from '@/state-manager/reducer/utils';
 
 // Assets
 import { LayoutField } from './layouyt.style';
@@ -8,7 +11,6 @@ import TrashIcon from '../../../assets/images/layout/trash.svg';
 
 // Component
 import Button from '@/components/form-group/button';
-import Image from 'next/image';
 
 // Types
 interface DropDownTypes {
@@ -22,10 +24,11 @@ interface DropDownTypes {
 }
 
 const DropDownLayout = ({ children, title, status, setDropDownStatus, boxWidth = 300, name, className = '' }: DropDownTypes) => {
+    const dispatch = useDispatch();
     const [position, setPosition] = useState<'right' | 'left'>('right');
-    var el = typeof window !== 'undefined' && document.getElementById(name);
 
     useEffect(() => {
+        var el = document.getElementById(name);
         if (el) {
             if (el!.getBoundingClientRect().left <= 200) {
                 setPosition('left');
@@ -34,6 +37,24 @@ const DropDownLayout = ({ children, title, status, setDropDownStatus, boxWidth =
             }
         }
     }, []);
+
+    const ActionHandler = (actionType: 'remove' | 'apply') => {
+        if (actionType === 'apply') {
+            dispatch(
+                filterActionHandler({
+                    action: 'apply',
+                    type: name
+                })
+            );
+        } else {
+            dispatch(
+                filterActionHandler({
+                    action: 'remove',
+                    type: name
+                })
+            );
+        }
+    };
 
     return (
         <LayoutField status={status} boxWidth={boxWidth} id={name} position={position} className={`main_filter_field ${className}`}>
@@ -50,8 +71,12 @@ const DropDownLayout = ({ children, title, status, setDropDownStatus, boxWidth =
                     بستن فیلتر
                 </Button>
                 <div className='action_group'>
-                    <Button color='primary'>حذف فیلتر</Button>
-                    <Button color='green'>اعمال</Button>
+                    <Button color='primary' handler={() => ActionHandler('remove')}>
+                        حذف فیلتر
+                    </Button>
+                    <Button color='green' handler={() => ActionHandler('apply')}>
+                        اعمال
+                    </Button>
                 </div>
             </div>
         </LayoutField>

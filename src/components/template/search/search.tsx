@@ -35,6 +35,7 @@ const SearchField = ({ setCitiesModalStatus, mode = '', setMobileSearchStatus, m
             ref={ref}
             mobileMode={mobileSearchStatus}
             className={mode === 'mobile' ? 'mobile_search' : ''}
+            mode={mode}
         >
             <div className='content'>
                 <Input
