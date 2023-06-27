@@ -7,7 +7,7 @@ import { MainField } from './article-slider.styles';
 
 // Component
 import ArticleCard from '@/components/template/article-card';
-const ArticleSlider = () => {
+const ArticleSlider = ({ data }: any) => {
     return (
         <MainField>
             <Swiper
@@ -31,24 +31,11 @@ const ArticleSlider = () => {
                     }
                 }}
             >
-                <SwiperSlide>
-                    <ArticleCard />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <ArticleCard />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <ArticleCard />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <ArticleCard />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <ArticleCard />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <ArticleCard />
-                </SwiperSlide>
+                {data.data.map((item: any) => (
+                    <SwiperSlide key={`article_${item.blogId}`}>
+                        <ArticleCard data={item} />
+                    </SwiperSlide>
+                ))}
             </Swiper>
         </MainField>
     );

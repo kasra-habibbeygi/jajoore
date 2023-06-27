@@ -42,7 +42,7 @@ export const FilterField = styled.div(props => ({
         gap: '10px'
     },
 
-    '& .left-field': {
+    '& .left_field': {
         display: 'flex',
         alignItems: 'center',
         gap: '10px',
@@ -87,6 +87,10 @@ export const FilterField = styled.div(props => ({
     },
 
     '& .all_filter_list': {
+        display: 'none'
+    },
+
+    '& .mobile_search': {
         display: 'none'
     },
 
@@ -138,6 +142,47 @@ export const FilterField = styled.div(props => ({
 
         '& .price_filter': {
             display: 'none'
+        }
+    },
+
+    '@media(max-width : 700px)': {
+        '& .mobile_search': {
+            display: 'block'
+        }
+    },
+
+    '@media(max-width : 500px)': {
+        '& .person_filter': {
+            display: 'none'
+        },
+
+        '& .left_field': {
+            gap: '5px',
+
+            '& .support_btn': {
+                color: 'black',
+                minWidth: '40px',
+                minHeight: '40px',
+
+                img: {
+                    width: '20px'
+                }
+            }
+        },
+
+        '& .panel_btn': {
+            padding: '5px 7px',
+            minHeight: '40px',
+
+            img: {
+                width: '20px',
+                height: 'auto'
+            },
+
+            '& .avatar': {
+                width: '24px',
+                height: '24px'
+            }
         }
     }
 }));

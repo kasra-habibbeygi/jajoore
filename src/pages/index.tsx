@@ -20,10 +20,11 @@ import Filter from '@/components/template/filters/filter';
 import DestinationCard from '@/components/pages/index/destination-card';
 import AboutUs from '@/components/pages/index/about-us';
 import SideBarCardList from '@/components/pages/index/sidebar-card-list';
-import Pagination from '@/components/template/pagination';
 const Map = dynamic(() => import('@/components/pages/index/map'), { ssr: false });
 
-const Index = () => {
+import Axios from '@/configs/axios';
+
+const Index = ({ article, vipsResidence, Residence, popularDestinations }: any) => {
     return (
         <LayoutProvider>
             <Filter />
@@ -36,17 +37,16 @@ const Index = () => {
                             <Image src={TrustSymbol} alt='' />
                             <Image src={TrustSymbol} alt='' />
                         </div>
-                        <DestinationCard />
-                        <SideBarCardList title='آگهی های رزرو آنی' />
-                        <SideBarCardList title='آگهی های لحظه آخری' />
+                        <DestinationCard data={popularDestinations} />
+                        {/* <SideBarCardList title='آگهی های رزرو آنی' /> */}
+                        {/* <SideBarCardList title='آگهی های لحظه آخری' /> */}
                     </aside>
                     <div className='content_field'>
-                        <VipSlider />
-                        <CardsList />
-                        <Pagination count={11} current={1} />
+                        <VipSlider data={vipsResidence} />
+                        <CardsList data={Residence} />
                     </div>
                 </DoubleCol>
-                <ArticleSlider />
+                <ArticleSlider data={article} />
                 <AboutUs />
             </main>
         </LayoutProvider>
@@ -54,3 +54,27 @@ const Index = () => {
 };
 
 export default Index;
+
+export async function getServerSideProps({ query }: any) {
+    let residenceQuery = '?PageSize=12';
+
+    if (query.page) {
+        residenceQuery += `&PageIndex=${query.page}`;
+    }
+
+    const [article, vipsResidence, Residence, popularDestinations] = await Promise.all([
+        Axios.get('blog'),
+        Axios.get('residence/vips'),
+        Axios.get(`residence${residenceQuery}`),
+        Axios.get('residence/popularDestinations')
+    ]);
+
+    return {
+        props: {
+            article: article.data,
+            vipsResidence: vipsResidence.data,
+            Residence: Residence.data,
+            popularDestinations: popularDestinations.data
+        }
+    };
+}

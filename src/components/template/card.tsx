@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -34,10 +34,16 @@ interface CardComponentTypes {
     type?: 'full' | 'half';
     blur?: boolean;
     extraClass?: string;
+    data?: any;
 }
 
-const CardComponent = ({ type = 'full', blur, extraClass }: CardComponentTypes) => {
+const CardComponent = ({ type = 'full', blur, extraClass, data }: CardComponentTypes) => {
     const [days, hours, minutes, seconds] = useTimer(20000000000);
+    const [domLoader, setDomLoader] = useState<boolean>(false);
+
+    useEffect(() => {
+        setDomLoader(true);
+    }, []);
 
     return (
         <MainCardField className={extraClass}>
@@ -48,10 +54,17 @@ const CardComponent = ({ type = 'full', blur, extraClass }: CardComponentTypes) 
                     navigation
                     pagination={{ clickable: true }}
                     className='image_slider'
+                    loop={true}
                     id='test'
                 >
                     <SwiperSlide>
-                        <Image src={MocImg} alt='' className='card_image' />
+                        <Image
+                            src={`${process.env.IMAGE_URL}${data.mainImageUrl}`}
+                            alt=''
+                            width={500}
+                            height={300}
+                            className='card_image'
+                        />
                     </SwiperSlide>
                     <SwiperSlide>
                         <Image src={MocImg} alt='' className='card_image' />
@@ -71,10 +84,12 @@ const CardComponent = ({ type = 'full', blur, extraClass }: CardComponentTypes) 
                         <Image src={FastChargeIcon} alt='' />
                         <p>رزرو آنی</p>
                     </span>
-                    <span className='yellow_light'>
-                        <Image src={PlusIcon} alt='' />
-                        <p>پلاس</p>
-                    </span>
+                    {data.plus && (
+                        <span className='yellow_light'>
+                            <Image src={PlusIcon} alt='' />
+                            <p>پلاس</p>
+                        </span>
+                    )}
                     <span className='red'>
                         <Image src={PlayIcon} alt='' />
                         <p>ویدیو</p>
@@ -83,7 +98,7 @@ const CardComponent = ({ type = 'full', blur, extraClass }: CardComponentTypes) 
                         <p> تضمین قیمت</p>
                     </span>
                 </div>
-                <div className='vip_field'>VIP</div>
+                {data.vip && <div className='vip_field'>VIP</div>}
                 <div className={`discount_field ${type === 'half' ? 'half_card_discount' : ''}`}>
                     <span>20%</span>
                     <p>
@@ -92,7 +107,7 @@ const CardComponent = ({ type = 'full', blur, extraClass }: CardComponentTypes) 
                 </div>
             </div>
             <div className={`title ${type === 'half' ? 'position_added' : ''}`}>
-                <p>اجاره ویلا کردان ۳ خواب با استخر آبگر </p>
+                <p>{data.title}</p>
                 {type === 'full' && (
                     <div>
                         <Image src={HeartIcon} alt='' />
@@ -118,34 +133,36 @@ const CardComponent = ({ type = 'full', blur, extraClass }: CardComponentTypes) 
                     <div className='location_field'>
                         <div className='location'>
                             <Image src={LocationIcon} alt='' />
-                            البرز، کردان
+                            {data.province} , {data.city}
                         </div>
-                        <span>لحظه آخری</span>
+                        {data.instant && <span>لحظه آخری</span>}
                     </div>
                 </div>
             )}
             <p className='price'>
-                از شبی <b>2.600.000</b> 1.600.000 تومان
+                از شبی <b>{domLoader && parseInt(data.price).toLocaleString()}</b> 1.600.000 تومان
             </p>
             <div className='options'>
                 <div>
                     <Image src={GroupUsersIcon} alt='' width={100} />
-                    <p>7 ~ 3</p>
+                    <p>
+                        {data.maxCapacity} ~ {data.capacity}
+                    </p>
                     <p>نفر</p>
                 </div>
                 <div>
                     <Image src={DoubleBedIcon} alt='' width={100} />
-                    <p>3</p>
+                    <p>{data.bedCount}</p>
                     <p>خواب</p>
                 </div>
                 <div>
                     <Image src={StairsIcon} alt='' width={100} />
-                    <p>3</p>
+                    <p>{data.numberOfFloor}</p>
                     <p>طبقه</p>
                 </div>
                 <div>
                     <Image src={MeterIcon} alt='' width={100} />
-                    <p>270</p>
+                    <p>{data.areaOfFloor}</p>
                     <p>متراژ</p>
                 </div>
             </div>

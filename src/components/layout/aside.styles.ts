@@ -64,7 +64,7 @@ export const AsideField = styled.div<AsideFieldTypes>(props => ({
             }
         }
     },
-    '@media(max-width : 500)': {
+    '@media(max-width : 500px)': {
         width: '300px'
     }
 }));

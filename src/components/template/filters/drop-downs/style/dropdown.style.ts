@@ -173,3 +173,45 @@ export const DropdownField = styled.div(props => ({
         width: '100%'
     }
 }));
+
+export const AllFiltersField = styled.div<{ status: boolean }>(props => ({
+    '@media(max-width : 650px)': {
+        position: 'fixed',
+        bottom: '0',
+        width: '100%',
+        height: '600px',
+        left: '0',
+        zIndex: '1020',
+        pointerEvents: props.status ? 'initial' : 'none',
+
+        '& .main_filter_field': {
+            width: '100%',
+            top: props.status ? '45px' : '600px',
+            transition: 'all 0.6s cubic-bezier(0, 0, 0.2, 1.11) 0s',
+            opacity: '1',
+
+            '& .body_scrolling': {
+                maxHeight: '483px'
+            }
+        }
+    }
+}));
+
+export const BodyLayout = styled.div<{ status: boolean }>(props => ({
+    position: 'fixed',
+    top: '0',
+    left: '0',
+    background: '#0000008c',
+    zIndex: '10',
+    cursor: 'pointer',
+    width: '100%',
+    height: '100vh',
+    opacity: props.status ? '1' : '0',
+    pointerEvents: props.status ? 'initial' : 'none',
+    transition: 'all linear 0.2s',
+    display: 'none',
+
+    '@media(max-width : 650px)': {
+        display: 'block'
+    }
+}));

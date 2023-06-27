@@ -6,14 +6,19 @@ export const MainField = styled.div(props => ({
 
     '& .card_field': {
         width: '100%',
-        padding: '8px',
         borderRadius: '8px',
         background: 'white',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '10px',
         boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
         marginTop: '8px',
+        display: 'flex',
+
+        a: {
+            display: 'flex',
+            gap: '10px',
+            padding: '8px',
+            width: '100%',
+            alignItems: 'center'
+        },
 
         img: {
             width: '100px',
@@ -24,12 +29,16 @@ export const MainField = styled.div(props => ({
 
         p: {
             fontSize: '0.9rem',
-            fontWeight: '400'
+            fontWeight: '400',
+            color: 'black'
         },
+
         h6: {
             color: '#540202',
-            fontSize: '1.1rem'
+            fontSize: '1.1rem',
+            fontWeight: '400'
         },
+
         small: {
             color: props.theme.palette.colors.text.secondary
         }
@@ -37,6 +46,10 @@ export const MainField = styled.div(props => ({
 
     '& .mobile_slider': {
         display: 'none'
+    },
+
+    '& .cards_container': {
+        listStyle: 'none'
     },
 
     '@media(max-width : 800px)': {

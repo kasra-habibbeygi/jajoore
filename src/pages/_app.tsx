@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/next-script-for-ga */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material/styles';
@@ -30,6 +30,11 @@ Router.events.on('routeChangeError', () => NProgress.done());
 
 export default function App({ Component, pageProps }: AppProps) {
     const darkModeTheme = createTheme(theme('light', 'rtl'));
+    const [domLoader, setDomLoaded] = useState(false);
+
+    useEffect(() => {
+        setDomLoaded(true);
+    }, []);
 
     return (
         <Provider store={Store}>
@@ -37,14 +42,17 @@ export default function App({ Component, pageProps }: AppProps) {
                 <title>جاجوره | هر جا میخوای برو !</title>
             </Head>
             <ThemeProvider theme={darkModeTheme}>
-                <Toaster
-                    position='bottom-left'
-                    containerStyle={{
-                        zIndex: 9999,
-                        textAlign: 'right',
-                        direction: 'rtl'
-                    }}
-                />
+                {domLoader && (
+                    <Toaster
+                        position='bottom-left'
+                        containerStyle={{
+                            zIndex: 9999,
+                            textAlign: 'right',
+                            direction: 'rtl'
+                        }}
+                    />
+                )}
+
                 <Component {...pageProps} />
             </ThemeProvider>
         </Provider>

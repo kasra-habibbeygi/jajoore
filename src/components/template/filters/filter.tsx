@@ -34,6 +34,7 @@ const Filter = () => {
     const [sideMenuStatus, setSideMenuStatus] = useState(false);
     const [citiesModalStatus, setCitiesModalStatus] = useState(false);
     const [provincesModalStatus, setProvincesModalStatus] = useState(false);
+    const [mobileSearchStatus, setMobileSearchStatus] = useState(false);
 
     return (
         <>
@@ -45,9 +46,19 @@ const Filter = () => {
                                 <Image src={MenuIcon} alt='' />
                                 <Image src={EmptyAvatar} alt='' className='avatar' />
                             </Button>
-                            <SearchField setCitiesModalStatus={setCitiesModalStatus} />
+                            <SearchField
+                                setCitiesModalStatus={setCitiesModalStatus}
+                                setMobileSearchStatus={setMobileSearchStatus}
+                                mobileSearchStatus={mobileSearchStatus}
+                            />
+                            <SearchField
+                                setCitiesModalStatus={setCitiesModalStatus}
+                                mode='mobile'
+                                mobileSearchStatus={mobileSearchStatus}
+                                setMobileSearchStatus={setMobileSearchStatus}
+                            />
                         </div>
-                        <div className='left-field'>
+                        <div className='left_field'>
                             <Button color='white' extraClass='support_btn'>
                                 <Image src={NotificationIcon} alt='' />
                                 <span className='notif_count'>2</span>

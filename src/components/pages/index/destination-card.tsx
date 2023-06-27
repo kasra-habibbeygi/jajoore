@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Link from 'next/link';
 
 // Assets
 import { MainField } from './destination-card.style';
@@ -10,59 +11,25 @@ import DestinationImg from '@/assets/images/moc/destination.jpg';
 // Component
 import TitleField from '../../template/title';
 
-const DestinationCard = () => {
+const DestinationCard = ({ data }: any) => {
+    console.log(data);
+
     return (
         <MainField>
             <TitleField title='مقاصد پر طرفدار' />
             <ul className='cards_container'>
-                <li className='card_field'>
-                    <Image src={DestinationImg} alt='' />
-                    <div>
-                        <p>اجاره ویلا در</p>
-                        <h6>رامسر</h6>
-                        <small>اقامتگاه 609</small>
-                    </div>
-                </li>
-                <li className='card_field'>
-                    <Image src={DestinationImg} alt='' />
-                    <div>
-                        <p>اجاره ویلا در</p>
-                        <h6>رامسر</h6>
-                        <small>اقامتگاه 609</small>
-                    </div>
-                </li>
-                <li className='card_field'>
-                    <Image src={DestinationImg} alt='' />
-                    <div>
-                        <p>اجاره ویلا در</p>
-                        <h6>رامسر</h6>
-                        <small>اقامتگاه 609</small>
-                    </div>
-                </li>
-                <li className='card_field'>
-                    <Image src={DestinationImg} alt='' />
-                    <div>
-                        <p>اجاره ویلا در</p>
-                        <h6>رامسر</h6>
-                        <small>اقامتگاه 609</small>
-                    </div>
-                </li>
-                <li className='card_field'>
-                    <Image src={DestinationImg} alt='' />
-                    <div>
-                        <p>اجاره ویلا در</p>
-                        <h6>رامسر</h6>
-                        <small>اقامتگاه 609</small>
-                    </div>
-                </li>
-                <li className='card_field'>
-                    <Image src={DestinationImg} alt='' />
-                    <div>
-                        <p>اجاره ویلا در</p>
-                        <h6>رامسر</h6>
-                        <small>اقامتگاه 609</small>
-                    </div>
-                </li>
+                {data.data.map((item: any, index: number) => (
+                    <li className='card_field' key={`popular_destinations_item_${index}`}>
+                        <Link href='/'>
+                            <Image src={DestinationImg} alt='' />
+                            <div>
+                                <p>اجاره ویلا در</p>
+                                <h6>{item.title}</h6>
+                                <small>{item.residenceCount} اقامتگاه</small>
+                            </div>
+                        </Link>
+                    </li>
+                ))}
             </ul>
             <div className='mobile_slider'>
                 <Swiper
@@ -80,46 +47,20 @@ const DestinationCard = () => {
                     }}
                     className='card_slider'
                 >
-                    <SwiperSlide>
-                        <div className='card_field'>
-                            <Image src={DestinationImg} alt='' />
-                            <div>
-                                <p>اجاره ویلا در</p>
-                                <h6>رامسر</h6>
-                                <small>اقامتگاه 609</small>
+                    {data.data.map((item: any, index: number) => (
+                        <SwiperSlide key={`mobile_popular_destinations_item_${index}`}>
+                            <div className='card_field'>
+                                <Link href='/'>
+                                    <Image src={DestinationImg} alt='' />
+                                    <div>
+                                        <p>اجاره ویلا در</p>
+                                        <h6>{item.title}</h6>
+                                        <small>{item.residenceCount} اقامتگاه</small>
+                                    </div>
+                                </Link>
                             </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='card_field'>
-                            <Image src={DestinationImg} alt='' />
-                            <div>
-                                <p>اجاره ویلا در</p>
-                                <h6>رامسر</h6>
-                                <small>اقامتگاه 609</small>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='card_field'>
-                            <Image src={DestinationImg} alt='' />
-                            <div>
-                                <p>اجاره ویلا در</p>
-                                <h6>رامسر</h6>
-                                <small>اقامتگاه 609</small>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='card_field'>
-                            <Image src={DestinationImg} alt='' />
-                            <div>
-                                <p>اجاره ویلا در</p>
-                                <h6>رامسر</h6>
-                                <small>اقامتگاه 609</small>
-                            </div>
-                        </div>
-                    </SwiperSlide>
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
             </div>
         </MainField>

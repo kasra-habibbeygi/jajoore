@@ -18,9 +18,10 @@ interface DropDownTypes {
     setDropDownStatus: (status: string) => void;
     boxWidth?: number;
     name: string;
+    className?: string;
 }
 
-const DropDownLayout = ({ children, title, status, setDropDownStatus, boxWidth = 300, name }: DropDownTypes) => {
+const DropDownLayout = ({ children, title, status, setDropDownStatus, boxWidth = 300, name, className = '' }: DropDownTypes) => {
     const [position, setPosition] = useState<'right' | 'left'>('right');
     var el = typeof window !== 'undefined' && document.getElementById(name);
 
@@ -35,7 +36,7 @@ const DropDownLayout = ({ children, title, status, setDropDownStatus, boxWidth =
     }, []);
 
     return (
-        <LayoutField status={status} boxWidth={boxWidth} id={name} position={position} className='main_filter_field'>
+        <LayoutField status={status} boxWidth={boxWidth} id={name} position={position} className={`main_filter_field ${className}`}>
             {title && (
                 <div className='header'>
                     <span></span>

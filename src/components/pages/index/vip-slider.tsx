@@ -10,7 +10,7 @@ import { MainField } from './vip-slider.style';
 import CardComponent from '@/components/template/card';
 import Button from '@/components/form-group/button';
 
-const VipSlider = () => {
+const VipSlider = ({ data }: any) => {
     return (
         <MainField>
             <header>
@@ -20,10 +20,13 @@ const VipSlider = () => {
                 </Button>
             </header>
             <Swiper
+                dir='rtl'
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={15}
                 slidesPerView={3.2}
                 pagination={{ clickable: true }}
+                // loop={true}
+                // centeredSlides={true}
                 breakpoints={{
                     1300: {
                         slidesPerView: 3.2
@@ -43,32 +46,13 @@ const VipSlider = () => {
                 }}
                 className='card_slider'
             >
+                {data.data.map((item: any) => (
+                    <SwiperSlide key={`vips_residence_${item.id}`}>
+                        <CardComponent data={item} />
+                    </SwiperSlide>
+                ))}
                 <SwiperSlide>
-                    <CardComponent />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardComponent />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardComponent />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardComponent />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardComponent />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardComponent />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardComponent />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardComponent />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardComponent blur />
+                    <CardComponent blur data={data?.data[0]} />
                 </SwiperSlide>
             </Swiper>
         </MainField>

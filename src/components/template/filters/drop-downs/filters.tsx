@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 
 // Assets
-import { DropdownField } from './style/dropdown.style';
+import { DropdownField, AllFiltersField, BodyLayout } from './style/dropdown.style';
 import FiltersIcon from '@/assets/images/icons/setting.svg';
 
 // Hooks
@@ -19,6 +19,7 @@ import LeaseFilters from './content/lease';
 import AreaFilters from './content/area';
 import PropertyFilter from './content/property';
 import RoomCounterFilter from './content/room-counter';
+import PersonFilter from './content/person-counter';
 const PriceFilters = dynamic(() => import('./content/price'), { ssr: false });
 
 // Types
@@ -33,6 +34,7 @@ const Filters = () => {
     const [DropDownStatus, setDropDownStatus] = useState('');
     const [numberCounter, setNumberCounter] = useState(0);
     const [priceValue, setPriceValue] = useState([100_000, 25_000_000]);
+    const [personCount, setPersonCount] = useState<number>(0);
     const [roomValues, setRoomValues] = useState<InputValueType>({
         beds: 0,
         rooms: 0
@@ -64,56 +66,64 @@ const Filters = () => {
 
     return (
         <DropdownField ref={ref} className='all_filter_list'>
+            <BodyLayout status={uniqValue === DropDownStatus} onClick={() => FilterDropDownStatusHandler(uniqValue)} />
             <FilterPill
                 title={titleProvider()}
                 img={FiltersIcon}
                 handler={() => FilterDropDownStatusHandler(uniqValue)}
                 activeStatus={numberCounter !== 0}
             />
-            <DropDownLayout status={uniqValue === DropDownStatus} setDropDownStatus={setDropDownStatus} name='filters' boxWidth={500}>
-                <div className='body_scrolling'>
-                    <div className='header margin_top'>
-                        <span></span>
-                        محدوده اجاره بها
+            <AllFiltersField status={uniqValue === DropDownStatus}>
+                <DropDownLayout status={uniqValue === DropDownStatus} setDropDownStatus={setDropDownStatus} name='filters' boxWidth={500}>
+                    <div className='body_scrolling'>
+                        <div className='header margin_top'>
+                            <span></span>
+                            محدوده اجاره بها
+                        </div>
+                        <PriceFilters setPriceValue={setPriceValue} priceValue={priceValue} />
+                        <div className='header margin_top'>
+                            <span></span>
+                            تعداد تخت و اتاق
+                        </div>
+                        <RoomCounterFilter setRoomValues={setRoomValues} roomValues={roomValues} />
+                        <div className='header margin_top'>
+                            <span></span>
+                            تعداد نفرات
+                        </div>
+                        <PersonFilter setpersonCount={setPersonCount} personCount={personCount} />
+                        <div className='header margin_top'>
+                            <span></span>
+                            قوانین اقامتگاه
+                        </div>
+                        <RulesFilter setNumberCounter={setNumberCounter} />
+                        <div className='header margin_top'>
+                            <span></span>
+                            امکانات اقامتگاه
+                        </div>
+                        <FacilitiesFilter setNumberCounter={setNumberCounter} />
+                        <div className='header margin_top'>
+                            <span></span>
+                            نوع اقامتگاه
+                        </div>
+                        <TypeFilter setNumberCounter={setNumberCounter} />
+                        <div className='header margin_top'>
+                            <span></span>
+                            نوع اجاره
+                        </div>
+                        <LeaseFilters setNumberCounter={setNumberCounter} />
+                        <div className='header margin_top'>
+                            <span></span>
+                            منطقه اقامتگاه
+                        </div>
+                        <AreaFilters setNumberCounter={setNumberCounter} />
+                        <div className='header margin_top'>
+                            <span></span>
+                            ویژگی اقامتگاه
+                        </div>
+                        <PropertyFilter setNumberCounter={setNumberCounter} />
                     </div>
-                    <PriceFilters setPriceValue={setPriceValue} priceValue={priceValue} />
-                    <div className='header margin_top'>
-                        <span></span>
-                        تعداد تخت و اتاق
-                    </div>
-                    <RoomCounterFilter setRoomValues={setRoomValues} roomValues={roomValues} />
-                    <div className='header margin_top'>
-                        <span></span>
-                        قوانین اقامتگاه
-                    </div>
-                    <RulesFilter setNumberCounter={setNumberCounter} />
-                    <div className='header margin_top'>
-                        <span></span>
-                        امکانات اقامتگاه
-                    </div>
-                    <FacilitiesFilter setNumberCounter={setNumberCounter} />
-                    <div className='header margin_top'>
-                        <span></span>
-                        نوع اقامتگاه
-                    </div>
-                    <TypeFilter setNumberCounter={setNumberCounter} />
-                    <div className='header margin_top'>
-                        <span></span>
-                        نوع اجاره
-                    </div>
-                    <LeaseFilters setNumberCounter={setNumberCounter} />
-                    <div className='header margin_top'>
-                        <span></span>
-                        منطقه اقامتگاه
-                    </div>
-                    <AreaFilters setNumberCounter={setNumberCounter} />
-                    <div className='header margin_top'>
-                        <span></span>
-                        ویژگی اقامتگاه
-                    </div>
-                    <PropertyFilter setNumberCounter={setNumberCounter} />
-                </div>
-            </DropDownLayout>
+                </DropDownLayout>
+            </AllFiltersField>
         </DropdownField>
     );
 };

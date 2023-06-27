@@ -2,13 +2,18 @@ import styled from '@emotion/styled';
 
 interface SearchBoxFieldType {
     status: boolean;
+    mobileMode: boolean;
 }
 
 export const SearchBoxField = styled.div<SearchBoxFieldType>(props => ({
-    display: 'flex',
-    alignItems: 'center',
-    position: 'relative',
-    width: '600px',
+    width: '100%',
+
+    '& .content': {
+        display: 'flex',
+        alignItems: 'center',
+        position: 'relative',
+        width: '600px'
+    },
 
     '& .search_icon': {
         position: 'absolute',
@@ -27,7 +32,7 @@ export const SearchBoxField = styled.div<SearchBoxFieldType>(props => ({
         height: '40px',
         padding: '14px',
         fontSize: '0.9rem',
-        borderRadius: '10px',
+        borderRadius: '10px !important',
 
         '&::placeholder': {
             color: '#adadad'
@@ -56,7 +61,6 @@ export const SearchBoxField = styled.div<SearchBoxFieldType>(props => ({
             gap: '10px',
             transition: 'all linear 0.2s',
             maxHeight: '80px',
-            overflow: 'hidden',
 
             '&.hidden': {
                 maxHeight: '0'
@@ -124,6 +128,20 @@ export const SearchBoxField = styled.div<SearchBoxFieldType>(props => ({
         }
     },
     '@media(max-width : 900px)': {
-        width: '100%'
+        '& .content': {
+            width: '100%'
+        }
+    },
+
+    '@media(max-width : 700px)': {
+        '&.mobile_search': {
+            position: 'fixed',
+            left: '0',
+            padding: '20px',
+            background: 'white',
+            borderRadius: '0 0 20px 20px',
+            zIndex: '1030',
+            top: props.mobileMode ? '0' : '-100px'
+        }
     }
 }));

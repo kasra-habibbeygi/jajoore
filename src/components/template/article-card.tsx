@@ -4,18 +4,15 @@ import Image from 'next/image';
 // Assets
 import { ArticleCardField } from './article-card.styles';
 import EmptyAvatar from '@/assets/images/card/empty-avatar.svg';
-import MocImg from '@/assets/images/moc/bg.jpg';
 
-const ArticleCard = () => {
+const ArticleCard = ({ data }: any) => {
     return (
         <ArticleCardField>
-            <Image src={MocImg} alt='' />
-            <p className='info'>
-                جاجوره سایت آگهی اجاره ویلا و سوئیت جهت اقامت روزانه مسافران با هدف ارتباط بیواسطه مسافر با میزبان و بدون{' '}
-            </p>
+            <Image src={`${process.env.IMAGE_URL}${data.imageUrl}`} alt='' width={500} height={300} />
+            <p className='info'>{data.title}</p>
             <div className='author_field'>
                 <Image src={EmptyAvatar} alt='' />
-                <p>کسری حبیب بیگی</p>
+                <p>{data.writer}</p>
             </div>
         </ArticleCardField>
     );
