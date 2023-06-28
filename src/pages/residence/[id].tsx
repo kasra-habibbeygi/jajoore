@@ -23,6 +23,7 @@ import Aside from '@/components/pages/residence/aside';
 import ForbiddenTemp from '@/components/pages/residence/forbidden';
 import Info from '@/components/pages/residence/info';
 import SleepingArea from '@/components/pages/residence/sleeping-area';
+import RatePerPerson from '@/components/pages/residence/rate-per-person';
 
 const Residence = ({ filtersItem, vipsResidence }: any) => {
     return (
@@ -41,6 +42,7 @@ const Residence = ({ filtersItem, vipsResidence }: any) => {
                         <Attributes title='امکانات' />
                         <Attributes title='منطقه اقامتگاه' />
                         <Attributes title='حریم خصوصی و امنیت' />
+                        <RatePerPerson />
                         <ForbiddenTemp />
                         <Rate />
                         <HostInfo />
