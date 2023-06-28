@@ -12,7 +12,6 @@ import 'swiper/css/scrollbar';
 import LayoutProvider from '@/components/layout/layout-provider';
 import Filter from '@/components/template/filters/filter';
 import Header from '@/components/pages/residence/header';
-import Images from '@/components/pages/residence/images';
 import SimilarSlider from '@/components/pages/residence/vip-slider';
 import Comments from '@/components/pages/residence/comments';
 import HostInfo from '@/components/pages/residence/host-info';
@@ -22,6 +21,7 @@ import AboutResidence from '@/components/pages/residence/about-residence';
 import Story from '@/components/pages/residence/story';
 import Aside from '@/components/pages/residence/aside';
 import ForbiddenTemp from '@/components/pages/residence/forbidden';
+import Info from '@/components/pages/residence/info';
 
 const Residence = ({ filtersItem, vipsResidence }: any) => {
     return (
@@ -29,10 +29,10 @@ const Residence = ({ filtersItem, vipsResidence }: any) => {
             <Filter filtersItem={filtersItem.result} />
             <main className='container'>
                 <Header />
-                <Images />
                 <DoubleCol>
                     <Aside />
                     <div className='content_field'>
+                        <Info />
                         <Story />
                         <AboutResidence />
                         <Attributes title='امکانات' />
