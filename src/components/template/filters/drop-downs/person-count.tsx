@@ -45,7 +45,7 @@ const PersonCounter = () => {
                 handler={() => FilterDropDownStatusHandler(uniqValue)}
                 activeStatus={personCount !== 0}
             />
-            <DropDownLayout title='تعداد نفرات' status={uniqValue === DropDownStatus} setDropDownStatus={setDropDownStatus} name='counter'>
+            <DropDownLayout title='تعداد نفرات' status={uniqValue === DropDownStatus} setDropDownStatus={setDropDownStatus} name='person'>
                 <PersonFilter personCount={personCount} setpersonCount={setPersonCount} />
             </DropDownLayout>
         </DropdownField>

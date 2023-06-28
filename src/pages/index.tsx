@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
@@ -40,7 +41,8 @@ const objectProvider = (item: any) => {
         instant: item.instant,
         lng: item.lng,
         lat: item.lat,
-        id: item.id
+        id: item.id,
+        residenceNO: item.residenceNO
     };
 };
 

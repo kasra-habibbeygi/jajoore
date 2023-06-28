@@ -1,24 +1,48 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/state-manager/store';
 
 // MUI
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
-// Types
-interface InputValueType {
-    beds: number;
-    rooms: number;
-}
-
-const RoomCounterFilter = ({ setRoomValues, roomValues }: { setRoomValues: (state: any) => void; roomValues: InputValueType }) => {
+const RoomCounterFilter = ({ setRoomValues, roomValues }: { setRoomValues: (state: any) => void; roomValues: any }) => {
+    const router = useRouter();
+    const filterActionStatus = useSelector((state: RootState) => state.Utils.filterAction);
     const counterHandler = (type: 'add' | 'reduce', name: 'beds' | 'rooms') => {
         setRoomValues((prev: any) => ({
             ...prev,
             [name]: type === 'add' ? prev[name] + 1 : prev[name] > 0 ? prev[name] - 1 : 0
         }));
     };
+
+    useEffect(() => {
+        if (filterActionStatus.type === 'roomsBedsCounter') {
+            if (filterActionStatus.action === 'remove') {
+                delete router.query.beds;
+                delete router.query.rooms;
+                router.push(router);
+            } else {
+                Object.keys(roomValues).forEach((item: any) => {
+                    if (roomValues[item] !== 0) {
+                        router.query[item] = roomValues[item];
+                    }
+                });
+
+                router.push(router);
+            }
+        }
+    }, [filterActionStatus]);
+
+    useEffect(() => {
+        setRoomValues({
+            beds: router.query.beds ?? 0,
+            rooms: router.query.rooms ?? 0
+        });
+    }, [router.query.beds, router.query.rooms]);
 
     return (
         <>

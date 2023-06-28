@@ -58,7 +58,7 @@ const PersonCounter = () => {
                 title='تعداد تخت و اتاق'
                 status={uniqValue === DropDownStatus}
                 setDropDownStatus={setDropDownStatus}
-                name='room-counter'
+                name='roomsBedsCounter'
             >
                 <RoomCounterFilter setRoomValues={setRoomValues} roomValues={roomValues} />
             </DropDownLayout>
