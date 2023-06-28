@@ -23,7 +23,7 @@ export const FilterHandler = (filterActionStatus: any, name: string, router: any
 export const FilterValueProvider = (setFilterItemState: any, filterItem: any, query: string) => {
     setFilterItemState(() => {
         let newData = {};
-        filterItem.map((item: any) => {
+        filterItem?.map((item: any) => {
             newData = {
                 ...newData,
                 [item.name]: {

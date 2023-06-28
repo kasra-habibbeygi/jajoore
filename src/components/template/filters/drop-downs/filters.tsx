@@ -100,12 +100,12 @@ const Filters = ({ filtersItem }: any) => {
                             <span></span>
                             امکانات اقامتگاه
                         </div>
-                        <FacilitiesFilter setNumberCounter={setNumberCounter} />
+                        <FacilitiesFilter setNumberCounter={setNumberCounter} filterItem={filtersItem.residenceFacilities} />
                         <div className='header margin_top'>
                             <span></span>
                             نوع اقامتگاه
                         </div>
-                        <TypeFilter setNumberCounter={setNumberCounter} />
+                        <TypeFilter setNumberCounter={setNumberCounter} filterItem={filtersItem.residenceTypes} />
                         <div className='header margin_top'>
                             <span></span>
                             نوع اجاره

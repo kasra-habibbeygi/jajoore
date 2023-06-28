@@ -198,7 +198,7 @@ export const MainCardField = styled.div(props => ({
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             whiteSpace: 'nowrap',
-            maxWidth: '300px',
+            maxWidth: '210px',
             color: 'black'
         },
 

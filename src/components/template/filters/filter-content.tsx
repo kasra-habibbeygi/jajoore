@@ -9,14 +9,22 @@ import { FilterHandler, FilterValueProvider } from '@/utils/filter-handler';
 // Component
 import Checkbox from '@/components/form-group/checkbox';
 
-const TypeFilter = ({ setNumberCounter, filterItem }: { setNumberCounter: (state: any) => void; filterItem: any }) => {
+const FilterContent = ({
+    setNumberCounter,
+    filterItem,
+    name
+}: {
+    setNumberCounter: (state: any) => void;
+    filterItem: any;
+    name: string;
+}) => {
     const router = useRouter();
     const filterActionStatus = useSelector((state: RootState) => state.Utils.filterAction);
     const [filterItemState, setFilterItemState] = useState<any>({});
-    var query: any = router.query.area;
+    var query: any = router.query[name];
 
     useEffect(() => {
-        FilterHandler(filterActionStatus, 'area', router, filterItemState);
+        FilterHandler(filterActionStatus, name, router, filterItemState);
     }, [filterActionStatus]);
 
     useEffect(() => {
@@ -43,7 +51,7 @@ const TypeFilter = ({ setNumberCounter, filterItem }: { setNumberCounter: (state
     return (
         <div className='checkbox_field'>
             {Object.keys(filterItemState).map((item: any) => (
-                <div className='row' key={`residenceArea_filter_item_${filterItemState[item].id}`}>
+                <div className='row' key={`${name}_filter_item_${filterItemState[item].id}`}>
                     <Checkbox name={item} label={item} value={filterItemState[item].value} handler={(e: any) => checkboxValueHandler(e)} />
                 </div>
             ))}
@@ -51,4 +59,4 @@ const TypeFilter = ({ setNumberCounter, filterItem }: { setNumberCounter: (state
     );
 };
 
-export default TypeFilter;
+export default FilterContent;

@@ -12,6 +12,12 @@ export const DropdownField = styled.div(props => ({
         paddingLeft: '10px'
     },
 
+    '&.rules_filter': {
+        '& .row': {
+            width: '100%'
+        }
+    },
+
     '&.all_filter_list': {
         '& .main_filter_field': {
             padding: '0',

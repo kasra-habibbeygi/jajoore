@@ -1,22 +1,37 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/state-manager/store';
+import { FilterHandler, FilterValueProvider } from '@/utils/filter-handler';
 
 // Component
 import Checkbox from '@/components/form-group/checkbox';
 
-const FacilitiesFilter = ({ setNumberCounter }: { setNumberCounter: (state: any) => void }) => {
-    const [checkedValue, setCheckedValue] = useState({
-        استخر: false,
-        جکوزی: false,
-        'ماشین لباس شویی': false,
-        'میز بیلیارد': false
-    });
+const FacilitiesFilter = ({ setNumberCounter, filterItem }: { setNumberCounter: (state: any) => void; filterItem: any }) => {
+    const router = useRouter();
+    const filterActionStatus = useSelector((state: RootState) => state.Utils.filterAction);
+    const [filterItemState, setFilterItemState] = useState<any>({});
+    var query: any = router.query.facilities;
+
+    useEffect(() => {
+        FilterHandler(filterActionStatus, 'facilities', router, filterItemState);
+    }, [filterActionStatus]);
+
+    useEffect(() => {
+        FilterValueProvider(setFilterItemState, filterItem, query);
+        setNumberCounter(query?.split('-').length);
+    }, [query]);
 
     const checkboxValueHandler = (e: any) => {
-        setCheckedValue({
-            ...checkedValue,
-            [e.target.name]: e.target.checked
-        });
+        setFilterItemState((prev: any) => ({
+            ...prev,
+            [e.target.name]: {
+                ...prev[e.target.name],
+                value: e.target.checked
+            }
+        }));
 
         if (e.target.checked) {
             setNumberCounter((prev: any) => prev + 1);
@@ -27,160 +42,11 @@ const FacilitiesFilter = ({ setNumberCounter }: { setNumberCounter: (state: any)
 
     return (
         <div className='checkbox_field'>
-            <div className='row'>
-                <Checkbox name='استخر' label='استخر' value={checkedValue.استخر} handler={(e: any) => checkboxValueHandler(e)} />
-            </div>
-            <div className='row'>
-                <Checkbox name='جکوزی' label='جکوزی' value={checkedValue.جکوزی} handler={(e: any) => checkboxValueHandler(e)} />
-            </div>
-            <div className='row'>
-                <Checkbox
-                    name='ماشین لباس شویی'
-                    label='ماشین لباس شویی'
-                    value={checkedValue['ماشین لباس شویی']}
-                    handler={(e: any) => checkboxValueHandler(e)}
-                />
-            </div>
-            <div className='row'>
-                <Checkbox
-                    name='میز بیلیارد'
-                    label='میز بیلیارد'
-                    value={checkedValue['میز بیلیارد']}
-                    handler={(e: any) => checkboxValueHandler(e)}
-                />
-            </div>
-            <div className='row'>
-                <Checkbox name='استخر' label='استخر' value={checkedValue.استخر} handler={(e: any) => checkboxValueHandler(e)} />
-            </div>
-            <div className='row'>
-                <Checkbox name='جکوزی' label='جکوزی' value={checkedValue.جکوزی} handler={(e: any) => checkboxValueHandler(e)} />
-            </div>
-            <div className='row'>
-                <Checkbox
-                    name='ماشین لباس شویی'
-                    label='ماشین لباس شویی'
-                    value={checkedValue['ماشین لباس شویی']}
-                    handler={(e: any) => checkboxValueHandler(e)}
-                />
-            </div>
-            <div className='row'>
-                <Checkbox
-                    name='میز بیلیارد'
-                    label='میز بیلیارد'
-                    value={checkedValue['میز بیلیارد']}
-                    handler={(e: any) => checkboxValueHandler(e)}
-                />
-            </div>
-            <div className='row'>
-                <Checkbox name='استخر' label='استخر' value={checkedValue.استخر} handler={(e: any) => checkboxValueHandler(e)} />
-            </div>
-            <div className='row'>
-                <Checkbox name='جکوزی' label='جکوزی' value={checkedValue.جکوزی} handler={(e: any) => checkboxValueHandler(e)} />
-            </div>
-            <div className='row'>
-                <Checkbox
-                    name='ماشین لباس شویی'
-                    label='ماشین لباس شویی'
-                    value={checkedValue['ماشین لباس شویی']}
-                    handler={(e: any) => checkboxValueHandler(e)}
-                />
-            </div>
-            <div className='row'>
-                <Checkbox
-                    name='میز بیلیارد'
-                    label='میز بیلیارد'
-                    value={checkedValue['میز بیلیارد']}
-                    handler={(e: any) => checkboxValueHandler(e)}
-                />
-            </div>
-            <div className='row'>
-                <Checkbox name='استخر' label='استخر' value={checkedValue.استخر} handler={(e: any) => checkboxValueHandler(e)} />
-            </div>
-            <div className='row'>
-                <Checkbox name='جکوزی' label='جکوزی' value={checkedValue.جکوزی} handler={(e: any) => checkboxValueHandler(e)} />
-            </div>
-            <div className='row'>
-                <Checkbox
-                    name='ماشین لباس شویی'
-                    label='ماشین لباس شویی'
-                    value={checkedValue['ماشین لباس شویی']}
-                    handler={(e: any) => checkboxValueHandler(e)}
-                />
-            </div>
-            <div className='row'>
-                <Checkbox
-                    name='میز بیلیارد'
-                    label='میز بیلیارد'
-                    value={checkedValue['میز بیلیارد']}
-                    handler={(e: any) => checkboxValueHandler(e)}
-                />
-            </div>
-            <div className='row'>
-                <Checkbox name='استخر' label='استخر' value={checkedValue.استخر} handler={(e: any) => checkboxValueHandler(e)} />
-            </div>
-            <div className='row'>
-                <Checkbox name='جکوزی' label='جکوزی' value={checkedValue.جکوزی} handler={(e: any) => checkboxValueHandler(e)} />
-            </div>
-            <div className='row'>
-                <Checkbox
-                    name='ماشین لباس شویی'
-                    label='ماشین لباس شویی'
-                    value={checkedValue['ماشین لباس شویی']}
-                    handler={(e: any) => checkboxValueHandler(e)}
-                />
-            </div>
-            <div className='row'>
-                <Checkbox
-                    name='میز بیلیارد'
-                    label='میز بیلیارد'
-                    value={checkedValue['میز بیلیارد']}
-                    handler={(e: any) => checkboxValueHandler(e)}
-                />
-            </div>
-            <div className='row'>
-                <Checkbox name='استخر' label='استخر' value={checkedValue.استخر} handler={(e: any) => checkboxValueHandler(e)} />
-            </div>
-            <div className='row'>
-                <Checkbox name='جکوزی' label='جکوزی' value={checkedValue.جکوزی} handler={(e: any) => checkboxValueHandler(e)} />
-            </div>
-            <div className='row'>
-                <Checkbox
-                    name='ماشین لباس شویی'
-                    label='ماشین لباس شویی'
-                    value={checkedValue['ماشین لباس شویی']}
-                    handler={(e: any) => checkboxValueHandler(e)}
-                />
-            </div>
-            <div className='row'>
-                <Checkbox
-                    name='میز بیلیارد'
-                    label='میز بیلیارد'
-                    value={checkedValue['میز بیلیارد']}
-                    handler={(e: any) => checkboxValueHandler(e)}
-                />
-            </div>
-            <div className='row'>
-                <Checkbox name='استخر' label='استخر' value={checkedValue.استخر} handler={(e: any) => checkboxValueHandler(e)} />
-            </div>
-            <div className='row'>
-                <Checkbox name='جکوزی' label='جکوزی' value={checkedValue.جکوزی} handler={(e: any) => checkboxValueHandler(e)} />
-            </div>
-            <div className='row'>
-                <Checkbox
-                    name='ماشین لباس شویی'
-                    label='ماشین لباس شویی'
-                    value={checkedValue['ماشین لباس شویی']}
-                    handler={(e: any) => checkboxValueHandler(e)}
-                />
-            </div>
-            <div className='row'>
-                <Checkbox
-                    name='میز بیلیارد'
-                    label='میز بیلیارد'
-                    value={checkedValue['میز بیلیارد']}
-                    handler={(e: any) => checkboxValueHandler(e)}
-                />
-            </div>
+            {Object.keys(filterItemState).map((item: any) => (
+                <div className='row' key={`facilities_filter_item_${filterItemState[item].id}`}>
+                    <Checkbox name={item} label={item} value={filterItemState[item].value} handler={(e: any) => checkboxValueHandler(e)} />
+                </div>
+            ))}
         </div>
     );
 };
