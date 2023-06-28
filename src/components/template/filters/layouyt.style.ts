@@ -13,7 +13,7 @@ export const LayoutField = styled.div<layoutTypes>(props => ({
     boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
     borderRadius: '8px',
     position: 'absolute',
-    zIndex: '5',
+    zIndex: '20',
     top: props.status ? '45px' : '35px',
     right: props.position === 'right' ? '0' : 'unset',
     left: props.position === 'left' ? '0' : 'unset',

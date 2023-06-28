@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import Axios from '@/configs/axios';
+import { useDispatch } from 'react-redux';
+import { locationList } from '@/state-manager/reducer/map';
 
 // Assets
 import { DoubleCol } from '@/assets/styles/main';
@@ -20,11 +23,46 @@ import Filter from '@/components/template/filters/filter';
 import DestinationCard from '@/components/pages/index/destination-card';
 import AboutUs from '@/components/pages/index/about-us';
 import SideBarCardList from '@/components/pages/index/sidebar-card-list';
-const Map = dynamic(() => import('@/components/pages/index/map'), { ssr: false });
+const Map = dynamic(() => import('@/components/template/map/map'), { ssr: false });
 
-import Axios from '@/configs/axios';
+const objectProvider = (item: any) => {
+    return {
+        imageUrls: item.imageUrls,
+        title: item.title,
+        numberOfRoom: item.numberOfRoom,
+        areaOfFloor: item.areaOfFloor,
+        numberOfFloor: item.numberOfFloor,
+        vip: item.vip,
+        discountedPrice: item.discountedPrice,
+        price: item.price,
+        totalScores: item.totalScores,
+        numberOfComments: item.numberOfComments,
+        instant: item.instant,
+        lng: item.lng,
+        lat: item.lat,
+        id: item.id
+    };
+};
 
 const Index = ({ article, vipsResidence, Residence, popularDestinations, instants, filtersItem }: any) => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        let data: any[] = [];
+
+        vipsResidence.result.map((item: any) => {
+            data = [...data, objectProvider(item)];
+        });
+        Residence.result.map((item: any) => {
+            data = [...data, objectProvider(item)];
+        });
+        instants.result.map((item: any) => {
+            data = [...data, objectProvider(item)];
+        });
+
+        dispatch(locationList(data));
+    }, []);
+
     return (
         <LayoutProvider>
             <Filter filtersItem={filtersItem.result} />
