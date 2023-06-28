@@ -26,6 +26,9 @@ import AboutUs from '@/components/pages/index/about-us';
 import SideBarCardList from '@/components/pages/index/sidebar-card-list';
 const Map = dynamic(() => import('@/components/template/map/map'), { ssr: false });
 
+// Utils
+// import { filterGetter } from '@/utils/filter-handler';
+
 const objectProvider = (item: any) => {
     return {
         imageUrls: item.imageUrls,
@@ -105,7 +108,7 @@ export async function getServerSideProps({ query }: any) {
     const [article, vipsResidence, Residence, popularDestinations, instants, filtersItem] = await Promise.all([
         Axios.get('blog'),
         Axios.get('residence/vips'),
-        Axios.get(`residence${residenceQuery}`),
+        Axios.get(`residence/${residenceQuery}`),
         Axios.get('residence/popularDestinations'),
         Axios.get('residence/instants?pageSize=5'),
         Axios.get('/residence/preperForFilter')

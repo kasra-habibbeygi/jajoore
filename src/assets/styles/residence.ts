@@ -7,7 +7,7 @@ export const DoubleCol = styled.div({
     margin: '30px 0',
 
     '& .content_field': {
-        width: 'calc(100% - 390px)',
+        width: 'calc(100% - 400px)',
         borderRadius: '5px',
         paddingBottom: '20px',
 

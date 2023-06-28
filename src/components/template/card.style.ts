@@ -220,7 +220,11 @@ export const MainCardField = styled.div(props => ({
         margin: '0',
         padding: '5px 10px',
         color: 'white',
-        borderRadius: '8px'
+        borderRadius: '8px',
+
+        p: {
+            color: 'white'
+        }
     },
 
     '& .avatar_field': {

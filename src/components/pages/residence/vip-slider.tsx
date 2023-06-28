@@ -9,7 +9,7 @@ import { MainField } from './vip-slider.style';
 import CardComponent from '@/components/template/card';
 import TitleField from '@/components/template/title';
 
-const VipSlider = () => {
+const SimilarSlider = ({ data }: any) => {
     return (
         <MainField>
             <TitleField title='آگهی های مشابه' />
@@ -37,36 +37,14 @@ const VipSlider = () => {
                 }}
                 className='card_slider'
             >
-                <SwiperSlide>
-                    <CardComponent />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardComponent />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardComponent />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardComponent />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardComponent />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardComponent />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardComponent />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardComponent />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CardComponent blur />
-                </SwiperSlide>
+                {data.result.map((item: any) => (
+                    <SwiperSlide key={`vips_residence_${item.id}`}>
+                        <CardComponent data={item} />
+                    </SwiperSlide>
+                ))}
             </Swiper>
         </MainField>
     );
 };
 
-export default VipSlider;
+export default SimilarSlider;

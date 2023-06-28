@@ -1,4 +1,5 @@
 import React from 'react';
+import Axios from '@/configs/axios';
 
 // Assets
 import { DoubleCol } from '@/assets/styles/residence';
@@ -12,7 +13,7 @@ import LayoutProvider from '@/components/layout/layout-provider';
 import Filter from '@/components/template/filters/filter';
 import Header from '@/components/pages/residence/header';
 import Images from '@/components/pages/residence/images';
-import VipSlider from '@/components/pages/residence/vip-slider';
+import SimilarSlider from '@/components/pages/residence/vip-slider';
 import Comments from '@/components/pages/residence/comments';
 import HostInfo from '@/components/pages/residence/host-info';
 import Rate from '@/components/pages/residence/rate';
@@ -22,10 +23,10 @@ import Story from '@/components/pages/residence/story';
 import Aside from '@/components/pages/residence/aside';
 import ForbiddenTemp from '@/components/pages/residence/forbidden';
 
-const Residence = () => {
+const Residence = ({ filtersItem, vipsResidence }: any) => {
     return (
         <LayoutProvider>
-            <Filter />
+            <Filter filtersItem={filtersItem.result} />
             <main className='container'>
                 <Header />
                 <Images />
@@ -43,10 +44,26 @@ const Residence = () => {
                         <Comments />
                     </div>
                 </DoubleCol>
-                <VipSlider />
+                <SimilarSlider data={vipsResidence} />
             </main>
         </LayoutProvider>
     );
 };
 
 export default Residence;
+
+export async function getServerSideProps({ params }: any) {
+    const [filtersItem, residenceData, vipsResidence] = await Promise.all([
+        Axios.get('/residence/preperForFilter'),
+        Axios.get(`residence/${params.id}`),
+        Axios.get('residence/vips')
+    ]);
+
+    return {
+        props: {
+            filtersItem: filtersItem.data,
+            residenceData: residenceData.data.result,
+            vipsResidence: vipsResidence.data
+        }
+    };
+}

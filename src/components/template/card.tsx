@@ -90,7 +90,7 @@ const CardComponent = ({ type = 'full', blur, extraClass, data }: CardComponentT
                 </div>
             </div>
             <div className={`title ${type === 'half' ? 'position_added' : ''}`}>
-                <Link href={`/residence/${data.residenceNO}`}>
+                <Link href={`/residence/${data.id}`}>
                     <p>{data.title}</p>
                 </Link>
                 {type === 'full' && (
