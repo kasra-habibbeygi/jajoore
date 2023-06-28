@@ -17,7 +17,6 @@ const VIPOnly = () => {
     const [filterStatus, setFilterStatus] = useState<boolean>(false);
 
     useEffect(() => {
-        console.log(router.query.vipStatus);
         if (!filterStatus) {
             delete router.query.vipStatus;
             router.push(router);

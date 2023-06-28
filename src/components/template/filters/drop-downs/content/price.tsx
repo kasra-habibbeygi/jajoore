@@ -18,14 +18,14 @@ const cacheRtl = createCache({
 });
 
 const PriceFilters = ({ setPriceValue, priceValue }: { setPriceValue: (state: any) => void; priceValue: number[] }) => {
-    const minDistance = 400_000;
+    const minDistance = 500_000;
     const removeNonNumeric = (num: any) => num.toString().replace(/[^0-9]/g, '');
 
     const inputValueHandler = (e: any) => {
         if (e.target.name === 'from') {
-            setPriceValue([priceValue[0], removeNonNumeric(e.target.value)]);
-        } else {
             setPriceValue([removeNonNumeric(e.target.value), priceValue[1]]);
+        } else {
+            setPriceValue([priceValue[0], removeNonNumeric(e.target.value)]);
         }
     };
 
@@ -69,7 +69,7 @@ const PriceFilters = ({ setPriceValue, priceValue }: { setPriceValue: (state: an
                     <p>تومان</p>
                     <Input
                         name='from'
-                        value={priceValue[0].toLocaleString()}
+                        value={parseInt(priceValue[0] as any).toLocaleString()}
                         label='نرخ از شبی'
                         placeholder='0'
                         setValue={inputValueHandler}
@@ -79,7 +79,7 @@ const PriceFilters = ({ setPriceValue, priceValue }: { setPriceValue: (state: an
                     <p>تومان</p>
                     <Input
                         name='to'
-                        value={priceValue[1].toLocaleString()}
+                        value={parseInt(priceValue[1] as any).toLocaleString()}
                         label='تا'
                         placeholder='25،000،000'
                         setValue={inputValueHandler}

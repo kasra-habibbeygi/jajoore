@@ -1,4 +1,8 @@
-import React, { useRef, useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/state-manager/store';
 
 // Assets
 import { DropdownField } from './style/dropdown.style';
@@ -13,10 +17,12 @@ import PriceFilters from './content/price';
 import useOutsideClick from '@/hooks/use-outside-click';
 
 const PriceFilter = () => {
+    const router = useRouter();
+    const filterActionStatus = useSelector((state: RootState) => state.Utils.filterAction);
     const uniqValue = 'PriceFilter';
     const ref = useRef(null);
     const [DropDownStatus, setDropDownStatus] = useState('');
-    const [priceValue, setPriceValue] = useState([100_000, 25_000_000]);
+    const [priceValue, setPriceValue] = useState<any>([100_000, 25_000_000]);
 
     useOutsideClick(ref, () => {
         setDropDownStatus('');
@@ -31,10 +37,31 @@ const PriceFilter = () => {
 
     const titleProvider = () => {
         if (priceValue[0] > 100_000 || priceValue[1] < 25_000_000) {
-            return `از ${priceValue[0].toLocaleString()} تا ${priceValue[1].toLocaleString()}`;
+            return `از ${parseInt(priceValue[0]).toLocaleString()} تا ${parseInt(priceValue[1]).toLocaleString()}`;
         }
         return 'محدوده اجاره بها';
     };
+
+    useEffect(() => {
+        if (filterActionStatus.type === 'price') {
+            if (filterActionStatus.action === 'remove') {
+                delete router.query.minPrice;
+                delete router.query.maxPrice;
+                router.push(router);
+            } else {
+                if (priceValue[0] !== 100_000 || priceValue[1] !== 25_000_000) {
+                    router.query.minPrice = priceValue[0];
+                    router.query.maxPrice = priceValue[1];
+                }
+
+                router.push(router);
+            }
+        }
+    }, [filterActionStatus]);
+
+    useEffect(() => {
+        setPriceValue([router.query.minPrice ?? 100_000, router.query.maxPrice ?? 25_000_000]);
+    }, [router.query.minPrice, router.query.maxPrice]);
 
     return (
         <DropdownField ref={ref} className='price_filter'>

@@ -11,7 +11,7 @@ import Button from '@/components/form-group/button';
 // Types
 interface ComponentTypes {
     title: string;
-    activeStatus?: boolean;
+    activeStatus?: any;
     img?: any;
     handler?: Function;
 }

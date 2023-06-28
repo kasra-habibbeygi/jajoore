@@ -47,7 +47,7 @@ const CheckBoxListFilter = ({ filterItem, title, className, name, boxWidth = 600
 
     return (
         <DropdownField ref={ref} className={className}>
-            <FilterPill title={titleProvider()} img={Icon} handler={() => FilterDropDownStatusHandler(name)} />
+            <FilterPill title={titleProvider()} img={Icon} handler={() => FilterDropDownStatusHandler(name)} activeStatus={numberCounter} />
             <DropDownLayout
                 title={title}
                 status={name === DropDownStatus}

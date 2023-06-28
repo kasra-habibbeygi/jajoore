@@ -39,7 +39,12 @@ const Property = () => {
 
     return (
         <DropdownField ref={ref} className='property_filter'>
-            <FilterPill title={titleProvider()} img={CheckListIcon} handler={() => FilterDropDownStatusHandler(uniqValue)} />
+            <FilterPill
+                title={titleProvider()}
+                img={CheckListIcon}
+                handler={() => FilterDropDownStatusHandler(uniqValue)}
+                activeStatus={numberCounter}
+            />
             <DropDownLayout
                 title='ویژگی های اقامتگاه'
                 status={uniqValue === DropDownStatus}
