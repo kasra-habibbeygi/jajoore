@@ -22,6 +22,7 @@ import Story from '@/components/pages/residence/story';
 import Aside from '@/components/pages/residence/aside';
 import ForbiddenTemp from '@/components/pages/residence/forbidden';
 import Info from '@/components/pages/residence/info';
+import SleepingArea from '@/components/pages/residence/sleeping-area';
 
 const Residence = ({ filtersItem, vipsResidence }: any) => {
     return (
@@ -35,6 +36,8 @@ const Residence = ({ filtersItem, vipsResidence }: any) => {
                         <Info />
                         <Story />
                         <AboutResidence />
+                        <Attributes title='فضای اقامتگاه' />
+                        <SleepingArea />
                         <Attributes title='امکانات' />
                         <Attributes title='منطقه اقامتگاه' />
                         <Attributes title='حریم خصوصی و امنیت' />
