@@ -148,3 +148,9 @@ textarea{
         width: 95%;
     }
 }
+
+.MuiPaper-elevation .MuiMenu-list .MuiMenuItem-root{
+    font-family: 'main' !important;
+    font-size: 0.9rem;
+    font-weight: 300;
+}

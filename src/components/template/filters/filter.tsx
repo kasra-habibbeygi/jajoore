@@ -36,8 +36,6 @@ const Filter = ({ filtersItem }: any) => {
     const [provincesModalStatus, setProvincesModalStatus] = useState(false);
     const [mobileSearchStatus, setMobileSearchStatus] = useState(false);
 
-    console.log(filtersItem);
-
     return (
         <>
             <FilterField>

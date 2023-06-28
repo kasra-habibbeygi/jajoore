@@ -1,29 +1,45 @@
 import React from 'react';
+import { CacheProvider } from '@emotion/react';
+import { prefixer } from 'stylis';
+import rtlPlugin from 'stylis-plugin-rtl';
+import createCache from '@emotion/cache';
 
 // Assets
 import { MainField } from './select.style';
 
 // MUI
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 
-const Select = () => {
+const cacheRtl = createCache({
+    key: 'muirtl',
+    stylisPlugins: [prefixer, rtlPlugin]
+});
+
+// Types
+interface SelectComponentTypes {
+    items: any;
+    state: any;
+    handler: any;
+    itemKey: string;
+    name: string;
+    valueKey: string;
+}
+
+const SelectComponent = ({ items, state, handler, itemKey, valueKey, name }: SelectComponentTypes) => {
     return (
         <MainField>
-            <Autocomplete
-                disablePortal
-                options={top100Films}
-                sx={{ width: 300 }}
-                renderInput={params => <TextField {...params} disabled />}
-            />
+            <CacheProvider value={cacheRtl}>
+                <Select value={state} onChange={handler} name={name}>
+                    {items.map((item: any, index: number) => (
+                        <MenuItem key={`select_Items_${name}_${index}`} value={item[valueKey]}>
+                            {item[itemKey]}
+                        </MenuItem>
+                    ))}
+                </Select>
+            </CacheProvider>
         </MainField>
     );
 };
 
-const top100Films = [
-    { label: 'The Shawshank Redemption', year: 1994 },
-    { label: 'The Godfather', year: 1972 },
-    { label: 'The Godfather: Part II', year: 1974 }
-];
-
-export default Select;
+export default SelectComponent;

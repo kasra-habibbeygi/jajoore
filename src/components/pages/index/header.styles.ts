@@ -18,10 +18,13 @@ export const MainField = styled.div(props => ({
     },
 
     '& .left_field': {
+        width: '150px',
+
         '& .share': {
             cursor: 'pointer',
             width: '30px',
-            height: 'auto'
+            height: 'auto',
+            marginBottom: '10px'
         }
     }
 }));

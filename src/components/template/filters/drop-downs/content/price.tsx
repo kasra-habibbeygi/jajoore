@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React from 'react';
 import { CacheProvider } from '@emotion/react';
 import { prefixer } from 'stylis';
 import rtlPlugin from 'stylis-plugin-rtl';
