@@ -17,6 +17,12 @@ export const MainField = styled.div({
             gap: '10px',
             padding: '20px',
 
+            span: {
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px'
+            },
+
             p: {
                 fontSize: '0.9rem'
             },

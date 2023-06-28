@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from '@/configs/axios';
+import dynamic from 'next/dynamic';
 
 // Assets
 import { DoubleCol } from '@/assets/styles/residence';
@@ -24,11 +25,14 @@ import ForbiddenTemp from '@/components/pages/residence/forbidden';
 import Info from '@/components/pages/residence/info';
 import SleepingArea from '@/components/pages/residence/sleeping-area';
 import RatePerPerson from '@/components/pages/residence/rate-per-person';
+import Rules from '@/components/pages/residence/rules';
+import CancelRules from '@/components/pages/residence/cancel-rules';
+const SpecificResidenceMap = dynamic(() => import('@/components/pages/residence/map'), { ssr: false });
 
 const Residence = ({ filtersItem, vipsResidence }: any) => {
     return (
         <LayoutProvider>
-            <Filter filtersItem={filtersItem.result} />
+            <Filter filtersItem={filtersItem.result} filterStatus={false} />
             <main className='container'>
                 <Header />
                 <DoubleCol>
@@ -43,7 +47,11 @@ const Residence = ({ filtersItem, vipsResidence }: any) => {
                         <Attributes title='منطقه اقامتگاه' />
                         <Attributes title='حریم خصوصی و امنیت' />
                         <RatePerPerson />
+                        <Rules />
+                        <Attributes title='مدارک تحویل اقامتگاه' />
                         <ForbiddenTemp />
+                        <CancelRules />
+                        <SpecificResidenceMap />
                         <Rate />
                         <HostInfo />
                         <Comments />

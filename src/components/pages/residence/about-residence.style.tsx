@@ -19,7 +19,7 @@ export const MainField = styled.div(props => ({
             alignItems: 'center',
             gap: '10px',
             padding: '15px',
-            boxShadow: '0 0 3px rgb(0,0,0,0.35)',
+            boxShadow: '0 0 3px rgb(0 0 0 / 16%)',
 
             p: {
                 fontWeight: '400'
