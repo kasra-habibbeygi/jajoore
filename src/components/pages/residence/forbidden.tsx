@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import React from 'react';
 import Image from 'next/image';
 
@@ -5,27 +6,21 @@ import Image from 'next/image';
 import { MainField } from './forbidden.style';
 import MocIcon from '@/assets/images/icons/camera.svg';
 
-const ForbiddenTemp = () => {
+const ForbiddenTemp = ({ availableItems, attribute, name }: any) => {
     return (
         <MainField>
             <h3>موارد ممنوعه</h3>
             <ul>
-                <li>
-                    <Image src={MocIcon} alt='' />
-                    <p>برگذاری جشن مهمانی های کوچک ممنوع است</p>
-                </li>
-                <li>
-                    <Image src={MocIcon} alt='' />
-                    <p>برگذاری جشن مهمانی های کوچک ممنوع است</p>
-                </li>
-                <li>
-                    <Image src={MocIcon} alt='' />
-                    <p>برگذاری جشن مهمانی های کوچک ممنوع است</p>
-                </li>
-                <li>
-                    <Image src={MocIcon} alt='' />
-                    <p>برگذاری جشن مهمانی های کوچک ممنوع است</p>
-                </li>
+                {attribute.map((item: any) => {
+                    if (availableItems?.includes(item.id)) {
+                        return (
+                            <li key={`${name}_items_${item.id}`}>
+                                <Image src={MocIcon} alt='' />
+                                <p>{item.name}</p>
+                            </li>
+                        );
+                    }
+                })}
             </ul>
         </MainField>
     );

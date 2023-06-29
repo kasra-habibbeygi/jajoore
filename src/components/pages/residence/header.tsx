@@ -16,7 +16,7 @@ import ImgSlider from './img-slider';
 
 const ResidenceHeader = () => {
     const [tabsStatus, setTabsStatus] = useState<number>(0);
-    const [imgModalStatus, setImgModalStatus] = useState<boolean>(true);
+    const [imgModalStatus, setImgModalStatus] = useState<boolean>(false);
 
     return (
         <>

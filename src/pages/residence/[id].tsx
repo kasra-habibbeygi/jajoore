@@ -29,7 +29,7 @@ import Rules from '@/components/pages/residence/rules';
 import CancelRules from '@/components/pages/residence/cancel-rules';
 const SpecificResidenceMap = dynamic(() => import('@/components/pages/residence/map'), { ssr: false });
 
-const Residence = ({ filtersItem, vipsResidence }: any) => {
+const Residence = ({ filtersItem, vipsResidence, attribute, residenceData }: any) => {
     return (
         <LayoutProvider>
             <Filter filtersItem={filtersItem.result} filterStatus={false} />
@@ -38,21 +38,61 @@ const Residence = ({ filtersItem, vipsResidence }: any) => {
                 <DoubleCol>
                     <Aside />
                     <div className='content_field'>
-                        <Info />
+                        <Info data={residenceData} />
                         <Story />
-                        <AboutResidence />
-                        <Attributes title='فضای اقامتگاه' />
-                        <SleepingArea />
-                        <Attributes title='امکانات' />
-                        <Attributes title='منطقه اقامتگاه' />
-                        <Attributes title='حریم خصوصی و امنیت' />
-                        <RatePerPerson />
-                        <Rules />
-                        <Attributes title='مدارک تحویل اقامتگاه' />
-                        <ForbiddenTemp />
+                        <AboutResidence data={residenceData} />
+                        {/* <Attributes title='فضای اقامتگاه' attribute={attribute} /> */}
+                        <SleepingArea data={residenceData} />
+                        <Attributes
+                            title='منطقه اقامتگاه'
+                            attribute={attribute.residenceAreas}
+                            // availableItems={residenceData.residenceTypeId}
+                            name='privacyAndSecurities'
+                        />
+                        <Attributes
+                            title='حریم خصوصی و امنیت'
+                            attribute={attribute.privacyAndSecurities}
+                            // availableItems={residenceData.residenceFacilitieIds}
+                            name='privacyAndSecurities'
+                        />
+                        <Attributes
+                            title='امکانات'
+                            attribute={attribute.residenceFacilities}
+                            availableItems={residenceData.residenceFacilitieIds}
+                            name='residenceFacilities'
+                        />
+                        <Attributes
+                            title='لوازم بازی'
+                            attribute={attribute.gameAccessories}
+                            availableItems={residenceData.gameAccessorieIds}
+                            name='gameAccessories'
+                        />
+                        <Attributes title='سرویس بهداشتی' attribute={attribute.wCs} availableItems={residenceData.wcIds} name='wCs' />
+                        <Attributes
+                            title='چشم انداز'
+                            attribute={attribute.visions}
+                            availableItems={residenceData.visionIds}
+                            name='visions'
+                        />
+                        <Attributes title='ایمنی' attribute={attribute.safeties} availableItems={residenceData.safetyIds} name='safeties' />
+                        <Attributes
+                            title='انشعابات'
+                            attribute={attribute.residenceBranches}
+                            availableItems={residenceData.residenceBrancheIds}
+                            name='residenceBranches'
+                        />
+                        <RatePerPerson data={residenceData} />
+                        <Rules data={residenceData} />
+                        <Attributes
+                            title='مدارک تحویل اقامتگاه'
+                            attribute={attribute.residenceDeliveryDocuments}
+                            availableItems={residenceData.residenceDeliveryDocumentIds}
+                            name='residenceBranches'
+                        />
+                        <ForbiddenTemp attribute={attribute.forbiddenWorks} availableItems={residenceData.forbiddenWorkIds} />
                         <CancelRules />
-                        <SpecificResidenceMap />
-                        <Rate />
+                        <SpecificResidenceMap data={[residenceData.lat, residenceData.lng]} />
+                        <Rate score={residenceData.scores} attribute={attribute.scores} />
                         <HostInfo />
                         <Comments />
                     </div>
@@ -66,17 +106,19 @@ const Residence = ({ filtersItem, vipsResidence }: any) => {
 export default Residence;
 
 export async function getServerSideProps({ params }: any) {
-    const [filtersItem, residenceData, vipsResidence] = await Promise.all([
-        Axios.get('/residence/preperForFilter'),
+    const [filtersItem, residenceData, vipsResidence, attribute] = await Promise.all([
+        Axios.get('residence/preperForFilter'),
         Axios.get(`residence/${params.id}`),
-        Axios.get('residence/vips')
+        Axios.get('residence/vips'),
+        Axios.get('residence/preperForView')
     ]);
 
     return {
         props: {
             filtersItem: filtersItem.data,
             residenceData: residenceData.data.result,
-            vipsResidence: vipsResidence.data
+            vipsResidence: vipsResidence.data,
+            attribute: attribute.data.result
         }
     };
 }

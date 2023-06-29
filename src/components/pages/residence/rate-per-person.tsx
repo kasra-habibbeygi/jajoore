@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 // Assets
@@ -8,23 +8,30 @@ import DiscountIcon from '@/assets/images/card/discount.svg';
 // Component
 import TitleField from '@/components/template/title';
 
-const RatePerPerson = () => {
+const RatePerPerson = ({ data }: any) => {
+    const [domLoaded, setDomLoaded] = useState(false);
+    useEffect(() => {
+        setDomLoaded(true);
+    }, []);
+
     return (
         <MainField>
-            <TitleField title='نرخ هر نفر اضافه: +300٬000 تومان / بیشتر از 4 نفر' />
+            <TitleField
+                title={`نرخ هر نفر اضافه: +${domLoaded && parseInt(data.extraPeoplePrice).toLocaleString()} تومان / بیشتر از 4 نفر`}
+            />
             <div className='card_content'>
                 <div>
                     <Image src={DiscountIcon} alt='' />
-                    <p>تخفیف رزرو بیش از 6 شب: 5 درصد</p>
+                    <p>تخفیف رزرو بیش از 7 شب: {data.oneWeekDiscountPercent} درصد</p>
                 </div>
                 <div>
                     <Image src={DiscountIcon} alt='' />
-                    <p>تخفیف رزرو بیش از 30 شب: 7 درصد</p>
+                    <p>تخفیف رزرو بیش از 30 شب: {data.oneMonthDiscountPercent} درصد</p>
                 </div>
             </div>
             <div className='info'>
-                <p>ظرفیت حداقل نفرات: 8 نفر</p>
-                <p>حداکثر نفرات: 12 نفر</p>
+                <p>ظرفیت حداقل نفرات: {data.capacity} نفر</p>
+                <p>حداکثر نفرات: {data.maxCapacity} نفر</p>
             </div>
         </MainField>
     );

@@ -11,7 +11,7 @@ import DoubleBedIcon from '@/assets/images/card/double-bed.svg';
 // Component
 import TitleField from '@/components/template/title';
 
-const SleepingArea = () => {
+const SleepingArea = ({ data }: any) => {
     return (
         <MainField>
             <div className='header'>
@@ -20,12 +20,12 @@ const SleepingArea = () => {
             </div>
             <div className='content'>
                 <div>
-                    <Image src={SingleBedIcon} alt='' />
+                    <Image src={DoubleBedIcon} alt='' />
                     <p>تخت خواب 2 نفره</p>
-                    <p>تعداد: 2</p>
+                    <p>تعداد: {data.bedCount}</p>
                 </div>
                 <div>
-                    <Image src={DoubleBedIcon} alt='' />
+                    <Image src={SingleBedIcon} alt='' />
                     <p>تخت خواب 1 نفره</p>
                     <p>تعداد: 2</p>
                 </div>
@@ -37,7 +37,7 @@ const SleepingArea = () => {
                 <div>
                     <Image src={SofaBed} alt='' />
                     <p>مبل تخت شو</p>
-                    <p>تعداد: 2</p>
+                    <p>تعداد: {data.sofaBedCount}</p>
                 </div>
             </div>
         </MainField>

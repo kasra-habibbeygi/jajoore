@@ -16,13 +16,13 @@ const skater = new Icon({
     iconSize: [25, 25]
 });
 
-const SpecificResidenceMap = () => {
+const SpecificResidenceMap = ({ data }) => {
     return (
         <MainField>
             <TitleField title='نقشه' />
-            <MapContainer center={[35.90095130622604, 50.73584406629691]} zoom={13} scrollWheelZoom={true}>
+            <MapContainer center={data} zoom={13} scrollWheelZoom={true}>
                 <TileLayer url='https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png' />
-                <Marker position={[35.90095130622604, 50.73584406629691]} icon={skater}></Marker>
+                <Marker position={data} icon={skater}></Marker>
             </MapContainer>
         </MainField>
     );

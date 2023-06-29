@@ -10,34 +10,35 @@ import Discount from '@/assets/images/icons/discount.svg';
 // Component
 import TitleField from '@/components/template/title';
 
-const AboutResidence = () => {
+const AboutResidence = ({ data }: any) => {
     return (
         <MainField>
             <TitleField title='درباره اقامتگاه' />
-            <p className='about_text'>
-                این سوئیت مبله یکخوابه با پشت بام اختصاصی در طبقه دوم یک ساختمان دو طبقه و در منطقه ای دنج و آرام با فاصله حدود 5 کیلومتری
-                از مرکز شهر اصفهان واقع شده است. میزبان این اقامتگاه در طبقه پایین همین ساختمان سکونت دارد و این منزل مبله با پیمودن حدود 15
-                پله قابل دسترسی است، همچنین سوئیت فاقد پارکینگ می باشد، اما محیط اطراف ساختمان به دوربین مداربسته مجهز است و خیابانی که
-                اقامتگاه در آن واقع شده برای پارک خودرو از امنیت مطلوبی برخوردار است.
-            </p>
+            <p className='about_text'>{data.content}</p>
             <ul>
-                <li>
-                    <Image src={DisinfectionIcon} alt='' />
-                    <div>
-                        <p>اقامتکاه پلاس</p>
-                        <small>
-                            این اقامتگاه مطابق با پروتکل‌های بهداشتی نظافت و ضدعفونی می‌شود. خرید یک دست کامل ظروف + ملحفه هتلی + تشک هتلی +
-                            پک های تک نفره
-                        </small>
-                    </div>
-                </li>
-                <li>
-                    <Image src={Appointment} alt='' />
-                    <div>
-                        <p>رزرو فوری</p>
-                        <small>در این روزها رزرو در یک مرحله و بدون نیاز به تایید میزبان قطعی می شود.</small>
-                    </div>
-                </li>
+                {data.plus && (
+                    <li>
+                        <Image src={DisinfectionIcon} alt='' />
+                        <div>
+                            <p>اقامتکاه پلاس</p>
+                            <small>
+                                این اقامتگاه مطابق با پروتکل‌های بهداشتی نظافت و ضدعفونی می‌شود. خرید یک دست کامل ظروف + ملحفه هتلی + تشک
+                                هتلی + پک های تک نفره
+                            </small>
+                        </div>
+                    </li>
+                )}
+
+                {data.instant && (
+                    <li>
+                        <Image src={Appointment} alt='' />
+                        <div>
+                            <p>رزرو فوری</p>
+                            <small>در این روزها رزرو در یک مرحله و بدون نیاز به تایید میزبان قطعی می شود.</small>
+                        </div>
+                    </li>
+                )}
+
                 <li>
                     <Image src={Discount} alt='' />
                     <div>

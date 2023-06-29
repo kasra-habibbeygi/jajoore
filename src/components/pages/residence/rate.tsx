@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Assets
 import { MainField } from './rate.style';
@@ -9,7 +9,17 @@ import { Rating } from '@mui/material';
 // Component
 import MuiRtlWraper from '@/components/mui-rtl-wraper';
 
-const Rate = () => {
+const Rate = ({ attribute, score }: any) => {
+    const [avrage, setAvrage] = useState<any>(0);
+
+    useEffect(() => {
+        setAvrage(() => {
+            let avrage = 0;
+            score.forEach((item: any) => (avrage += item.rating));
+            return (avrage / score.length).toFixed(1);
+        });
+    }, [score]);
+
     return (
         <MainField>
             <header>
@@ -18,49 +28,21 @@ const Rate = () => {
                     <span>23 نفر</span>
                 </div>
                 <div>
-                    4.7
+                    {avrage}
                     <MuiRtlWraper>
                         <Rating name='size-small' readOnly defaultValue={4.5} precision={0.5} size='small' />
                     </MuiRtlWraper>
                 </div>
             </header>
             <div className='attr_rate_list'>
-                <div>
-                    <p>صحت مطالب</p>
-                    <MuiRtlWraper>
-                        <Rating name='size-small' readOnly defaultValue={5} precision={0.5} size='small' />
-                    </MuiRtlWraper>
-                </div>
-                <div>
-                    <p>پاکیزگی اقامتگاه</p>
-                    <MuiRtlWraper>
-                        <Rating name='size-small' readOnly defaultValue={4} precision={0.5} size='small' />
-                    </MuiRtlWraper>
-                </div>
-                <div>
-                    <p>تحویل اقامتگاه</p>
-                    <MuiRtlWraper>
-                        <Rating name='size-small' readOnly defaultValue={5} precision={0.5} size='small' />
-                    </MuiRtlWraper>
-                </div>
-                <div>
-                    <p>شیوه برخورد میزبان</p>
-                    <MuiRtlWraper>
-                        <Rating name='size-small' readOnly defaultValue={3.5} precision={0.5} size='small' />
-                    </MuiRtlWraper>
-                </div>
-                <div>
-                    <p>مکان اقامتگاه</p>
-                    <MuiRtlWraper>
-                        <Rating name='size-small' readOnly defaultValue={5} precision={0.5} size='small' />
-                    </MuiRtlWraper>
-                </div>
-                <div>
-                    <p>کیفیت نسبت به نرخ </p>
-                    <MuiRtlWraper>
-                        <Rating name='size-small' readOnly defaultValue={3} precision={0.5} size='small' />
-                    </MuiRtlWraper>
-                </div>
+                {attribute.map((item: any, index: number) => (
+                    <div key={`rate_items_${item.id}`}>
+                        <p>{item.name}</p>
+                        <MuiRtlWraper>
+                            <Rating name='size-small' readOnly defaultValue={4} precision={score[index].rating} size='small' />
+                        </MuiRtlWraper>
+                    </div>
+                ))}
             </div>
         </MainField>
     );

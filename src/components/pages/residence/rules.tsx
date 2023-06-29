@@ -9,24 +9,24 @@ import CLock1Icon from '@/assets/images/card/clock-1.svg';
 // Component
 import TitleField from '@/components/template/title';
 
-const Rules = () => {
+const Rules = ({ data }: any) => {
     return (
         <MainField>
-            <TitleField title='نرخ هر نفر اضافه: +300٬000 تومان / بیشتر از 4 نفر' />
+            <TitleField title='قوانین و مقررات اقامتگاه' />
             <div className='card_content'>
                 <div>
                     <span>
                         <Image src={CLock1Icon} alt='' />
                         ساعت ورود
                     </span>
-                    <p> ظهر تا نامحدود</p>
+                    <p>{data.entryTime} ظهر تا نامحدود </p>
                 </div>
                 <div>
                     <span>
                         <Image src={CLockIcon} alt='' />
                         ساعت خروج
                     </span>
-                    <p> ظهر تا نامحدود</p>
+                    <p>{data.exitTime} ظهر</p>
                 </div>
             </div>
         </MainField>

@@ -21,19 +21,18 @@ import SelectComponent from '@/components/form-group/select';
 
 // MUI
 import { SelectChangeEvent } from '@mui/material';
+const Info = ({ data }: any) => {
+    const selectItems = [
+        {
+            label: `${data.oneWeekDiscountPercent}% تخفیف برای رزرو بیشتر از 7 روز`,
+            value: 1
+        },
+        {
+            label: `${data.oneMonthDiscountPercent}% تخفیف برای رزرو بیشتر از 30 روز`,
+            value: 1
+        }
+    ];
 
-const selectItems = [
-    {
-        label: '20% تخفیف برای رزرو بیشتر از 6 روز',
-        value: 1
-    },
-    {
-        label: '20% تخفیف برای رزرو بیشتر از 20 روز',
-        value: 1
-    }
-];
-
-const Info = () => {
     const selectValueHandler = (e: SelectChangeEvent) => {};
 
     return (
@@ -41,11 +40,12 @@ const Info = () => {
             <div className='header'>
                 <div className='right_field'>
                     <h1>
-                        ویلا دوبلکس چهار خواب سهیلیه <span>VIP</span>
+                        {data.title}
+                        {data.vip && <span>VIP</span>}
                     </h1>
                     <div className='location'>
                         <Image src={LocationIcon} alt='' />
-                        البرز ، کردان
+                        {data.cityName}
                     </div>
                 </div>
                 <div className='left_field'>
@@ -54,7 +54,7 @@ const Info = () => {
                 </div>
             </div>
             <div className='midle_field'>
-                <div className='code'>کد ویلا : 144</div>
+                <div className='code'>کد ویلا : {data.residenceNO}</div>
                 <div>
                     <SelectComponent
                         items={selectItems}
@@ -66,14 +66,18 @@ const Info = () => {
                     />
                 </div>
                 <div className='pills_field'>
-                    <span className='yellow'>
-                        <Image src={FastChargeIcon} alt='' />
-                        <p>رزرو آنی</p>
-                    </span>
-                    <span className='yellow_light'>
-                        <Image src={PlusIcon} alt='' />
-                        <p>پلاس</p>
-                    </span>
+                    {data.instant && (
+                        <span className='yellow'>
+                            <Image src={FastChargeIcon} alt='' />
+                            <p>رزرو آنی</p>
+                        </span>
+                    )}
+                    {data.plus && (
+                        <span className='yellow_light'>
+                            <Image src={PlusIcon} alt='' />
+                            <p>پلاس</p>
+                        </span>
+                    )}
                     <span className='red'>
                         <Image src={PlayIcon} alt='' />
                         <p>ویدیو</p>
@@ -86,25 +90,27 @@ const Info = () => {
             <div className='details'>
                 <div>
                     <Image src={VilaIcon} alt='' />
-                    دربستی
+                    {data.privacyAndSecurityName}
                 </div>
                 <div>
                     <Image src={GroupUsersIcon} alt='' />
-                    10 ~ 8
+                    {data.capacity} ~ {data.maxCapacity}
                 </div>
                 <div>
-                    <Image src={DoubleBedIcon} alt='' />4 خواب
+                    <Image src={DoubleBedIcon} alt='' />
+                    {data.numberOfRoom} خواب
                 </div>
                 <div>
-                    <Image src={StairsIcon} alt='' />2 طبقه
+                    <Image src={StairsIcon} alt='' />
+                    {data.numberOfFloor} طبقه
                 </div>
                 <div>
                     <Image src={MeterIcon} alt='' />
-                    250 متر بنا
+                    {data.areaOfFloor} متر بنا
                 </div>
                 <div>
                     <Image src={MeterIcon} alt='' />
-                    250 متر زمین
+                    {data.areaOfPlot} متر زمین
                 </div>
             </div>
         </MainField>
