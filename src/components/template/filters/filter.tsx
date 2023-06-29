@@ -30,7 +30,7 @@ import CalenderFilter from './drop-downs/calender';
 const PriceFilter = dynamic(() => import('./drop-downs/price'), { ssr: false });
 import CheckBoxListFilter from './checkbox-list-filter';
 
-const Filter = ({ filtersItem, filterStatus = true }: any) => {
+const Filter = ({ filtersItem, filterStatus = true, popularDestinations }: any) => {
     const [sideMenuStatus, setSideMenuStatus] = useState(false);
     const [citiesModalStatus, setCitiesModalStatus] = useState(false);
     const [provincesModalStatus, setProvincesModalStatus] = useState(false);
@@ -48,15 +48,17 @@ const Filter = ({ filtersItem, filterStatus = true }: any) => {
                             </Button>
                             <Layout status={mobileSearchStatus} onClick={() => setMobileSearchStatus(false)}></Layout>
                             <SearchField
-                                setCitiesModalStatus={setCitiesModalStatus}
+                                setProvincesModalStatus={setProvincesModalStatus}
                                 setMobileSearchStatus={setMobileSearchStatus}
                                 mobileSearchStatus={mobileSearchStatus}
+                                popularDestinations={popularDestinations}
                             />
                             <SearchField
-                                setCitiesModalStatus={setCitiesModalStatus}
-                                mode='mobile'
+                                setProvincesModalStatus={setProvincesModalStatus}
                                 mobileSearchStatus={mobileSearchStatus}
                                 setMobileSearchStatus={setMobileSearchStatus}
+                                popularDestinations={popularDestinations}
+                                mode='mobile'
                             />
                         </div>
                         <div className='left_field'>
@@ -118,8 +120,8 @@ const Filter = ({ filtersItem, filterStatus = true }: any) => {
                 </div>
             </FilterField>
             <Aside status={sideMenuStatus} setStatus={setSideMenuStatus} />
-            <CitiesModal status={citiesModalStatus} setStatus={setCitiesModalStatus} />
-            <ProvincesModal status={provincesModalStatus} setStatus={setProvincesModalStatus} />
+            <CitiesModal status={citiesModalStatus} setStatus={setCitiesModalStatus} setProvincesModalStatus={setProvincesModalStatus} />
+            <ProvincesModal status={provincesModalStatus} setStatus={setProvincesModalStatus} setCitiesModalStatus={setCitiesModalStatus} />
         </>
     );
 };

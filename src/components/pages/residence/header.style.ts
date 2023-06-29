@@ -22,6 +22,18 @@ export const VideoField = styled.div({
         height: '500px',
         border: 'none',
         borderRadius: '15px'
+    },
+
+    '@media(max-width: 700px)': {
+        iframe: {
+            height: '300px'
+        }
+    },
+
+    '@media(max-width: 500px)': {
+        iframe: {
+            height: '200px'
+        }
     }
 });
 
@@ -49,7 +61,7 @@ export const TitleHeaderField = styled.div({
     }
 });
 
-export const ImageListField = styled.div({
+export const ImageListField = styled.ul({
     display: 'flex',
     alignItems: 'center',
     width: '100%',
@@ -89,6 +101,36 @@ export const ImageListField = styled.div({
                     top: '-2px'
                 }
             }
+        }
+    },
+
+    '@media(max-width: 700px)': {
+        display: 'none'
+    }
+});
+
+export const MobileSliderField = styled.div({
+    display: 'none',
+
+    '@media(max-width: 700px)': {
+        display: 'block',
+
+        '& .main_img': {
+            width: '100%',
+            objectFit: 'cover',
+            height: '300px',
+            borderRadius: '10px'
+        },
+
+        '& .MuiPaper-elevation ': {
+            background: 'transparent !important',
+            boxShadow: 'none !important'
+        }
+    },
+
+    '@media(max-width: 500px)': {
+        '& .main_img': {
+            height: '200px'
         }
     }
 });

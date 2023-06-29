@@ -38,5 +38,19 @@ export const MainField = styled.div(props => ({
             justifyContent: 'space-between',
             padding: '10px 0'
         }
+    },
+
+    '@media(max-width : 500px)': {
+        p: {
+            fontSize: '0.9rem'
+        },
+
+        '& .attr_rate_list': {
+            flexDirection: 'column',
+
+            '& >div': {
+                width: '100%'
+            }
+        }
     }
 }));

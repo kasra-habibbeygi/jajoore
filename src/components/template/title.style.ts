@@ -20,5 +20,9 @@ export const MainField = styled.div({
         fontWeight: '400',
         position: 'relative',
         zIndex: '1'
+    },
+
+    '@media(max-width : 600px)': {
+        marginBottom: '20px'
     }
 });

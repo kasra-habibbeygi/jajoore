@@ -10,7 +10,9 @@ import SearchIcon from '@/assets/images/layout/search.svg';
 import Input from '@/components/form-group/input';
 import Button from '@/components/form-group/button';
 
-const SearchField = ({ setCitiesModalStatus, mode = '', setMobileSearchStatus, mobileSearchStatus }: any) => {
+const SearchField = ({ setProvincesModalStatus, mode = '', setMobileSearchStatus, mobileSearchStatus, popularDestinations }: any) => {
+    console.log(popularDestinations);
+
     const uniqValue = 'search_field';
     const ref = useRef(null);
     const [DropDownStatus, setDropDownStatus] = useState('');
@@ -36,6 +38,7 @@ const SearchField = ({ setCitiesModalStatus, mode = '', setMobileSearchStatus, m
             mobileMode={mobileSearchStatus}
             className={mode === 'mobile' ? 'mobile_search' : ''}
             mode={mode}
+            inputValue={inputValue}
         >
             <div className='content'>
                 <Input
@@ -47,16 +50,15 @@ const SearchField = ({ setCitiesModalStatus, mode = '', setMobileSearchStatus, m
                 />
                 <Image src={SearchIcon} alt='' className='search_icon' />
                 <div className='search_box_dropdown'>
-                    <div className={`top_rate_field ${inputValue !== '' ? 'hidden' : ''}`}>
+                    <div className='top_rate_field'>
                         <b>مقاصد پر طرفدار :</b>
-                        <span>رامسر</span>
-                        <span>ماسال</span>
-                        <span>کیش</span>
-                        <span>بندر انزلی</span>
+                        {popularDestinations.map((item: any, index: number) => (
+                            <span key={`search_popular_destinations_${index}`}>{item.title}</span>
+                        ))}
                     </div>
 
                     <div className='button_field'>
-                        <Button handler={() => setCitiesModalStatus(true)}>لیست شهر ها</Button>
+                        <Button handler={() => setProvincesModalStatus(true)}>لیست شهر ها</Button>
                         <span className='seprator'></span>
                         <Button>جستجو در نقشه </Button>
                     </div>

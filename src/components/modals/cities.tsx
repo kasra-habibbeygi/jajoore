@@ -16,9 +16,16 @@ import Button from '../form-group/button';
 interface CitiesModalTypes {
     status: boolean;
     setStatus: (status: boolean) => void;
+    setProvincesModalStatus: (status: boolean) => void;
 }
 
-const CitiesModal = ({ status, setStatus }: CitiesModalTypes) => {
+const CitiesModal = ({ status, setStatus, setProvincesModalStatus }: CitiesModalTypes) => {
+    const backToPrevModalhandler = () => {
+        setStatus(false);
+        setTimeout(() => {
+            setProvincesModalStatus(true);
+        }, 300);
+    };
     return (
         <ModalField>
             <Dialog onClose={() => setStatus(false)} open={status} disablePortal keepMounted fullWidth={true} scroll='body' maxWidth='xs'>
@@ -92,7 +99,9 @@ const CitiesModal = ({ status, setStatus }: CitiesModalTypes) => {
                     </li>
                 </ul>
                 <div className='button_group'>
-                    <Button color='dark'>بازگشت</Button>
+                    <Button color='dark' handler={backToPrevModalhandler}>
+                        بازگشت
+                    </Button>
                     <Button color='green'>جستجو</Button>
                 </div>
             </Dialog>

@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Component
 import Button from '@/components/form-group/button';
 import Link from 'next/link';
+import MocImg from '@/assets/images/moc/bg.jpg';
 
 // Assets
-import { MainField, VideoField, TitleHeaderField, ImageListField } from './header.style';
+import { MainField, VideoField, TitleHeaderField, ImageListField, MobileSliderField } from './header.style';
 import PlayIcon from '@/assets/images/card/play.svg';
 import CameraIcon from '@/assets/images/icons/camera.svg';
 import Imageicon from '@/assets/images/icons/image.svg';
@@ -44,23 +47,43 @@ const ResidenceHeader = () => {
                 </Link>
             </TitleHeaderField>
             {tabsStatus === 0 && (
-                <ImageListField>
-                    <li>
-                        <Image src={MocImage} alt='' />
-                    </li>
-                    <li>
-                        <Image src={MocImage} alt='' />
-                    </li>
-                    <li>
-                        <Image src={MocImage} alt='' />
-                        <span className='layout'>
-                            <Button radius='half-rounded' handler={() => setImgModalStatus(true)}>
-                                <Image src={Imageicon} alt='' />
-                                تصاوری بیشتر
-                            </Button>
-                        </span>
-                    </li>
-                </ImageListField>
+                <>
+                    <ImageListField>
+                        <li>
+                            <Image src={MocImage} alt='' />
+                        </li>
+                        <li>
+                            <Image src={MocImage} alt='' />
+                        </li>
+                        <li>
+                            <Image src={MocImage} alt='' />
+                            <span className='layout'>
+                                <Button radius='half-rounded' handler={() => setImgModalStatus(true)}>
+                                    <Image src={Imageicon} alt='' />
+                                    تصاوری بیشتر
+                                </Button>
+                            </span>
+                        </li>
+                    </ImageListField>
+                    <MobileSliderField>
+                        <Swiper
+                            modules={[Navigation, Pagination, Scrollbar, A11y]}
+                            spaceBetween={30}
+                            slidesPerView={1}
+                            pagination={{ clickable: true }}
+                        >
+                            <SwiperSlide>
+                                <Image className='main_img' src={MocImg} alt='' width={800} height={600} />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Image className='main_img' src={MocImg} alt='' width={800} height={600} />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Image className='main_img' src={MocImg} alt='' width={800} height={600} />
+                            </SwiperSlide>
+                        </Swiper>
+                    </MobileSliderField>
+                </>
             )}
             {tabsStatus === 1 && (
                 <VideoField>

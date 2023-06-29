@@ -4,6 +4,7 @@ interface SearchBoxFieldType {
     status: boolean;
     mobileMode: boolean;
     mode: string;
+    inputValue: string;
 }
 
 export const SearchBoxField = styled.div<SearchBoxFieldType>(props => ({
@@ -49,7 +50,7 @@ export const SearchBoxField = styled.div<SearchBoxFieldType>(props => ({
         position: props.mode === 'mobile' ? 'unset' : 'absolute',
         right: '0',
         top: props.status ? '50px' : '40px',
-        zIndex: '10',
+        zIndex: '1100',
         opacity: props.status ? '1' : '0',
         pointerEvents: props.status ? 'initial' : 'none',
         transition: 'all linear 0.2s',
@@ -61,11 +62,8 @@ export const SearchBoxField = styled.div<SearchBoxFieldType>(props => ({
             justifyContent: 'center',
             gap: '10px',
             transition: 'all linear 0.2s',
-            maxHeight: '80px',
-
-            '&.hidden': {
-                maxHeight: '0'
-            },
+            maxHeight: props.inputValue !== '' ? '0' : '80px',
+            overflow: props.inputValue !== '' ? 'hidden' : 'unset',
 
             span: {
                 color: props.theme.palette.colors.primary,

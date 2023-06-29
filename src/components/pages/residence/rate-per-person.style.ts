@@ -34,4 +34,14 @@ export const MainField = styled.div({
         gap: '20px',
         marginBottom: '40px'
     }
+
+    // '@media(max-width : 600px)': {
+    //     '& .card_content': {
+    //         flexDirection: 'column',
+
+    //         div: {
+    //             width: '100%'
+    //         }
+    //     }
+    // }
 });

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const MainField = styled.div(props => ({
+export const MainField = styled.div<any>(props => ({
     '& .pills_field': {
         display: 'flex',
         alignItems: 'flex-end',
@@ -61,6 +61,7 @@ export const MainField = styled.div(props => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        gap: '15px',
 
         '& .right_field': {
             h1: {
@@ -152,6 +153,63 @@ export const MainField = styled.div(props => ({
             img: {
                 width: '25px',
                 height: 'auto'
+            }
+        }
+    },
+
+    '@media(max-width : 650px)': {
+        '& .select_field': {
+            display: 'none'
+        },
+
+        '& .header': {
+            flexDirection: 'column-reverse',
+            alignItems: 'flex-end',
+
+            '& .right_field': {
+                width: '100%',
+
+                h1: {
+                    justifyContent: 'space-between'
+                }
+            }
+        },
+
+        '& .details': {
+            gap: '0',
+            flexWrap: 'nowrap',
+            boxShadow: '0 0 4px 1px rgb(0 0 0 / 9%)',
+            borderRadius: '5px',
+            marginTop: '40px',
+            justifyContent: 'space-between',
+            padding: '0 10px',
+
+            div: {
+                boxShadow: 'none',
+                width: 'max-content'
+            }
+        }
+    },
+
+    '@media(max-width : 500px)': {
+        '& .header': {
+            '& .right_field': {
+                h1: {
+                    fontSize: '1.1rem'
+                }
+            }
+        },
+
+        '& .midle_field .code': {
+            fontSize: '1rem'
+        },
+
+        '& .details': {
+            flexWrap: 'wrap',
+
+            div: {
+                boxShadow: 'none',
+                width: '33.3%'
             }
         }
     }

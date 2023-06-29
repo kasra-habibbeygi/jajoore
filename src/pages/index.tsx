@@ -49,7 +49,7 @@ const objectProvider = (item: any) => {
     };
 };
 
-const Index = ({ article, vipsResidence, Residence, popularDestinations, instants, filtersItem }: any) => {
+const Index = ({ article, vipsResidence, Residence, popularDestinations, instants, filtersItem, lastMinute }: any) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -70,7 +70,7 @@ const Index = ({ article, vipsResidence, Residence, popularDestinations, instant
 
     return (
         <LayoutProvider>
-            <Filter filtersItem={filtersItem.result} />
+            <Filter filtersItem={filtersItem.result} popularDestinations={popularDestinations.result} />
             <main className='container'>
                 <IndexHeader />
                 <DoubleCol>
@@ -82,7 +82,7 @@ const Index = ({ article, vipsResidence, Residence, popularDestinations, instant
                         </div>
                         <DestinationCard data={popularDestinations} />
                         <SideBarCardList title='آگهی های رزرو آنی' data={instants} />
-                        {/* <SideBarCardList title='آگهی های لحظه آخری' /> */}
+                        <SideBarCardList title='آگهی های لحظه آخری' data={lastMinute} />
                     </aside>
                     <div className='content_field'>
                         <VipSlider data={vipsResidence} />
@@ -105,13 +105,14 @@ export async function getServerSideProps({ query }: any) {
         residenceQuery += `&PageIndex=${query.page}`;
     }
 
-    const [article, vipsResidence, Residence, popularDestinations, instants, filtersItem] = await Promise.all([
+    const [article, vipsResidence, Residence, popularDestinations, instants, filtersItem, lastMinute] = await Promise.all([
         Axios.get('blog'),
         Axios.get('residence/vips'),
         Axios.get(`residence/${residenceQuery}`),
         Axios.get('residence/popularDestinations'),
-        Axios.get('residence/instants?pageSize=5'),
-        Axios.get('/residence/preperForFilter')
+        Axios.get('residence/instants?pageSize=4'),
+        Axios.get('residence/preperForFilter'),
+        Axios.get('residence/lastMinute?pageSize=4')
     ]);
 
     return {
@@ -121,7 +122,8 @@ export async function getServerSideProps({ query }: any) {
             Residence: Residence.data,
             popularDestinations: popularDestinations.data,
             instants: instants.data,
-            filtersItem: filtersItem.data
+            filtersItem: filtersItem.data,
+            lastMinute: lastMinute.data
         }
     };
 }

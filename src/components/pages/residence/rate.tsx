@@ -39,7 +39,7 @@ const Rate = ({ attribute, score }: any) => {
                     <div key={`rate_items_${item.id}`}>
                         <p>{item.name}</p>
                         <MuiRtlWraper>
-                            <Rating name='size-small' readOnly defaultValue={4} precision={score[index].rating} size='small' />
+                            <Rating name='size-small' readOnly defaultValue={4} precision={score[index]?.rating} size='small' />
                         </MuiRtlWraper>
                     </div>
                 ))}

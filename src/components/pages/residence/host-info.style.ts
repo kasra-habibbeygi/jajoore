@@ -54,5 +54,13 @@ export const MainField = styled.div(props => ({
         margin: '20px auto',
         marginBottom: '0',
         borderColor: '#e1e1e1 !important'
+    },
+
+    '@media(max-width : 600px)': {
+        '& .header_field': {
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            gap: '20px'
+        }
     }
 }));

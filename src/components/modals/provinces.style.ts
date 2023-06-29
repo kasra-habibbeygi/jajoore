@@ -10,6 +10,7 @@ export const ModalField = styled.div({
         fontSize: '1.3rem',
         textAlign: 'center'
     },
+
     '& .button_group': {
         display: 'flex',
         alignItems: 'center',
@@ -25,7 +26,7 @@ export const ModalField = styled.div({
 
     ul: {
         listStyle: 'none',
-        maxHeight: '350px',
+        maxHeight: '500px',
         overflow: 'auto',
 
         li: {
@@ -34,6 +35,12 @@ export const ModalField = styled.div({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
+            cursor: 'pointer',
+            transition: 'all linear 0.1s',
+
+            '&:hover': {
+                paddingRight: '30px'
+            },
 
             '& .right_field': {
                 display: 'flex',

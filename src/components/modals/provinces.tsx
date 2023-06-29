@@ -17,93 +17,23 @@ import Button from '../form-group/button';
 interface ProvincesModalTypes {
     status: boolean;
     setStatus: (status: boolean) => void;
+    setCitiesModalStatus: (status: boolean) => void;
 }
 
-const ProvincesModal = ({ status, setStatus }: ProvincesModalTypes) => {
+const ProvincesModal = ({ status, setStatus, setCitiesModalStatus }: ProvincesModalTypes) => {
+    const choseProvienceHandler = () => {
+        setStatus(false);
+        setTimeout(() => {
+            setCitiesModalStatus(true);
+        }, 300);
+    };
+
     return (
         <ModalField>
             <Dialog onClose={() => setStatus(false)} open={status} disablePortal keepMounted fullWidth={true} scroll='body' maxWidth='xs'>
-                <h3>شهر های استان البرز</h3>
+                <h3>استان مورد نظر را انتخاب بکنید</h3>
                 <ul>
-                    <li>
-                        <div className='right_field'>
-                            <Image src={MocImage} alt='' />
-                            <div className='content'>
-                                <h3>
-                                    تهران
-                                    <span>4238 اقامتگاه</span>
-                                </h3>
-                                <small>کوهسار ، طالقان ، کردان ، آسارا</small>
-                            </div>
-                        </div>
-                        <ChevronLeftRoundedIcon />
-                    </li>
-                    <li>
-                        <div className='right_field'>
-                            <Image src={MocImage} alt='' />
-                            <div className='content'>
-                                <h3>
-                                    تهران
-                                    <span>4238 اقامتگاه</span>
-                                </h3>
-                                <small>کوهسار ، طالقان ، کردان ، آسارا</small>
-                            </div>
-                        </div>
-                        <ChevronLeftRoundedIcon />
-                    </li>
-                    <li>
-                        <div className='right_field'>
-                            <Image src={MocImage} alt='' />
-                            <div className='content'>
-                                <h3>
-                                    تهران
-                                    <span>4238 اقامتگاه</span>
-                                </h3>
-                                <small>کوهسار ، طالقان ، کردان ، آسارا</small>
-                            </div>
-                        </div>
-                        <ChevronLeftRoundedIcon />
-                    </li>
-                    <li>
-                        <div className='right_field'>
-                            <Image src={MocImage} alt='' />
-                            <div className='content'>
-                                <h3>
-                                    تهران
-                                    <span>4238 اقامتگاه</span>
-                                </h3>
-                                <small>کوهسار ، طالقان ، کردان ، آسارا</small>
-                            </div>
-                        </div>
-                        <ChevronLeftRoundedIcon />
-                    </li>
-                    <li>
-                        <div className='right_field'>
-                            <Image src={MocImage} alt='' />
-                            <div className='content'>
-                                <h3>
-                                    تهران
-                                    <span>4238 اقامتگاه</span>
-                                </h3>
-                                <small>کوهسار ، طالقان ، کردان ، آسارا</small>
-                            </div>
-                        </div>
-                        <ChevronLeftRoundedIcon />
-                    </li>
-                    <li>
-                        <div className='right_field'>
-                            <Image src={MocImage} alt='' />
-                            <div className='content'>
-                                <h3>
-                                    تهران
-                                    <span>4238 اقامتگاه</span>
-                                </h3>
-                                <small>کوهسار ، طالقان ، کردان ، آسارا</small>
-                            </div>
-                        </div>
-                        <ChevronLeftRoundedIcon />
-                    </li>
-                    <li>
+                    <li onClick={choseProvienceHandler}>
                         <div className='right_field'>
                             <Image src={MocImage} alt='' />
                             <div className='content'>
@@ -118,7 +48,9 @@ const ProvincesModal = ({ status, setStatus }: ProvincesModalTypes) => {
                     </li>
                 </ul>
                 <div className='button_group'>
-                    <Button color='dark'>بازگشت</Button>
+                    <Button color='dark' handler={() => setStatus(false)}>
+                        بازگشت
+                    </Button>
                     <Button color='green'>جستجو</Button>
                 </div>
             </Dialog>

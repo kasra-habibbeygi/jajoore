@@ -55,7 +55,7 @@ const Info = ({ data }: any) => {
             </div>
             <div className='midle_field'>
                 <div className='code'>کد ویلا : {data.residenceNO}</div>
-                <div>
+                <div className='select_field'>
                     <SelectComponent
                         items={selectItems}
                         handler={selectValueHandler}

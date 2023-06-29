@@ -34,5 +34,15 @@ export const MainField = styled.div({
                 height: 'auto'
             }
         }
+    },
+
+    '@media(max-width : 600px)': {
+        ul: {
+            flexDirection: 'column',
+
+            li: {
+                width: '100%'
+            }
+        }
     }
 });

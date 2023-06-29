@@ -29,10 +29,10 @@ import Rules from '@/components/pages/residence/rules';
 import CancelRules from '@/components/pages/residence/cancel-rules';
 const SpecificResidenceMap = dynamic(() => import('@/components/pages/residence/map'), { ssr: false });
 
-const Residence = ({ filtersItem, vipsResidence, attribute, residenceData }: any) => {
+const Residence = ({ filtersItem, vipsResidence, attribute, residenceData, popularDestinations }: any) => {
     return (
         <LayoutProvider>
-            <Filter filtersItem={filtersItem.result} filterStatus={false} />
+            <Filter filtersItem={filtersItem.result} popularDestinations={popularDestinations.result} />
             <main className='container'>
                 <Header />
                 <DoubleCol>
@@ -106,11 +106,12 @@ const Residence = ({ filtersItem, vipsResidence, attribute, residenceData }: any
 export default Residence;
 
 export async function getServerSideProps({ params }: any) {
-    const [filtersItem, residenceData, vipsResidence, attribute] = await Promise.all([
+    const [filtersItem, residenceData, vipsResidence, attribute, popularDestinations] = await Promise.all([
         Axios.get('residence/preperForFilter'),
         Axios.get(`residence/${params.id}`),
         Axios.get('residence/vips'),
-        Axios.get('residence/preperForView')
+        Axios.get('residence/preperForView'),
+        Axios.get('residence/popularDestinations')
     ]);
 
     return {
@@ -118,7 +119,8 @@ export async function getServerSideProps({ params }: any) {
             filtersItem: filtersItem.data,
             residenceData: residenceData.data.result,
             vipsResidence: vipsResidence.data,
-            attribute: attribute.data.result
+            attribute: attribute.data.result,
+            popularDestinations: popularDestinations.data
         }
     };
 }
