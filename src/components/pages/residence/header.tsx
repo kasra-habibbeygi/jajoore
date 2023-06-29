@@ -12,9 +12,11 @@ import CameraIcon from '@/assets/images/icons/camera.svg';
 import Imageicon from '@/assets/images/icons/image.svg';
 import ReturnArrowIcon from '@/assets/images/icons/back-arrow.svg';
 import MocImage from '@/assets/images/moc/bg.jpg';
+import ImgSlider from './img-slider';
 
 const ResidenceHeader = () => {
     const [tabsStatus, setTabsStatus] = useState<number>(0);
+    const [imgModalStatus, setImgModalStatus] = useState<boolean>(true);
 
     return (
         <>
@@ -52,7 +54,7 @@ const ResidenceHeader = () => {
                     <li>
                         <Image src={MocImage} alt='' />
                         <span className='layout'>
-                            <Button radius='half-rounded'>
+                            <Button radius='half-rounded' handler={() => setImgModalStatus(true)}>
                                 <Image src={Imageicon} alt='' />
                                 تصاوری بیشتر
                             </Button>
@@ -65,6 +67,7 @@ const ResidenceHeader = () => {
                     <iframe src='https://www.aparat.com/video/video/embed/videohash/WajNv/vt/frame'></iframe>
                 </VideoField>
             )}
+            <ImgSlider status={imgModalStatus} setStatus={setImgModalStatus} />
         </>
     );
 };
