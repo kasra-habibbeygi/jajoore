@@ -1,10 +1,9 @@
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import React from 'react';
 
 // Assets
 import { AsideMainField } from './aside.style';
-import StoryBGMoc from '@/assets/images/moc/story.jpg';
 import WhatsAppIcon from '@/assets/images/layout/whatsapp.svg';
 import ShieldIcon from '@/assets/images/side-bars/shield.svg';
 import QuestionIcon from '@/assets/images/side-bars/question.svg';
@@ -13,23 +12,35 @@ import TelephoneIcon from '@/assets/images/icons/telephone-call.svg';
 // Component
 import Button from '@/components/form-group/button';
 
-const Aside = () => {
+const Aside = ({ data }: any) => {
+    const [domLoader, setDomLoader] = useState(false);
+
+    useEffect(() => {
+        setDomLoader(true);
+    }, []);
+
     return (
         <AsideMainField>
             <div className='main_field'>
                 <header>
                     <p>اجاره از شبی</p>
                     <div>
-                        <span className='discount'>4.000.000</span>
-                        3.500.000
+                        {data.discountedPrice !== 0 ? (
+                            <>
+                                <span className='discount'>{domLoader && parseFloat(data.price).toLocaleString()}</span>
+                                {domLoader && parseFloat(data.discountedPrice).toLocaleString()}
+                            </>
+                        ) : (
+                            domLoader && parseFloat(data.price).toLocaleString()
+                        )}
                         <span className='money_unit'>تومان</span>
                     </div>
                 </header>
                 <div className='content'>
                     <div className='avatar_field'>
                         <div>
-                            <Image src={StoryBGMoc} alt='' />
-                            کسری حبیب بیگی
+                            <Image src={`${process.env.IMAGE_URL}${data.ownerProfileImg}`} alt='' width={500} height={300} />
+                            {data.ownerName}
                         </div>
                         <Link href='/'>
                             <Button type='outline' shadow radius='half-rounded'>

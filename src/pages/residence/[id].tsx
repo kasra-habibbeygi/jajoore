@@ -34,14 +34,14 @@ const Residence = ({ filtersItem, attribute, residenceData, popularDestinations,
         <LayoutProvider>
             <Filter filtersItem={filtersItem.result} popularDestinations={popularDestinations.result} />
             <main className='container'>
-                <Header />
+                <Header data={residenceData} />
                 <DoubleCol>
-                    <Aside />
+                    <Aside data={residenceData} />
                     <div className='content_field'>
                         <Info data={residenceData} />
                         <Story />
                         <AboutResidence data={residenceData} />
-                        {/* <Attributes title='فضای اقامتگاه' attribute={attribute} /> */}
+
                         <SleepingArea data={residenceData} />
                         <Attributes
                             title='منطقه اقامتگاه'

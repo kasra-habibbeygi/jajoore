@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Assets
 import { MainField } from './img-slider.style';
-import MocImg from '@/assets/images/moc/bg.jpg';
 
 // MUI
 import Dialog from '@mui/material/Dialog';
@@ -19,7 +18,7 @@ const Transition = React.forwardRef(function Transition(
     return <Slide direction='up' ref={ref} {...props} />;
 });
 
-const ImgSlider = ({ status, setStatus }: any) => {
+const ImgSlider = ({ status, setStatus, imgList }: any) => {
     return (
         <MainField>
             <Dialog
@@ -38,15 +37,11 @@ const ImgSlider = ({ status, setStatus }: any) => {
                     slidesPerView={1}
                     pagination={{ clickable: true }}
                 >
-                    <SwiperSlide>
-                        <Image className='main_img' src={MocImg} alt='' width={800} height={600} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image className='main_img' src={MocImg} alt='' width={800} height={600} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image className='main_img' src={MocImg} alt='' width={800} height={600} />
-                    </SwiperSlide>
+                    {imgList.map((item: any, index: number) => (
+                        <SwiperSlide key={`image_list_${index}`}>
+                            <Image className='main_img' src={`${process.env.IMAGE_URL}${item}`} alt='' width={2000} height={1500} />
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
             </Dialog>
         </MainField>

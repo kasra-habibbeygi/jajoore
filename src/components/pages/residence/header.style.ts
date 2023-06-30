@@ -80,6 +80,7 @@ export const ImageListField = styled.ul({
         borderRadius: '10px',
         overflow: 'hidden',
         display: 'flex',
+        width: '100%',
 
         '& .layout': {
             position: 'absolute',

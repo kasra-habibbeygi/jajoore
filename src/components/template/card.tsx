@@ -125,8 +125,15 @@ const CardComponent = ({ type = 'full', blur, extraClass, data }: CardComponentT
                 </div>
             )}
             <p className='price'>
-                از شبی <b>{domLoader && parseInt(data.price).toLocaleString()}</b>{' '}
-                {domLoader && parseInt(data.discountedPrice).toLocaleString()}
+                از شبی{' '}
+                {data.discountedPrice !== 0 ? (
+                    <>
+                        <b>{domLoader && parseInt(data.price).toLocaleString()}</b>{' '}
+                        {domLoader && parseInt(data.discountedPrice).toLocaleString()}
+                    </>
+                ) : (
+                    domLoader && parseInt(data.price).toLocaleString()
+                )}{' '}
                 تومان
             </p>
             <div className='options'>

@@ -15,12 +15,12 @@ const Rate = ({ attribute, data }: any) => {
             <header>
                 <div className='right_field'>
                     <h3>امتیاز</h3>
-                    <span>23 نفر</span>
+                    <span>{data.numberScore} نفر</span>
                 </div>
                 <div>
                     {data.averageScore}
                     <MuiRtlWraper>
-                        <Rating name='size-small' readOnly defaultValue={4.5} precision={0.5} size='small' />
+                        <Rating name='size-small' readOnly defaultValue={data.averageScore} precision={0.5} size='small' />
                     </MuiRtlWraper>
                 </div>
             </header>
