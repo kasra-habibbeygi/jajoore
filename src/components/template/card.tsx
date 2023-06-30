@@ -73,10 +73,12 @@ const CardComponent = ({ type = 'full', blur, extraClass, data }: CardComponentT
                             <p>پلاس</p>
                         </span>
                     )}
-                    <span className='red'>
-                        <Image src={PlayIcon} alt='' />
-                        <p>ویدیو</p>
-                    </span>
+                    {data.hasVideo && (
+                        <span className='red'>
+                            <Image src={PlayIcon} alt='' />
+                            <p>ویدیو</p>
+                        </span>
+                    )}
                     {data.priceGuarantee && (
                         <span className='green'>
                             <p> تضمین قیمت</p>
@@ -105,7 +107,13 @@ const CardComponent = ({ type = 'full', blur, extraClass, data }: CardComponentT
             {type === 'full' && (
                 <div className='avatar_field'>
                     <div className='avatar'>
-                        <Image src={EmptyAvatar} alt='' className='avatar_img' />
+                        <Image
+                            src={`${process.env.IMAGE_URL}${data?.ownerProfileImg}`}
+                            alt=''
+                            width={1000}
+                            height={700}
+                            className='avatar_img'
+                        />
                         <div>
                             <span className='yellow'>
                                 <Image src={StarIcon} alt='' />

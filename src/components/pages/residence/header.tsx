@@ -81,10 +81,7 @@ const ResidenceHeader = ({ data }: any) => {
             )}
             {tabsStatus === 1 && (
                 <VideoField>
-                    {/* <iframe src={`${process.env.IMAGE_URL}${data.mainVideoUrl}`}></iframe> */}
-                    {/* <video width='320' height='240' controls>
-                        <source src={`${process.env.IMAGE_URL}${data.mainVideoUrl}`} type='video/mp4' />
-                    </video> */}
+                    <iframe src={data.mainVideoUrl}></iframe>
                 </VideoField>
             )}
             <ImgSlider status={imgModalStatus} setStatus={setImgModalStatus} imgList={data?.imageGalleries} />

@@ -3,7 +3,6 @@ import Image from 'next/image';
 
 // Assets
 import { ArticleCardField } from './article-card.styles';
-import EmptyAvatar from '@/assets/images/card/empty-avatar.svg';
 
 const ArticleCard = ({ data }: any) => {
     return (
@@ -11,7 +10,7 @@ const ArticleCard = ({ data }: any) => {
             <Image src={`${process.env.IMAGE_URL}${data.imageUrl}`} alt='' width={500} height={300} />
             <p className='info'>{data.title}</p>
             <div className='author_field'>
-                <Image src={EmptyAvatar} alt='' />
+                <Image src={`${process.env.IMAGE_URL}${data.authorImg}`} alt='' width={500} height={300} />
                 <p>{data.writer}</p>
             </div>
         </ArticleCardField>

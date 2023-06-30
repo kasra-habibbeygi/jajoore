@@ -52,6 +52,8 @@ const objectProvider = (item: any) => {
 const Index = ({ article, vipsResidence, Residence, popularDestinations, instants, filtersItem, lastMinute }: any) => {
     const dispatch = useDispatch();
 
+    console.log(vipsResidence);
+
     useEffect(() => {
         let data: any[] = [];
 
