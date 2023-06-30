@@ -46,7 +46,7 @@ const PropertyFilter = ({ setNumberCounter }: { setNumberCounter: (state: any) =
             sale: query?.split('-').includes('sale') ?? false,
             instant: query?.split('-').includes('instant') ?? false
         });
-        setNumberCounter(query?.split('-').length);
+        setNumberCounter(query?.split('-').length ?? 0);
     }, [query]);
 
     const checkboxValueHandler = (e: any) => {

@@ -29,7 +29,7 @@ import Rules from '@/components/pages/residence/rules';
 import CancelRules from '@/components/pages/residence/cancel-rules';
 const SpecificResidenceMap = dynamic(() => import('@/components/pages/residence/map'), { ssr: false });
 
-const Residence = ({ filtersItem, vipsResidence, attribute, residenceData, popularDestinations }: any) => {
+const Residence = ({ filtersItem, attribute, residenceData, popularDestinations, similarResidences, comment }: any) => {
     return (
         <LayoutProvider>
             <Filter filtersItem={filtersItem.result} popularDestinations={popularDestinations.result} />
@@ -46,13 +46,13 @@ const Residence = ({ filtersItem, vipsResidence, attribute, residenceData, popul
                         <Attributes
                             title='منطقه اقامتگاه'
                             attribute={attribute.residenceAreas}
-                            // availableItems={residenceData.residenceTypeId}
+                            availableItems={residenceData.residenceAreaIds}
                             name='privacyAndSecurities'
                         />
                         <Attributes
                             title='حریم خصوصی و امنیت'
                             attribute={attribute.privacyAndSecurities}
-                            // availableItems={residenceData.residenceFacilitieIds}
+                            availableItems={residenceData.privacyAndSecurityIds}
                             name='privacyAndSecurities'
                         />
                         <Attributes
@@ -92,12 +92,12 @@ const Residence = ({ filtersItem, vipsResidence, attribute, residenceData, popul
                         <ForbiddenTemp attribute={attribute.forbiddenWorks} availableItems={residenceData.forbiddenWorkIds} />
                         <CancelRules />
                         <SpecificResidenceMap data={[residenceData.lat, residenceData.lng]} />
-                        <Rate score={residenceData.scores} attribute={attribute.scores} />
-                        <HostInfo />
-                        <Comments />
+                        <Rate data={residenceData} attribute={attribute.scores} />
+                        <HostInfo data={residenceData} />
+                        <Comments data={comment} />
                     </div>
                 </DoubleCol>
-                <SimilarSlider data={vipsResidence} />
+                <SimilarSlider data={similarResidences} />
             </main>
         </LayoutProvider>
     );
@@ -105,22 +105,30 @@ const Residence = ({ filtersItem, vipsResidence, attribute, residenceData, popul
 
 export default Residence;
 
-export async function getServerSideProps({ params }: any) {
-    const [filtersItem, residenceData, vipsResidence, attribute, popularDestinations] = await Promise.all([
+export async function getServerSideProps({ params, query }: any) {
+    let commentQuery = `?PageSize=10&ResidenceId=${params.id}`;
+
+    if (query.page) {
+        commentQuery += `&PageIndex=${query.page}`;
+    }
+
+    const [filtersItem, residenceData, attribute, popularDestinations, similarResidences, comment] = await Promise.all([
         Axios.get('residence/preperForFilter'),
         Axios.get(`residence/${params.id}`),
-        Axios.get('residence/vips'),
         Axios.get('residence/preperForView'),
-        Axios.get('residence/popularDestinations')
+        Axios.get('residence/popularDestinations'),
+        Axios.get('residence/similarResidences'),
+        Axios.get(`comment${commentQuery}`)
     ]);
 
     return {
         props: {
             filtersItem: filtersItem.data,
             residenceData: residenceData.data.result,
-            vipsResidence: vipsResidence.data,
             attribute: attribute.data.result,
-            popularDestinations: popularDestinations.data
+            popularDestinations: popularDestinations.data,
+            similarResidences: similarResidences.data,
+            comment: comment.data
         }
     };
 }

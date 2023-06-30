@@ -45,7 +45,7 @@ const Info = ({ data }: any) => {
                     </h1>
                     <div className='location'>
                         <Image src={LocationIcon} alt='' />
-                        {data.cityName}
+                        {data.provinceName} , {data.cityName}
                     </div>
                 </div>
                 <div className='left_field'>
@@ -78,13 +78,17 @@ const Info = ({ data }: any) => {
                             <p>پلاس</p>
                         </span>
                     )}
-                    <span className='red'>
-                        <Image src={PlayIcon} alt='' />
-                        <p>ویدیو</p>
-                    </span>
-                    <span className='green'>
-                        <p> تضمین قیمت</p>
-                    </span>
+                    {data.hasVideo && (
+                        <span className='red'>
+                            <Image src={PlayIcon} alt='' />
+                            <p>ویدیو</p>
+                        </span>
+                    )}
+                    {data.priceGuarantee && (
+                        <span className='green'>
+                            <p> تضمین قیمت</p>
+                        </span>
+                    )}
                 </div>
             </div>
             <div className='details'>

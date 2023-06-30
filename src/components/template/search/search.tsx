@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { ChangeEvent, useRef, useState } from 'react';
 import Image from 'next/image';
 import useOutsideClick from '@/hooks/use-outside-click';
 
@@ -9,14 +9,14 @@ import SearchIcon from '@/assets/images/layout/search.svg';
 // Component
 import Input from '@/components/form-group/input';
 import Button from '@/components/form-group/button';
+import { PulseLoader } from 'react-spinners';
 
 const SearchField = ({ setProvincesModalStatus, mode = '', setMobileSearchStatus, mobileSearchStatus, popularDestinations }: any) => {
-    console.log(popularDestinations);
-
     const uniqValue = 'search_field';
     const ref = useRef(null);
     const [DropDownStatus, setDropDownStatus] = useState('');
     const [inputValue, setInputValue] = useState('');
+    const [loaderStatus, setLoaderStatus] = useState(false);
 
     const searchBoxHandler = () => {
         setDropDownStatus(uniqValue);
@@ -29,6 +29,17 @@ const SearchField = ({ setProvincesModalStatus, mode = '', setMobileSearchStatus
     useOutsideClick(ref, () => {
         setDropDownStatus('');
     });
+
+    const searchValuehandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setInputValue(e.target.value);
+        setLoaderStatus(true);
+
+        const delayDebounceFn = setTimeout(() => {
+            setLoaderStatus(false);
+        }, 3000);
+
+        return () => clearTimeout(delayDebounceFn);
+    };
 
     return (
         <SearchBoxField
@@ -45,7 +56,7 @@ const SearchField = ({ setProvincesModalStatus, mode = '', setMobileSearchStatus
                     type='text'
                     placeholder='کجا می خوای بری ؟ | کد ویلا ... ؟'
                     name='search'
-                    setValue={e => setInputValue(e.target.value)}
+                    setValue={e => searchValuehandler(e)}
                     value={inputValue}
                 />
                 <Image src={SearchIcon} alt='' className='search_icon' />
@@ -62,6 +73,11 @@ const SearchField = ({ setProvincesModalStatus, mode = '', setMobileSearchStatus
                         <span className='seprator'></span>
                         <Button>جستجو در نقشه </Button>
                     </div>
+                    {loaderStatus && (
+                        <div className='search_loader'>
+                            <PulseLoader loading={true} color='#d8d8d8' size={10} />
+                        </div>
+                    )}
                     <div className={`search_field ${inputValue === '' ? 'hidden' : ''}`}>
                         <div className='row'>
                             <p>کردان - البرز</p>

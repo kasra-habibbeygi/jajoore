@@ -28,7 +28,6 @@ const AboutResidence = ({ data }: any) => {
                         </div>
                     </li>
                 )}
-
                 {data.instant && (
                     <li>
                         <Image src={Appointment} alt='' />
@@ -38,14 +37,15 @@ const AboutResidence = ({ data }: any) => {
                         </div>
                     </li>
                 )}
-
-                <li>
-                    <Image src={Discount} alt='' />
-                    <div>
-                        <p>رزرو لحظه آخری</p>
-                        <small>این اقامتگاه لحظه اخری است.</small>
-                    </div>
-                </li>
+                {data.lastMinute && (
+                    <li>
+                        <Image src={Discount} alt='' />
+                        <div>
+                            <p>رزرو لحظه آخری</p>
+                            <small>این اقامتگاه لحظه اخری است.</small>
+                        </div>
+                    </li>
+                )}
             </ul>
         </MainField>
     );

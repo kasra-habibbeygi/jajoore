@@ -201,7 +201,7 @@ export const Layout = styled.div<{ status: boolean }>(props => ({
     transition: 'all linear 0.2s',
     display: 'none',
 
-    '@media(max-width : 650px)': {
+    '@media(max-width : 700px)': {
         display: 'block'
     }
 }));

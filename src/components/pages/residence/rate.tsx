@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 // Assets
 import { MainField } from './rate.style';
@@ -9,17 +9,7 @@ import { Rating } from '@mui/material';
 // Component
 import MuiRtlWraper from '@/components/mui-rtl-wraper';
 
-const Rate = ({ attribute, score }: any) => {
-    const [avrage, setAvrage] = useState<any>(0);
-
-    useEffect(() => {
-        setAvrage(() => {
-            let avrage = 0;
-            score.forEach((item: any) => (avrage += item.rating));
-            return (avrage / score.length).toFixed(1);
-        });
-    }, [score]);
-
+const Rate = ({ attribute, data }: any) => {
     return (
         <MainField>
             <header>
@@ -28,7 +18,7 @@ const Rate = ({ attribute, score }: any) => {
                     <span>23 نفر</span>
                 </div>
                 <div>
-                    {avrage}
+                    {data.averageScore}
                     <MuiRtlWraper>
                         <Rating name='size-small' readOnly defaultValue={4.5} precision={0.5} size='small' />
                     </MuiRtlWraper>
@@ -39,7 +29,7 @@ const Rate = ({ attribute, score }: any) => {
                     <div key={`rate_items_${item.id}`}>
                         <p>{item.name}</p>
                         <MuiRtlWraper>
-                            <Rating name='size-small' readOnly defaultValue={4} precision={score[index]?.rating} size='small' />
+                            <Rating name='size-small' readOnly defaultValue={4} precision={data?.scores[index]?.rating} size='small' />
                         </MuiRtlWraper>
                     </div>
                 ))}

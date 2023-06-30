@@ -54,7 +54,7 @@ const CardComponent = ({ type = 'full', blur, extraClass, data }: CardComponentT
                     pagination={{ clickable: true }}
                     className='image_slider'
                 >
-                    {data.imageUrls.map((item: any, index: number) => (
+                    {data.imageGalleries.map((item: any, index: number) => (
                         <SwiperSlide key={`residence_image_card_${index}`}>
                             <Image src={`${process.env.IMAGE_URL}${item}`} alt='' width={500} height={300} className='card_image' />
                         </SwiperSlide>

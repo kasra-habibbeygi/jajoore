@@ -21,7 +21,7 @@ const TypeFilter = ({ setNumberCounter, filterItem }: { setNumberCounter: (state
 
     useEffect(() => {
         FilterValueProvider(setFilterItemState, filterItem, query);
-        setNumberCounter(query?.split('-').length);
+        setNumberCounter(query?.split('-').length ?? 0);
     }, [query]);
 
     const checkboxValueHandler = (e: any) => {

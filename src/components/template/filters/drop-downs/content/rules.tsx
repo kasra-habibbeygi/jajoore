@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 // Component
 import Checkbox from '@/components/form-group/checkbox';
 
-const RulesFilter = ({ setNumberCounter }: { setNumberCounter: (state: any) => void }) => {
+const RulesFilter = ({ setNumberCounter, filterItem }: { setNumberCounter: (state: any) => void; filterItem: any }) => {
     const [checkedValue, setCheckedValue] = useState({
         جنگلی: false,
         ساحلی: false,

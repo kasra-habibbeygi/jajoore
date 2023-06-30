@@ -127,6 +127,14 @@ export const SearchBoxField = styled.div<SearchBoxFieldType>(props => ({
         }
     },
 
+    '& .search_loader': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        marginTop: '20px'
+    },
+
     '& .mobile_search': {
         display: 'none !important'
     },

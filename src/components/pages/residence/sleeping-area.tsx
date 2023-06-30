@@ -22,17 +22,17 @@ const SleepingArea = ({ data }: any) => {
                 <div>
                     <Image src={DoubleBedIcon} alt='' />
                     <p>تخت خواب 2 نفره</p>
-                    <p>تعداد: {data.bedCount}</p>
+                    <p>تعداد: {data.doubleBedCount}</p>
                 </div>
                 <div>
                     <Image src={SingleBedIcon} alt='' />
                     <p>تخت خواب 1 نفره</p>
-                    <p>تعداد: 2</p>
+                    <p>تعداد: {data.bedCount}</p>
                 </div>
                 <div>
                     <Image src={BedSheets} alt='' />
                     <p>رخت خواب سنتی</p>
-                    <p>تعداد: 2</p>
+                    <p>تعداد: {data.floorMattressCount}</p>
                 </div>
                 <div>
                     <Image src={SofaBed} alt='' />

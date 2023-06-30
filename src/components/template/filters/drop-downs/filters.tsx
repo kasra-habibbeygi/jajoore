@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 
 // Assets
@@ -40,11 +40,11 @@ const Filters = ({ filtersItem }: any) => {
         rooms: 0
     });
 
-    useEffect(() => {
-        if (roomValues.beds !== 0 || roomValues.rooms !== 0) {
-            setNumberCounter(numberCounter + 1);
-        }
-    }, [roomValues]);
+    // useEffect(() => {
+    //     if (roomValues.beds !== 0 || roomValues.rooms !== 0) {
+    //         setNumberCounter(numberCounter + 1);
+    //     }
+    // }, [roomValues]);
 
     useOutsideClick(ref, () => {
         setDropDownStatus('');
@@ -95,7 +95,7 @@ const Filters = ({ filtersItem }: any) => {
                             <span></span>
                             قوانین اقامتگاه
                         </div>
-                        <RulesFilter setNumberCounter={setNumberCounter} />
+                        <RulesFilter setNumberCounter={setNumberCounter} filterItem={filtersItem.forbiddenWorks} />
                         <div className='header margin_top'>
                             <span></span>
                             امکانات اقامتگاه
