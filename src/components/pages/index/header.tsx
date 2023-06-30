@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/state-manager/store';
+import { mapModalStatushandler } from '@/state-manager/reducer/utils';
 
 // Assets
 import { MainField } from './header.styles';
 import ShareIcon from '@/assets/images/card/share.svg';
+import MapImage from '@/assets/images/moc/map.png';
 
 // Component
 import ShareModal from '@/components/modals/share';
@@ -25,8 +29,10 @@ const orderItems = [
 ];
 
 const IndexHeader = ({ pageName = 'index' }: any) => {
+    const dispatch = useDispatch();
     const router = useRouter();
     const [shareModalStatus, setShareModalStatus] = useState(false);
+    const mapModalStatus = useSelector((state: RootState) => state.Utils.mapModalStatus);
 
     const modalStatusHandler = () => {
         setShareModalStatus(true);
@@ -42,9 +48,14 @@ const IndexHeader = ({ pageName = 'index' }: any) => {
         router.push(router);
     };
 
+    const openMap = () => {
+        dispatch(mapModalStatushandler(!mapModalStatus));
+    };
+
     return (
         <>
             <MainField>
+                <Image src={MapImage} alt='' className='map_image' onClick={openMap} />
                 <div className='container'>
                     <div className='top_field'>
                         {pageName === 'index' && <h1>اجاره ویلا</h1>}

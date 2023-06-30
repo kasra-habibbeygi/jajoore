@@ -13,8 +13,6 @@ const MapDataCard = ({ data, mapScaleStatus }: any) => {
         setDomLoader(true);
     }, []);
 
-    console.log(data);
-
     return (
         <MainField stats={data !== ''} mapScaleStatus={mapScaleStatus}>
             {data && (

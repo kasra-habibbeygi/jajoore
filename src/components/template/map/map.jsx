@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { TileLayer, MapContainer, Marker, useMap } from 'react-leaflet';
 import { Icon } from 'leaflet';
-import 'leaflet/dist/leaflet.css';
 import Image from 'next/image';
+import 'leaflet/dist/leaflet.css';
 
 // Assets
 import { MainField } from './map.style';
@@ -13,6 +13,7 @@ import ScalabilityIcon from '@/assets/images/layout/scalability.svg';
 
 // Component
 import MapDataCard from './data-card';
+import { mapModalStatushandler } from '@/state-manager/reducer/utils';
 
 const skater = new Icon({
     iconUrl: LocationIcon.src,
@@ -27,9 +28,10 @@ function ChangeView({ center }) {
 }
 
 const Map = () => {
+    const dispatch = useDispatch();
     const residenceData = useSelector(state => state.Map.list);
-    const [mapScaleStatus, setMapScaleStatus] = useState(false);
     const [specificLocationData, setSpecificLocationData] = useState('');
+    const mapModalStatus = useSelector(state => state.Utils.mapModalStatus);
 
     const [mapCenter, setMapCenter] = useState({
         lat: 0,
@@ -37,7 +39,7 @@ const Map = () => {
     });
 
     const openMap = () => {
-        setMapScaleStatus(!mapScaleStatus);
+        dispatch(mapModalStatushandler(!mapModalStatus));
     };
 
     const specificLocationDataHandler = data => {
@@ -58,10 +60,10 @@ const Map = () => {
                 lng: lng / residenceData.length
             };
         });
-    }, [residenceData, mapScaleStatus]);
+    }, [residenceData, mapModalStatus]);
 
     return (
-        <MainField mapScaleStatus={mapScaleStatus}>
+        <MainField mapScaleStatus={mapModalStatus}>
             <h3>
                 <p>نقشه</p>
                 <Image src={ScalabilityIcon} alt='' onClick={openMap} />
@@ -80,7 +82,7 @@ const Map = () => {
                     ></Marker>
                 ))}
             </MapContainer>
-            <MapDataCard data={specificLocationData} mapScaleStatus={mapScaleStatus} />
+            <MapDataCard data={specificLocationData} mapScaleStatus={mapModalStatus} />
         </MainField>
     );
 };

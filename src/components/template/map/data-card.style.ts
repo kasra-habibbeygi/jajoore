@@ -87,5 +87,9 @@ export const MainField = styled.div<{ stats: boolean; mapScaleStatus: boolean }>
         p: {
             fontSize: '0.7rem'
         }
+    },
+
+    '@media(max-width : 800px)': {
+        width: '300px'
     }
 }));

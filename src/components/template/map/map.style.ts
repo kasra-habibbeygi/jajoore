@@ -7,7 +7,7 @@ export const MainField = styled.div<{ mapScaleStatus: boolean }>(props => ({
     position: props.mapScaleStatus ? 'fixed' : 'sticky',
     top: props.mapScaleStatus ? '0' : '10px',
     left: props.mapScaleStatus ? '0' : 'unset',
-    zIndex: props.mapScaleStatus ? '1000' : '10',
+    zIndex: props.mapScaleStatus ? '1100' : '10',
     background: 'white',
     width: '100%',
     overflow: 'hidden',
@@ -31,10 +31,16 @@ export const MainField = styled.div<{ mapScaleStatus: boolean }>(props => ({
         marginBottom: '20px',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+
+        img: {
+            cursor: 'pointer'
+        }
     },
 
-    '@media(max-width:800px)': {
-        display: 'none'
+    '@media(max-width : 800px)': {
+        opacity: props.mapScaleStatus ? '1' : '0',
+        pointerEvents: props.mapScaleStatus ? 'initial' : 'none',
+        position: 'fixed'
     }
 }));

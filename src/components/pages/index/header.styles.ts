@@ -34,15 +34,24 @@ export const MainField = styled.div(props => ({
         justifyContent: 'space-between'
     },
 
+    '& .map_image': {
+        display: 'none'
+    },
+
     '@media(max-width : 800px)': {
+        marginTop: '0',
+
         '& .top_field': {
             background: '#F6F6F6',
-            borderRadius: '15px 15px 0 0',
+            borderRadius: '25px 25px 0 0',
             padding: '10px 20px'
         },
 
         '& .container': {
-            width: '100%'
+            width: '100%',
+            position: 'relative',
+            top: '-40px',
+            marginBottom: '-60px'
         },
 
         '& .bottom_field': {
@@ -50,6 +59,12 @@ export const MainField = styled.div(props => ({
             alignItems: 'center',
             justifyContent: 'space-between',
             padding: '20px'
+        },
+
+        '& .map_image': {
+            display: 'block',
+            objectFit: 'cover',
+            height: '140px'
         }
     }
 }));

@@ -52,8 +52,6 @@ const objectProvider = (item: any) => {
 const Index = ({ article, vipsResidence, Residence, popularDestinations, instants, filtersItem, lastMinute }: any) => {
     const dispatch = useDispatch();
 
-    console.log(vipsResidence);
-
     useEffect(() => {
         let data: any[] = [];
 
@@ -101,8 +99,6 @@ const Index = ({ article, vipsResidence, Residence, popularDestinations, instant
 export default Index;
 
 export async function getServerSideProps({ query }: any) {
-    // console.log(filterGetter(query));
-
     let residenceQuery = '?PageSize=12';
 
     if (query.page) {
