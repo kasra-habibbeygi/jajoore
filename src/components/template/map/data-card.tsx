@@ -13,21 +13,25 @@ const MapDataCard = ({ data, mapScaleStatus }: any) => {
         setDomLoader(true);
     }, []);
 
+    console.log(data);
+
     return (
         <MainField stats={data !== ''} mapScaleStatus={mapScaleStatus}>
-            {data && <Image src={`${process.env.IMAGE_URL}${data?.imageUrls[0]}`} width={500} height={500} alt='' className='main_img' />}
+            {data && (
+                <Image src={`${process.env.IMAGE_URL}${data?.imageGalleries[0]}`} width={500} height={500} alt='' className='main_img' />
+            )}
             <div className='info'>
                 <h5>
                     <Link href={`/residence/${data?.residenceNO}`}>
                         <p>{data.title}</p>
                     </Link>
-                    <span>VIP</span>
+                    {data.vip && <span>VIP</span>}
                 </h5>
                 <div className='details'>
-                    <p>1 خوابه</p>.<p>55 متر</p>.<p>تا 4 مهمان</p>
+                    <p>{data.numberOfRoom} خوابه</p>.<p>{data.areaOfFloor} متر</p>.<p>تا {data.maxCapacity} مهمان</p>
                     <p>
                         <Image src={StarIcon} alt='' />
-                        4.8
+                        {data.totalScores}
                     </p>
                 </div>
                 <div className='footer'>

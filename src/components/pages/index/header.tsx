@@ -24,7 +24,7 @@ const orderItems = [
     { label: 'از جدید ترین', value: 'newest' }
 ];
 
-const IndexHeader = () => {
+const IndexHeader = ({ pageName = 'index' }: any) => {
     const router = useRouter();
     const [shareModalStatus, setShareModalStatus] = useState(false);
 
@@ -45,20 +45,22 @@ const IndexHeader = () => {
     return (
         <>
             <MainField>
-                <div className='right_field'>
-                    <h1>اجاره ویلا</h1>
-                    <small>5200 اقامت گاه از 82.000 تومان</small>
-                </div>
-                <div className='left_field'>
-                    <Image src={ShareIcon} alt='' className='share' onClick={modalStatusHandler} />
-                    <SelectComponent
-                        items={orderItems}
-                        handler={selectValueHandler}
-                        name='orderFilter'
-                        valueKey='value'
-                        state={router.query.order ?? orderItems[0].value}
-                        itemKey='label'
-                    />
+                <div className='container'>
+                    <div className='top_field'>
+                        {pageName === 'index' && <h1>اجاره ویلا</h1>}
+                        {pageName === 'index' && <Image src={ShareIcon} alt='' className='share' onClick={modalStatusHandler} />}
+                    </div>
+                    <div className='bottom_field'>
+                        <small>5200 اقامت گاه از 82.000 تومان</small>
+                        <SelectComponent
+                            items={orderItems}
+                            handler={selectValueHandler}
+                            name='orderFilter'
+                            valueKey='value'
+                            state={router.query.order ?? orderItems[0].value}
+                            itemKey='label'
+                        />
+                    </div>
                 </div>
             </MainField>
             <ShareModal status={shareModalStatus} setStatus={setShareModalStatus} />

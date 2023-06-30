@@ -31,7 +31,7 @@ const Map = dynamic(() => import('@/components/template/map/map'), { ssr: false 
 
 const objectProvider = (item: any) => {
     return {
-        imageUrls: item.imageUrls,
+        imageGalleries: item.imageGalleries,
         title: item.title,
         numberOfRoom: item.numberOfRoom,
         areaOfFloor: item.areaOfFloor,
@@ -45,12 +45,14 @@ const objectProvider = (item: any) => {
         lng: item.lng,
         lat: item.lat,
         id: item.id,
-        residenceNO: item.residenceNO
+        maxCapacity: item.maxCapacity
     };
 };
 
 const Index = ({ article, vipsResidence, Residence, popularDestinations, instants, filtersItem, lastMinute }: any) => {
     const dispatch = useDispatch();
+
+    console.log(vipsResidence);
 
     useEffect(() => {
         let data: any[] = [];
@@ -71,8 +73,8 @@ const Index = ({ article, vipsResidence, Residence, popularDestinations, instant
     return (
         <LayoutProvider>
             <Filter filtersItem={filtersItem.result} popularDestinations={popularDestinations.result} />
+            <IndexHeader />
             <main className='container'>
-                <IndexHeader />
                 <DoubleCol>
                     <aside className='aside'>
                         <Map />
@@ -99,6 +101,8 @@ const Index = ({ article, vipsResidence, Residence, popularDestinations, instant
 export default Index;
 
 export async function getServerSideProps({ query }: any) {
+    // console.log(filterGetter(query));
+
     let residenceQuery = '?PageSize=12';
 
     if (query.page) {

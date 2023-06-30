@@ -32,7 +32,7 @@ const Map = dynamic(() => import('@/components/template/map/map'), { ssr: false 
 
 const objectProvider = (item: any) => {
     return {
-        imageUrls: item.imageUrls,
+        imageGalleries: item.imageGalleries,
         title: item.title,
         numberOfRoom: item.numberOfRoom,
         areaOfFloor: item.areaOfFloor,
@@ -46,7 +46,7 @@ const objectProvider = (item: any) => {
         lng: item.lng,
         lat: item.lat,
         id: item.id,
-        residenceNO: item.residenceNO
+        maxCapacity: item.maxCapacity
     };
 };
 
@@ -73,8 +73,8 @@ const Index = ({ article, vipsResidence, Residence, popularDestinations, instant
         <LayoutProvider>
             <Filter filtersItem={filtersItem.result} popularDestinations={popularDestinations.result} />
             <main className='container'>
-                <IndexHeader />
                 <SearchHeader />
+                <IndexHeader pageName='search' />
                 <DoubleCol>
                     <aside className='aside'>
                         <Map />

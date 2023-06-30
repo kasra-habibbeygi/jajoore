@@ -61,10 +61,12 @@ const CardComponent = ({ type = 'full', blur, extraClass, data }: CardComponentT
                     ))}
                 </Swiper>
                 <div className='pills_field'>
-                    <span className='yellow'>
-                        <Image src={FastChargeIcon} alt='' />
-                        <p>رزرو آنی</p>
-                    </span>
+                    {data.instant && (
+                        <span className='yellow'>
+                            <Image src={FastChargeIcon} alt='' />
+                            <p>رزرو آنی</p>
+                        </span>
+                    )}
                     {data.plus && (
                         <span className='yellow_light'>
                             <Image src={PlusIcon} alt='' />
@@ -120,7 +122,7 @@ const CardComponent = ({ type = 'full', blur, extraClass, data }: CardComponentT
                             <Image src={LocationIcon} alt='' />
                             {data.province} , {data.city}
                         </div>
-                        {data.instant && <span>لحظه آخری</span>}
+                        <span>لحظه آخری</span>
                     </div>
                 </div>
             )}

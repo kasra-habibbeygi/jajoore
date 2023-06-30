@@ -32,9 +32,9 @@ export const MainField = styled.div<{ mapScaleStatus: boolean }>(props => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between'
-    }
+    },
 
-    // '@media(max-width:800px)': {
-    //     display: 'none'
-    // }
+    '@media(max-width:800px)': {
+        display: 'none'
+    }
 }));
