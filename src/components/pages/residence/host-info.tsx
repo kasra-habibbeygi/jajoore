@@ -13,7 +13,12 @@ const HostInfo = ({ data }: any) => {
         <MainField>
             <div className='header_field'>
                 <div className='avatar'>
-                    <Image src={`${process.env.IMAGE_URL}${data.ownerProfileImg}`} alt='' width={500} height={300} />
+                    <Image
+                        src={`${process.env.IMAGE_URL}${data.ownerProfileImg.url}`}
+                        alt={data.ownerProfileImg.alt}
+                        width={500}
+                        height={300}
+                    />
                     <div>
                         <p>{data.ownerName}</p>
                         <small>عضویت : از {Tools.changeTimeStampToHumanReadAble(parseInt(data.ownerCreatedate))}</small>

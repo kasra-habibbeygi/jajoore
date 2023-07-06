@@ -18,9 +18,10 @@ interface ProvincesModalTypes {
     status: boolean;
     setStatus: (status: boolean) => void;
     setCitiesModalStatus: (status: boolean) => void;
+    data: any;
 }
 
-const ProvincesModal = ({ status, setStatus, setCitiesModalStatus }: ProvincesModalTypes) => {
+const ProvincesModal = ({ status, setStatus, setCitiesModalStatus, data }: ProvincesModalTypes) => {
     const choseProvienceHandler = () => {
         setStatus(false);
         setTimeout(() => {

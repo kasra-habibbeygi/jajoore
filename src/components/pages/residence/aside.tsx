@@ -39,7 +39,12 @@ const Aside = ({ data }: any) => {
                 <div className='content'>
                     <div className='avatar_field'>
                         <div>
-                            <Image src={`${process.env.IMAGE_URL}${data.ownerProfileImg}`} alt='' width={500} height={300} />
+                            <Image
+                                src={`${process.env.IMAGE_URL}${data.ownerProfileImg.url}`}
+                                alt={data.ownerProfileImg.alt}
+                                width={500}
+                                height={300}
+                            />
                             {data.ownerName}
                         </div>
                         <Link href='/'>

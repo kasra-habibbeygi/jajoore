@@ -90,6 +90,15 @@ export const MainField = styled.div<{ stats: boolean }>(props => ({
         }
     },
 
+    '& .icon-cross': {
+        position: 'absolute',
+        left: '10px',
+        top: '10px',
+        fontSize: '0.6rem',
+        color: '#838383',
+        cursor: 'pointer'
+    },
+
     '@media(max-width : 800px)': {
         width: '300px'
     }

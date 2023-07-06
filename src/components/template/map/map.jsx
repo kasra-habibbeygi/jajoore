@@ -55,8 +55,6 @@ const Map = () => {
     };
 
     const IconHandler = data => {
-        console.log(data);
-
         if (data.lat === SelectedLocation.lat && data.lng === SelectedLocation.lng) {
             return bigSkater;
         }
@@ -102,7 +100,7 @@ const Map = () => {
                     ))}
                 </MapContainer>
             </MainField>
-            <MapDataCard data={specificLocationData} />
+            <MapDataCard data={specificLocationData} setSpecificLocationData={setSpecificLocationData} />
         </>
     );
 };

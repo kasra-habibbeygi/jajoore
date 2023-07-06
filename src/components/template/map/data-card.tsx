@@ -6,15 +6,20 @@ import Link from 'next/link';
 import { MainField } from './data-card.style';
 import StarIcon from '@/assets/images/card/star.svg';
 
-const MapDataCard = ({ data }: any) => {
+const MapDataCard = ({ data, setSpecificLocationData }: any) => {
     const [domLoader, setDomLoader] = useState<boolean>(false);
 
     useEffect(() => {
         setDomLoader(true);
     }, []);
 
+    const closeCardHandler = () => {
+        setSpecificLocationData('');
+    };
+
     return (
         <MainField stats={data !== ''}>
+            <i className='icon-cross' onClick={closeCardHandler}></i>
             {data && (
                 <Image
                     src={`${process.env.IMAGE_URL}${data?.imageGalleries[0].url}`}

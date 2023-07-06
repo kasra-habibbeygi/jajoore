@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import Axios from '@/configs/axios';
 
 // Assets
 import { FilterField, Layout } from './filter.style';
@@ -35,6 +36,15 @@ const Filter = ({ filtersItem, filterStatus = true, popularDestinations }: any) 
     const [citiesModalStatus, setCitiesModalStatus] = useState(false);
     const [provincesModalStatus, setProvincesModalStatus] = useState(false);
     const [mobileSearchStatus, setMobileSearchStatus] = useState(false);
+    const [proviencesList, setProviencesList] = useState([]);
+
+    useEffect(() => {
+        Axios.get('search/provinces')
+            .then(res => {
+                setProviencesList(res.data);
+            })
+            .catch(() => {});
+    }, []);
 
     return (
         <>
@@ -121,7 +131,12 @@ const Filter = ({ filtersItem, filterStatus = true, popularDestinations }: any) 
             </FilterField>
             <Aside status={sideMenuStatus} setStatus={setSideMenuStatus} />
             <CitiesModal status={citiesModalStatus} setStatus={setCitiesModalStatus} setProvincesModalStatus={setProvincesModalStatus} />
-            <ProvincesModal status={provincesModalStatus} setStatus={setProvincesModalStatus} setCitiesModalStatus={setCitiesModalStatus} />
+            <ProvincesModal
+                status={provincesModalStatus}
+                setStatus={setProvincesModalStatus}
+                setCitiesModalStatus={setCitiesModalStatus}
+                data={proviencesList}
+            />
         </>
     );
 };

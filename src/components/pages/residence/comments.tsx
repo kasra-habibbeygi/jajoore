@@ -32,7 +32,12 @@ const Comment = ({ data }: any) => {
                         <li key={`comment_list_${index}`}>
                             <div className='header'>
                                 <div className='avatar_field'>
-                                    <Image src={`${process.env.IMAGE_URL}${item.userProfileImage}`} alt='' width={500} height={300} />
+                                    <Image
+                                        src={`${process.env.IMAGE_URL}${item.userProfileImage.url}`}
+                                        alt={item.userProfileImage.alt}
+                                        width={500}
+                                        height={300}
+                                    />
                                     <span>
                                         <p>{item.userName}</p>
                                         <small>{Tools.changeTimeStampToHumanReadAble(parseInt(item.createDate))}</small>
@@ -49,8 +54,8 @@ const Comment = ({ data }: any) => {
                                 <div className='answer'>
                                     <div className='avatar_field'>
                                         <Image
-                                            src={`${process.env.IMAGE_URL}${item.commentAnswer.userProfileImage}`}
-                                            alt=''
+                                            src={`${process.env.IMAGE_URL}${item.commentAnswer.userProfileImage.url}`}
+                                            alt={item.commentAnswer.userProfileImage.alt}
                                             width={500}
                                             height={300}
                                         />

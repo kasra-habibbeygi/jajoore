@@ -109,7 +109,7 @@ export async function getServerSideProps({ query }: any) {
         Axios.get('blog'),
         Axios.get('residence/popularDestinations'),
         Axios.get('residence/preperForFilter'),
-        Axios.get(`residence/?PageSize=12${residenceQuery}${filterGetter(query)}`),
+        Axios.get(`residence/?PageSize=18${residenceQuery}${filterGetter(query)}`),
         Axios.get('residence/?Vip=true'),
         Axios.get('residence/?pageSize=4&Instant=true'),
         Axios.get('residence/?pageSize=4&LastMinute=true')

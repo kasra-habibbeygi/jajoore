@@ -39,7 +39,13 @@ const ImgSlider = ({ status, setStatus, imgList }: any) => {
                 >
                     {imgList.map((item: any, index: number) => (
                         <SwiperSlide key={`image_list_${index}`}>
-                            <Image className='main_img' src={`${process.env.IMAGE_URL}${item}`} alt='' width={2000} height={1500} />
+                            <Image
+                                className='main_img'
+                                src={`${process.env.IMAGE_URL}${item.url}`}
+                                alt={item.alt}
+                                width={2000}
+                                height={1500}
+                            />
                         </SwiperSlide>
                     ))}
                 </Swiper>

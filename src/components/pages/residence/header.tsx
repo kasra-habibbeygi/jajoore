@@ -48,13 +48,28 @@ const ResidenceHeader = ({ data }: any) => {
                 <>
                     <ImageListField>
                         <li>
-                            <Image src={`${process.env.IMAGE_URL}${data?.imageGalleries[0]}`} alt='' width={1000} height={700} />
+                            <Image
+                                src={`${process.env.IMAGE_URL}${data?.imageGalleries[0].url}`}
+                                alt={data?.imageGalleries[0].alt}
+                                width={1000}
+                                height={700}
+                            />
                         </li>
                         <li>
-                            <Image src={`${process.env.IMAGE_URL}${data?.imageGalleries[1]}`} alt='' width={1000} height={700} />
+                            <Image
+                                src={`${process.env.IMAGE_URL}${data?.imageGalleries[1].url}`}
+                                alt={data?.imageGalleries[0].alt}
+                                width={1000}
+                                height={700}
+                            />
                         </li>
                         <li>
-                            <Image src={`${process.env.IMAGE_URL}${data?.imageGalleries[2]}`} alt='' width={1000} height={700} />
+                            <Image
+                                src={`${process.env.IMAGE_URL}${data?.imageGalleries[2].url}`}
+                                alt={data?.imageGalleries[0].alt}
+                                width={1000}
+                                height={700}
+                            />
                             <span className='layout'>
                                 <Button radius='half-rounded' handler={() => setImgModalStatus(true)}>
                                     <Image src={Imageicon} alt='' />
@@ -72,7 +87,13 @@ const ResidenceHeader = ({ data }: any) => {
                         >
                             {data?.imageGalleries.map((item: any, index: number) => (
                                 <SwiperSlide key={`mobile_image_list_${index}`}>
-                                    <Image className='main_img' src={`${process.env.IMAGE_URL}${item}`} alt='' width={2000} height={1500} />
+                                    <Image
+                                        className='main_img'
+                                        src={`${process.env.IMAGE_URL}${item.url}`}
+                                        alt={item.alt}
+                                        width={2000}
+                                        height={1500}
+                                    />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
