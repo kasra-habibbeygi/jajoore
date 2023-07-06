@@ -23,6 +23,8 @@ const VIPOnly = () => {
         } else {
             if (filterStatus) {
                 router.query.vipStatus = 'true';
+            } else {
+                delete router.query.vipStatus;
             }
 
             router.push(router);

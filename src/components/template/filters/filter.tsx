@@ -27,8 +27,8 @@ import Property from './drop-downs/property';
 import VIPOnly from './drop-downs/vip';
 import Filters from './drop-downs/filters';
 import CalenderFilter from './drop-downs/calender';
-const PriceFilter = dynamic(() => import('./drop-downs/price'), { ssr: false });
 import CheckBoxListFilter from './checkbox-list-filter';
+const PriceFilter = dynamic(() => import('./drop-downs/price'), { ssr: false });
 
 const Filter = ({ filtersItem, filterStatus = true, popularDestinations }: any) => {
     const [sideMenuStatus, setSideMenuStatus] = useState(false);

@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Axios from '@/configs/axios';
 import { useDispatch } from 'react-redux';
-import { locationList } from '@/state-manager/reducer/map';
+import { locationListHandler } from '@/state-manager/reducer/map';
 
 // Assets
 import { DoubleCol } from '@/assets/styles/main';
@@ -66,7 +66,7 @@ const Index = ({ article, vipsResidence, Residence, popularDestinations, instant
             data = [...data, objectProvider(item)];
         });
 
-        dispatch(locationList(data));
+        dispatch(locationListHandler(data));
     }, []);
 
     return (

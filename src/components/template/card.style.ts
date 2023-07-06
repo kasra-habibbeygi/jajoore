@@ -79,10 +79,13 @@ export const MainCardField = styled.div(props => ({
             background: '#0000009c',
             color: 'white',
             fontSize: '0.8rem',
-            padding: '6px 0 5px 9px',
+            padding: '6px 30px 5px 9px',
             fontWeight: '200',
             width: '90px',
-            textAlign: 'left'
+            textAlign: 'left',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
         },
 
         span: {

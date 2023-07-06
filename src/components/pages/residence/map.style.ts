@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const MainField = styled.div<{ mapScaleStatus: boolean }>(props => ({
+export const MainField = styled.div<{ mapScaleStatus: boolean }>({
     marginBottom: '40px',
 
     '& .leaflet-container': {
@@ -15,4 +15,4 @@ export const MainField = styled.div<{ mapScaleStatus: boolean }>(props => ({
     '& .leaflet-control-attribution.leaflet-control': {
         display: 'none'
     }
-}));
+});

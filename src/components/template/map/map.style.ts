@@ -5,15 +5,16 @@ export const MainField = styled.div<{ mapScaleStatus: boolean }>(props => ({
     padding: '10px',
     borderRadius: '8px',
     position: props.mapScaleStatus ? 'fixed' : 'sticky',
-    top: props.mapScaleStatus ? '0' : '10px',
+    top: '0',
     left: props.mapScaleStatus ? '0' : 'unset',
     zIndex: props.mapScaleStatus ? '1100' : '10',
     background: 'white',
     width: '100%',
     overflow: 'hidden',
+    transform: 'scale(1.02)',
 
     '& .leaflet-container': {
-        height: props.mapScaleStatus ? '100vh' : '300px'
+        height: props.mapScaleStatus ? '100vh' : '200px'
     },
 
     '& .eaflet-control-attribution': {
@@ -22,6 +23,10 @@ export const MainField = styled.div<{ mapScaleStatus: boolean }>(props => ({
 
     '& .leaflet-control-attribution.leaflet-control': {
         display: 'none'
+    },
+
+    '& .activeLocation': {
+        zIndex: '200 !important'
     },
 
     h3: {

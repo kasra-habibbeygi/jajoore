@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { MainField } from './data-card.style';
 import StarIcon from '@/assets/images/card/star.svg';
 
-const MapDataCard = ({ data, mapScaleStatus }: any) => {
+const MapDataCard = ({ data }: any) => {
     const [domLoader, setDomLoader] = useState<boolean>(false);
 
     useEffect(() => {
@@ -14,9 +14,15 @@ const MapDataCard = ({ data, mapScaleStatus }: any) => {
     }, []);
 
     return (
-        <MainField stats={data !== ''} mapScaleStatus={mapScaleStatus}>
+        <MainField stats={data !== ''}>
             {data && (
-                <Image src={`${process.env.IMAGE_URL}${data?.imageGalleries[0]}`} width={500} height={500} alt='' className='main_img' />
+                <Image
+                    src={`${process.env.IMAGE_URL}${data?.imageGalleries[0].url}`}
+                    width={500}
+                    height={500}
+                    alt={data?.imageGalleries[0].alt}
+                    className='main_img'
+                />
             )}
             <div className='info'>
                 <h5>

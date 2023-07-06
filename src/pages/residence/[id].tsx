@@ -41,7 +41,6 @@ const Residence = ({ filtersItem, attribute, residenceData, popularDestinations,
                         <Info data={residenceData} />
                         <Story />
                         <AboutResidence data={residenceData} />
-
                         <SleepingArea data={residenceData} />
                         <Attributes
                             title='منطقه اقامتگاه'

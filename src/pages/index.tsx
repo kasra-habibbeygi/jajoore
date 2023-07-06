@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Axios from '@/configs/axios';
 import { useDispatch } from 'react-redux';
-import { locationList } from '@/state-manager/reducer/map';
+import { locationListHandler } from '@/state-manager/reducer/map';
 
 // Assets
 import { DoubleCol } from '@/assets/styles/main';
@@ -27,7 +27,7 @@ import SideBarCardList from '@/components/pages/index/sidebar-card-list';
 const Map = dynamic(() => import('@/components/template/map/map'), { ssr: false });
 
 // Utils
-// import { filterGetter } from '@/utils/filter-handler';
+import { filterGetter } from '@/utils/filter-handler';
 
 const objectProvider = (item: any) => {
     return {
@@ -52,8 +52,6 @@ const objectProvider = (item: any) => {
 const Index = ({ article, vipsResidence, Residence, popularDestinations, instants, filtersItem, lastMinute }: any) => {
     const dispatch = useDispatch();
 
-    console.log(vipsResidence);
-
     useEffect(() => {
         let data: any[] = [];
 
@@ -67,7 +65,7 @@ const Index = ({ article, vipsResidence, Residence, popularDestinations, instant
             data = [...data, objectProvider(item)];
         });
 
-        dispatch(locationList(data));
+        dispatch(locationListHandler(data));
     }, []);
 
     return (
@@ -101,20 +99,20 @@ const Index = ({ article, vipsResidence, Residence, popularDestinations, instant
 export default Index;
 
 export async function getServerSideProps({ query }: any) {
-    let residenceQuery = '?PageSize=12';
+    let residenceQuery = '';
 
     if (query.page) {
         residenceQuery += `&PageIndex=${query.page}`;
     }
 
-    const [article, vipsResidence, Residence, popularDestinations, instants, filtersItem, lastMinute] = await Promise.all([
+    const [article, popularDestinations, filtersItem, Residence, vipsResidence, instants, lastMinute] = await Promise.all([
         Axios.get('blog'),
-        Axios.get('residence/vips'),
-        Axios.get(`residence/${residenceQuery}`),
         Axios.get('residence/popularDestinations'),
-        Axios.get('residence/instants?pageSize=4'),
         Axios.get('residence/preperForFilter'),
-        Axios.get('residence/lastMinute?pageSize=4')
+        Axios.get(`residence/?PageSize=12${residenceQuery}${filterGetter(query)}`),
+        Axios.get('residence/?Vip=true'),
+        Axios.get('residence/?pageSize=4&Instant=true'),
+        Axios.get('residence/?pageSize=4&LastMinute=true')
     ]);
 
     return {

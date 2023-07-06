@@ -37,13 +37,13 @@ export const FilterValueProvider = (setFilterItemState: any, filterItem: any, qu
 };
 
 export const filterGetter = (query: any) => {
-    let queryString = '?';
+    let queryString = '';
 
     if (query.person) {
         queryString += `&NumberOfPeople=${query.person}`;
     }
     if (query.minPrice) {
-        queryString += `&MinPrice=${query.minPrice}`;
+        queryString += `&MinPricc=${query.minPrice}`;
     }
     if (query.maxPrice) {
         queryString += `&MaxPrice=${query.maxPrice}`;
@@ -72,15 +72,40 @@ export const filterGetter = (query: any) => {
     if (query.vipStatus) {
         queryString += `&Vip=${query.vipStatus}`;
     }
+
     if (query.property) {
         if (query.property.includes('instant')) {
             queryString += '&Instant=true';
         }
         if (query.property.includes('plus')) {
-            queryString += '&Instant=true';
+            queryString += '&Plus=true';
         }
         if (query.property.includes('sale')) {
-            queryString += '&Instant=true';
+            queryString += '&FromBiggestDiscount=true';
+        }
+    }
+
+    if (query.order) {
+        if (query.order === 'top') {
+            queryString += '&FromBest=true';
+        }
+        if (query.order === 'score') {
+            queryString += '&score=true';
+        }
+        if (query.order === 'low-price') {
+            queryString += '&FromLowestPrice=true';
+        }
+        if (query.order === 'max-price') {
+            queryString += '&FromHighestPrice=true';
+        }
+        if (query.order === 'max-reservation') {
+            queryString += '&FromMostReserved=true';
+        }
+        if (query.order === 'sale') {
+            queryString += '&FromBiggestDiscount=true';
+        }
+        if (query.order === 'newest') {
+            queryString += '&FromLatest=true';
         }
     }
 

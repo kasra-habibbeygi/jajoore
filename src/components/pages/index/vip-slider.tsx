@@ -51,9 +51,9 @@ const VipSlider = ({ data }: any) => {
                         <CardComponent data={item} />
                     </SwiperSlide>
                 ))}
-                {/* <SwiperSlide>
+                <SwiperSlide>
                     <CardComponent blur data={data?.result[0]} />
-                </SwiperSlide> */}
+                </SwiperSlide>
             </Swiper>
         </MainField>
     );

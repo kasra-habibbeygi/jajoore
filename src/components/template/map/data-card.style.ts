@@ -1,18 +1,19 @@
 import styled from '@emotion/styled';
 
-export const MainField = styled.div<{ stats: boolean; mapScaleStatus: boolean }>(props => ({
+export const MainField = styled.div<{ stats: boolean }>(props => ({
     display: 'flex',
     alignItems: 'center',
     gap: '5px',
     borderRadius: '8px',
     overflow: 'hidden',
     background: 'white',
-    position: 'absolute',
-    bottom: props.stats ? (props.mapScaleStatus ? '90px' : '0') : '-100px',
-    width: props.mapScaleStatus ? '400px' : '100%',
+    position: 'fixed',
+    width: '400px',
     zIndex: '1100',
-    right: props.mapScaleStatus ? '20px' : '0',
+    bottom: props.stats ? '10px' : '-100px',
+    right: '10px',
     transition: 'all 0.6s cubic-bezier(0, 0, 0.2, 1.11) 0s',
+    boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
 
     '& .main_img': {
         width: '90px',

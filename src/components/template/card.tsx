@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useDispatch } from 'react-redux';
+import { selectedLocationHandler } from '@/state-manager/reducer/map';
+import Image from 'next/image';
 import Link from 'next/link';
 
 // Assets
@@ -37,15 +39,34 @@ interface CardComponentTypes {
 }
 
 const CardComponent = ({ type = 'full', blur, extraClass, data }: CardComponentTypes) => {
-    const [days, hours, minutes, seconds] = useTimer(20000000000);
+    const dispatch = useDispatch();
+    const [days, hours, minutes, seconds] = useTimer(data.discountTime);
     const [domLoader, setDomLoader] = useState<boolean>(false);
 
     useEffect(() => {
         setDomLoader(true);
     }, []);
 
+    const cardHoverHandler = (action: 'add' | 'remove') => {
+        if (action === 'add') {
+            dispatch(
+                selectedLocationHandler({
+                    lat: data.lat,
+                    lng: data.lng
+                })
+            );
+        } else {
+            dispatch(
+                selectedLocationHandler({
+                    lat: '',
+                    lng: ''
+                })
+            );
+        }
+    };
+
     return (
-        <MainCardField className={extraClass}>
+        <MainCardField className={extraClass} onMouseEnter={() => cardHoverHandler('add')} onMouseLeave={() => cardHoverHandler('remove')}>
             <div className='image_field'>
                 <Swiper
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -56,7 +77,13 @@ const CardComponent = ({ type = 'full', blur, extraClass, data }: CardComponentT
                 >
                     {data.imageGalleries.map((item: any, index: number) => (
                         <SwiperSlide key={`residence_image_card_${index}`}>
-                            <Image src={`${process.env.IMAGE_URL}${item}`} alt='' width={500} height={300} className='card_image' />
+                            <Image
+                                src={`${process.env.IMAGE_URL}${item.url}`}
+                                alt={item.alt}
+                                width={500}
+                                height={300}
+                                className='card_image'
+                            />
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -108,8 +135,8 @@ const CardComponent = ({ type = 'full', blur, extraClass, data }: CardComponentT
                 <div className='avatar_field'>
                     <div className='avatar'>
                         <Image
-                            src={`${process.env.IMAGE_URL}${data?.ownerProfileImg}`}
-                            alt=''
+                            src={`${process.env.IMAGE_URL}${data?.ownerProfileImg.url}`}
+                            alt={data?.ownerProfileImg.alt}
                             width={1000}
                             height={700}
                             className='avatar_img'
@@ -130,7 +157,7 @@ const CardComponent = ({ type = 'full', blur, extraClass, data }: CardComponentT
                             <Image src={LocationIcon} alt='' />
                             {data.province} , {data.city}
                         </div>
-                        <span>لحظه آخری</span>
+                        {data.lastMinute && <span>لحظه آخری</span>}
                     </div>
                 </div>
             )}
