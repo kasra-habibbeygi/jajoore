@@ -1,6 +1,10 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+echo '❌kill 3000 port for running test and build❌'
+
+npx kill-port 3000
+
 echo '🏗️👷 Styling, testing and building your project before committing'
 
 npm run check-lint ||

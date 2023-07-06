@@ -47,7 +47,7 @@ const CalenderFilter = () => {
                 boxWidth={600}
                 name='types'
             >
-                <TypeFilterContent setNumberCounter={setNumberCounter} filterItem='' />
+                <TypeFilterContent setNumberCounter={setNumberCounter} filterItem={[]} />
             </DropDownLayout>
         </DropdownField>
     );
