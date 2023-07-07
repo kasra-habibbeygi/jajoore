@@ -11,12 +11,13 @@ import { ModalField } from './auth.style';
 import Input from '@/components/form-group/input';
 import Button from '@/components/form-group/button';
 
-const ForgetPassword = () => {
+const LoginWithOTP = () => {
     const dispatch = useDispatch();
     const ModalStatus = useSelector((state: RootState) => state.Utils.authModalStatus);
 
     const [inputValues, setInputValues] = useState({
-        mobilePhone: ''
+        mobilePhone: '',
+        otp: ''
     });
 
     const inputValueHandler = (e: any) => {};
@@ -24,7 +25,7 @@ const ForgetPassword = () => {
     return (
         <ModalField
             onClose={() => dispatch(authStateHandler(''))}
-            open={ModalStatus === 'forget_password'}
+            open={ModalStatus === 'otp'}
             disablePortal
             keepMounted
             fullWidth={true}
@@ -32,13 +33,21 @@ const ForgetPassword = () => {
             maxWidth='xs'
         >
             <div className='main_field'>
-                <Input label='شماره موبایل' name='mobilePhone' value={inputValues.mobilePhone} setValue={inputValueHandler} />
+                <div className='w-100'>
+                    <Input label='شماره موبایل' name='mobilePhone' value={inputValues.mobilePhone} setValue={inputValueHandler} />
+                </div>
+                <div className='otp_field'>
+                    <Input label='کد تایید' name='otp' value={inputValues.otp} setValue={inputValueHandler} />
+                    <Button color='green' type='outline'>
+                        ارسال کد تایید
+                    </Button>
+                </div>
                 <div className='submit_button'>
-                    <Button color='green'>ارسال لینک تغییر رمز عبور</Button>
+                    <Button color='green'>ورود</Button>
                 </div>
             </div>
         </ModalField>
     );
 };
 
-export default ForgetPassword;
+export default LoginWithOTP;
