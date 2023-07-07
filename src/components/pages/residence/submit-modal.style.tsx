@@ -1,16 +1,17 @@
 import styled from '@emotion/styled';
 
-export const AsideMainField = styled.aside({
-    position: 'relative',
-    minWidth: '370px',
-    maxWidth: '370px',
+export const ModalField = styled.aside({
+    '& .MuiPaper-elevation': {
+        background: 'transparent'
+    },
 
     '& .main_field': {
-        position: 'sticky',
         boxShadow: '0 0 6px rgb(0, 0 , 0 , 0.10)',
         borderRadius: '8px',
         overflow: 'hidden',
-        top: '20px'
+        top: '20px',
+        backgroundColor: 'white',
+        direction: 'rtl'
     },
 
     header: {
@@ -76,7 +77,8 @@ export const AsideMainField = styled.aside({
     },
 
     '& .answer_field': {
-        fontWeight: '300'
+        fontWeight: '300',
+        textAlign: 'right'
     },
 
     '& .button_group': {
@@ -117,7 +119,8 @@ export const DetailsField = styled.div(props => ({
     '& .discount_link': {
         color: '#0066BF',
         cursor: 'pointer',
-        marginTop: '15px'
+        marginTop: '15px',
+        textAlign: 'right'
     },
 
     '& .rules': {

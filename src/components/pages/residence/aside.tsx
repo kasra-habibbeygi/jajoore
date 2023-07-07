@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 // Assets
-import { AsideMainField } from './aside.style';
+import { AsideMainField, DetailsField, InvoiceField } from './aside.style';
 import WhatsAppIcon from '@/assets/images/layout/whatsapp.svg';
 import ShieldIcon from '@/assets/images/side-bars/shield.svg';
 import QuestionIcon from '@/assets/images/side-bars/question.svg';
@@ -11,6 +12,19 @@ import TelephoneIcon from '@/assets/images/icons/telephone-call.svg';
 
 // Component
 import Button from '@/components/form-group/button';
+import SelectComponent from '@/components/form-group/select';
+import Checkbox from '@/components/form-group/checkbox';
+
+// MUI
+import { SelectChangeEvent } from '@mui/material';
+
+const orderItems = [
+    { label: 'انتخاب تعداد نفرات', value: 'null' },
+    { label: '3 نفر', value: '3' },
+    { label: '4 نفر', value: '4' },
+    { label: '5 نفر', value: '5' },
+    { label: '6 نفر', value: '6' }
+];
 
 const Aside = ({ data }: any) => {
     const [domLoader, setDomLoader] = useState(false);
@@ -18,6 +32,8 @@ const Aside = ({ data }: any) => {
     useEffect(() => {
         setDomLoader(true);
     }, []);
+
+    const selectValueHandler = (e: SelectChangeEvent) => {};
 
     return (
         <AsideMainField>
@@ -36,8 +52,58 @@ const Aside = ({ data }: any) => {
                         <span className='money_unit'>تومان</span>
                     </div>
                 </header>
+                <DetailsField>
+                    <p className='title'>تعداد نفرات</p>
+                    <SelectComponent
+                        items={orderItems}
+                        handler={selectValueHandler}
+                        name='orderFilter'
+                        valueKey='value'
+                        state={orderItems[0].value}
+                        itemKey='label'
+                    />
+                    <InvoiceField>
+                        <div className='header_box'>
+                            <div className='row'>
+                                <p>6 شب * 1.100.000 تومان</p>
+                                <p>2.800.000 تومان</p>
+                            </div>
+                            <div className='row'>
+                                <p>2 شب * 1.400.000 تومان</p>
+                                <p>6.600.000 تومان</p>
+                            </div>
+                            <div className='row'>
+                                <p>هزینه نفرات اضافه</p>
+                                <p>+ 600.000 تومان</p>
+                            </div>
+                        </div>
+                        <div className='invoice_main_field'>
+                            <div className='row'>
+                                <p>مجموع اجاره بها - 8 شب</p>
+                                <p>10.000.000 تومان</p>
+                            </div>
+                            <div className='row'>
+                                <p>مبلغ صورت حساب</p>
+                                <p>10.000.000 تومان</p>
+                            </div>
+                            <div className='row'>
+                                <p>مبلغ قابل پرداخت</p>
+                                <p>10.000.000 تومان</p>
+                            </div>
+                        </div>
+                    </InvoiceField>
+                    <p className='discount_link'>کد تخفیف دارم</p>
+                    <div className='rules'>
+                        <Checkbox name='sale' value={false} handler={() => {}} />
+                        <p>قوانین و مقررات را می پذیرم</p>
+                        <Link href='/'>(مطالعه)</Link>
+                    </div>
+                    <Button color='green' shadow extraClass='submit_btn'>
+                        ثبت درخواست (پرداخت امن)
+                    </Button>
+                </DetailsField>
                 <div className='content'>
-                    <div className='avatar_field'>
+                    {/* <div className='avatar_field'>
                         <div>
                             <Image
                                 src={`${process.env.IMAGE_URL}${data.ownerProfileImg.url}`}
@@ -67,7 +133,7 @@ const Aside = ({ data }: any) => {
                             <Image src={TelephoneIcon} alt='' />
                             09123636601
                         </Button>
-                    </div>
+                    </div> */}
                     <div className='button_group'>
                         <Button shadow radius='half-rounded' disabled>
                             <Image src={ShieldIcon} alt='' />

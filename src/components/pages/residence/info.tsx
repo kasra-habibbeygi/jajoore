@@ -19,22 +19,7 @@ import MeterIcon from '@/assets/images/card/meter.svg';
 // Component
 import SelectComponent from '@/components/form-group/select';
 
-// MUI
-import { SelectChangeEvent } from '@mui/material';
 const Info = ({ data }: any) => {
-    const selectItems = [
-        {
-            label: `${data.oneWeekDiscountPercent}% تخفیف برای رزرو بیشتر از 7 روز`,
-            value: 1
-        },
-        {
-            label: `${data.oneMonthDiscountPercent}% تخفیف برای رزرو بیشتر از 30 روز`,
-            value: 1
-        }
-    ];
-
-    const selectValueHandler = (e: SelectChangeEvent) => {};
-
     return (
         <MainField>
             <div className='header'>
@@ -55,16 +40,6 @@ const Info = ({ data }: any) => {
             </div>
             <div className='midle_field'>
                 <div className='code'>کد ویلا : {data.residenceNO}</div>
-                <div className='select_field'>
-                    <SelectComponent
-                        items={selectItems}
-                        handler={selectValueHandler}
-                        name='orderFilter'
-                        valueKey='value'
-                        state={selectItems[0].value}
-                        itemKey='label'
-                    />
-                </div>
                 <div className='pills_field'>
                     {data.instant && (
                         <span className='yellow'>

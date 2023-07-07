@@ -158,10 +158,6 @@ export const MainField = styled.div<any>(props => ({
     },
 
     '@media(max-width : 650px)': {
-        '& .select_field': {
-            display: 'none'
-        },
-
         '& .header': {
             flexDirection: 'column-reverse',
             alignItems: 'flex-end',

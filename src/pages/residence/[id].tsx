@@ -27,12 +27,13 @@ import SleepingArea from '@/components/pages/residence/sleeping-area';
 import RatePerPerson from '@/components/pages/residence/rate-per-person';
 import Rules from '@/components/pages/residence/rules';
 import CancelRules from '@/components/pages/residence/cancel-rules';
+import SubmitModal from '@/components/pages/residence/submit-modal';
 const SpecificResidenceMap = dynamic(() => import('@/components/pages/residence/map'), { ssr: false });
 
-const Residence = ({ filtersItem, attribute, residenceData, popularDestinations, similarResidences, comment }: any) => {
+const Residence = ({ attribute, residenceData, popularDestinations, similarResidences, comment }: any) => {
     return (
         <LayoutProvider>
-            <Filter filtersItem={filtersItem.result} popularDestinations={popularDestinations.result} />
+            <Filter popularDestinations={popularDestinations.result} filterStatus={false} />
             <main className='container'>
                 <Header data={residenceData} />
                 <DoubleCol>
@@ -98,6 +99,7 @@ const Residence = ({ filtersItem, attribute, residenceData, popularDestinations,
                 </DoubleCol>
                 <SimilarSlider data={similarResidences} />
             </main>
+            <SubmitModal status={true} setStatus={() => {}} data={residenceData} />
         </LayoutProvider>
     );
 };
@@ -111,8 +113,7 @@ export async function getServerSideProps({ params, query }: any) {
         commentQuery += `&PageIndex=${query.page}`;
     }
 
-    const [filtersItem, residenceData, attribute, popularDestinations, similarResidences, comment] = await Promise.all([
-        Axios.get('residence/preperForFilter'),
+    const [residenceData, attribute, popularDestinations, similarResidences, comment] = await Promise.all([
         Axios.get(`residence/${params.id}`),
         Axios.get('residence/preperForView'),
         Axios.get('residence/popularDestinations'),
@@ -122,7 +123,6 @@ export async function getServerSideProps({ params, query }: any) {
 
     return {
         props: {
-            filtersItem: filtersItem.data,
             residenceData: residenceData.data.result,
             attribute: attribute.data.result,
             popularDestinations: popularDestinations.data,

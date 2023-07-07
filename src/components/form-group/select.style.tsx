@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 
 export const MainField = styled.div({
+    textAlign: 'right',
+
     '& .MuiInputBase-root': {
         width: '100%'
     },

@@ -22,7 +22,7 @@ const RatePerPerson = ({ data }: any) => {
             <div className='card_content'>
                 <div>
                     <Image src={DiscountIcon} alt='' />
-                    <p>تخفیف رزرو بیش از 7 شب: {data.oneWeekDiscountPercent} درصد</p>
+                    <p>تخفیف رزرو بیش از 6 شب: {data.oneWeekDiscountPercent} درصد</p>
                 </div>
                 <div>
                     <Image src={DiscountIcon} alt='' />

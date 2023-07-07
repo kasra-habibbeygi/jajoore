@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const CheckboxField = styled.div(props => ({
     width: '100%',
+    direction: 'rtl',
 
     '& .MuiButtonBase-root': {
         color: `${props.theme.palette.colors.text.light} !important`
