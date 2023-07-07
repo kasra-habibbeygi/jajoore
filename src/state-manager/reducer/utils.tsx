@@ -6,6 +6,7 @@ interface informationTypes {
         type: string;
     };
     mapModalStatus: boolean;
+    authModalStatus: 'otp' | 'login' | 'register' | 'forget_password' | '';
 }
 
 const initState: informationTypes = {
@@ -13,7 +14,8 @@ const initState: informationTypes = {
         action: 'remove',
         type: ''
     },
-    mapModalStatus: false
+    mapModalStatus: false,
+    authModalStatus: ''
 };
 
 export const utilsReducer = createSlice({
@@ -23,12 +25,15 @@ export const utilsReducer = createSlice({
         filterActionHandler: (state, action) => {
             state.filterAction = action.payload;
         },
-        mapModalStatushandler: (state, action) => {
+        mapModalStatusHandler: (state, action) => {
+            state.mapModalStatus = action.payload;
+        },
+        authModalStatusHandler: (state, action) => {
             state.mapModalStatus = action.payload;
         }
     }
 });
 
-export const { filterActionHandler, mapModalStatushandler } = utilsReducer.actions;
+export const { filterActionHandler, mapModalStatusHandler } = utilsReducer.actions;
 
 export default utilsReducer.reducer;
