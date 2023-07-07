@@ -8,7 +8,7 @@ import SelectComponent from '@/components/form-group/select';
 import Input from '@/components/form-group/input';
 
 //Assets
-import { TurnoverStyle } from './turnover.style';
+import { TurnoverStyle } from '@/assets/styles/turnover.style';
 
 const Turnover = () => {
     const [inputValues, setInputValues] = useState({

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/state-manager/store';
-import { authStateHandler } from '@/state-manager/reducer/user';
+import { authModalStatusHandler } from '@/state-manager/reducer/utils';
 
 // Assets
 import { ModalField } from './auth.style';
@@ -24,7 +24,7 @@ const Login = () => {
 
     return (
         <ModalField
-            onClose={() => dispatch(authStateHandler(''))}
+            onClose={() => dispatch(authModalStatusHandler(''))}
             open={ModalStatus === 'login'}
             disablePortal
             keepMounted

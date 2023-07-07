@@ -31,7 +31,7 @@ const MapDataCard = ({ data, setSpecificLocationData }: any) => {
             )}
             <div className='info'>
                 <h5>
-                    <Link href={`/residence/${data?.residenceNO}`}>
+                    <Link href={`/residence/${data?.id}`}>
                         <p>{data.title}</p>
                     </Link>
                     {data.vip && <span>VIP</span>}
