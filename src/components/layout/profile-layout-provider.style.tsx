@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
 
 export const MainField = styled.div({
-    width: '90%',
+    width: '100%',
     display: 'flex',
     gap: '20px',
-    margin: '68px auto',
+    padding: '50px 0',
+
     '& .content': {
         width: 'calc(100% - 300px) ',
         minHeight: '100vh',

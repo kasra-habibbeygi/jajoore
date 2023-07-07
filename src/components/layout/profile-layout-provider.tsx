@@ -19,7 +19,7 @@ const ProfileLayoutProvider = ({ children }: ComponentTypes) => {
     return (
         <>
             <Navbar />
-            <MainField>
+            <MainField className='container'>
                 <ProfileAside />
                 <div className='content'>{children}</div>
             </MainField>

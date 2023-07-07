@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useDispatch } from 'react-redux';
 
 // Assets
 import { NavbarField } from './navbar.style';
@@ -10,8 +11,11 @@ import LoginIcon from '@/assets/images/layout/login.svg';
 // Component
 import Button from '../form-group/button';
 import Register from '../modals/auth/register';
+import { authStateHandler } from '@/state-manager/reducer/user';
 
 const Navbar = () => {
+    const dispatch = useDispatch();
+
     return (
         <>
             <NavbarField>
@@ -41,7 +45,7 @@ const Navbar = () => {
                     </ol>
                 </div>
                 <div className='left_field'>
-                    <Button color='white' type='outline'>
+                    <Button color='white' type='outline' handler={() => dispatch(authStateHandler('login'))}>
                         <Image src={LoginIcon} alt='' />
                         ورود | ثبت نام
                     </Button>

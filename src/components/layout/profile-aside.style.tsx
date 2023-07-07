@@ -7,6 +7,7 @@ export const ProfileAsideStyle = styled.aside({
     boxShadow: '0px 0px 6px #00000026',
     borderRadius: '20px',
     padding: '20px',
+
     ul: {
         '& .userInfoLi': {
             width: '100%',
@@ -16,6 +17,7 @@ export const ProfileAsideStyle = styled.aside({
             gap: '10px',
             justifyContent: 'center',
             alignItems: 'center',
+
             img: {
                 width: '90px',
                 height: '90px',
@@ -37,20 +39,24 @@ export const ProfileAsideStyle = styled.aside({
                 borderRadius: '20px'
             }
         },
+
         li: {
             listStyleType: 'none',
             width: '100%',
             padding: '7px 10px',
+
             a: {
                 button: {
                     width: '100%',
                     textAlign: 'right',
                     justifyContent: 'flex-start',
-                    padding: '15px',
+                    padding: '10px',
                     gap: '10px',
+
                     p: {
-                        fontSize: '1.1rem'
+                        fontSize: '1rem'
                     },
+
                     '&:hover': {
                         background: 'rgba(25, 118, 210, 0.04)'
                     }
