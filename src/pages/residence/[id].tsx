@@ -99,7 +99,7 @@ const Residence = ({ attribute, residenceData, popularDestinations, similarResid
                 </DoubleCol>
                 <SimilarSlider data={similarResidences} />
             </main>
-            <SubmitModal status={true} setStatus={() => {}} data={residenceData} />
+            <SubmitModal status={false} setStatus={() => {}} data={residenceData} />
         </LayoutProvider>
     );
 };

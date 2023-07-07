@@ -14,7 +14,7 @@ import ScalabilityIcon from '@/assets/images/layout/scalability.svg';
 
 // Component
 import MapDataCard from './data-card';
-import { mapModalStatushandler } from '@/state-manager/reducer/utils';
+import { mapModalStatusHandler } from '@/state-manager/reducer/utils';
 
 const skater = new Icon({
     iconUrl: LocationIcon.src,
@@ -47,7 +47,7 @@ const Map = () => {
     });
 
     const openMap = () => {
-        dispatch(mapModalStatushandler(!mapModalStatus));
+        dispatch(mapModalStatusHandler(!mapModalStatus));
     };
 
     const specificLocationDataHandler = data => {

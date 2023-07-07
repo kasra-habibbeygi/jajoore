@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/state-manager/store';
-import { mapModalStatushandler } from '@/state-manager/reducer/utils';
+import { mapModalStatusHandler } from '@/state-manager/reducer/utils';
 
 // Assets
 import { MainField } from './header.styles';
@@ -49,7 +49,7 @@ const IndexHeader = ({ pageName = 'index' }: any) => {
     };
 
     const openMap = () => {
-        dispatch(mapModalStatushandler(!mapModalStatus));
+        dispatch(mapModalStatusHandler(!mapModalStatus));
     };
 
     return (
