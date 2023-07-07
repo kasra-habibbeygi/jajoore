@@ -28,6 +28,21 @@ export const ModalField = styled(Dialog)({
         }
     },
 
+    '& .w-100': {
+        width: '100%',
+        paddingBottom: '15px'
+    },
+
+    '& .links_field': {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '10px',
+
+        p: {
+            fontSize: '0.9rem'
+        }
+    },
+
     '& .otp_field': {
         width: '100%',
         display: 'flex',

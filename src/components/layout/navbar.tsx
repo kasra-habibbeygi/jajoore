@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useDispatch } from 'react-redux';
+import { authModalStatusHandler } from '@/state-manager/reducer/utils';
 
 // Assets
 import { NavbarField } from './navbar.style';
@@ -11,7 +12,10 @@ import LoginIcon from '@/assets/images/layout/login.svg';
 // Component
 import Button from '../form-group/button';
 import Register from '../modals/auth/register';
-import { authStateHandler } from '@/state-manager/reducer/user';
+import LoginRegisterModal from '../modals/auth/login-register';
+import Login from '../modals/auth/login';
+import LoginWithOTP from '../modals/auth/otp';
+import ForgetPassword from '../modals/auth/forget-password';
 
 const Navbar = () => {
     const dispatch = useDispatch();
@@ -45,13 +49,17 @@ const Navbar = () => {
                     </ol>
                 </div>
                 <div className='left_field'>
-                    <Button color='white' type='outline' handler={() => dispatch(authStateHandler('login'))}>
+                    <Button color='white' type='outline' handler={() => dispatch(authModalStatusHandler('mobile_login_register'))}>
                         <Image src={LoginIcon} alt='' />
                         ورود | ثبت نام
                     </Button>
                 </div>
             </NavbarField>
             <Register />
+            <Login />
+            <LoginWithOTP />
+            <LoginRegisterModal />
+            <ForgetPassword />
         </>
     );
 };

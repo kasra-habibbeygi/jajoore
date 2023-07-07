@@ -11,7 +11,7 @@ import { ModalField } from './auth.style';
 import Input from '@/components/form-group/input';
 import Button from '@/components/form-group/button';
 
-const ForgetPassword = () => {
+const LoginRegisterModal = () => {
     const dispatch = useDispatch();
     const ModalStatus = useSelector((state: RootState) => state.Utils.authModalStatus);
 
@@ -24,7 +24,7 @@ const ForgetPassword = () => {
     return (
         <ModalField
             onClose={() => dispatch(authStateHandler(''))}
-            open={ModalStatus === 'forget_password'}
+            open={ModalStatus === 'mobile_login_register'}
             disablePortal
             keepMounted
             fullWidth={true}
@@ -32,13 +32,14 @@ const ForgetPassword = () => {
             maxWidth='xs'
         >
             <div className='main_field'>
+                <h3>ثبت نام / ورود</h3>
                 <Input label='شماره موبایل' name='mobilePhone' value={inputValues.mobilePhone} setValue={inputValueHandler} />
                 <div className='submit_button'>
-                    <Button color='green'>ارسال لینک تغییر رمز عبور</Button>
+                    <Button color='green'>تایید شماره موبایل</Button>
                 </div>
             </div>
         </ModalField>
     );
 };
 
-export default ForgetPassword;
+export default LoginRegisterModal;
