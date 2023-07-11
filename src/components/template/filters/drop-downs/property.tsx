@@ -10,7 +10,7 @@ import FilterPill from '@/components/template/filters/pill';
 import PropertyFilter from './content/property';
 
 // Hooks
-import useOutsideClick from '@/hooks/use-outside-click';
+import useOutsideClick from '@/hooks/useOutsideClick';
 
 const Property = () => {
     const uniqValue = 'Property';

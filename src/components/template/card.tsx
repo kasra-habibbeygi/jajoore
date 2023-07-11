@@ -24,7 +24,7 @@ import PlusIcon from '@/assets/images/card/plus.svg';
 import EmptyAvatar from '@/assets/images/card/empty-avatar.svg';
 
 // Hook
-import useTimer from '@/hooks/use-timer';
+import useTimer from '@/hooks/useTimer';
 import Button from '../form-group/button';
 
 // MUI

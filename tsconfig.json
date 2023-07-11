@@ -18,6 +18,6 @@
             "@/*": ["./src/*"]
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/configs/axios.jsx", "src/hooks/use-windows-dimensions.jsx", "src/components/template/card.tsx", "src/components/form-group/button.tsx", "src/components/template/map/map.jsx", "src/components/test.jsx"],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/configs/axios.jsx", "src/hooks/useWindowsDimensions.jsx", "src/components/template/card.tsx", "src/components/form-group/button.tsx", "src/components/template/map/map.jsx", "src/components/test.jsx", "src/hooks/useOffset.tsx"],
     "exclude": ["node_modules"]
 }

@@ -14,7 +14,7 @@ import FilterPill from '@/components/template/filters/pill';
 import PriceFilters from './content/price';
 
 // Hooks
-import useOutsideClick from '@/hooks/use-outside-click';
+import useOutsideClick from '@/hooks/useOutsideClick';
 
 const PriceFilter = () => {
     const router = useRouter();

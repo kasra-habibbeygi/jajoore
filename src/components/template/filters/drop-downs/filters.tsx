@@ -7,7 +7,7 @@ import { DropdownField, AllFiltersField, BodyLayout } from './style/dropdown.sty
 import FiltersIcon from '@/assets/images/icons/setting.svg';
 
 // Hooks
-import useOutsideClick from '@/hooks/use-outside-click';
+import useOutsideClick from '@/hooks/useOutsideClick';
 
 // Component
 import DropDownLayout from '../layout';

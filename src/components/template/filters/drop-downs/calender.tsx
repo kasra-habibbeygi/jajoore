@@ -10,7 +10,7 @@ import FilterPill from '@/components/template/filters/pill';
 import TypeFilterContent from './content/type';
 
 // Hooks
-import useOutsideClick from '@/hooks/use-outside-click';
+import useOutsideClick from '@/hooks/useOutsideClick';
 
 const CalenderFilter = () => {
     const uniqValue = 'CalenderFilter';

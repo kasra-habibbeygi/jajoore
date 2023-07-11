@@ -10,7 +10,7 @@ import FilterPill from '@/components/template/filters/pill';
 import RoomCounterFilter from './content/room-counter';
 
 // Hooks
-import useOutsideClick from '@/hooks/use-outside-click';
+import useOutsideClick from '@/hooks/useOutsideClick';
 
 // Types
 interface InputValueType {

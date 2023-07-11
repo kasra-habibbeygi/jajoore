@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useRef, useState } from 'react';
 import Image from 'next/image';
-import useOutsideClick from '@/hooks/use-outside-click';
+import useOutsideClick from '@/hooks/useOutsideClick';
 
 // Assets
 import { SearchBoxField } from './search.style';

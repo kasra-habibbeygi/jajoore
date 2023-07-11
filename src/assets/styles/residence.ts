@@ -10,6 +10,7 @@ export const DoubleCol = styled.div({
         width: 'calc(100% - 400px)',
         borderRadius: '5px',
         paddingBottom: '20px',
+        position: 'relative',
 
         '& .pagination': {
             width: '100%',

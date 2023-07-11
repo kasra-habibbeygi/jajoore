@@ -9,7 +9,7 @@ import FilterPill from '@/components/template/filters/pill';
 import FilterContent from './filter-content';
 
 // Hooks
-import useOutsideClick from '@/hooks/use-outside-click';
+import useOutsideClick from '@/hooks/useOutsideClick';
 
 // Types
 interface CheckBoxListFilterTypes {

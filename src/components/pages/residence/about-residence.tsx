@@ -12,7 +12,7 @@ import TitleField from '@/components/template/title';
 
 const AboutResidence = ({ data }: any) => {
     return (
-        <MainField>
+        <MainField id='about'>
             <TitleField title='درباره اقامتگاه' />
             <p className='about_text'>{data.content}</p>
             <ul>

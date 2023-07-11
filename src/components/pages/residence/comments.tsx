@@ -24,7 +24,7 @@ const Comment = ({ data }: any) => {
     };
 
     return (
-        <CommentMainField>
+        <CommentMainField id='comment'>
             <h3>نظر مهمانان ({data?.totalItems} نظر)</h3>
             <ul className='comment_list'>
                 {data?.result?.map((item: any, index: number) => {

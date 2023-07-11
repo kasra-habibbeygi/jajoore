@@ -103,7 +103,7 @@ const Aside = ({ data }: any) => {
                     </Button>
                 </DetailsField>
                 <div className='content'>
-                    {/* <div className='avatar_field'>
+                    <div className='avatar_field'>
                         <div>
                             <Image
                                 src={`${process.env.IMAGE_URL}${data.ownerProfileImg.url}`}
@@ -133,7 +133,7 @@ const Aside = ({ data }: any) => {
                             <Image src={TelephoneIcon} alt='' />
                             09123636601
                         </Button>
-                    </div> */}
+                    </div>
                     <div className='button_group'>
                         <Button shadow radius='half-rounded' disabled>
                             <Image src={ShieldIcon} alt='' />

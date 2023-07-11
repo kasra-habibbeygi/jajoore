@@ -18,7 +18,7 @@ const skater = new Icon({
 
 const SpecificResidenceMap = ({ data }) => {
     return (
-        <MainField>
+        <MainField id='map'>
             <TitleField title='نقشه' />
             <MapContainer center={data} zoom={13} scrollWheelZoom={true}>
                 <TileLayer url='https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png' />

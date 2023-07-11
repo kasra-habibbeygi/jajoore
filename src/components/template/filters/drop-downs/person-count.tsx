@@ -10,7 +10,7 @@ import FilterPill from '@/components/template/filters/pill';
 import PersonFilter from './content/person-counter';
 
 // Hooks
-import useOutsideClick from '@/hooks/use-outside-click';
+import useOutsideClick from '@/hooks/useOutsideClick';
 
 const PersonCounter = () => {
     const uniqValue = 'room_counter';
