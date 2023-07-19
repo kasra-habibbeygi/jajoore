@@ -1,4 +1,7 @@
 import React from 'react';
+import Image from 'next/image';
+
+//Mui
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -7,6 +10,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 //Assets
 import { CollapsStyle } from './collaps.style';
+import Capture from '@/assets/images/icons/Capture.svg';
 
 interface ComponentTypes {
     question: string;
@@ -24,7 +28,10 @@ const Collaps = ({ question, answer }: ComponentTypes) => {
         <CollapsStyle>
             <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls='panel1bh-content' id='panel1bh-header'>
-                    <Typography sx={{ width: '33%', flexShrink: 0 }}>{question}</Typography>
+                    <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                        <Image src={Capture} alt='' />
+                        {question}
+                    </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>{answer}</Typography>
