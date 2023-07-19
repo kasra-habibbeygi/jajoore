@@ -3,6 +3,10 @@ import styled from '@emotion/styled';
 export const CollapsStyle = styled.div(() => ({
     width: '100%',
 
+    hr: {
+        margin: '10px 0px'
+    },
+
     p: {
         fontFamily: 'main !important',
         fontWeight: '300',

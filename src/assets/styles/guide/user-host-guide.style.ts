@@ -4,10 +4,6 @@ import styled from '@emotion/styled';
 export const UserAccountGuideStyle = styled.div(props => ({
     padding: '50px 0px',
 
-    hr: {
-        margin: '10px 0px'
-    },
-
     '& .header': {
         display: 'flex',
         justifyContent: 'space-between',

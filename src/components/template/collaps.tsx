@@ -7,6 +7,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Divider from '@mui/material/Divider';
 
 //Assets
 import { CollapsStyle } from './collaps.style';
@@ -15,9 +16,10 @@ import Capture from '@/assets/images/icons/Capture.svg';
 interface ComponentTypes {
     question: string;
     answer: string;
+    divider?: boolean;
 }
 
-const Collaps = ({ question, answer }: ComponentTypes) => {
+const Collaps = ({ question, answer, divider = true }: ComponentTypes) => {
     const [expanded, setExpanded] = React.useState<string | false>(false);
 
     const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -37,6 +39,7 @@ const Collaps = ({ question, answer }: ComponentTypes) => {
                     <Typography>{answer}</Typography>
                 </AccordionDetails>
             </Accordion>
+            {divider && <Divider />}
         </CollapsStyle>
     );
 };
