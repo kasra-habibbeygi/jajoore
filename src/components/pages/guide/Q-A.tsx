@@ -3,10 +3,13 @@ import React from 'react';
 //Components
 import Collaps from '@/components/template/collaps';
 
+//Assets
+import { QACommentStyle } from './QACommentStyle';
+
 const QA = () => {
     return (
-        <div className='container' style={{ marginBottom: '50px' }}>
-            <h2 style={{ fontWeight: '300' }}>سوالات متداول</h2>
+        <QACommentStyle className='container'>
+            <h2>سوالات متداول</h2>
             <Collaps
                 question='سیستم ثبت نظرات چگونه کار می‌کند؟'
                 answer='سیستم ثبت نظرات چگونه کار می‌کند؟سیستم ثبت نظرات چگونه کار می‌کند؟سیستم ثبت نظرات چگونه کار می‌کند؟'
@@ -24,7 +27,7 @@ const QA = () => {
                 answer='سیستم ثبت نظرات چگونه کار می‌کند؟سیستم ثبت نظرات چگونه کار می‌کند؟سیستم ثبت نظرات چگونه کار می‌کند؟'
                 divider={false}
             />
-        </div>
+        </QACommentStyle>
     );
 };
 

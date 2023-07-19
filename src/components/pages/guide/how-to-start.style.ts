@@ -20,5 +20,30 @@ export const HowToStartStyle = styled.div(() => ({
             fontWeight: '200',
             fontSize: '1.5rem'
         }
+    },
+
+    '@media(max-width : 750px)': {
+        justifyContent: 'flex-end',
+        position: 'relative',
+
+        '& .text': {
+            position: 'absolute',
+            right: '20px',
+
+            h2: {
+                fontSize: '1.5rem',
+                marginBottom: '20px'
+            },
+
+            h3: {
+                fontSize: '1.3rem'
+            }
+        }
+    },
+
+    '@media(max-width:450px)': {
+        img: {
+            width: '100%'
+        }
     }
 }));

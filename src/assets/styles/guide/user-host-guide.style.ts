@@ -37,5 +37,23 @@ export const UserAccountGuideStyle = styled.div(props => ({
             width: '100%',
             marginBottom: '30px'
         }
+    },
+
+    '@media(max-width : 1100px)': {
+        '& .content': {
+            gridTemplateColumns: 'repeat(1,1fr)'
+        }
+    },
+
+    '@media(max-width : 650px)': {
+        h2: {
+            fontSize: '1.2rem'
+        },
+
+        '& .content': {
+            h3: {
+                fontSize: '1.1rem'
+            }
+        }
     }
 }));

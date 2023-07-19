@@ -7,14 +7,19 @@ import CardBox from '@/components/pages/guide/card-box';
 import QA from '@/components/pages/guide/Q-A';
 import Comments from '@/components/pages/guide/Comments';
 
+//Assets
+import { MainField } from '@/assets/styles/guide/main-field.style';
+
 const Index = () => {
     return (
         <LayoutProvider>
             <HowToStart />
             <CardBox />
-            <div style={{ display: 'flex', gap: '100px' }} className='container'>
-                <QA />
-                <Comments />
+            <div className='container'>
+                <MainField>
+                    <QA />
+                    <Comments />
+                </MainField>
             </div>
         </LayoutProvider>
     );

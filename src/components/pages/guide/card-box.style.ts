@@ -7,5 +7,10 @@ export const CardBoxStyle = styled.div(() => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingBottom: '50px',
-    gap: '20px'
+    gap: '20px',
+
+    '@media(max-width : 1100px)': {
+        flexDirection: 'row',
+        flexWrap: 'wrap'
+    }
 }));

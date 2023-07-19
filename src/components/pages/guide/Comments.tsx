@@ -1,14 +1,15 @@
 import React from 'react';
 
-//Mui
+//Assets
+import { QACommentStyle } from './QACommentStyle';
 
 //Components
 import Collaps from '@/components/template/collaps';
 
 const Comments = () => {
     return (
-        <div className='container'>
-            <h2 style={{ fontWeight: '300' }}>نظرات</h2>
+        <QACommentStyle className='container'>
+            <h2>نظرات</h2>
             <Collaps
                 question='سیستم ثبت نظرات چگونه کار می‌کند؟'
                 answer='سیستم ثبت نظرات چگونه کار می‌کند؟سیستم ثبت نظرات چگونه کار می‌کند؟سیستم ثبت نظرات چگونه کار می‌کند؟'
@@ -29,7 +30,7 @@ const Comments = () => {
                 answer='سیستم ثبت نظرات چگونه کار می‌کند؟سیستم ثبت نظرات چگونه کار می‌کند؟سیستم ثبت نظرات چگونه کار می‌کند؟'
                 divider={false}
             />
-        </div>
+        </QACommentStyle>
     );
 };
 
