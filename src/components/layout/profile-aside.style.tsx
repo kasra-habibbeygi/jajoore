@@ -2,11 +2,12 @@ import styled from '@emotion/styled';
 
 export const ProfileAsideStyle = styled.aside({
     width: '300px',
-    minHeight: '100vh',
     border: '1px solid #BFBFBF',
     boxShadow: '0px 0px 6px #00000026',
     borderRadius: '20px',
     padding: '20px',
+    position: 'sticky',
+    top: '10px',
 
     ul: {
         '& .userInfoLi': {
