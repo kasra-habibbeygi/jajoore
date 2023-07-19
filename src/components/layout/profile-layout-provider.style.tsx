@@ -8,7 +8,6 @@ export const MainField = styled.div({
 
     '& .content': {
         width: 'calc(100% - 300px) ',
-        minHeight: '100vh',
         border: '1px solid #BFBFBF',
         boxShadow: '0px 0px 5px #00000026',
         borderRadius: '20px',

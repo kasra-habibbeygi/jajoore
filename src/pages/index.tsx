@@ -2,10 +2,6 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
 import Axios from '@/configs/axios';
 import { useDispatch } from 'react-redux';
 import { locationListHandler } from '@/state-manager/reducer/map';
@@ -13,6 +9,10 @@ import { locationListHandler } from '@/state-manager/reducer/map';
 // Assets
 import { DoubleCol } from '@/assets/styles/main';
 import TrustSymbol from '@/assets/images/layout/trust-symbol.png';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 // Component
 import LayoutProvider from '@/components/layout/layout-provider';

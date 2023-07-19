@@ -2,9 +2,6 @@ import React from 'react';
 import { ReactNode } from 'react';
 
 // Component
-import Navbar from './navbar';
-import Footer from './footer';
-import MobileNavbar from './mobile-navbar';
 import ProfileAside from './profile-aside';
 
 //Assets
@@ -18,13 +15,10 @@ interface ComponentTypes {
 const ProfileLayoutProvider = ({ children }: ComponentTypes) => {
     return (
         <>
-            <Navbar />
             <MainField className='container'>
                 <ProfileAside />
                 <div className='content'>{children}</div>
             </MainField>
-            <MobileNavbar />
-            <Footer />
         </>
     );
 };
