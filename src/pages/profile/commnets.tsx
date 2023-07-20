@@ -8,6 +8,8 @@ import userImage from '@/assets/images/profile/aside/userImage.jpeg';
 // Component
 import ProfileLayoutProvider from '@/components/layout/profile-layout-provider';
 import LayoutProvider from '@/components/layout/layout-provider';
+import TextArea from '@/components/form-group/textarea';
+import Button from '@/components/form-group/button';
 
 const Commnets = () => {
     return (
@@ -45,7 +47,11 @@ const Commnets = () => {
                     </div>
                     <div className='repley'>
                         <h3>پاسخ شما</h3>
+                        <TextArea value='پاسخ خود را بنویسید...' name='' onChange={() => {}} placeholder='پاسخ خود را بنویسید...' />
                     </div>
+                    <Button color='green' type='filled'>
+                        ارسال
+                    </Button>
                 </CommentStyle>
             </ProfileLayoutProvider>
         </LayoutProvider>
