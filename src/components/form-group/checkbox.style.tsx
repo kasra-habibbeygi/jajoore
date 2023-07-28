@@ -17,7 +17,7 @@ export const CheckboxField = styled.div(props => ({
     },
 
     '& .MuiTypography-root': {
-        fontSize: '0.9rem'
+        fontSize: '1rem'
     },
 
     span: {

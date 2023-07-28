@@ -8,10 +8,10 @@ import Filter from '@/components/template/filters/filter';
 import ProfileLayoutProvider from '@/components/layout/profile-layout-provider';
 import StagePill from '@/components/pages/profile/residence-registration/stage-pill';
 import ConfirmButton from '@/components/pages/profile/residence-registration/confirm-buttom';
-import ImageList from '@/components/pages/profile/residence-registration/stage-1/img-list';
+import ImageList from '@/components/pages/profile/residence-registration/stage/img-list';
 
 // Assets
-import { HeaderInfo } from '@/assets/styles/profile/residence-registration/stage-1.style';
+import { HeaderInfo } from '@/assets/styles/profile/residence-registration/stage.style';
 import AlertIcon from '@/assets/images/icons/alert.svg';
 
 const ResidenceRegistrationStage1 = ({ popularDestinations }: any) => {
