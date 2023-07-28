@@ -11,6 +11,7 @@ export const MainField = styled.div({
         border: '1px solid #BFBFBF',
         boxShadow: '0px 0px 5px #00000026',
         borderRadius: '20px',
-        padding: '30px'
+        padding: '30px',
+        height: 'max-content'
     }
 });

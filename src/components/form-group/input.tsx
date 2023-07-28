@@ -16,7 +16,7 @@ interface InputTypes {
     name: string;
     mode?: 'numeric' | 'tel' | 'email' | 'text';
     label?: string;
-    type?: 'text' | 'password';
+    type?: 'text' | 'password' | 'number';
     placeholder?: string;
     maxLength?: number;
     tooltipContent?: any;

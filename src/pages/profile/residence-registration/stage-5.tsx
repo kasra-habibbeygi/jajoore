@@ -13,7 +13,7 @@ import ConfirmButton from '@/components/pages/profile/residence-registration/con
 import Checkbox from '@/components/form-group/checkbox';
 import Textarea from '@/components/form-group/textarea';
 
-const ResidenceRegistrationStage4 = ({ popularDestinations }: any) => {
+const ResidenceRegistrationStage5 = ({ popularDestinations }: any) => {
     const [checkboxValue, setCheckboxValue] = useState({
         test: false
     });
@@ -68,7 +68,7 @@ const ResidenceRegistrationStage4 = ({ popularDestinations }: any) => {
     );
 };
 
-export default ResidenceRegistrationStage4;
+export default ResidenceRegistrationStage5;
 
 export async function getServerSideProps() {
     const [popularDestinations] = await Promise.all([Axios.get('residence/popularDestinations')]);
