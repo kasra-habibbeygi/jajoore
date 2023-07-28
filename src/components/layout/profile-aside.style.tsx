@@ -6,8 +6,7 @@ export const ProfileAsideStyle = styled.aside({
     boxShadow: '0px 0px 6px #00000026',
     borderRadius: '20px',
     padding: '20px',
-    position: 'sticky',
-    top: '10px',
+    height: 'max-content',
 
     ul: {
         '& .userInfoLi': {

@@ -4,13 +4,13 @@ import React from 'react';
 import { MainField } from './confirm-buttom.style';
 import Button from '@/components/form-group/button';
 
-const ConfirmModal = () => {
+const ConfirmButton = () => {
     return (
         <MainField>
             <Button>لغو</Button>
-            <Button color='yellow'>ثبت</Button>
+            <Button color='yellow'>مرحله بعد</Button>
         </MainField>
     );
 };
 
-export default ConfirmModal;
+export default ConfirmButton;

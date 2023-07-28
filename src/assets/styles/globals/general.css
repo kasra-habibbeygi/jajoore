@@ -126,7 +126,7 @@ input {
     font-family: 'main' !important;
 }
 
-textarea{
+textarea {
     font-size: 0.9rem;
     font-weight: 300;
     font-family: 'main' !important;
@@ -143,14 +143,33 @@ textarea{
     margin: 0 auto;
 }
 
+.MuiPaper-elevation .MuiMenu-list .MuiMenuItem-root {
+    font-family: 'main' !important;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.MuiTooltip-tooltip {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    color: #282828;
+    font-weight: 300;
+    font-size: 0.8rem;
+    background-color:  white;
+    font-family: 'main' !important;
+    padding : 10px;
+    direction: ltr;
+}
+
+.MuiTooltip-tooltip *{
+    color: #282828;
+    font-weight: 300;
+    font-size: 0.8rem;
+    font-family: 'main' !important;
+    direction: rtl;
+}
+
 @media only screen and (max-width: 1400px) {
     .container {
         width: 95%;
     }
-}
-
-.MuiPaper-elevation .MuiMenu-list .MuiMenuItem-root{
-    font-family: 'main' !important;
-    font-size: 0.9rem;
-    font-weight: 300;
 }

@@ -7,7 +7,7 @@ import LayoutProvider from '@/components/layout/layout-provider';
 import Filter from '@/components/template/filters/filter';
 import ProfileLayoutProvider from '@/components/layout/profile-layout-provider';
 import StagePill from '@/components/pages/profile/residence-registration/stage-pill';
-import ConfirmModal from '@/components/pages/profile/residence-registration/confirm-buttom';
+import ConfirmButton from '@/components/pages/profile/residence-registration/confirm-buttom';
 import ImageList from '@/components/pages/profile/residence-registration/stage-1/img-list';
 
 // Assets
@@ -40,7 +40,7 @@ const ResidenceRegistrationStage1 = ({ popularDestinations }: any) => {
                     </div>
                 </HeaderInfo>
                 <ImageList />
-                <ConfirmModal />
+                <ConfirmButton />
             </ProfileLayoutProvider>
         </LayoutProvider>
     );

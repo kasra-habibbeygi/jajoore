@@ -3,37 +3,80 @@ import { CacheProvider } from '@emotion/react';
 import { prefixer } from 'stylis';
 import rtlPlugin from 'stylis-plugin-rtl';
 import createCache from '@emotion/cache';
+import Image from 'next/image';
 
 // Assets
 import { MainField } from './autocomplete.style';
+import Alert from '@/assets/images/icons/simple-alert.svg';
 
 // MUI
 import TextField from '@mui/material/TextField';
 import { Autocomplete as MUIAutocomplete } from '@mui/material';
+
+// Component
+import Tooltip from './tooltip';
 
 const cacheRtl = createCache({
     key: 'muirtl',
     stylisPlugins: [prefixer, rtlPlugin]
 });
 
-const Autocomplete = () => {
+// Types
+interface AutoCompleteTypes {
+    value: any;
+    items: any;
+    labelKey: any;
+    setValue: any;
+    valueKey: string;
+    name: string;
+    placeholder?: string;
+    label?: string;
+    tooltipContent?: any;
+    tooltipBody?: any;
+}
+
+const Autocomplete = ({
+    setValue,
+    placeholder,
+    value,
+    items,
+    labelKey,
+    valueKey,
+    name,
+    label,
+    tooltipContent,
+    tooltipBody = Alert
+}: AutoCompleteTypes) => {
     return (
-        <MainField>
-            <CacheProvider value={cacheRtl}>
-                <MUIAutocomplete disablePortal options={top100Films} renderInput={params => <TextField {...params} disabled />} />
-            </CacheProvider>
-        </MainField>
+        <CacheProvider value={cacheRtl}>
+            <MainField>
+                {label && (
+                    <label htmlFor={name}>
+                        {label}
+                        {tooltipContent && (
+                            <Tooltip title={tooltipContent}>
+                                <Image className='tooltip_helper_img' src={tooltipBody} alt='' />
+                            </Tooltip>
+                        )}
+                    </label>
+                )}
+                <MUIAutocomplete
+                    disablePortal
+                    value={items.filter((item: any) => item[valueKey] === value)[0]}
+                    isOptionEqualToValue={(option, value) => option === value}
+                    options={items}
+                    getOptionLabel={option => option[labelKey]}
+                    renderInput={params => <TextField {...params} disabled placeholder={placeholder} />}
+                    onChange={(_, newValue: any) => {
+                        setValue({
+                            ...value,
+                            [name]: newValue ? newValue[valueKey] : null
+                        });
+                    }}
+                />
+            </MainField>
+        </CacheProvider>
     );
 };
-
-const top100Films = [
-    { label: 'از برترین', value: 'از برترین' },
-    { label: 'از بیشترین امتیاز', value: 'از بیشترین امتیاز' },
-    { label: 'از کمترین قیمت', value: 'از کمترین قیمت' },
-    { label: 'از بیشترین قیمت', value: 'از بیشترین قیمت' },
-    { label: 'از بیشترین رزرو', value: 'از بیشترین رزرو' },
-    { label: 'از بیشترین تخفیف', value: 'از بیشترین تخفیف' },
-    { label: 'از جدید ترین', value: 'از جدید ترین' }
-];
 
 export default Autocomplete;

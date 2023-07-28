@@ -8,8 +8,11 @@ export const InputField = styled.div({
     gap: '10px',
 
     label: {
-        fontSize: '0.9rem',
-        color: '#000000'
+        fontSize: '1rem',
+        color: '#000000',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '10px'
     },
 
     input: {
@@ -19,6 +22,11 @@ export const InputField = styled.div({
         border: '1px solid #CECECE',
         color: '#000000',
         direction: 'rtl',
-        fontWeight: '200'
+        fontWeight: '200',
+        height: '44px',
+
+        '&::placeholder': {
+            color: '#acacac'
+        }
     }
 });
