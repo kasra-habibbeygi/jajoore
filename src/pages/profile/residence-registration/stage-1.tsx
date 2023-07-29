@@ -8,7 +8,7 @@ import Filter from '@/components/template/filters/filter';
 import ProfileLayoutProvider from '@/components/layout/profile-layout-provider';
 import StagePill from '@/components/pages/profile/residence-registration/stage-pill';
 import ConfirmButton from '@/components/pages/profile/residence-registration/confirm-buttom';
-import ImageList from '@/components/pages/profile/residence-registration/stage/img-list';
+import ImageList from '@/components/pages/profile/residence-registration/img-list';
 
 // Assets
 import { HeaderInfo } from '@/assets/styles/profile/residence-registration/stage.style';
