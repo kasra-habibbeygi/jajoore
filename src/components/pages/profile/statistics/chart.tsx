@@ -12,7 +12,7 @@ const StatisticCharts = () => {
                     <p>تعداد بازدید</p>
                     <p>بازدید کل : 208</p>
                 </header>
-                <ResponsiveContainer width='100%'>
+                <ResponsiveContainer>
                     <LineChart
                         width={500}
                         height={300}
@@ -38,7 +38,7 @@ const StatisticCharts = () => {
                     <p>تعداد بازدید</p>
                     <p>بازدید کل : 208</p>
                 </header>
-                <ResponsiveContainer width='100%'>
+                <ResponsiveContainer>
                     <LineChart
                         width={500}
                         height={300}
@@ -64,7 +64,7 @@ const StatisticCharts = () => {
                     <p>تعداد بازدید</p>
                     <p>بازدید کل : 208</p>
                 </header>
-                <ResponsiveContainer width='100%'>
+                <ResponsiveContainer>
                     <LineChart
                         width={500}
                         height={300}
@@ -90,7 +90,7 @@ const StatisticCharts = () => {
                     <p>تعداد بازدید</p>
                     <p>بازدید کل : 208</p>
                 </header>
-                <ResponsiveContainer width='100%'>
+                <ResponsiveContainer>
                     <LineChart
                         width={500}
                         height={300}

@@ -5,6 +5,7 @@ export const MainField = styled.div(props => ({
     alignItems: 'center',
     gap: '15px',
     marginTop: '20px',
+    flexWrap: 'wrap',
 
     button: {
         fontSize: '0.8rem',

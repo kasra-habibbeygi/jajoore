@@ -103,5 +103,17 @@ export const MainField = styled.div(props => ({
 
     '& .input_field': {
         padding: '15px'
+    },
+
+    '@media(max-width : 900px)': {
+        '& .main_card_field': {
+            width: '50%'
+        }
+    },
+
+    '@media(max-width : 600px)': {
+        '& .main_card_field': {
+            width: '100%'
+        }
     }
 }));

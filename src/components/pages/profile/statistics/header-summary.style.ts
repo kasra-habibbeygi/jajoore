@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 
 export const MainField = styled.div({
     display: 'flex',
-    alignItems: 'center',
     gap: '15px',
 
     '& .item': {
@@ -17,6 +16,14 @@ export const MainField = styled.div({
         h4: {
             fontWeight: '400',
             fontSize: '1.2rem'
+        }
+    },
+
+    '@media(max-width  :900px)': {
+        flexWrap: 'wrap',
+
+        '& .item': {
+            flex: '1 0 100%'
         }
     }
 });

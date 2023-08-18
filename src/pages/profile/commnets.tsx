@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Axios from '@/configs/axios';
 
 //Assets
 import { CommentStyle } from '@/assets/styles/profile/comments.style';
@@ -10,10 +11,12 @@ import ProfileLayoutProvider from '@/components/layout/profile-layout-provider';
 import LayoutProvider from '@/components/layout/layout-provider';
 import TextArea from '@/components/form-group/textarea';
 import Button from '@/components/form-group/button';
+import Filter from '@/components/template/filters/filter';
 
-const Commnets = () => {
+const Comments = ({ popularDestinations }: any) => {
     return (
         <LayoutProvider>
+            <Filter popularDestinations={popularDestinations.result} filterStatus={false} />
             <ProfileLayoutProvider>
                 <CommentStyle>
                     <h2>مشاهده و پاسخ نظرات</h2>
@@ -34,7 +37,7 @@ const Commnets = () => {
                         <p>ممنون از نطر شما</p>
                     </div>
                     <div className='answerBox'>
-                        <h3>پاسخ شما</h3>
+                        <h3>پاسخ کاربر</h3>
                         <p>
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه
                             روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف
@@ -58,4 +61,14 @@ const Commnets = () => {
     );
 };
 
-export default Commnets;
+export default Comments;
+
+export async function getServerSideProps() {
+    const [popularDestinations] = await Promise.all([Axios.get('residence/popularDestinations')]);
+
+    return {
+        props: {
+            popularDestinations: popularDestinations.data
+        }
+    };
+}

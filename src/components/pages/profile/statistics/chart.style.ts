@@ -11,7 +11,8 @@ export const MainField = styled.div({
         flex: '1 0 45%',
         padding: '15px',
         borderRadius: '8px',
-        border: '1px solid #BFBFBF'
+        border: '1px solid #BFBFBF',
+        width: '100%'
     },
 
     header: {

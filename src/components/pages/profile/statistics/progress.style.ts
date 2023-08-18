@@ -44,5 +44,10 @@ export const MainField = styled.div<{ rate: number; maxRate: number }>(props => 
         '& .title': {
             minWidth: 'max-content'
         }
+    },
+
+    '@media(max-width : 800px)': {
+        flex: '1 0 100%',
+        width: '100%'
     }
 }));

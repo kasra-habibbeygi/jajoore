@@ -4,8 +4,6 @@ import React from 'react';
 import { MainField } from './department-guid.style';
 
 const DepartmentGuid = ({ titleOffset }: any) => {
-    console.log(titleOffset.top);
-
     return (
         <MainField status={titleOffset.top < 0}>
             <ol>

@@ -52,15 +52,6 @@ export const MainField = styled.div({
         }
     },
 
-    '& .map_field': {
-        marginTop: '20px',
-
-        h3: {
-            fontWeight: '300',
-            fontSize: '1rem'
-        }
-    },
-
     '& .header': {
         padding: '6px',
         width: '100%',
@@ -183,6 +174,80 @@ export const MainField = styled.div({
                 marginBottom: '15px',
                 paddingBottom: '15px',
                 borderBottom: '1px dashed #707070'
+            }
+        }
+    },
+
+    '@media(max-width : 800px)': {
+        '& .w-25': {
+            width: '100%'
+        },
+
+        '& .w-50': {
+            width: '100%'
+        }
+    },
+
+    '@media(max-width : 600px)': {
+        '& .package_field': {
+            width: '100%',
+            padding: '20px',
+            borderRadius: '8px',
+            border: '1px solid #AFAFAF',
+            marginTop: '20px',
+            cursor: 'pointer',
+
+            img: {
+                width: '40px',
+                height: 'auto'
+            },
+
+            '& .package_header': {
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                marginBottom: '15px',
+
+                '& .right_field': {
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    fontWeight: '400'
+                },
+
+                p: {
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px'
+                }
+            },
+
+            '& .radio': {
+                width: '15px',
+                height: '15px',
+                borderRadius: '50px',
+                background: 'white',
+                border: '2px solid #BEBEBE',
+                display: 'inline-block'
+            },
+
+            '&.active': {
+                border: '1px solid #1B8222',
+
+                '& .radio': {
+                    background: '#1B8222',
+                    border: 'none'
+                }
+            },
+
+            '& .package_content': {
+                marginRight: '51px'
+            },
+
+            '& .package_content_danger': {
+                marginRight: '51px',
+                marginTop: '10px',
+                color: '#A20000'
             }
         }
     }

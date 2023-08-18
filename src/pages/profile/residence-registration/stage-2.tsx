@@ -144,9 +144,6 @@ const ResidenceRegistrationStage2 = ({ popularDestinations }: any) => {
                             رزرو و عودت وجه به مهمان شود .
                         </p>
                     </div>
-                    <div className='map_field'>
-                        <h3>مکان (لوکیشن) اقامتگاه خود را روی نقشه تعیین کنید</h3>
-                    </div>
                 </MainField>
                 <ConfirmButton />
             </ProfileLayoutProvider>

@@ -29,5 +29,20 @@ export const MainField = styled.div({
         flexWrap: 'wrap',
         gap: '30px',
         marginTop: '30px'
+    },
+
+    '@media(max-width : 800px)': {
+        '& .progress_field': {
+            flexDirection: 'column'
+        }
+    },
+
+    '@media(max-width : 700px)': {
+        header: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexDirection: 'column'
+        }
     }
 });
