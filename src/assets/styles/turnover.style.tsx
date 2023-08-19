@@ -85,5 +85,19 @@ export const TurnoverStyle = styled.div(props => ({
                 color: props.theme.palette.colors.blue
             }
         }
+    },
+
+    '@media(max-width : 800px)': {
+        form: {
+            flexWrap: 'wrap'
+        },
+
+        '& .tableDetails': {
+            overflow: 'auto',
+
+            table: {
+                minWidth: '1000px'
+            }
+        }
     }
 }));

@@ -31,6 +31,7 @@ const Turnover = ({ popularDestinations }: any) => {
 
     const inputValueHandler = () => {};
     const selectValueHandler = () => {};
+
     return (
         <LayoutProvider>
             <Filter popularDestinations={popularDestinations.result} filterStatus={false} />
@@ -102,7 +103,7 @@ const Turnover = ({ popularDestinations }: any) => {
                                     <td>برداشت از کیف پول</td>
                                     <td className='success'>موفق</td>
                                     <td>درگاه پرداخت</td>
-                                </tr>{' '}
+                                </tr>
                                 <tr>
                                     <td>-</td>
                                     <td>200.000تومان</td>
@@ -110,7 +111,7 @@ const Turnover = ({ popularDestinations }: any) => {
                                     <td>بابت رزرو اقامتگاه کد 112</td>
                                     <td className='error'>ناموفق</td>
                                     <td>درگاه پرداخت</td>
-                                </tr>{' '}
+                                </tr>
                                 <tr>
                                     <td>78965</td>
                                     <td>200.000تومان</td>
@@ -118,7 +119,7 @@ const Turnover = ({ popularDestinations }: any) => {
                                     <td>خرید پکیج پول</td>
                                     <td className='warning'>معلق</td>
                                     <td>درگاه پرداخت</td>
-                                </tr>{' '}
+                                </tr>
                                 <tr>
                                     <td>-</td>
                                     <td>200.000تومان</td>

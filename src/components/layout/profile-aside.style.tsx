@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const ProfileAsideStyle = styled.aside({
+export const ProfileAsideStyle = styled.aside<any>(props => ({
     width: '300px',
     border: '1px solid #BFBFBF',
     boxShadow: '0px 0px 6px #00000026',
@@ -17,6 +17,11 @@ export const ProfileAsideStyle = styled.aside({
             gap: '10px',
             justifyContent: 'center',
             alignItems: 'center',
+
+            button: {
+                width: '100%',
+                marginBottom: '20px'
+            },
 
             img: {
                 width: '90px',
@@ -63,5 +68,31 @@ export const ProfileAsideStyle = styled.aside({
                 }
             }
         }
+    },
+
+    '@media(max-width : 1100px)': {
+        position: 'fixed',
+        right: props.status ? '0' : '-300px',
+        top: '0',
+        height: '100vh',
+        overflow: 'auto',
+        background: 'white',
+        zIndex: '100',
+        borderRadius: '0',
+        transition: 'all 0.8s cubic-bezier(0, 0, 0.2, 1.11) 0s'
     }
-});
+}));
+
+export const Layout = styled.div<any>(props => ({
+    width: '100%',
+    height: '100vh',
+    background: '#00000091',
+    cursor: 'pointer',
+    position: 'fixed',
+    top: '0',
+    left: '0',
+    zIndex: '90',
+    transition: 'all 0.8s cubic-bezier(0, 0, 0.2, 1.11) 0s',
+    pointerEvents: props.status ? 'initial' : 'none',
+    opacity: props.status ? '1' : '0'
+}));

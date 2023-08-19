@@ -13,5 +13,31 @@ export const MainField = styled.div({
         borderRadius: '20px',
         padding: '30px',
         height: 'max-content'
+    },
+
+    '& .panel_btn': {
+        width: 'max-content',
+        padding: '5px 13px',
+        border: '1px solid #BBBBBB',
+        display: 'none',
+
+        '& .avatar': {
+            background: '#6c6c6c',
+            borderRadius: '50px',
+            width: '30px',
+            height: '30px'
+        }
+    },
+
+    '@media(max-width : 1100px)': {
+        flexDirection: 'column',
+
+        '& .content': {
+            width: '100%'
+        },
+
+        '& .panel_btn': {
+            display: 'flex'
+        }
     }
 });
